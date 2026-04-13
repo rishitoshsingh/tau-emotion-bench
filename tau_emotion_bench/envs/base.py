@@ -15,7 +15,10 @@ from tau_emotion_bench.types import (
     RewardResult,
     RewardOutputInfo,
     RewardActionInfo,
+    RewardUnsatisfiedInfo,
     RESPOND_ACTION_NAME,
+    USER_STOP_TOKEN,
+    USER_UNSATISFIED_TOKEN,
 )
 
 ToHashable = Union[
@@ -100,7 +103,9 @@ class Env(object):
         if action.name == RESPOND_ACTION_NAME:
             observation = self.user.step(action.kwargs["content"])
             info.source = "user"
-            done = "###STOP###" in observation
+            done = (USER_STOP_TOKEN in observation) or (
+                USER_UNSATISFIED_TOKEN in observation
+            )
         elif action.name in self.tools_map:
             try:
                 observation = self.tools_map[action.name].invoke(
@@ -116,10 +121,27 @@ class Env(object):
             info.source = action.name
 
         if done:
-            reward_res = self.calculate_reward()
-            reward = reward_res.reward
-            info.reward_info = reward_res
-            info.user_cost = self.user.get_total_cost()
+            if (
+                action.name == RESPOND_ACTION_NAME
+                and USER_UNSATISFIED_TOKEN in observation
+            ):
+                reward = -1.0
+                actions = [
+                    a
+                    for a in self.task.actions
+                    if a.name != RESPOND_ACTION_NAME
+                ]
+                info.reward_info = RewardResult(
+                    reward=-1.0,
+                    info=RewardUnsatisfiedInfo(),
+                    actions=actions,
+                )
+                info.user_cost = self.user.get_total_cost()
+            else:
+                reward_res = self.calculate_reward()
+                reward = reward_res.reward
+                info.reward_info = reward_res
+                info.user_cost = self.user.get_total_cost()
         return EnvResponse(observation=observation, reward=reward, done=done, info=info)
 
     def get_data_hash(self) -> str:

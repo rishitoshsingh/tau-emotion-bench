@@ -6,6 +6,9 @@ from typing import List, Dict, Any, Optional, Union
 RESPOND_ACTION_NAME = "respond"
 RESPOND_ACTION_FIELD_NAME = "content"
 
+USER_STOP_TOKEN = "###STOP###"
+USER_UNSATISFIED_TOKEN = "###UNSATISFIED###"
+
 
 class Action(BaseModel):
     name: str
@@ -34,9 +37,15 @@ class RewardActionInfo(BaseModel):
     gt_data_hash: str
 
 
+class RewardUnsatisfiedInfo(BaseModel):
+    """Episode ended with simulated user ###UNSATISFIED###; ground-truth scoring was skipped."""
+
+    reason: str = "user_abandoned"
+
+
 class RewardResult(BaseModel):
     reward: float
-    info: Union[RewardOutputInfo, RewardActionInfo]
+    info: Union[RewardOutputInfo, RewardActionInfo, RewardUnsatisfiedInfo]
     actions: List[Action]
 
 

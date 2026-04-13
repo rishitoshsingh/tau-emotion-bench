@@ -13,6 +13,15 @@ from concurrent.futures import ThreadPoolExecutor
 from tau_emotion_bench.envs import get_env
 from tau_emotion_bench.agents.base import Agent
 from tau_emotion_bench.types import EnvRunResult, RunConfig
+
+
+def reward_status_emoji(reward: float) -> str:
+    """✅ success, 😞 user abandoned (###UNSATISFIED###), ❌ wrong completion or other."""
+    if (1 - 1e-6) <= reward <= (1 + 1e-6):
+        return "✅"
+    if (-1 - 1e-6) <= reward <= (-1 + 1e-6):
+        return "😞"
+    return "❌"
 from litellm import provider_list
 from tau_emotion_bench.envs.user import UserStrategy
 
@@ -97,7 +106,7 @@ def run(config: RunConfig) -> List[EnvRunResult]:
                     trial=i,
                 )
             print(
-                "✅" if result.reward == 1 else "❌",
+                reward_status_emoji(result.reward),
                 f"task_id={idx}",
                 result.info,
             )

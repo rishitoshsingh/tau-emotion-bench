@@ -7,6 +7,7 @@ from litellm import completion
 from typing import Optional, List, Dict, Any, Union
 
 from tau_emotion_bench.litellm_extra import optional_api_base
+from tau_emotion_bench.types import USER_STOP_TOKEN, USER_UNSATISFIED_TOKEN
 
 
 class BaseUserSimulationEnv(abc.ABC):
@@ -71,19 +72,13 @@ Rules:
 - Just generate one line at a time to simulate the user's message.
 - Do not give away all the instruction at once. Only provide the information that is necessary for the current step.
 - Do not hallucinate information that is not provided in the instruction. For example, if the agent asks for the order id but it is not mentioned in the instruction, do not make up an order id, just say you do not remember or have it.
-- If the instruction goal is satisfied, or if the assistant behaves in a way that would reasonably cause you to stop engaging based on your emotional state or trust in the agent (e.g., too many questions, delaysas, abusive, or dismissive behavior), generate ###STOP### as a standalone message without anything else to end the conversation.
+- Every message must reflect the emotional profile in the instruction (including any Emotion instruction section and implied tone, urgency, and trust). Stay in character; let emotion shape wording, patience, and how much you cooperate.
+- When the task goal is satisfied and you would reasonably end on good terms, send {USER_STOP_TOKEN} as a standalone message with nothing else to end the conversation.
+- When you stop early because of the agent's behavior before the goal is acceptably completed, send {USER_UNSATISFIED_TOKEN} as a standalone message with nothing else. Use this if the agent ignores your emotional needs (e.g. purely transactional replies when you need reassurance), steamrolls cues you already gave, erodes trust (pushy, evasive), or creates procedural friction (excessive redundant questions, circular flow, unexplained delays, dismissive or abusive tone). Do not use {USER_UNSATISFIED_TOKEN} when the goal is done and you are content; use {USER_STOP_TOKEN} only in that case.
 - Do not repeat the exact instruction in the conversation. Instead, use your own words to convey the same information.
 - Try to make the conversation as natural as possible, and stick to the personalities and emotional states in the instruction.
 - Adjust your tone, response style, patience, and willingness to engage according to the emotional state described in the instruction. Let the emotion guide how much you explain, how cooperative you are, and how you phrase your replies.
 """
-#         return f"""You are a user interacting with an agent.{instruction_display}
-# Rules:
-# - Just generate one line at a time to simulate the user's message.
-# - Do not give away all the instruction at once. Only provide the information that is necessary for the current step.
-# - Do not hallucinate information that is not provided in the instruction. For example, if the agent asks for the order id but it is not mentioned in the instruction, do not make up an order id, just say you do not remember or have it.
-# - If the instruction goal is satisified, generate '###STOP###' as a standalone message without anything else to end the conversation.
-# - Do not repeat the exact instruction in the conversation. Instead, use your own words to convey the same information.
-# - Try to make the conversation as natural as possible, and stick to the personalities in the instruction."""
 
     def reset(self, instruction: Optional[str] = None) -> str:
         self.messages = [
@@ -122,7 +117,9 @@ Rules:
 - Then, generate a one line User Response to simulate the user's message (this message will be sent to the agent).
 - Do not give away all the instruction at once. Only provide the information that is necessary for the current step.
 - Do not hallucinate information that is not provided in the instruction. For example, if the agent asks for the order id but it is not mentioned in the instruction, do not make up an order id, just say you do not remember or have it.
-- If the instruction goal is satisified, generate '###STOP###' as the User Response without anything else to end the conversation.
+- Every User Response must reflect the emotional profile in the instruction (including any Emotion instruction section). Stay in character.
+- When the task goal is satisfied and you would reasonably end on good terms, make the User Response exactly {USER_STOP_TOKEN} with nothing else.
+- When you stop early because of the agent's behavior before the goal is acceptably completed, make the User Response exactly {USER_UNSATISFIED_TOKEN} with nothing else. Use this if the agent ignores emotional needs, steamrolls your cues, erodes trust, or creates procedural friction (excessive questions, delays, dismissive or abusive tone). Do not use {USER_UNSATISFIED_TOKEN} when the goal is done and you are content.
 - Do not repeat the exact instruction in the conversation. Instead, use your own words to convey the same information.
 - Try to make the conversation as natural as possible, and stick to the personalities in the instruction.
 
@@ -157,8 +154,10 @@ User Response:
         return self.generate_next_message(self.messages)
 
     def parse_response(self, response: str) -> str:
-        if "###STOP###" in response:
-            return "###STOP###"
+        if USER_UNSATISFIED_TOKEN in response:
+            return USER_UNSATISFIED_TOKEN
+        if USER_STOP_TOKEN in response:
+            return USER_STOP_TOKEN
         elif "Thought:" in response:
             _, user_response = response.split("Thought:")
             return user_response.strip()
