@@ -97,6 +97,8 @@ class RunConfig(BaseModel):
     end_index: int = -1
     task_ids: Optional[List[int]] = None
     log_dir: str = "results"
+    checkpoint_path: Optional[str] = None
+    resume: bool = False
     max_concurrency: int = 1
     seed: int = 10
     shuffle: int = 0

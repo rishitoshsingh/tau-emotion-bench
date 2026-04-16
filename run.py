@@ -68,6 +68,17 @@ def parse_args() -> RunConfig:
     parser.add_argument("--task-ids", type=int, nargs="+", help="(Optional) run only the tasks with the given IDs")
     parser.add_argument("--log-dir", type=str, default="results")
     parser.add_argument(
+        "--checkpoint",
+        type=str,
+        default=None,
+        help="Path to results JSON. If set, this file is used instead of a timestamped name under --log-dir.",
+    )
+    parser.add_argument(
+        "--resume",
+        action="store_true",
+        help="With --checkpoint: load existing JSON if present and only run missing (task_id, trial) jobs.",
+    )
+    parser.add_argument(
         "--max-concurrency",
         type=int,
         default=1,
@@ -93,6 +104,8 @@ def parse_args() -> RunConfig:
         end_index=args.end_index,
         task_ids=args.task_ids,
         log_dir=args.log_dir,
+        checkpoint_path=args.checkpoint,
+        resume=args.resume,
         max_concurrency=args.max_concurrency,
         seed=args.seed,
         shuffle=args.shuffle,

@@ -3,10 +3,11 @@
 import os
 import json
 import random
+import tempfile
+import threading
 import traceback
 from math import comb
-import multiprocessing
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Tuple, Set, Optional
 from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor
 
@@ -26,6 +27,51 @@ from litellm import provider_list
 from tau_emotion_bench.envs.user import UserStrategy
 
 
+def _atomic_write_json(path: str, payload: List[Dict[str, Any]]) -> None:
+    parent = os.path.dirname(os.path.abspath(path)) or "."
+    os.makedirs(parent, exist_ok=True)
+    fd, tmp_path = tempfile.mkstemp(dir=parent, suffix=".json.tmp")
+    try:
+        with os.fdopen(fd, "w") as f:
+            json.dump(payload, f, indent=2)
+        os.replace(tmp_path, path)
+    except BaseException:
+        try:
+            os.unlink(tmp_path)
+        except OSError:
+            pass
+        raise
+
+
+def _load_checkpoint(path: str) -> List[EnvRunResult]:
+    if not os.path.exists(path):
+        return []
+    try:
+        with open(path, "r") as f:
+            data = json.load(f)
+    except (json.JSONDecodeError, OSError) as e:
+        print(f"⚠️ Could not load checkpoint {path} ({e}); starting with no prior results.")
+        return []
+    if not isinstance(data, list):
+        print(f"⚠️ Checkpoint {path} is not a JSON list; starting with no prior results.")
+        return []
+    out: List[EnvRunResult] = []
+    for item in data:
+        try:
+            out.append(EnvRunResult.model_validate(item))
+        except Exception as e:
+            print(f"⚠️ Skipping invalid checkpoint row: {e}")
+    return out
+
+
+def _dedupe_by_task_trial(results: List[EnvRunResult]) -> List[EnvRunResult]:
+    by_key: Dict[Tuple[int, int], EnvRunResult] = {}
+    for r in results:
+        by_key[(r.task_id, r.trial)] = r
+    keys = sorted(by_key.keys(), key=lambda t: (t[1], t[0]))
+    return [by_key[k] for k in keys]
+
+
 def run(config: RunConfig) -> List[EnvRunResult]:
     assert config.env in ["retail", "airline"], "Only retail and airline envs are supported"
     assert config.model_provider in provider_list, "Invalid model provider"
@@ -33,12 +79,17 @@ def run(config: RunConfig) -> List[EnvRunResult]:
     assert config.agent_strategy in ["tool-calling", "act", "react", "few-shot"], "Invalid agent strategy"
     assert config.task_split in ["train", "test", "dev"], "Invalid task split"
     assert config.user_strategy in [item.value for item in UserStrategy], "Invalid user strategy"
+    if config.resume and not config.checkpoint_path:
+        raise ValueError("--resume requires --checkpoint (path to the results JSON).")
 
     random.seed(config.seed)
     time_str = datetime.now().strftime("%m%d%H%M%S")
-    ckpt_path = f"{config.log_dir}/{config.agent_strategy}-{config.model.split('/')[-1]}-{config.temperature}_range_{config.start_index}-{config.end_index}_user-{config.user_model}-{config.user_strategy}_{time_str}.json"
-    if not os.path.exists(config.log_dir):
-        os.makedirs(config.log_dir)
+    if config.checkpoint_path:
+        ckpt_path = os.path.expanduser(config.checkpoint_path)
+    else:
+        if not os.path.exists(config.log_dir):
+            os.makedirs(config.log_dir)
+        ckpt_path = f"{config.log_dir}/{config.agent_strategy}-{config.model.split('/')[-1]}-{config.temperature}_range_{config.start_index}-{config.end_index}_user-{config.user_model}-{config.user_strategy}_{time_str}.json"
 
     print(f"Loading user with strategy: {config.user_strategy}")
     env = get_env(
@@ -57,23 +108,48 @@ def run(config: RunConfig) -> List[EnvRunResult]:
     end_index = (
         len(env.tasks) if config.end_index == -1 else min(config.end_index, len(env.tasks))
     )
-    results: List[EnvRunResult] = []
-    lock = multiprocessing.Lock()
+
+    loaded: List[EnvRunResult] = []
+    if config.resume:
+        loaded = _dedupe_by_task_trial(_load_checkpoint(ckpt_path))
+        if loaded:
+            print(f"📂 Resuming from {len(loaded)} saved (task_id, trial) result(s) in {ckpt_path}")
+    elif config.checkpoint_path and os.path.exists(ckpt_path):
+        print(
+            f"⚠️ Checkpoint file exists at {ckpt_path} but --resume was not set; "
+            "this run will overwrite it at the end."
+        )
+
+    done: Set[Tuple[int, int]] = {(r.task_id, r.trial) for r in loaded}
+    all_results: List[EnvRunResult] = list(loaded)
+    lock = threading.Lock()
+
     if config.task_ids and len(config.task_ids) > 0:
         print(f"Running tasks {config.task_ids} (checkpoint path: {ckpt_path})")
     else:
         print(
             f"Running tasks {config.start_index} to {end_index} (checkpoint path: {ckpt_path})"
-    )
+        )
+
+    jobs: List[Tuple[int, int]] = []
     for i in range(config.num_trials):
         if config.task_ids and len(config.task_ids) > 0:
-            idxs = config.task_ids
+            idxs = list(config.task_ids)
         else:
             idxs = list(range(config.start_index, end_index))
         if config.shuffle:
             random.shuffle(idxs)
+        for idx in idxs:
+            if (idx, i) not in done:
+                jobs.append((i, idx))
 
-        def _run(idx: int) -> EnvRunResult:
+    if not jobs:
+        print("Nothing to run (all (task_id, trial) pairs already in checkpoint).")
+    else:
+        print(f"Scheduled {len(jobs)} job(s) (missing trials).")
+
+        def _run(job: Tuple[int, int]) -> EnvRunResult:
+            trial_i, idx = job
             isolated_env = get_env(
                 config.env,
                 user_strategy=config.user_strategy,
@@ -84,7 +160,7 @@ def run(config: RunConfig) -> List[EnvRunResult]:
                 api_base=config.api_base,
             )
 
-            print(f"Running task {idx}")
+            print(f"Running trial {trial_i} task {idx}")
             try:
                 res = agent.solve(
                     env=isolated_env,
@@ -95,7 +171,7 @@ def run(config: RunConfig) -> List[EnvRunResult]:
                     reward=res.reward,
                     info=res.info,
                     traj=res.messages,
-                    trial=i,
+                    trial=trial_i,
                 )
             except Exception as e:
                 result = EnvRunResult(
@@ -103,32 +179,29 @@ def run(config: RunConfig) -> List[EnvRunResult]:
                     reward=0.0,
                     info={"error": str(e), "traceback": traceback.format_exc()},
                     traj=[],
-                    trial=i,
+                    trial=trial_i,
                 )
             print(
                 reward_status_emoji(result.reward),
-                f"task_id={idx}",
+                f"trial={trial_i} task_id={idx}",
                 result.info,
             )
             print("-----")
             with lock:
-                data = []
-                if os.path.exists(ckpt_path):
-                    with open(ckpt_path, "r") as f:
-                        data = json.load(f)
-                with open(ckpt_path, "w") as f:
-                    json.dump(data + [result.model_dump()], f, indent=2)
+                all_results.append(result)
+                merged = _dedupe_by_task_trial(all_results)
+                all_results[:] = merged
+                _atomic_write_json(ckpt_path, [r.model_dump() for r in all_results])
             return result
 
         with ThreadPoolExecutor(max_workers=config.max_concurrency) as executor:
-            res = list(executor.map(_run, idxs))
-            results.extend(res)
+            list(executor.map(_run, jobs))
 
-    display_metrics(results)
+    results = _dedupe_by_task_trial(all_results)
+    display_metrics(results, expected_num_trials=config.num_trials)
 
-    with open(ckpt_path, "w") as f:
-        json.dump([result.model_dump() for result in results], f, indent=2)
-        print(f"\n📄 Results saved to {ckpt_path}\n")
+    _atomic_write_json(ckpt_path, [result.model_dump() for result in results])
+    print(f"\n📄 Results saved to {ckpt_path}\n")
     return results
 
 
@@ -192,11 +265,25 @@ def agent_factory(
         raise ValueError(f"Unknown agent strategy: {config.agent_strategy}")
 
 
-def display_metrics(results: List[EnvRunResult]) -> None:
+def display_metrics(
+    results: List[EnvRunResult], expected_num_trials: Optional[int] = None
+) -> None:
     def is_successful(reward: float) -> bool:
         return (1 - 1e-6) <= reward <= (1 + 1e-6)
 
-    num_trials = len(set([r.trial for r in results]))
+    if not results:
+        print("🏆 No results to score.")
+        return
+
+    inferred = len(set(r.trial for r in results))
+    num_trials = (
+        expected_num_trials
+        if expected_num_trials is not None and expected_num_trials > 0
+        else inferred
+    )
+    if num_trials <= 0:
+        print("🏆 No results to score.")
+        return
     rewards = [r.reward for r in results]
     avg_reward = sum(rewards) / len(rewards)
     # c from https://arxiv.org/pdf/2406.12045
@@ -207,11 +294,17 @@ def display_metrics(results: List[EnvRunResult]) -> None:
         else:
             c_per_task_id[result.task_id] += 1 if is_successful(result.reward) else 0
     pass_hat_ks: dict[int, float] = {}
+    n_tasks = len(c_per_task_id)
+    if n_tasks == 0:
+        print("🏆 Average reward: (no tasks in results)")
+        return
     for k in range(1, num_trials + 1):
         sum_task_pass_hat_k = 0
+        denom = comb(num_trials, k)
         for c in c_per_task_id.values():
-            sum_task_pass_hat_k += comb(c, k) / comb(num_trials, k)
-        pass_hat_ks[k] = sum_task_pass_hat_k / len(c_per_task_id)
+            if c >= k:
+                sum_task_pass_hat_k += comb(c, k) / denom
+        pass_hat_ks[k] = sum_task_pass_hat_k / n_tasks
     print(f"🏆 Average reward: {avg_reward}")
     print("📈 Pass^k")
     for k, pass_hat_k in pass_hat_ks.items():
