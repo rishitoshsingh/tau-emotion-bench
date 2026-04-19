@@ -73,7 +73,7 @@ def _dedupe_by_task_trial(results: List[EnvRunResult]) -> List[EnvRunResult]:
 
 
 def run(config: RunConfig) -> List[EnvRunResult]:
-    assert config.env in ["retail", "airline"], "Only retail and airline envs are supported"
+    assert config.env in ["retail", "airline", "telecom", "telehealth"], "Only retail, airline, telecom and telehealth envs are supported"
     assert config.model_provider in provider_list, "Invalid model provider"
     assert config.user_model_provider in provider_list, "Invalid user model provider"
     assert config.agent_strategy in ["tool-calling", "act", "react", "few-shot"], "Invalid agent strategy"
@@ -92,12 +92,14 @@ def run(config: RunConfig) -> List[EnvRunResult]:
         ckpt_path = f"{config.log_dir}/{config.agent_strategy}-{config.model.split('/')[-1]}-{config.temperature}_range_{config.start_index}-{config.end_index}_user-{config.user_model}-{config.user_strategy}_{time_str}.json"
 
     print(f"Loading user with strategy: {config.user_strategy}")
+    print(f"Emotion enabled: {config.emotion_enabled}")
     env = get_env(
         config.env,
         user_strategy=config.user_strategy,
         user_model=config.user_model,
         user_provider=config.user_model_provider,
         task_split=config.task_split,
+        emotion_enabled=config.emotion_enabled,
         api_base=config.api_base,
     )
     agent = agent_factory(

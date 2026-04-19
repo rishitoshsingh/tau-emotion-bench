@@ -10,6 +10,7 @@ def get_env(
     user_strategy: Union[str, UserStrategy],
     user_model: str,
     task_split: str,
+    emotion_enabled: bool = True,
     user_provider: Optional[str] = None,
     task_index: Optional[int] = None,
     api_base: Optional[str] = None,
@@ -21,6 +22,7 @@ def get_env(
             user_strategy=user_strategy,
             user_model=user_model,
             task_split=task_split,
+            emotion_enabled=emotion_enabled,
             user_provider=user_provider,
             task_index=task_index,
             api_base=api_base,
@@ -32,6 +34,31 @@ def get_env(
             user_strategy=user_strategy,
             user_model=user_model,
             task_split=task_split,
+            emotion_enabled=emotion_enabled,
+            user_provider=user_provider,
+            task_index=task_index,
+            api_base=api_base,
+        )
+    elif env_name == "telecom":
+        from tau_emotion_bench.envs.telecom import MockTelecomDomainEnv
+
+        return MockTelecomDomainEnv(
+            user_strategy=user_strategy,
+            user_model=user_model,
+            task_split=task_split,
+            emotion_enabled=emotion_enabled,
+            user_provider=user_provider,
+            task_index=task_index,
+            api_base=api_base,
+        )
+    elif env_name == "telehealth":
+        from tau_emotion_bench.envs.telehealth import MockTelehealthDomainEnv
+
+        return MockTelehealthDomainEnv(
+            user_strategy=user_strategy,
+            user_model=user_model,
+            task_split=task_split,
+            emotion_enabled=emotion_enabled,
             user_provider=user_provider,
             task_index=task_index,
             api_base=api_base,

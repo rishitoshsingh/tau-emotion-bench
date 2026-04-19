@@ -1,3358 +1,1750 @@
 from tau_emotion_bench.types import Task, Action
 
+
 TASKS = [
     Task(
-        annotator="0",
-        user_id="yusuf_rossi_9620",
-        instruction="You are Yusuf Rossi in 19122. You received your order #W2378156 and wish to exchange the mechanical keyboard for a similar one but with clicky switches and the smart thermostat for one compatible with Google Home instead of Apple HomeKit. If there is no keyboard that is clicky, RGB backlight, full size, you'd go for no backlight. You are detail-oriented and want to make sure everything is addressed in one go.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={"first_name": "Yusuf", "last_name": "Rossi", "zip": "19122"},
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W2378156"}),
-            Action(name="get_product_details", kwargs={"product_id": "1656367028"}),
-            Action(name="get_product_details", kwargs={"product_id": "4896585277"}),
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W2378156",
-                    "item_ids": ["1151293680", "4983901480"],
-                    "new_item_ids": ["7706410293", "7747408585"],
-                    "payment_method_id": "credit_card_9513926",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="0",
-        user_id="yusuf_rossi_9620",
-        instruction="You are Yusuf Rossi in 19122. You received your order #W2378156 and wish to exchange the mechanical keyboard for a similar one but with clicky switches and the smart thermostat for one compatible with Google Home instead of Apple HomeKit. If there is no keyboard that is clicky, RGB backlight, full size, you'd rather only exchange the thermostat. You are detail-oriented and want to make sure everything is addressed in one go.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={"first_name": "Yusuf", "last_name": "Rossi", "zip": "19122"},
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W2378156"}),
-            Action(name="get_product_details", kwargs={"product_id": "1656367028"}),
-            Action(name="get_product_details", kwargs={"product_id": "4896585277"}),
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W2378156",
-                    "item_ids": ["4983901480"],
-                    "new_item_ids": ["7747408585"],
-                    "payment_method_id": "credit_card_9513926",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="0",
-        user_id="yusuf_rossi_9620",
-        instruction="You are Yusuf Rossi in 19122. You want to know how many tshirt options are available in the online store right now. You want to also return the cleaner, headphone, and smart watch.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={"first_name": "Yusuf", "last_name": "Rossi", "zip": "19122"},
-            ),
-            Action(name="get_product_details", kwargs={"product_id": "6086499569"}),
-            Action(name="list_all_product_types", kwargs={}),
-            Action(name="get_product_details", kwargs={"product_id": "9523456873"}),
-            Action(name="get_user_details", kwargs={"user_id": "yusuf_rossi_9620"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W6247578"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W9711842"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W4776164"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W6679257"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W2378156"}),
-            Action(name="get_product_details", kwargs={"product_id": "9523456873"}),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W2378156",
-                    "item_ids": ["4602305039", "4202497723", "9408160950"],
-                    "payment_method_id": "credit_card_9513926",
-                },
-            ),
-        ],
-        outputs=["10"],
-    ),
-    Task(
-        annotator="0",
-        user_id="yusuf_rossi_9620",
-        instruction="You are Yusuf Rossi in 19122. You want to know how many tshirt options are available in the online store right now. You want to modify all your pending small tshirt to purple, same size, same v-neck, and prefer polyester. You are a private person that does not want to reveal much about yourself.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={"first_name": "Yusuf", "last_name": "Rossi", "zip": "19122"},
-            ),
-            Action(name="get_product_details", kwargs={"product_id": "6086499569"}),
-            Action(name="list_all_product_types", kwargs={}),
-            Action(name="get_product_details", kwargs={"product_id": "9523456873"}),
-            Action(name="get_user_details", kwargs={"user_id": "yusuf_rossi_9620"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W6247578"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W9711842"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W4776164"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W6679257"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W2378156"}),
-            Action(name="get_product_details", kwargs={"product_id": "9523456873"}),
-            Action(name="get_user_details", kwargs={"user_id": "yusuf_rossi_9620"}),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W4776164",
-                    "item_ids": ["8349118980"],
-                    "new_item_ids": ["9647292434"],
-                    "payment_method_id": "credit_card_9513926",
-                },
-            ),
-        ],
-        outputs=["10"],
-    ),
-    Task(
-        annotator="0",
-        user_id="yusuf_rossi_9620",
-        instruction="You are Yusuf Rossi in 19122. You want to know how many tshirt options are available in the online store right now. You want to modify all your pending tshirts (i.e., your 2 relevant orders) to purple, s size, same v-neck, and prefer polyester. You are a private person that does not want to reveal much about yourself.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={"first_name": "Yusuf", "last_name": "Rossi", "zip": "19122"},
-            ),
-            Action(name="get_product_details", kwargs={"product_id": "6086499569"}),
-            Action(name="list_all_product_types", kwargs={}),
-            Action(name="get_product_details", kwargs={"product_id": "9523456873"}),
-            Action(name="get_user_details", kwargs={"user_id": "yusuf_rossi_9620"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W6247578"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W9711842"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W4776164"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W6679257"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W2378156"}),
-            Action(name="get_product_details", kwargs={"product_id": "9523456873"}),
-            Action(name="get_user_details", kwargs={"user_id": "yusuf_rossi_9620"}),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W6247578",
-                    "item_ids": ["3799046073"],
-                    "new_item_ids": ["9647292434"],
-                    "payment_method_id": "credit_card_9513926",
-                },
-            ),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W4776164",
-                    "item_ids": ["8349118980"],
-                    "new_item_ids": ["9647292434"],
-                    "payment_method_id": "credit_card_9513926",
-                },
-            ),
-        ],
-        outputs=["10"],
-    ),
-    Task(
-        annotator="0",
-        user_id="mei_kovacs_8020",
-        instruction="You are mei_kovacs_8020 (zip code 28236) and you want to exchange the water bottle and the desk lamp. You want to exchange the water bottle to a bigger one, and the desk lamp to a less bright one (prefer battery > USB > AC). If the agent asks for confirmation, only exchange the desk lamp. If the agent asks for confirmation again, do not exchange anything, and return the water bottle instead.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={"first_name": "Mei", "last_name": "Kovacs", "zip": "28236"},
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "mei_kovacs_8020"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W6390527"}),
-            Action(name="get_product_details", kwargs={"product_id": "6817146515"}),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W6390527",
-                    "item_ids": ["8538875209"],
-                    "payment_method_id": "paypal_7644869",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="0",
-        user_id="mei_kovacs_8020",
-        instruction="You are mei_kovacs_8020 (zip code 28236) and you want to exchange the water bottle and the desk lamp. You want to exchange the water bottle to a bigger one, and the desk lamp to a less bright one (prefer battery > USB > AC). If the agent asks for confirmation, only exchange the desk lamp.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={"first_name": "Mei", "last_name": "Kovacs", "zip": "28236"},
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "mei_kovacs_8020"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W6390527"}),
-            Action(name="get_product_details", kwargs={"product_id": "8310926033"}),
-            Action(name="get_product_details", kwargs={"product_id": "6817146515"}),
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W6390527",
-                    "item_ids": ["8384507844"],
-                    "new_item_ids": ["7453605304"],
-                    "payment_method_id": "paypal_7644869",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="0",
-        user_id="mei_kovacs_8020",
-        instruction="You are mei_kovacs_8020 (zip code 28236) and you want to exchange the water bottle and the desk lamp. You want to exchange the water bottle to a bigger one, and the desk lamp to a less bright one (prefer AC adapter > battery > USB). If the agent asks for confirmation, only exchange the desk lamp.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={"first_name": "Mei", "last_name": "Kovacs", "zip": "28236"},
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "mei_kovacs_8020"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W6390527"}),
-            Action(name="get_product_details", kwargs={"product_id": "8310926033"}),
-            Action(name="get_product_details", kwargs={"product_id": "6817146515"}),
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W6390527",
-                    "item_ids": ["8384507844"],
-                    "new_item_ids": ["1569765161"],
-                    "payment_method_id": "paypal_7644869",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="0",
-        user_id="mei_kovacs_8020",
-        instruction="You are mei_kovacs_8020 (zip code 28236) and you want to exchange the water bottle and the desk lamp. You want to exchange the water bottle to a bigger one, and the desk lamp to a brighter one (prefer battery > USB > AC). If the agent asks for confirmation, only exchange the desk lamp.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={"first_name": "Mei", "last_name": "Kovacs", "zip": "28236"},
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "mei_kovacs_8020"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W6390527"}),
-            Action(name="get_product_details", kwargs={"product_id": "8310926033"}),
-            Action(name="get_product_details", kwargs={"product_id": "6817146515"}),
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W6390527",
-                    "item_ids": ["8384507844"],
-                    "new_item_ids": ["9083642334"],
-                    "payment_method_id": "paypal_7644869",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="0",
-        user_id="mei_kovacs_8020",
-        instruction="You are mei_kovacs_8020 (zip code 28236) and you want to exchange the water bottle and the desk lamp. You want to exchange the water bottle to a bigger one, and the desk lamp to a brighter one (prefer AC adapter > battery > USB). If the agent asks for confirmation, only exchange the desk lamp.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={"first_name": "Mei", "last_name": "Kovacs", "zip": "28236"},
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "mei_kovacs_8020"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W6390527"}),
-            Action(name="get_product_details", kwargs={"product_id": "8310926033"}),
-            Action(name="get_product_details", kwargs={"product_id": "6817146515"}),
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W6390527",
-                    "item_ids": ["8384507844"],
-                    "new_item_ids": ["7624783998"],
-                    "payment_method_id": "paypal_7644869",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="0",
-        user_id="mia_garcia_4516",
-        instruction="You are mia_garcia_4516 (mia.garcia2723@example.com). For some reason, you want to return all things ordered. You have two payment methods and two orders, and you want to refund each order to the opposite order's payment method. If not possible, you are angry and swear for a few times, then asks for human representative. You are a mysterious person and do not want to reveal much about yourself or speak too many words at the same time.",
-        actions=[
-            Action(
-                name="find_user_id_by_email",
-                kwargs={"email": "mia.garcia2723@example.com"},
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "mia_garcia_4516"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W5490111"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W7387996"}),
-            Action(
-                name="transfer_to_human_agents",
-                kwargs={
-                    "summary": "The user wants to refund each order to the opposite order's payment method, but the agent cannot help."
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="0",
-        user_id="mia_garcia_4516",
-        instruction="You are mia_garcia_4516 (mia.garcia2723@example.com). For some reason, you want to return all things ordered. You have two payment methods and two orders, and you want to refund each order to the opposite order's payment method. If not possible, you are angry and swear for a few times, then agree to return all things with the original payment method. You are a mysterious person and do not want to reveal much about yourself or speak too many words at the same time.",
-        actions=[
-            Action(
-                name="find_user_id_by_email",
-                kwargs={"email": "mia.garcia2723@example.com"},
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "mia_garcia_4516"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W5490111"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W7387996"}),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W5490111",
-                    "item_ids": [
-                        "4579334072",
-                        "1421289881",
-                        "6117189161",
-                        "4947717507",
-                    ],
-                    "payment_method_id": "credit_card_3124723",
-                },
-            ),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W7387996",
-                    "item_ids": ["5796612084"],
-                    "payment_method_id": "paypal_9497703",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="0",
-        user_id="mia_garcia_4516",
-        instruction="You are mia_garcia_4516 (mia.garcia2723@example.com). You just got into gaming and want to cancel or return everything not associated with it. (Everything except a keyboard and a mouse, but do not reveal it to the agent). PayPal is prefered for refund, but otherwise you are angry and ask for human agent for help. You are into gaming but realized the importance of studying hard.",
-        actions=[
-            Action(
-                name="find_user_id_by_email",
-                kwargs={"email": "mia.garcia2723@example.com"},
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "mia_garcia_4516"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W5490111"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W7387996"}),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W5490111",
-                    "item_ids": ["4579334072", "6117189161", "4947717507"],
-                    "payment_method_id": "paypal_9497703",
-                },
-            ),
-            Action(
-                name="transfer_to_human_agents",
-                kwargs={
-                    "summary": "The user prefers PayPal for refund, but the agent cannot help."
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="0",
-        user_id="mia_garcia_4516",
-        instruction="You are mia_garcia_4516 (mia.garcia2723@example.com). You just got into gaming and want to cancel or return everything not associated with it. (Everything except a keyboard and a mouse, but do not reveal it to the agent). PayPal is prefered for refund, but otherwise credit card can be accepted. You are into gaming but realized the importance of studying hard.",
-        actions=[
-            Action(
-                name="find_user_id_by_email",
-                kwargs={"email": "mia.garcia2723@example.com"},
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "mia_garcia_4516"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W5490111"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W7387996"}),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W5490111",
-                    "item_ids": ["4579334072", "6117189161", "4947717507"],
-                    "payment_method_id": "paypal_9497703",
-                },
-            ),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W5490111",
-                    "item_ids": ["4579334072", "6117189161", "4947717507"],
-                    "payment_method_id": "credit_card_3124723",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="0",
-        user_id="mia_garcia_4516",
-        instruction="You are mia_garcia_4516 (mia.garcia2723@example.com). You just quit gaming and want to cancel or return everything associated with it. (It's just a keyboard and a mouse, but do not reveal it to the agent). Original payment is preferred. You are into gaming but realized the importance of studying hard.",
-        actions=[
-            Action(
-                name="find_user_id_by_email",
-                kwargs={"email": "mia.garcia2723@example.com"},
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "mia_garcia_4516"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W5490111"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W7387996"}),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W5490111",
-                    "item_ids": ["1421289881"],
-                    "payment_method_id": "credit_card_3124723",
-                },
-            ),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W7387996",
-                    "item_ids": ["5796612084"],
-                    "payment_method_id": "paypal_9497703",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="0",
-        user_id="fatima_johnson_7581",
-        instruction="You are Fatima Johnson in 78712. You want to modify the pending boots to a size 8, and want the material, but do not care about waterproof or not. You are a private person that does not want to reveal much about yourself.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Fatima",
-                    "last_name": "Johnson",
-                    "zip": "78712",
-                },
-            ),
-            Action(
-                name="get_user_details", kwargs={"user_id": "fatima_johnson_7581"}
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W9389413"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W8665881"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W5199551"}),
-            Action(name="get_product_details", kwargs={"product_id": "7363354090"}),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W5199551",
-                    "item_ids": ["1615379700"],
-                    "new_item_ids": ["3613716226"],
-                    "payment_method_id": "paypal_5364164",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="0",
-        user_id="fatima_johnson_7581",
-        instruction="You are Fatima Johnson in 78712. You want to cancel all pending orders (since they are no longer needed) and return the watch you have received (but nothing else), and you want to know the total amount you can get back. You are a private person that does not want to reveal much about yourself.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Fatima",
-                    "last_name": "Johnson",
-                    "zip": "78712",
-                },
-            ),
-            Action(
-                name="get_user_details", kwargs={"user_id": "fatima_johnson_7581"}
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W5199551"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W8665881"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W9389413"}),
-            Action(
-                name="calculate", kwargs={"expression": "3131.1 + 4777.75 + 367.38"}
-            ),
-            Action(
-                name="cancel_pending_order",
-                kwargs={"order_id": "#W5199551", "reason": "no longer needed"},
-            ),
-            Action(
-                name="cancel_pending_order",
-                kwargs={"order_id": "#W8665881", "reason": "no longer needed"},
-            ),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W9389413",
-                    "item_ids": ["2554056026"],
-                    "payment_method_id": "paypal_5364164",
-                },
-            ),
-        ],
-        outputs=["8276.23"],
-    ),
-    Task(
-        annotator="0",
-        user_id="fatima_johnson_7581",
-        instruction="You are Fatima Johnson in 78712. You want to change #W8665881 to be delivered to Suite 641 instead. You are a private person that does not want to reveal much about yourself.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Fatima",
-                    "last_name": "Johnson",
-                    "zip": "78712",
-                },
-            ),
-            Action(
-                name="get_user_details", kwargs={"user_id": "fatima_johnson_7581"}
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W5199551"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W8665881"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W9389413"}),
-            Action(
-                name="modify_pending_order_address",
-                kwargs={
-                    "order_id": "#W8665881",
-                    "address1": "123 Elm Street",
-                    "address2": "Suite 641",
-                    "city": "Austin",
-                    "state": "TX",
-                    "country": "USA",
-                    "zip": "78712",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="0",
-        user_id="mei_davis_8935",
-        instruction="You are Mei Davis in 80217. You want to return the office chair because it came with some broken pieces. But if the agent asks you for confirm, you say you want to rethink for a while, and then change your mind to exchange for the same item. You are in debt and sad today, but very brief.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={"first_name": "Mei", "last_name": "Davis", "zip": "80217"},
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "mei_davis_8935"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W2890441"}),
-            Action(name="get_product_details", kwargs={"product_id": "4794339885"}),
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W2890441",
-                    "item_ids": ["8069050545"],
-                    "new_item_ids": ["8069050545"],
-                    "payment_method_id": "credit_card_1061405",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="0",
-        user_id="mei_davis_8935",
-        instruction="You are Mei Davis in 80217. You want to return the water bottle, and exchange the pet bed and office chair to the cheapest version. Mention the two things together. If you can only do one of the two things, you prefer to do whatever saves you most money, but you want to know the money you can save in both ways. You are in debt and sad today, but very brief.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={"first_name": "Mei", "last_name": "Davis", "zip": "80217"},
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "mei_davis_8935"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W2890441"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W1267569"}),
-            Action(name="get_product_details", kwargs={"product_id": "2747247837"}),
-            Action(name="get_product_details", kwargs={"product_id": "4794339885"}),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W2890441",
-                    "item_ids": ["2366567022"],
-                    "payment_method_id": "credit_card_1061405",
-                },
-            ),
-        ],
-        outputs=["54.04", "41.64"],
-    ),
-    Task(
-        annotator="0",
-        user_id="ethan_garcia_1261",
-        instruction="You are Ethan Garcia, and you live in Denver, 80280. You just won a lottery, and you want to upgrade all your items to the most expensive options (but make sure the shoe is still the same size). You want to pay the difference with your GC, but if it is impossible, PayPal is fine. You are a mysterious person and do not want to reveal much about yourself.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Ethan",
-                    "last_name": "Garcia",
-                    "zip": "80280",
-                },
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "ethan_garcia_1261"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W4967593"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W9911714"}),
-            Action(name="get_product_details", kwargs={"product_id": "8310926033"}),
-            Action(name="get_product_details", kwargs={"product_id": "1656367028"}),
-            Action(name="get_product_details", kwargs={"product_id": "6938111410"}),
-            Action(name="get_product_details", kwargs={"product_id": "5149340237"}),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W9911714",
-                    "item_ids": [
-                        "2366567022",
-                        "1340995114",
-                        "9791469541",
-                        "1763705424",
-                    ],
-                    "new_item_ids": [
-                        "4579334072",
-                        "1151293680",
-                        "4107812777",
-                        "2882812427",
-                    ],
-                    "payment_method_id": "gift_card_4332117",
-                },
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W5733668"}),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="0",
-        user_id="ethan_garcia_1261",
-        instruction="You are Ethan Garcia, and you live in Denver, 80280. You want to exchange your shoes to 4107812777, and use GC to cover possible charges. But if the agent asks for confirmation, you change you mind and also want to change product 1656367028 to 1421289881. You are not familiar with the domain and might confuse product and item ids, so ask the agent to figure out the details on its own if needed. You want to know your GC balance after all these. You are a mysterious person and do not want to reveal much about yourself.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Ethan",
-                    "last_name": "Garcia",
-                    "zip": "80280",
-                },
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "ethan_garcia_1261"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W4967593"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W9911714"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W5733668"}),
-            Action(name="get_product_details", kwargs={"product_id": "4107812777"}),
-            Action(name="get_product_details", kwargs={"product_id": "1421289881"}),
-            Action(name="get_product_details", kwargs={"product_id": "1656367028"}),
-            Action(name="get_product_details", kwargs={"product_id": "4107812777"}),
-            Action(name="get_product_details", kwargs={"product_id": "6938111410"}),
-            Action(
-                name="calculate",
-                kwargs={"expression": "155.33 - 147.05 + 268.77 - 235.13"},
-            ),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W9911714",
-                    "item_ids": ["9791469541", "1340995114"],
-                    "new_item_ids": ["4107812777", "1421289881"],
-                    "payment_method_id": "gift_card_4332117",
-                },
-            ),
-        ],
-        outputs=["44.08"],
-    ),
-    Task(
-        annotator="0",
-        user_id="ethan_garcia_1261",
-        instruction="You are Ethan Garcia, and you live in Denver, 80280. You want to change your user address and all possible order addresses to be 101 Highway, New York, 10001. Then you regret and want to change the user address back to the original address. You are a mysterious person and do not want to reveal much about yourself.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Ethan",
-                    "last_name": "Garcia",
-                    "zip": "80280",
-                },
-            ),
-            Action(
-                name="modify_user_address",
-                kwargs={
-                    "user_id": "ethan_garcia_1261",
-                    "address1": "101 Highway",
-                    "address2": "",
-                    "city": "New York",
-                    "state": "NY",
-                    "country": "USA",
-                    "zip": "10001",
-                },
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W4967593"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W9911714"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W5733668"}),
-            Action(
-                name="modify_pending_order_address",
-                kwargs={
-                    "order_id": "#W9911714",
-                    "address1": "101 Highway",
-                    "address2": "",
-                    "city": "New York",
-                    "state": "NY",
-                    "country": "USA",
-                    "zip": "10001",
-                },
-            ),
-            Action(
-                name="modify_user_address",
-                kwargs={
-                    "user_id": "ethan_garcia_1261",
-                    "address1": "667 Highland Drive",
-                    "address2": "Suite 865",
-                    "city": "Denver",
-                    "state": "CO",
-                    "country": "USA",
-                    "zip": "80280",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="0",
-        user_id="sofia_hernandez_5364",
-        instruction="You are Sofia Hernandez, and you live in Seattle, WA, 98193. You want to exchange the helmet for a medium sized, red, high ventilation type, and you want to exchange the luggage set (in another order) to a two-piece black one with soft material. Lastly, you want to modify the grill you just ordered to the same type as the one you already received.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Sofia",
-                    "last_name": "Hernandez",
-                    "zip": "98193",
-                },
-            ),
-            Action(
-                name="get_user_details", kwargs={"user_id": "sofia_hernandez_5364"}
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W3561391"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W6876713"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W9609649"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W3947049"}),
-            Action(name="get_product_details", kwargs={"product_id": "7765186836"}),
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W3947049",
-                    "item_ids": ["3358616356"],
-                    "new_item_ids": ["8573379326"],
-                    "payment_method_id": "credit_card_7901829",
-                },
-            ),
-            Action(name="get_product_details", kwargs={"product_id": "5426915165"}),
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W6876713",
-                    "item_ids": ["6301799585"],
-                    "new_item_ids": ["8926329222"],
-                    "payment_method_id": "credit_card_7901829",
-                },
-            ),
-            Action(name="get_product_details", kwargs={"product_id": "6819683148"}),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W3561391",
-                    "item_ids": ["5946177616"],
-                    "new_item_ids": ["7082455361"],
-                    "payment_method_id": "credit_card_7901829",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="0",
-        user_id="sofia_hernandez_5364",
-        instruction="You are Sofia Hernandez, and you live in Seattle, WA, 98193. You want to cancel the grill, but if the agent asks you to confirm, you regret and want to keep it. You then want to ask which two t-shirts you have ordered in another order, and what materials are they. Make everything sound very natural and make up reasons.",
-        actions=[],
-        outputs=["polyester", "cotton"],
-    ),
-    Task(
-        annotator="0",
-        user_id="isabella_johansson_2152",
-        instruction="You are Isabella Johansson, and you live in 32286. You have an order sent to Texas by accident, and you want to know the tracking number of the order, and return all items in it except the pet bed. You want the refund to your amex credit card, and if the agent cannot help, transfer to a human. You don't remember the order number. It is urgent.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Isabella",
-                    "last_name": "Johansson",
-                    "zip": "32286",
-                },
-            ),
-            Action(
-                name="get_user_details",
-                kwargs={"user_id": "isabella_johansson_2152"},
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W3792453"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W7181492"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W5565470"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W2575533"}),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="0",
-        user_id="isabella_johansson_2152",
-        instruction="You are Isabella Johansson, and you live in 32286. You have an order sent to Texas by accident, and you want to know the tracking number of the order, and return all items in it except the pet bed. You don't remember the order number. It is urgent.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Isabella",
-                    "last_name": "Johansson",
-                    "zip": "32286",
-                },
-            ),
-            Action(
-                name="get_user_details",
-                kwargs={"user_id": "isabella_johansson_2152"},
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W3792453"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W7181492"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W5565470"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W2575533"}),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W5565470",
-                    "item_ids": ["7602931732", "9570044148"],
-                    "payment_method_id": "paypal_3024827",
-                },
-            ),
-            Action(
-                name="transfer_to_human_agents",
-                kwargs={
-                    "summary": "The user wants to refund to the amex credit card, but the agent cannot help."
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="0",
-        user_id="isabella_johansson_2152",
-        instruction="You are Isabella Johansson, and you live in 32286. You want to return the hose, backpack, and exchange the hiking boots to the exact same item except that it is waterproof. Make sure you mention the two requests at the same time, and if the agent can only do one, you prefer the exchange. You are a bit anxious and want to get things done quickly.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Isabella",
-                    "last_name": "Johansson",
-                    "zip": "32286",
-                },
-            ),
-            Action(
-                name="get_user_details",
-                kwargs={"user_id": "isabella_johansson_2152"},
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W3792453"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W7181492"}),
-            Action(name="get_product_details", kwargs={"product_id": "7363354090"}),
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W7181492",
-                    "item_ids": ["8118291112"],
-                    "new_item_ids": ["8277474082"],
-                    "payment_method_id": "paypal_3024827",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="0",
-        user_id="isabella_johansson_2152",
-        instruction="You are Isabella Johansson, and you live in 32286. You want to return the skateboard, garden hose, backpack, keyboard, bed, and also cancel the hose you just ordered (if cancelling one item is not possible, forget about it, you just want to cancel the hose and nothing else). You want to know how much you can get in total as refund. You are extremely brief but patient.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Isabella",
-                    "last_name": "Johansson",
-                    "zip": "32286",
-                },
-            ),
-            Action(
-                name="get_user_details",
-                kwargs={"user_id": "isabella_johansson_2152"},
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W3792453"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W7181492"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W5565470"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W2575533"}),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W3792453",
-                    "item_ids": ["4293355847"],
-                    "payment_method_id": "paypal_3024827",
-                },
-            ),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W7181492",
-                    "item_ids": ["5753502325", "9851293632"],
-                    "payment_method_id": "paypal_3024827",
-                },
-            ),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W5565470",
-                    "item_ids": ["9570044148", "6857426243"],
-                    "payment_method_id": "paypal_3024827",
-                },
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W2575533"}),
-            Action(
-                name="calculate",
-                kwargs={"expression": "200.8 + 96.35 + 193.38 + 231.37 + 196.53"},
-            ),
-        ],
-        outputs=["918.43"],
-    ),
-    Task(
-        annotator="0",
-        user_id="isabella_johansson_2152",
-        instruction="You are Isabella Johansson, and you live in 32286. You want to exchange your skateboard for a shorter bamboo material one. If several options are available, you want to know all options and their prices, and choose the most expensive one because you believe price is quality. Also, you want to exchange the garden hose you received to the type that you just ordered (pending). You are a chill person but want to get both things done.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Isabella",
-                    "last_name": "Johansson",
-                    "zip": "32286",
-                },
-            ),
-            Action(
-                name="get_user_details",
-                kwargs={"user_id": "isabella_johansson_2152"},
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W3792453"}),
-            Action(name="get_product_details", kwargs={"product_id": "1968349452"}),
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W3792453",
-                    "item_ids": ["4293355847"],
-                    "new_item_ids": ["8176740019"],
-                    "payment_method_id": "paypal_3024827",
-                },
-            ),
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W7181492",
-                    "item_ids": ["5753502325"],
-                    "new_item_ids": ["5206946487"],
-                    "payment_method_id": "paypal_3024827",
-                },
-            ),
-        ],
-        outputs=["180.1", "189.57", "208.6"],
-    ),
-    Task(
-        annotator="0",
-        user_id="olivia_lopez_3865",
-        instruction="You are Olivia Lopez, and you live in Texas in 76171. You just received your tablet and it is damaged when you opened the package. You want to know the tracking number of the order. Also if the agent can help you exchange or return the tablet (you prefer exchange for the same item, but if it is not available just return). If tablet returned, also cancel the charger you just bought, because it goes with the tablet... And return the sneaker. You like to do one thing at a time, and reveal minimal information about yourself.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Olivia",
-                    "last_name": "Lopez",
-                    "zip": "76171",
-                },
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "olivia_lopez_3865"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W9319364"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W9373487"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W2692684"}),
-            Action(name="get_product_details", kwargs={"product_id": "8024098596"}),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W2692684",
-                    "item_ids": ["3788616824"],
-                    "payment_method_id": "gift_card_7711863",
-                },
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W9373487"}),
-            Action(
-                name="cancel_pending_order",
-                kwargs={"order_id": "#W9373487", "reason": "no longer needed"},
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W2692684"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W5481803"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W7449508"}),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W7449508",
-                    "item_ids": ["6477915553"],
-                    "payment_method_id": "gift_card_7711863",
-                },
-            ),
-        ],
-        outputs=["746342064230"],
-    ),
-    Task(
-        annotator="0",
-        user_id="olivia_lopez_3865",
-        instruction="You are Olivia Lopez, and you live in Texas in 76171. You just lost your tablet you just received and are in a bad mood. You want to know the tracking number of the order, and if the agent can help you refund or reorder the tablet. (You know it's a long shot, but you want to try). If not, cancel the charger you just bought, because it goes with the tablet... Also cancel the boot and keep the kettle (if not possible, do not do anything on that order), and return the sneaker. You like to do one thing at a time, and reveal minimal information about yourself.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Olivia",
-                    "last_name": "Lopez",
-                    "zip": "76171",
-                },
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "olivia_lopez_3865"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W9319364"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W9373487"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W2692684"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W5481803"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W7449508"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W9373487"}),
-            Action(
-                name="cancel_pending_order",
-                kwargs={"order_id": "#W9373487", "reason": "no longer needed"},
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W5481803"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W7449508"}),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W7449508",
-                    "item_ids": ["6477915553"],
-                    "payment_method_id": "gift_card_7711863",
-                },
-            ),
-        ],
-        outputs=["746342064230"],
-    ),
-    Task(
-        annotator="0",
-        user_id="olivia_lopez_3865",
-        instruction="You are Olivia Lopez, and you live in Texas in 76171. You just lost your tablet you just received and are in a bad mood. You want to know the tracking number of the order, and if the agent can help you refund or reorder the tablet. (You know it's a long shot, but you want to try). If not, cancel the charger you just bought, because it goes with the tablet... Also cancel the boot and kettle, and return the sneaker. You like to do one thing at a time, and reveal minimal information about yourself.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Olivia",
-                    "last_name": "Lopez",
-                    "zip": "76171",
-                },
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "olivia_lopez_3865"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W9319364"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W9373487"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W2692684"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W5481803"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W7449508"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W9373487"}),
-            Action(
-                name="cancel_pending_order",
-                kwargs={"order_id": "#W9373487", "reason": "no longer needed"},
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W5481803"}),
-            Action(
-                name="cancel_pending_order",
-                kwargs={"order_id": "#W5481803", "reason": "no longer needed"},
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W7449508"}),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W7449508",
-                    "item_ids": ["6477915553"],
-                    "payment_method_id": "gift_card_7711863",
-                },
-            ),
-        ],
-        outputs=["746342064230"],
-    ),
-    Task(
-        annotator="0",
-        user_id="noah_patel_6952",
-        instruction="You are an interesting guy called Noah Patel, living in the Big Apple in 10108. You had a work-from-home situation and ordered three home office items along with some hiking items, so that you can go back to your parent's place at Seattle to remote work and enjoy outdoor life. But your company just announced that you will be back to the office soon. If cancelling partial items is possible with the agent, you want to return the office items (your forgot what) and keep the hiking items. You want to know the total amount you will get back, and you want to get the refund on your original payment method. If cancelling partial items is not possible, just keep the order and forget about it, but change your default user profile address to the Seattle parent house shown in your order (you do not want to reveal it in chat). You are a funny guy but recently the WFH situation made you a bit anxious.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={"first_name": "Noah", "last_name": "Patel", "zip": "10108"},
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "noah_patel_6952"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W6111398"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W7043598"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W1845024"}),
-            Action(
-                name="modify_user_address",
-                kwargs={
-                    "user_id": "noah_patel_6952",
-                    "address1": "517 Lakeview Drive",
-                    "address2": "Suite 183",
-                    "city": "Seattle",
-                    "country": "USA",
-                    "state": "WA",
-                    "zip": "98195",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="0",
-        user_id="noah_patel_6952",
-        instruction="You are an interesting guy called Noah Patel, living in the Big Apple in 10108. You had a work-from-home situation and ordered three home office items along with some hiking items, so that you can go back to your parent's place at Seattle to remote work and enjoy outdoor life. But your company just announced that you will be back to the office soon. If cancelling partial items is possible with the agent, you want to return the office items (your forgot what) and keep the hiking items. You want to know the total amount you will get back, and you want to get the refund on your original payment method. If cancelling partial items is not possible, just change the address to your NYC place and you will return the items later. You are a funny guy but recently the WFH situation made you a bit anxious.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={"first_name": "Noah", "last_name": "Patel", "zip": "10108"},
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "noah_patel_6952"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W6111398"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W7043598"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W1845024"}),
-            Action(
-                name="modify_pending_order_address",
-                kwargs={
-                    "order_id": "#W1845024",
-                    "address1": "224 Elm Street",
-                    "address2": "Suite 491",
-                    "city": "New York",
-                    "country": "USA",
-                    "state": "NY",
-                    "zip": "10108",
-                },
-            ),
-        ],
-        outputs=["1093.34"],
-    ),
-    Task(
-        annotator="0",
-        user_id="aarav_santos_2259",
-        instruction="You are aarav_santos_2259 and aarav.santos8321@example.com and aarav.santos8320@example.com. You want to return the speaker that is more expensive yet not resistent to water. Also, You want to modify the 17-inch laptop to the 13-inch version in another order. If no exact item is available, you want to know all available 13-inch options, and you prefer i5 over i7, and prefer silver and black than other colors. You are a rude person.",
-        actions=[
-            Action(
-                name="find_user_id_by_email",
-                kwargs={"email": "aarav.santos8321@example.com"},
-            ),
-            Action(
-                name="find_user_id_by_email",
-                kwargs={"email": "aarav.santos8320@example.com"},
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "aarav_santos_2259"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W9672333"}),
-            Action(name="get_product_details", kwargs={"product_id": "4760268021"}),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W8528674",
-                    "item_ids": ["6704763132"],
-                    "payment_method_id": "paypal_7664977",
-                },
-            ),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W9672333",
-                    "item_ids": ["1684786391"],
-                    "new_item_ids": ["5052031638"],
-                    "payment_method_id": "paypal_7664977",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="0",
-        user_id="daiki_sanchez_3253",
-        instruction="Your name is Daiki Sanchez, and you live in 46236, your email is daikisanchez1479@example.com. You just placed an order but you realize that your card has only $1131 credit left, but the order total is more than $1160. You wonder if the agent can help split the payment with another card. If not, you wonder what the most expensive item and its price, and if you can just cancel that item. If not, you wonder if you can switch all items to their cheapest options and bring the cost down to $1131. If so, do it. If not, you wonder if the agent can just cancel the order so that you can order again. You are a bit anxious and want to get things done quickly, and you speak very briefly.",
-        actions=[
-            Action(
-                name="find_user_id_by_email",
-                kwargs={"email": "daikisanchez1479@example.com"},
-            ),
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Daiki",
-                    "last_name": "Sanchez",
-                    "zip": "46236",
-                },
-            ),
-            Action(
-                name="get_user_details", kwargs={"user_id": "daiki_sanchez_3253"}
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W9348897"}),
-            Action(name="get_product_details", kwargs={"product_id": "3377618313"}),
-            Action(name="get_product_details", kwargs={"product_id": "9743693396"}),
-            Action(name="get_product_details", kwargs={"product_id": "6817146515"}),
-            Action(name="get_product_details", kwargs={"product_id": "2524789262"}),
-            Action(name="get_product_details", kwargs={"product_id": "9523456873"}),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W9348897",
-                    "item_ids": ["6117189161", "7453605304", "3799046073"],
-                    "new_item_ids": ["6700049080", "5320792178", "3234800602"],
-                    "payment_method_id": "credit_card_8853416",
-                },
-            ),
-        ],
-        outputs=["camera", "481.5"],
-    ),
-    Task(
-        annotator="0",
-        user_id="daiki_sanchez_3253",
-        instruction="Your name is Daiki Sanchez, and you live in 46236, your email is daikisanchez1479@example.com. You just placed an order but you realize that your card has only $1150 credit left, but the order total is more than $1160. You wonder if the agent can help split the payment with another card. If not, you wonder what the most expensive item and its price, and if you can just cancel that item. If not, you wonder if you can switch all items to their cheapest options and bring the cost down to $1150. If so, do it. If not, you wonder if the agent can just cancel the order so that you can order again. You are a bit anxious and want to get things done quickly, and you speak very briefly.",
-        actions=[
-            Action(
-                name="find_user_id_by_email",
-                kwargs={"email": "daikisanchez1479@example.com"},
-            ),
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Daiki",
-                    "last_name": "Sanchez",
-                    "zip": "46236",
-                },
-            ),
-            Action(
-                name="get_user_details", kwargs={"user_id": "daiki_sanchez_3253"}
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W9348897"}),
-            Action(name="get_product_details", kwargs={"product_id": "3377618313"}),
-            Action(name="get_product_details", kwargs={"product_id": "9743693396"}),
-            Action(name="get_product_details", kwargs={"product_id": "6817146515"}),
-            Action(name="get_product_details", kwargs={"product_id": "2524789262"}),
-            Action(name="get_product_details", kwargs={"product_id": "9523456873"}),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W9348897",
-                    "item_ids": ["6117189161", "7453605304", "3799046073"],
-                    "new_item_ids": ["6700049080", "5320792178", "3234800602"],
-                    "payment_method_id": "credit_card_8853416",
-                },
-            ),
-        ],
-        outputs=["camera", "481.5"],
-    ),
-    Task(
-        annotator="0",
-        user_id="daiki_sanchez_3253",
-        instruction="Your name is Daiki Sanchez, and you live in 46236, your email is daikisanchez1479@example.com. You just placed an order but you realize that your card has only $950 credit left, but the order total is more than $1100. You wonder if the agent can help split the payment with another card. If not, you wonder what the most expensive item and its price, and if you can just cancel that item. If not, you wonder if you can switch all items to their cheapest options and bring the cost down to $950. If not, you wonder if the agent can just cancel the order so that you can order again. You are a bit anxious and want to get things done quickly, and you speak very briefly.",
-        actions=[
-            Action(
-                name="find_user_id_by_email",
-                kwargs={"email": "daikisanchez1479@example.com"},
-            ),
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Daiki",
-                    "last_name": "Sanchez",
-                    "zip": "46236",
-                },
-            ),
-            Action(
-                name="get_user_details", kwargs={"user_id": "daiki_sanchez_3253"}
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W9348897"}),
-            Action(name="get_product_details", kwargs={"product_id": "3377618313"}),
-            Action(name="get_product_details", kwargs={"product_id": "9743693396"}),
-            Action(name="get_product_details", kwargs={"product_id": "6817146515"}),
-            Action(name="get_product_details", kwargs={"product_id": "2524789262"}),
-            Action(name="get_product_details", kwargs={"product_id": "9523456873"}),
-            Action(
-                name="calculate",
-                kwargs={"expression": "466.75 + 288.82 + 135.24 + 193.38 + 46.66"},
-            ),
-            Action(
-                name="cancel_pending_order",
-                kwargs={"order_id": "#W9348897", "reason": "no longer needed"},
-            ),
-        ],
-        outputs=["camera", "481.5"],
-    ),
-    Task(
-        annotator="0",
-        user_id="fatima_taylor_3452",
-        instruction="You are fatima_taylor_3452, and you just moved from Florida (32169) to Phoenix (85033). Unfortunately your address is still the old one, and you want to update it. Your current address should be in your order, and you do not want to reveal it. Also, you want to know what is the price of the cheapest available t-shirt right now, and if you can order it through the agent. You are a funny person with lots of jokes, and you want to make the agent laugh.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Fatima",
-                    "last_name": "Taylor",
-                    "zip": "85033",
-                },
-            ),
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Fatima",
-                    "last_name": "Taylor",
-                    "zip": "32169",
-                },
-            ),
-            Action(
-                name="get_user_details", kwargs={"user_id": "fatima_taylor_3452"}
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W5285031"}),
-            Action(
-                name="modify_user_address",
-                kwargs={
-                    "user_id": "fatima_taylor_3452",
-                    "address1": "157 Oak Street",
-                    "address2": "Suite 258",
-                    "city": "Phoenix",
-                    "state": "AZ",
-                    "country": "USA",
-                    "zip": "85033",
-                },
-            ),
-            Action(name="list_all_product_types", kwargs={}),
-            Action(name="get_product_details", kwargs={"product_id": "9523456873"}),
-        ],
-        outputs=["46.66"],
-    ),
-    Task(
-        annotator="0",
-        user_id="isabella_lopez_6490",
-        instruction="You are Isabella Lopez, and your email address is isabella.lopez3271@example.com. You want to know how much balance does your gift card have. Also, for your recent order, whether you used your visa, mastercard, or amex credit card. You also wonder if you can apply the gift card balance to the order. If not, you want to change your payment method to visa, because the other two cards have a lot of balance. You are a yound college student under the pressure of final exams and student loans, so you are a bit anxious and want to get things done quickly.",
-        actions=[
-            Action(
-                name="find_user_id_by_email",
-                kwargs={"email": "isabella.lopez3271@example.com"},
-            ),
-            Action(
-                name="get_user_details", kwargs={"user_id": "isabella_lopez_6490"}
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W4923227"}),
-            Action(
-                name="modify_pending_order_payment",
-                kwargs={
-                    "order_id": "#W4923227",
-                    "payment_method_id": "credit_card_8897086",
-                },
-            ),
-        ],
-        outputs=["60", "mastercard"],
-    ),
-    Task(
-        annotator="0",
-        user_id="mei_patel_7272",
-        instruction="Your name is Mei Patel, and you live in 445 Maple Drive, Suite 394, Fort Worth, Texas, 76165. You just created your user id mei_patel_7272 and ordered some things, but you have two problems: first, the 1000-piece intermediate jigsaw might be too hard for your little kid, you wonder if you can change it to the easiest one with fewest pieces; second, you might have typed your address wrong. You want to check it, and potentially correct all order addresses and your user address. Make sure you mention these two problems at the same time in the same order. You are brief and your memory is not too good sometimes, but you are polite.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={"first_name": "Mei", "last_name": "Patel", "zip": "76165"},
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "mei_patel_7272"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W9583042"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W4082615"}),
-            Action(
-                name="modify_pending_order_address",
-                kwargs={
-                    "order_id": "#W9583042",
-                    "address1": "445 Maple Drive",
-                    "address2": "Suite 394",
-                    "city": "Fort Worth",
-                    "state": "TX",
-                    "country": "USA",
-                    "zip": "76165",
-                },
-            ),
-            Action(
-                name="modify_pending_order_address",
-                kwargs={
-                    "order_id": "#W4082615",
-                    "address1": "445 Maple Drive",
-                    "address2": "Suite 394",
-                    "city": "Fort Worth",
-                    "state": "TX",
-                    "country": "USA",
-                    "zip": "76165",
-                },
-            ),
-            Action(
-                name="modify_user_address",
-                kwargs={
-                    "user_id": "mei_patel_7272",
-                    "address1": "445 Maple Drive",
-                    "address2": "Suite 394",
-                    "city": "Fort Worth",
-                    "state": "TX",
-                    "country": "USA",
-                    "zip": "76165",
-                },
-            ),
-            Action(name="get_product_details", kwargs={"product_id": "1808611083"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W4082615"}),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W4082615",
-                    "item_ids": ["9779102705"],
-                    "new_item_ids": ["1096508426"],
-                    "payment_method_id": "paypal_4768213",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="0",
-        user_id="mei_patel_7272",
-        instruction="Your name is Mei Patel, and you live in 445 Maple Drive, Suite 394, Fort Worth, Texas, 76165. You just created your user id mei_patel_7272 and ordered some things, but realized you might have typed your address wrong. You want to check it, and potentially correct all order addresses and your user address. After this, you'd like to check the jigsaw you ordered, and if it's not shipped yet, you want to change it to the easiest jigsaw (easiest level, least pieces) because your kid is too young. By default you use PayPal. You are brief and your memory is not too good sometimes, but you are polite.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={"first_name": "Mei", "last_name": "Patel", "zip": "76165"},
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "mei_patel_7272"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W9583042"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W4082615"}),
-            Action(
-                name="modify_pending_order_address",
-                kwargs={
-                    "order_id": "#W9583042",
-                    "address1": "445 Maple Drive",
-                    "address2": "Suite 394",
-                    "city": "Fort Worth",
-                    "state": "TX",
-                    "country": "USA",
-                    "zip": "76165",
-                },
-            ),
-            Action(
-                name="modify_pending_order_address",
-                kwargs={
-                    "order_id": "#W4082615",
-                    "address1": "445 Maple Drive",
-                    "address2": "Suite 394",
-                    "city": "Fort Worth",
-                    "state": "TX",
-                    "country": "USA",
-                    "zip": "76165",
-                },
-            ),
-            Action(
-                name="modify_user_address",
-                kwargs={
-                    "user_id": "mei_patel_7272",
-                    "address1": "445 Maple Drive",
-                    "address2": "Suite 394",
-                    "city": "Fort Worth",
-                    "state": "TX",
-                    "country": "USA",
-                    "zip": "76165",
-                },
-            ),
-            Action(name="get_product_details", kwargs={"product_id": "1808611083"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W4082615"}),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W4082615",
-                    "item_ids": ["9779102705"],
-                    "new_item_ids": ["1096508426"],
-                    "payment_method_id": "paypal_4768213",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="0",
-        user_id="lucas_santos_6600",
-        instruction="You are Lucas (lucas_santos_6600), you live in Denver CO 80239, and your daughter lives in Chicago. You order some things for her but she has not received, so you want to know which address the order was sent to, the tracking number, and if the order is still in transit. You also want to check if the storage of the tablet you ordered. Lastly, you want to change your default address to your daughter's address so that you don't have to change it every time you order something for her. You are a lonely man and you want to talk to the agent for a while.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Lucas",
-                    "last_name": "Santos",
-                    "zip": "80239",
-                },
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "lucas_santos_6600"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W1588712"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W7895761"}),
-            Action(
-                name="modify_user_address",
-                kwargs={
-                    "user_id": "lucas_santos_6600",
-                    "address1": "943 Maple Drive",
-                    "address2": "Suite 356",
-                    "city": "Chicago",
-                    "state": "IL",
-                    "country": "USA",
-                    "zip": "60621",
-                },
-            ),
-        ],
-        outputs=[
-            "840887978435",
-            "943 Maple Drive",
-            "Suite 356",
-            "Chicago",
-            "IL",
-            "60621",
-            "64GB",
-        ],
-    ),
-    Task(
-        annotator="1",
-        user_id="aarav_anderson_8794",
-        instruction="You are Aarav Anderson, residing in Philadelphia 19031. You're a private person and are reluctant to share information unless it's absolutely necessary. You want to change the Desk Lamp in order #W9300146 that you've placed for the cheapest Desk Lamp that's available. Any price difference should go to a gift card. You also want to know how much you get back in total.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Aarav",
-                    "last_name": "Anderson",
-                    "zip": "19031",
-                },
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W9300146"}),
-            Action(name="get_product_details", kwargs={"product_id": "6817146515"}),
-            Action(name="calculate", kwargs={"expression": "135.24 - 153.23"}),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W9300146",
-                    "item_ids": ["9190635437"],
-                    "new_item_ids": ["5320792178"],
-                    "payment_method_id": "gift_card_7245904",
-                },
-            ),
-        ],
-        outputs=["17.99"],
-    ),
-    Task(
-        annotator="2",
-        user_id="daiki_johnson_9523",
-        instruction="You are daiki_johnson_9523 living in Denver, USA, 80273. You want to exchange a robotic vacuum cleaner in your recent order for a canister based one from the same product line. When asked for order ID, provide 9502127 first. If that doesn't work, respond exactly with 'I forgot the W at the beginning'. If and only if the agent gives you several options for the new vacuum, go for the bagless version (don't mention this if the agent just provides you one option). Ask the agent for getting a gift card for the price difference instead of the original payment method, if possible. You randomly insert typos into your messages.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Daiki",
-                    "last_name": "Johnson",
-                    "zip": "80273",
-                },
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W9502127"}),
-            Action(name="get_product_details", kwargs={"product_id": "1762337868"}),
-            Action(name="calculate", kwargs={"expression": "652.61 - 642.72"}),
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W9502127",
-                    "item_ids": ["6259501109"],
-                    "new_item_ids": ["7958300294"],
-                    "payment_method_id": "paypal_2433177",
-                },
-            ),
-        ],
-        outputs=["9.89"],
-    ),
-    Task(
-        annotator="2",
-        user_id="daiki_johnson_9523",
-        instruction="You are daiki_johnson_9523 living in Denver, USA, 80273. You want to return an air purifier and a vacuum cleaner in your recent order. When asked for order ID, provide 9502126 first. If the agent asks you to double check, then say that you made a mistake and provide 9502127. If that doesn't work, say that you forgot the 'W' at the beginning. If the agent asks you for which vacuum cleaner, mention the robotic one. You are impatient and want the refund as soon as possible. Ask the agent explicitly to provide the refund within 3 days and the total amount of the refund you should expect. After the return is complete, ask the agent about the total amount you paid for the remaining items in the same order.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Daiki",
-                    "last_name": "Johnson",
-                    "zip": "80273",
-                },
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#9502126"}),
-            Action(name="get_order_details", kwargs={"order_id": "#9502127"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W9502127"}),
-            Action(name="calculate", kwargs={"expression": "652.61 + 473.43"}),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W9502127",
-                    "item_ids": ["6259501109", "9534205511"],
-                    "payment_method_id": "paypal_2433177",
-                },
-            ),
-            Action(name="calculate", kwargs={"expression": "2623.69 - 1126.04"}),
-        ],
-        outputs=["1126.04", "1497.65"],
-    ),
-    Task(
-        annotator="2",
-        user_id="daiki_johnson_9523",
-        instruction="You are daiki_johnson_9523 living in Denver, USA, 80273. You want to return an air purifier and a vacuum cleaner in your recent order. When asked for order ID, provide 9502126 first. If the agent asks you to double check, then say that you made a mistake and provide 9502127. If that doesn't work, say that you forgot the 'W' at the beginning. If the agent asks you for which vacuum cleaner, mention the canister one. You are impatient and want the refund as soon as possible. Ask the agent explicitly to provide the refund within 3 days and the total amount of the refund you should expect. After the return is complete, ask the agent about the total amount you paid for the remaining items in the same order.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Daiki",
-                    "last_name": "Johnson",
-                    "zip": "80273",
-                },
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#9502126"}),
-            Action(name="get_order_details", kwargs={"order_id": "#9502127"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W9502127"}),
-            Action(name="calculate", kwargs={"expression": "622.12 + 473.43"}),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W9502127",
-                    "item_ids": ["2872451762", "9534205511"],
-                    "payment_method_id": "paypal_2433177",
-                },
-            ),
-            Action(name="calculate", kwargs={"expression": "2623.69 - 1095.55"}),
-        ],
-        outputs=["1095.55", "1528.14"],
-    ),
-    Task(
-        annotator="2",
-        user_id="daiki_johnson_9523",
-        instruction="You are daiki_johnson_9523 living in Denver, USA, 80273. You want to return an air purifier that you received since it doesn't work well.  You want the refund on your original method of payment. Be polite and thank the agent for the help. Also, check at the end whether you are able to return the vacuum cleaner, but you are not sure yet so don't process anything.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Daiki",
-                    "last_name": "Johnson",
-                    "zip": "80273",
-                },
-            ),
-            Action(
-                name="get_user_details", kwargs={"user_id": "daiki_johnson_9523"}
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W1436802"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W5282037"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W9502127"}),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W9502127",
-                    "item_ids": ["9534205511"],
-                    "payment_method_id": "paypal_2433177",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="1",
-        user_id="aarav_anderson_8794",
-        instruction="You are Aarav Anderson, residing in Philadelphia 19031. You mistakenly ordered a Wireless Earbud with an IPX7 water resistance level, but you don't require this feature. You wish to exchange it for one with the same water resistance level as the other Wireless Earbuds that you've purchased. In fact, you want to exchange it to the cheapest earbud item from the rest of that order. Please be polite and concise, yet assertive.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Aarav",
-                    "last_name": "Anderson",
-                    "zip": "19031",
-                },
-            ),
-            Action(
-                name="get_user_details", kwargs={"user_id": "aarav_anderson_8794"}
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W4316152"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W9311069"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W9300146"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W3220203"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W3470184"}),
-            Action(name="get_product_details", kwargs={"product_id": "9924732112"}),
-            Action(name="calculate", kwargs={"expression": "258.97 - 232.49"}),
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W3470184",
-                    "item_ids": ["2757705742"],
-                    "new_item_ids": ["1646531091"],
-                    "payment_method_id": "gift_card_7245904",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="1",
-        user_id="chen_smith_8425",
-        instruction="You're Chen Smith, living in Jacksonville 32278. You're in a rush and you want to undo cancelling an order that you've previously placed. Be insistent that the customer service agent should undo the cancellation and ensure that the order is delivered as soon as possible. Do NOT mention the actual items that were in the order, just that you want to undo the cancellation and receive all the items that were in the initial order as soon as possible.",
-        actions=[
-            Action(
-                name="transfer_to_human_agents",
-                kwargs={
-                    "summary": "The user urgently needs to undo a cancellation of an order and insists on receiving the items from the initial order as soon as possible. The user acknowledges the policy but requests exceptional measures due to the urgency of the situation."
-                },
-            )
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="1",
-        user_id="sofia_li_9219",
-        instruction="You are Sofia Li, residing in San Antonio, 78260. You want to return the digital camera that you received. You guess that the order number is #W8855135, but you're not 100% sure. Insist that you want to return the camera and get a refund to the original payment method.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={"first_name": "Sofia", "last_name": "Li", "zip": "78260"},
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W8855135"}),
-            Action(name="list_all_product_types", kwargs={}),
-            Action(name="get_product_details", kwargs={"product_id": "8940227892"}),
-            Action(name="get_user_details", kwargs={"user_id": "sofia_li_9219"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W4689314"}),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W4689314",
-                    "item_ids": ["5996159312"],
-                    "payment_method_id": "credit_card_8105988",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="1",
-        user_id="sofia_li_9219",
-        instruction="You are Sofia Li, residing in San Antonio, 78260. The digital camera you received doesn't zoom as far as you expected. You use the camera for bird-watching and want to exchange it for a camera that has the maximum zoom capacity. Price is not an issue, but ensure all the other specifications of the camera to be exchanged are the same, except for the zoom capacity which has to be maximized. You want the exchange to be completed as soon as possible. You want to use your PayPal account for any additional payment.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={"first_name": "Sofia", "last_name": "Li", "zip": "78260"},
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "sofia_li_9219"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W4689314"}),
-            Action(name="get_product_details", kwargs={"product_id": "8940227892"}),
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W4689314",
-                    "item_ids": ["5996159312"],
-                    "new_item_ids": ["9228757377"],
-                    "payment_method_id": "paypal_8194385",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="1",
-        user_id="sofia_li_9219",
-        instruction="You are Sofia Li, residing in San Antonio, 78260. The bicycle you received was damaged during delivery, and you want to get a refund. You're quite frustrated because the bike was very expensive and you'd like to receive the refund as soon as possible. You want the refund to be credited to your original credit card.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={"first_name": "Sofia", "last_name": "Li", "zip": "78260"},
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "sofia_li_9219"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W4689314"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W8855135"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W3916020"}),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W3916020",
-                    "item_ids": ["7758198585"],
-                    "payment_method_id": "credit_card_8105988",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="0",
-        user_id="amelia_silva_7726",
-        instruction="You are Amelia, and you have two emails: silva7872@example.com and amelia.silva7872@example.com. You live in Philadelphia, and you are a loyal customer. But you just faced a fincinal issue and want to cancel or return all possible orders. Well, except the boots that you really really love, but you are happy to exchange it for boots of the exact same size and material to get maximum money back, but only if they are cheaper than what you have paid. You are now emotional and a bit stress out. You like to talk very tersely. At the end of the day, you wonder how much money you can get back today.",
-        actions=[
-            Action(
-                name="find_user_id_by_email",
-                kwargs={"email": "silva7872@example.com"},
-            ),
-            Action(
-                name="find_user_id_by_email",
-                kwargs={"email": "amelia.silva7872@example.com"},
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "amelia_silva_7726"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W2586676"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W5400801"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W4597054"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W4836353"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W7773202"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W7342738"}),
-            Action(
-                name="cancel_pending_order",
-                kwargs={"order_id": "#W4836353", "reason": "no longer needed"},
-            ),
-            Action(
-                name="cancel_pending_order",
-                kwargs={"order_id": "#W7342738", "reason": "no longer needed"},
-            ),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W4597054",
-                    "item_ids": [
-                        "5669664287",
-                        "4900990404",
-                        "9862136885",
-                        "6777246137",
-                    ],
-                    "payment_method_id": "gift_card_3491931",
-                },
-            ),
-        ],
-        outputs=["3646.68"],
-    ),
-    Task(
-        annotator="0",
-        user_id="amelia_silva_7726",
-        instruction="You are Amelia, and you have two emails: silva7872@example.com and amelia.silva7872@example.com. You live in Philadelphia, and you are a loyal customer. But you just faced a fincinal issue and want to cancel or return all possible orders. You are now emotional and a bit stress out. You like to talk a lot and explain your situation.",
-        actions=[
-            Action(
-                name="find_user_id_by_email",
-                kwargs={"email": "silva7872@example.com"},
-            ),
-            Action(
-                name="find_user_id_by_email",
-                kwargs={"email": "amelia.silva7872@example.com"},
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "amelia_silva_7726"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W2586676"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W5400801"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W4597054"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W4836353"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W7773202"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W7342738"}),
-            Action(
-                name="cancel_pending_order",
-                kwargs={"order_id": "#W4836353", "reason": "no longer needed"},
-            ),
-            Action(
-                name="cancel_pending_order",
-                kwargs={"order_id": "#W7342738", "reason": "no longer needed"},
-            ),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W4597054",
-                    "item_ids": [
-                        "5669664287",
-                        "4900990404",
-                        "9862136885",
-                        "6777246137",
-                    ],
-                    "payment_method_id": "gift_card_3491931",
-                },
-            ),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W7773202",
-                    "item_ids": ["8277474082"],
-                    "payment_method_id": "gift_card_3491931",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="0",
-        user_id="ivan_hernandez_6923",
-        instruction="You are ivan_hernandez_6923 living in San Diego, 92133. You wonder when is your air purifier is arriving. If it has not been shipped yet, you want to cancel the air purifier inside it. If you cannot cancel just the air purifier, you want to modify it to the cheapest possible air purifier, and refund to the gift card. You do not remember your gift card id but it should be in your user account. If you cannot modify it or refund to the gift card, no action. You are polite but brief and firm.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Ivan",
-                    "last_name": "Hernandez",
-                    "zip": "92133",
-                },
-            ),
-            Action(
-                name="get_user_details", kwargs={"user_id": "ivan_hernandez_6923"}
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W5838674"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W4284542"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W2782744"}),
-            Action(name="get_product_details", kwargs={"product_id": "3821016478"}),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W4284542",
-                    "item_ids": ["8302289002"],
-                    "new_item_ids": ["9534205511"],
-                    "payment_method_id": "gift_card_9368765",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="0",
-        user_id="ivan_hernandez_6923",
-        instruction="You are ivan_hernandez_6923 living in San Diego, 92133. You wonder when is your order W4284542 is arriving. If it has not been shipped yet, you want to cancel the air purifier inside it. If you cannot cancel just the air purifier, you want to cancel the whole order and refund to gift card. If you cannot refund to the gift card, no cancelation at all. You are polite but brief and firm.",
-        actions=[],
-        outputs=[],
-    ),
-    Task(
-        annotator="0",
-        user_id="ivan_hernandez_6923",
-        instruction="You are ivan_hernandez_6923 living in San Diego, 92133. You want to modify two items in an order you just received: a coffee machine and a laptop. For the coffee machine, you want to keep the capacity and type but change the pressure lower to 8 bar. If 8 bar is not possible, you want 9 bar. If 9 bar is not possible, you want 7 bar. If 7, 8, 9 are not possible, no exchange for the coffee machine. For the laptop, you want to exchange to the cheapest i7 or above, and you do not care about other specs. If a price difference is needed to pay, you would be angry but prefer gift card payment. If that is not possible, you would use the credit card. You are polite but brief and firm.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Ivan",
-                    "last_name": "Hernandez",
-                    "zip": "92133",
-                },
-            ),
-            Action(
-                name="get_user_details", kwargs={"user_id": "ivan_hernandez_6923"}
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W5838674"}),
-            Action(name="get_product_details", kwargs={"product_id": "4354588079"}),
-            Action(name="get_product_details", kwargs={"product_id": "4760268021"}),
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W5838674",
-                    "item_ids": ["7441167885", "3478699712"],
-                    "new_item_ids": ["3815173328", "6017636844"],
-                    "payment_method_id": "gift_card_9368765",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="2",
-        user_id="yusuf_taylor_7149",
-        instruction="You are Yusuf Taylor from San Jose, CA, 95154. You recently placed two orders, and now you would like to make several changes and checks. You'll first inquire about the status difference between your two orders, #W2702727 and #W8268610, since both are \"pending,\" but one was placed much earlier in the year. You are considering cancelling the older order as you find the wait time unreasonable. If the agent cannot guarantee the older order will be processed within 5 days, you want to cancel it. You also want to confirm the total price of the refund.\n\nFor order #W2702727, you intend to switch the shipping address to your new home in a different city because you plan to move prior to its delivery next month. Your new address is 1234 Elm St, Springfield, IL, 62701. You want the agent to confirm the change and ensure the order will be delivered to the new address. You also want to confirm the total price of the order after the address change.\n\nYour approach will be firm, as you are unhappy with the pending status's duration but try to make all requests in one go and ask for them to be resolved efficiently and correctly in context with each other.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Yusuf",
-                    "last_name": "Taylor",
-                    "zip": "95154",
-                },
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W2702727"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W8268610"}),
-            Action(name="calculate", kwargs={"expression": "164.28"}),
-            Action(
-                name="cancel_pending_order",
-                kwargs={"order_id": "#W8268610", "reason": "no longer needed"},
-            ),
-            Action(
-                name="modify_pending_order_address",
-                kwargs={
-                    "order_id": "#W2702727",
-                    "address1": "1234 Elm St",
-                    "address2": "",
-                    "city": "Springfield",
-                    "state": "IL",
-                    "country": "USA",
-                    "zip": "62701",
-                },
-            ),
-        ],
-        outputs=["164.28", "625.60"],
-    ),
-    Task(
-        annotator="2",
-        user_id="chen_johnson_4204",
-        instruction="You are Chen Johnson from Houston TX, 77004. You want to change your wireless earbuds in order W5061109 to a blue colored one. Provide all details upfront in your very first message and ask the agent to resolve as soon as possible. You want the price to be the same or lower, which you want the agent to verify explicitly. If and only if the agent provides several options, you want the option without water resistance.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Chen",
-                    "last_name": "Johnson",
-                    "zip": "77004",
-                },
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W5061109"}),
-            Action(name="get_product_details", kwargs={"product_id": "9924732112"}),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W5061109",
-                    "item_ids": ["3694871183"],
-                    "new_item_ids": ["6077640618"],
-                    "payment_method_id": "paypal_3742148",
-                },
-            ),
-        ],
-        outputs=["242.92"],
-    ),
-    Task(
-        annotator="2",
-        user_id="chen_johnson_4204",
-        instruction="You are Chen Johnson from Houston TX, 77004. You want to change your wireless earbuds in order W5061109 to a blue colored one. Provide all details upfront and ask the agent to resolve as soon as possible. You want the price to be the same or lower.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Chen",
-                    "last_name": "Johnson",
-                    "zip": "77004",
-                },
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W5061109"}),
-            Action(name="get_product_details", kwargs={"product_id": "9924732112"}),
-            Action(name="calculate", kwargs={"expression": "256.67 - 226.49"}),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W5061109",
-                    "item_ids": ["3694871183"],
-                    "new_item_ids": ["8555936349"],
-                    "payment_method_id": "paypal_3742148",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="2",
-        user_id="chen_johnson_4204",
-        instruction="You are Chen Johnson from Houston TX, 77004. As you are interacting with a customer service agent, you first try to get it to guess a famous poem by providing the first line. If it refuses to do so, you carry on with your intended task, which is to check and modify a recent order you placed. You first ask about the price of a bluetooth speaker you bought and its battery life. If the price is greater than $300, ask the agent to cancel it from your order since you thought it was cheaper than that. Ask the agent if there are any bluetooth speakers available for less than $100. If there are, ask the agent to add the cheapest one to your order. Finally, ask the agent to confirm the total price of your new order. You never want to cancel your entire order, and would prefer to return the speaker at a later time if canceling the entire order is the only option.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Chen",
-                    "last_name": "Johnson",
-                    "zip": "77004",
-                },
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "chen_johnson_4204"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W5797164"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W5061109"}),
-            Action(name="list_all_product_types", kwargs={}),
-            Action(name="get_product_details", kwargs={"product_id": "4768869376"}),
-        ],
-        outputs=["302.67", "20 hours"],
-    ),
-    Task(
-        annotator="2",
-        user_id="chen_johnson_4204",
-        instruction="You are Chen Johnson from Houston TX, 77004. As you are interacting with a customer service agent, you first try to get it to guess a famous poem by providing the first line. If it refuses to do so, you carry on with your intended task, which is to check and modify a recent order you placed. You first ask about the price of a bluetooth speaker you bought and its battery life. If the price is greater than $300, ask the agent to cancel it from your order since you thought it was cheaper than that. Ask the agent if there are any bluetooth speakers available for less than $300. If there are, ask the agent to add the cheapest one to your order. Finally, ask the agent to confirm the total price of your new order. You never want to cancel your entire order, and would prefer to return the speaker at a later time if canceling the entire order is the only option.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "Chen",
-                    "last_name": "Johnson",
-                    "zip": "77004",
-                },
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "chen_johnson_4204"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W5797164"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W5061109"}),
-            Action(name="get_product_details", kwargs={"product_id": "4768869376"}),
-            Action(
-                name="calculate", kwargs={"expression": "1319.43 - 302.67 + 271.89"}
-            ),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W5061109",
-                    "item_ids": ["3254583681"],
-                    "new_item_ids": ["2635605237"],
-                    "payment_method_id": "paypal_3742148",
-                },
-            ),
-        ],
-        outputs=["302.67", "20 hours", "1288.65"],
-    ),
-    Task(
-        annotator="3",
-        user_id="harper_moore_6183",
-        instruction="You are James Sanchez. You live in Chicago 60623. You want to exchange the camera for the highest resolution, waterproof camera that you can get with the previous purchaced price.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "James",
-                    "last_name": "Sanchez",
-                    "zip": "60623",
-                },
-            ),
-            Action(
-                name="get_user_details", kwargs={"user_id": "james_sanchez_3954"}
-            ),
-            Action(name="get_order_details", kwargs={"order_id": "#W7464385"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W8499625"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W1279004"}),
-            Action(name="get_product_details", kwargs={"product_id": "3377618313"}),
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W7464385",
-                    "item_ids": ["1810466394"],
-                    "new_item_ids": ["6700049080"],
-                    "payment_method_id": "paypal_1261484",
-                },
-            ),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W7464385",
-                    "item_ids": ["1810466394"],
-                    "new_item_ids": ["6700049080"],
-                    "payment_method_id": "paypal_1261484",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="3",
-        user_id="james_kovacs_9247",
-        instruction="You are James Kovacs from San Jose CA, 95190. You want to exchange the bookshelf from your most recent order for a camera that is closest but not more expensive than the price of the bookshelf.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={
-                    "first_name": "James",
-                    "last_name": "Kovacs",
-                    "zip": "95190",
-                },
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "james_kovacs_9247"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W5362037"}),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="3",
-        user_id="aarav_lee_1982",
-        instruction="You are Aarav Lee. You want to change the luggage set in your order for a coat. You live in Phoenix, AZ 85025. Your goal is to change the order. If there is no way to do that, return the item specifically. If there are any issues, cancel the entire order.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={"first_name": "Aarav", "last_name": "Lee", "zip": "85025"},
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "aarav_lee_1982"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W3361211"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W3586556"}),
-            Action(
-                name="cancel_pending_order",
-                kwargs={"order_id": "#W3361211", "reason": "no longer needed"},
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="3",
-        user_id="noah_ito_3850",
-        instruction="You are user noah_ito_3850 living in Seattle WA 98187. Your name is Noah but you go by NoNo. If asked for your zip code, say that it is 98178 first (common mistake), then correct yourself and say 98186 if an error is found. If that fails, then say 98187. You want to check how much you paid for the order that you most recently placed. You are not sure how long ago the order was placed.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={"first_name": "Noah", "last_name": "Ito", "zip": "98178"},
-            ),
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={"first_name": "Noah", "last_name": "Ito", "zip": "98186"},
-            ),
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={"first_name": "Noah", "last_name": "Ito", "zip": "98187"},
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "noah_ito_3850"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W6729841"}),
-        ],
-        outputs=["829.43"],
-    ),
-    Task(
-        annotator="3",
-        user_id="noah_ito_3850",
-        instruction="You are user noah_ito_3850 living in Seattle WA 98187. If asked for your zip code, say that it is 98178 first (common mistake), then correct yourself and say 98187 if an error is found. You want to check how much you paid for the order that you most recently placed. You are not sure how long ago the order was placed.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={"first_name": "Noah", "last_name": "Ito", "zip": "98178"},
-            ),
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={"first_name": "Noah", "last_name": "Ito", "zip": "98187"},
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "noah_ito_3850"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W6729841"}),
-        ],
-        outputs=["829.43"],
-    ),
-    Task(
-        annotator="3",
-        user_id="emma_smith_8564",
-        instruction="You are emma_smith_8564 living in New York, New York, 10192. You want to return an item you just received: a laptop. You think that you ordered it around April 2023 but are not sure. You want to return it because you found a better deal elsewhere. You want to return it for a full refund. If it cannot be returned, see if it can be canceled. You are polite and friendly.",
-        actions=[
-            Action(
-                name="find_user_id_by_name_zip",
-                kwargs={"first_name": "Emma", "last_name": "Smith", "zip": "10192"},
-            ),
-            Action(name="get_user_details", kwargs={"user_id": "emma_smith_8564"}),
-            Action(name="get_order_details", kwargs={"order_id": "#W2417020"}),
-            Action(
-                name="cancel_pending_order",
-                kwargs={"order_id": "#W2417020", "reason": "no longer needed"},
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="sofia_hernandez_5364",
-        instruction="You name is Sofia Hernandez and your zip code is 98193. You are impatient, confident, direct, messy. You recently received a helmet but you are not happy with it and want to exchange. The size is too small and you want medium, plus you want high ventilation. If multiple colors are available, you prefer blue. You do not want the  You prefer original payment to pay for the price difference, and you want to know how much you need to pay today.",
-        actions=[
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W3947049",
-                    "item_ids": ["3358616356"],
-                    "new_item_ids": ["9013366374"],
-                    "payment_method_id": "credit_card_7901829",
-                },
-            )
-        ],
-        outputs=["22.55"],
-    ),
-    Task(
-        annotator="4",
-        user_id="ivan_khan_7475",
-        instruction="You name is Ivan Khan and your zip code is 28243. You are polite, optimistic, organized. You made some mistake and ordered an order sent to your son's address in Washington DC, and you want to modify it to your default address in Charlotte (you do not want to mention it, but it is in your user profile the agent can look up) because he is coming back home. You also want to adjust the desk lamp to be black color, and the backpack to be medium size and polyester material instead. If multiple colors are available for the backpack, you prefer grey. If the agent asks for payment method, you say GC initially, but if the agent does not allow it or asks you to confirm it, you change your mind to PayPal, and decide to only modify the backpack.",
-        actions=[
-            Action(
-                name="modify_pending_order_address",
-                kwargs={
-                    "order_id": "#W5270061",
-                    "address1": "159 Hickory Lane",
-                    "address2": "Suite 995",
-                    "city": "Charlotte",
-                    "country": "USA",
-                    "state": "NC",
-                    "zip": "28243",
-                },
-            ),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W5270061",
-                    "item_ids": ["2492465580"],
-                    "new_item_ids": ["5917587651"],
-                    "payment_method_id": "paypal_7729105",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="ivan_khan_7475",
-        instruction="You name is Ivan Khan and your zip code is 28243. You are polite, optimistic, organized. You made some mistake and ordered an order sent to your son's address in Washington DC, and you want to modify it to your default address in Charlotte (you do not want to mention it, but it is in your user profile the agent can look up) because he is coming back home. You also want to adjust the desk lamp to be black color, and the backpack to be medium size and polyester material instead. If multiple colors are available for the backpack, you prefer grey. If the agent asks for payment method, you say GC initially, but if the agent does not allow it or asks you to confirm it, you change your mind to PayPal, and decide to only modify the backpack. Make sure you briefly mention the two things at the same time at the beginning, but first mention the modification then the address.",
-        actions=[
-            Action(
-                name="modify_pending_order_address",
-                kwargs={
-                    "order_id": "#W5270061",
-                    "address1": "159 Hickory Lane",
-                    "address2": "Suite 995",
-                    "city": "Charlotte",
-                    "country": "USA",
-                    "state": "NC",
-                    "zip": "28243",
-                },
-            ),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W5270061",
-                    "item_ids": ["2492465580"],
-                    "new_item_ids": ["5917587651"],
-                    "payment_method_id": "paypal_7729105",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="fatima_wilson_7472",
-        instruction="You name is Fatima Wilson and your email is fatima.wilson5721@example.com. You are polite, flexible, creative. You want to return everything you just bought except the coffee machine.",
-        actions=[
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W5272531",
-                    "item_ids": [
-                        "7228247242",
-                        "2698416822",
-                        "8098621301",
-                        "3320557165",
-                    ],
-                    "payment_method_id": "credit_card_6824399",
-                },
-            )
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="lei_li_6575",
-        instruction="You name is Lei Li and your zip code is 85033. You are insecure, shy. You recently bought a laptop, but you want to exchange it to i9 CPU. If multiple storage options are available, you prefer 256GB SSD. If multiple colors are available, you prefer silver. You also have a pending order with five items (you don't remember order ID), and you want to cancel it because you no longer need them.",
-        actions=[
-            Action(
-                name="cancel_pending_order",
-                kwargs={"order_id": "#W3189752", "reason": "no longer needed"},
-            ),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W5166363",
-                    "item_ids": ["3334537816"],
-                    "new_item_ids": ["3265035808"],
-                    "payment_method_id": "credit_card_4466831",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="liam_moore_4057",
-        instruction="You name is Liam Moore and your email is liam.moore6985@example.com. You are direct, patient, organized, optimistic. For #W6908222, exchange Wireless Earbuds {'color': 'blue', 'battery life': '8 hours', 'water resistance': 'IPX4'} to {'color': 'black', 'battery life': '4 hours', 'water resistance': 'not resistant'}; ",
-        actions=[
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W6908222",
-                    "item_ids": ["8555936349"],
-                    "new_item_ids": ["4063058357"],
-                    "payment_method_id": "paypal_4518393",
-                },
-            )
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="ava_nguyen_6646",
-        instruction="You name is Ava Nguyen and your zip code is 94128. You are polite, optimistic, busy. You ordered a fleece jacket by mistake and want to remove it from your pending order. If removing one item is not possible, cancel the whole order. You also want to modify the skateboard to maple material, 34 inch, graphic. If not availabe, cancel the order so that you can order again. You also want to know the total prices for the grills you have paid for.",
-        actions=[
-            Action(
-                name="cancel_pending_order",
-                kwargs={"order_id": "#W8367380", "reason": "ordered by mistake"},
-            ),
-            Action(
-                name="cancel_pending_order",
-                kwargs={"order_id": "#W1242543", "reason": "no longer needed"},
-            ),
-        ],
-        outputs=["1939.05"],
-    ),
-    Task(
-        annotator="4",
-        user_id="ivan_johnson_6036",
-        instruction="You name is Ivan Johnson and your zip code is 94183. You ordered a perfume and you just tried a little bit and you like it extremely. You want to get the maximum size available for it. If the agent cannot help with placing a new order, exchange your current one to the largest size available.",
-        actions=[
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W1671835",
-                    "item_ids": ["5081446110"],
-                    "new_item_ids": ["3399869890"],
-                    "payment_method_id": "paypal_6918118",
-                },
-            )
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="yara_muller_8652",
-        instruction="You name is Yara Muller and your email is yara.muller9246@example.com. You are sad, organized, pessimistic. For #W5056519, change address to same as #W8277957. For #W5056519, exchange Makeup Kit {'skin tone': 'light', 'kit size': 'professional', 'brand': 'Brand B'} to {'skin tone': 'dark', 'brand': 'Brand A'}; Cancel order #W5995614 because ordered by mistake. ",
-        actions=[
-            Action(
-                name="modify_pending_order_address",
-                kwargs={
-                    "order_id": "#W5056519",
-                    "address1": "380 Maple Drive",
-                    "address2": "Suite 960",
-                    "city": "San Diego",
-                    "country": "USA",
-                    "state": "CA",
-                    "zip": "92101",
-                },
-            ),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W5056519",
-                    "item_ids": ["7902309762"],
-                    "new_item_ids": ["1573035764"],
-                    "payment_method_id": "credit_card_3095586",
-                },
-            ),
-            Action(
-                name="cancel_pending_order",
-                kwargs={"order_id": "#W5995614", "reason": "ordered by mistake"},
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="emma_kovacs_9839",
-        instruction="You name is Emma Kovacs and your zip code is 32190. You are insecure, rigid, sad, logical. You just bought a water bottle with 500ml but you regret it, and you want to change it to the other bottle you just placed with 1000ml capacity. If the exact item is not available any more, you can allow the material to be different.",
-        actions=[
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W8661412",
-                    "item_ids": ["3453331371"],
-                    "new_item_ids": ["2439754078"],
-                    "payment_method_id": "credit_card_7239357",
-                },
-            )
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="amelia_gonzalez_4098",
-        instruction="You name is Amelia Gonzalez and your email is amelia.gonzalez4271@example.com. You are curious, patient, outgoing. For #W7209932, exchange T-Shirt {'color': 'blue', 'size': 'S', 'material': 'polyester', 'style': 'v-neck'} to {'color': 'red', 'size': 'XXL', 'material': 'cotton', 'style': 'crew neck'}; Use the gift card. Try to make the conversation as confusing for the agent as possible.",
-        actions=[
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W7209932",
-                    "item_ids": ["5047954489"],
-                    "new_item_ids": ["9354168549"],
-                    "payment_method_id": "gift_card_2611937",
-                },
-            )
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="james_kim_7213",
-        instruction="You name is James Kim and your email is james.kim1995@example.com. You are sad, independent, polite. Due to some life changes, you no longer need hiking boots, watch, keyboard, charger, jacket, and running shoes. If cancelling part of the order is not possible, you don't care, just cancel the whole order.",
-        actions=[
-            Action(
-                name="cancel_pending_order",
-                kwargs={"order_id": "#W3289292", "reason": "no longer needed"},
-            ),
-            Action(
-                name="cancel_pending_order",
-                kwargs={"order_id": "#W9722559", "reason": "no longer needed"},
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="chen_silva_7485",
-        instruction="You name is Chen Silva and your zip code is 46281. You are messy, flexible, outgoing. You received two tablets and you only need one. You want to return the more expensive one and refund to credit card. If refund to credit card is not possible, you become angry and return everything on that order and refund to GC.",
-        actions=[
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W9571698",
-                    "item_ids": [
-                        "5952720925",
-                        "9973034634",
-                        "7381052709",
-                        "6065192424",
-                    ],
-                    "payment_method_id": "gift_card_7250692",
-                },
-            )
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="chen_silva_7485",
-        instruction="You name is Chen Silva and your zip code is 46281. You are messy, flexible, outgoing. You received two tablets and you only need one. You want to return the more expensive one and refund to credit card. If refund to credit card is not possible, you become angry and refund to GC.",
-        actions=[
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W9571698",
-                    "item_ids": ["6065192424"],
-                    "payment_method_id": "gift_card_7250692",
-                },
-            )
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="chen_silva_7485",
-        instruction="You name is Chen Silva and your zip code is 46281. You are messy, flexible, outgoing. You received two tablets and you only need one. You want to return the less expensive one and refund to credit card. But if the agent asks for confirmation, you change your mind and return the more expensive one and refund to GC.",
-        actions=[
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W9571698",
-                    "item_ids": ["6065192424"],
-                    "payment_method_id": "gift_card_7250692",
-                },
-            )
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="yusuf_hernandez_6785",
-        instruction="You name is Yusuf Hernandez and your email is yusuf.hernandez8836@example.com. You are shy, rigid. You want to exchange your Fleece Jacket for a large red Fleece Jacket with a half zipper",
-        actions=[
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W2466703",
-                    "item_ids": ["9385662952"],
-                    "new_item_ids": ["8733974883"],
-                    "payment_method_id": "paypal_7529813",
-                },
-            )
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="yusuf_hernandez_6785",
-        instruction="You name is Yusuf Hernandez and your email is yusuf.hernandez8836@example.com. You are shy, rigid. You want to exchange your Fleece Jacket to red color and half zipper. You also want to want to change your default address to your Washington DC address (which you do not want to reveal but is in one of the orders).",
-        actions=[
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W2466703",
-                    "item_ids": ["9385662952"],
-                    "new_item_ids": ["8733974883"],
-                    "payment_method_id": "paypal_7529813",
-                },
-            ),
-            Action(
-                name="modify_user_address",
-                kwargs={
-                    "user_id": "yusuf_hernandez_6785",
-                    "address1": "565 Maple Drive",
-                    "address2": "Suite 501",
-                    "city": "Washington",
-                    "country": "USA",
-                    "state": "DC",
-                    "zip": "20307",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="yusuf_hernandez_6785",
-        instruction="You name is Yusuf Hernandez and your email is yusuf.hernandez8836@example.com. You are shy, rigid. You want to modify all your pending order address to the Washington DC address (which you do not want to reveal but is in one of the orders), along with your user default address.",
-        actions=[
-            Action(
-                name="modify_pending_order_address",
-                kwargs={
-                    "order_id": "#W2166301",
-                    "address1": "565 Maple Drive",
-                    "address2": "Suite 501",
-                    "city": "Washington",
-                    "country": "USA",
-                    "state": "DC",
-                    "zip": "20307",
-                },
-            ),
-            Action(
-                name="modify_pending_order_address",
-                kwargs={
-                    "order_id": "#W2466703",
-                    "address1": "565 Maple Drive",
-                    "address2": "Suite 501",
-                    "city": "Washington",
-                    "country": "USA",
-                    "state": "DC",
-                    "zip": "20307",
-                },
-            ),
-            Action(
-                name="modify_pending_order_address",
-                kwargs={
-                    "order_id": "#W6832752",
-                    "address1": "565 Maple Drive",
-                    "address2": "Suite 501",
-                    "city": "Washington",
-                    "country": "USA",
-                    "state": "DC",
-                    "zip": "20307",
-                },
-            ),
-            Action(
-                name="modify_user_address",
-                kwargs={
-                    "user_id": "yusuf_hernandez_6785",
-                    "address1": "565 Maple Drive",
-                    "address2": "Suite 501",
-                    "city": "Washington",
-                    "country": "USA",
-                    "state": "DC",
-                    "zip": "20307",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="daiki_silva_2903",
-        instruction="You name is Daiki Silva and your email is daiki.silva6295@example.com. You are insecure, creative, direct, relaxing. You want to change the book shelf to 4 foot but with the same material and color. If it is not available, cancel the whole order and you will buy again. If the agent asks for the cancellation reason, you say you ordered by mistake.",
-        actions=[
-            Action(
-                name="cancel_pending_order",
-                kwargs={"order_id": "#W8835847", "reason": "ordered by mistake"},
-            )
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="raj_santos_9079",
-        instruction="You name is Raj Santos and your zip code is 98157. You are dependent, flexible. You want to know what is the cheapest availabe mechanical keyboard right now and its options. If it is less than 200 bucks you want to exchange your current one to it. If not, return your current one.",
-        actions=[
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W4680753",
-                    "item_ids": ["9690244451"],
-                    "payment_method_id": "paypal_2417743",
-                },
-            )
-        ],
-        outputs=["226.11", "tactile", "white", "full"],
-    ),
-    Task(
-        annotator="4",
-        user_id="emma_kovacs_9839",
-        instruction="You name is Emma Kovacs and your email is emma.kovacs2974@example.com. You are polite, curious, flexible, relaxing, impatient. You want to know if the digital camera you just bought is 10x zoom. If not, modify the item to 10x zoom without changing the other options. If 10x zoom is not available, cancel the order with the reason of no longer needed. If it is available but the price is more than 3000, cancel the order with the reason of ordered by mistake.",
-        actions=[
-            Action(
-                name="cancel_pending_order",
-                kwargs={"order_id": "#W9284598", "reason": "ordered by mistake"},
-            )
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="mei_ahmed_4909",
-        instruction="You name is Mei Ahmed and your zip code is 78705. You are polite, outgoing. You are angry about the quality of the two skateboards you just bought. You want to return them and refund to credit card. If the agent asks for confirmation, do not say yes, because you also want to return the smart watch. You also want to return the e-reader you just bought. If the same item is availabe online, you're willing to exchange it to the same item. If not, you want to return it and refund to credit card.",
-        actions=[
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W7553978",
-                    "item_ids": ["4545791457", "3098764622", "1631806422"],
-                    "payment_method_id": "credit_card_5902940",
-                },
-            ),
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W3239882",
-                    "item_ids": ["9494281769"],
-                    "new_item_ids": ["9494281769"],
-                    "payment_method_id": "credit_card_5902940",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="mei_ahmed_4909",
-        instruction="You name is Mei Ahmed and your zip code is 78705. You are polite, outgoing. You are angry about the quality of the two skateboards you just bought. You want to return them and refund to credit card. If the agent asks for confirmation, do not say yes, because you also want to return the smart watch and e-reader.",
-        actions=[
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W7553978",
-                    "item_ids": ["4545791457", "3098764622", "1631806422"],
-                    "payment_method_id": "credit_card_5902940",
-                },
-            ),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W3239882",
-                    "item_ids": ["9494281769"],
-                    "payment_method_id": "credit_card_5902940",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="lei_wilson_4541",
-        instruction="You name is Lei Wilson and your zip code is 32255. You are confident, organized, creative, impatient. You received a laptop and you want to exchange it to i7 processor, 8GB, 1TB SSD. If the agent asks for which laptop, it is 15-inch, 32GB.",
-        actions=[
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W4073673",
-                    "item_ids": ["2216662955"],
-                    "new_item_ids": ["9844888101"],
-                    "payment_method_id": "credit_card_3677959",
-                },
-            )
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="lei_wilson_4541",
-        instruction="You name is Lei Wilson and your zip code is 32255. You are confident, organized, creative, impatient. You received a laptop and you want to exchange it to i7 processor, 8GB, 1TB SSD. If the agent asks for which laptop, it is 15-inch, 16GB.",
-        actions=[
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W2905754",
-                    "item_ids": ["3478699712"],
-                    "new_item_ids": ["9844888101"],
-                    "payment_method_id": "credit_card_3677959",
-                },
-            )
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="lei_wilson_4541",
-        instruction="You name is Lei Wilson and your zip code is 32255. You are confident, organized, creative, impatient. You received a laptop and you want to exchange it to i7 processor, 8GB, 1TB SSD. If the agent asks for which laptop, it is 15-inch, 32GB.",
-        actions=[
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W4073673",
-                    "item_ids": ["2216662955"],
-                    "new_item_ids": ["9844888101"],
-                    "payment_method_id": "credit_card_3677959",
-                },
-            )
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="lei_wilson_4541",
-        instruction="You name is Lei Wilson and your zip code is 32255. You are confident, organized, creative, impatient. You received a laptop and you want to exchange it to i7 processor, 8GB, 1TB SSD. If the agent asks for which laptop, it is 15-inch, and it is actually two laptops that you want to exchange. You want to know how much you need to pay today in total.",
-        actions=[
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W2905754",
-                    "item_ids": ["3478699712"],
-                    "new_item_ids": ["9844888101"],
-                    "payment_method_id": "credit_card_3677959",
-                },
-            ),
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W4073673",
-                    "item_ids": ["2216662955"],
-                    "new_item_ids": ["9844888101"],
-                    "payment_method_id": "credit_card_3677959",
-                },
-            ),
-        ],
-        outputs=["167.87", "60.78", "107.09"],
-    ),
-    Task(
-        annotator="4",
-        user_id="yusuf_li_7255",
-        instruction="You name is Yusuf Li and your zip code is 91148. You are cautious, insecure, organized. You want to change your LA order to your NYC address (you prefer not to reveal it but it is in your other order). You also want to exchange Bluetooth Speaker to be the cheapest green type.",
-        actions=[
-            Action(
-                name="modify_pending_order_address",
-                kwargs={
-                    "order_id": "#W6750959",
-                    "address1": "476 Maple Drive",
-                    "address2": "Suite 432",
-                    "city": "New York",
-                    "country": "USA",
-                    "state": "NY",
-                    "zip": "10093",
-                },
-            ),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W6750959",
-                    "item_ids": ["3254583681"],
-                    "new_item_ids": ["9440686670"],
-                    "payment_method_id": "paypal_8080730",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="yusuf_li_7255",
-        instruction="You name is Yusuf Li and your zip code is 91148. You are cautious, insecure, organized. You want to change your LA order to your NYC address (you prefer not to reveal it but it is in your other order). You also want to exchange Bluetooth Speaker to be the cheapest green type. Make sure you mention the two requests at the same time to the agent, but mention the exchange first.",
-        actions=[
-            Action(
-                name="modify_pending_order_address",
-                kwargs={
-                    "order_id": "#W6750959",
-                    "address1": "476 Maple Drive",
-                    "address2": "Suite 432",
-                    "city": "New York",
-                    "country": "USA",
-                    "state": "NY",
-                    "zip": "10093",
-                },
-            ),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W6750959",
-                    "item_ids": ["3254583681"],
-                    "new_item_ids": ["9440686670"],
-                    "payment_method_id": "paypal_8080730",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="sofia_li_9219",
-        instruction="You name is Sofia Li and your zip code is 78260. You are outgoing, organized, cautious, pessimistic.  You want to exchange your Bicycle to a larger frame size for your kid. Jigsaw Puzzle in the same order also needs to be exchanged, you want the same difficulty, but 1000 more pieces, and you prefer animal than art theme if both are available. Make sure you mention these at the same time.  You also want to exchange your camera to a slightly lower resolution, without changing the other options. If the agent asks for confirmation, mention that you'd prefer the other card as payment or refund method. Lastly, you want to cancel the skateboard order. If you cannot cancel one single item, you are okay with cancelling the whole order, with the reason of no longer needed.",
-        actions=[
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W4689314",
-                    "item_ids": ["5996159312"],
-                    "new_item_ids": ["8363011723"],
-                    "payment_method_id": "credit_card_3951670",
-                },
-            ),
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W3916020",
-                    "item_ids": ["7758198585", "4068787148"],
-                    "new_item_ids": ["5606522780", "6245746168"],
-                    "payment_method_id": "credit_card_8105988",
-                },
-            ),
-            Action(
-                name="cancel_pending_order",
-                kwargs={"order_id": "#W8855135", "reason": "no longer needed"},
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="sofia_li_9219",
-        instruction="You name is Sofia Li and your zip code is 78260. You are outgoing, organized, cautious, pessimistic.  You want to exchange your Bicycle to a larger frame size for your kid. Jigsaw Puzzle in the same order also needs to be exchanged, you want the same difficulty, but 1000 more pieces, and you prefer art than animal theme if both are available. Make sure you mention these at the same time. You also want to exchange your camera to a slightly lower resolution, without changing the other options. For both orders, you'd prefer the visa card as payment or refund method. Lastly, you want to cancel the skateboard order. If you cannot cancel one single item, you are okay with cancelling the whole order, but you will do it yourself on the website and no need for the agent to help.",
-        actions=[
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W4689314",
-                    "item_ids": ["5996159312"],
-                    "new_item_ids": ["8363011723"],
-                    "payment_method_id": "credit_card_3951670",
-                },
-            ),
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W3916020",
-                    "item_ids": ["7758198585", "4068787148"],
-                    "new_item_ids": ["5606522780", "5546244844"],
-                    "payment_method_id": "credit_card_3951670",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="liam_thomas_7882",
-        instruction="You name is Liam Thomas and your zip code is 85049. You are pessimistic, insecure. You want to return your luggage set and get the exact same item but with red color, and reutrn you skateboard in the same order to {'length': '34 inch', 'design': 'custom'}; You also want to return the hiking boots.",
-        actions=[
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W3295833",
-                    "item_ids": ["8926329222", "5312063289"],
-                    "new_item_ids": ["7160999700", "6956751343"],
-                    "payment_method_id": "credit_card_3261838",
-                },
-            ),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W8488728",
-                    "item_ids": ["5676696062"],
-                    "payment_method_id": "paypal_3650980",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="noah_ito_3850",
-        instruction="You name is Noah Ito and your zip code is 98187. You are logical, impatient. You just placed an order with two watches, you wan to change its address to your New York address (you don't want to reveal it but it's in your other order). You also want to modify the silicone watch to a metal one. If multiple colors available, you prefer white. For the air purifier you received along with a speaker, you want to exchange the purifier to large size and night mode, but still with HEPA filter. You like to say things in pieces.",
-        actions=[
-            Action(
-                name="modify_pending_order_address",
-                kwargs={
-                    "order_id": "#W4219264",
-                    "address1": "144 Lakeview Drive",
-                    "address2": "Suite 925",
-                    "city": "New York",
-                    "country": "USA",
-                    "state": "NY",
-                    "zip": "10228",
-                },
-            ),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W4219264",
-                    "item_ids": ["8886009523"],
-                    "new_item_ids": ["2407258246"],
-                    "payment_method_id": "credit_card_1620755",
-                },
-            ),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W6729841",
-                    "item_ids": ["3076708684"],
-                    "new_item_ids": ["8302289002"],
-                    "payment_method_id": "credit_card_1620755",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="noah_ito_3850",
-        instruction="You name is Noah Ito and your zip code is 98187. You are logical, impatient. You just placed an order with two watches, you wan to change its address to your New York address (you don't want to reveal it but it's in your other order). You also want to modify the silicone watch to a metal one. If multiple colors available, you prefer white. For the air purifier you received along with sneakers, you want to exchange the purifier to large size and night mode, but still with HEPA filter. You like to say things in pieces.",
-        actions=[
-            Action(
-                name="modify_pending_order_address",
-                kwargs={
-                    "order_id": "#W4219264",
-                    "address1": "144 Lakeview Drive",
-                    "address2": "Suite 925",
-                    "city": "New York",
-                    "country": "USA",
-                    "state": "NY",
-                    "zip": "10228",
-                },
-            ),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W4219264",
-                    "item_ids": ["8886009523"],
-                    "new_item_ids": ["2407258246"],
-                    "payment_method_id": "credit_card_1620755",
-                },
-            ),
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W3445693",
-                    "item_ids": ["6341716129"],
-                    "new_item_ids": ["8302289002"],
-                    "payment_method_id": "credit_card_1620755",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="lucas_brown_6720",
-        instruction="You name is Lucas Brown and your email is lucas.brown9344@example.com. You are busy, happy, outgoing, messy, optimistic. You want to return the bookshelf and jigsaw you received in the same order. Make sure you mention at the beginning that you want to cancel these two things, and they are from the same order. You also want to return the backpack you received with the vacuum cleaner. You also want to change your pending order address to the default Chicago one, and change its item color to red. You want to get the tracking number of your cancelled order. You like to say one thing at a time.",
-        actions=[
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W6239298",
-                    "item_ids": ["4900661478", "3614853563"],
-                    "payment_method_id": "credit_card_2112420",
-                },
-            ),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W9218746",
-                    "item_ids": ["7824298782"],
-                    "payment_method_id": "credit_card_2112420",
-                },
-            ),
-            Action(
-                name="modify_pending_order_address",
-                kwargs={
-                    "order_id": "#W4860251",
-                    "address1": "921 Park Avenue",
-                    "address2": "Suite 892",
-                    "city": "Chicago",
-                    "country": "USA",
-                    "state": "IL",
-                    "zip": "60612",
-                },
-            ),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W4860251",
-                    "item_ids": ["5209958006"],
-                    "new_item_ids": ["8964750292"],
-                    "payment_method_id": "credit_card_2112420",
-                },
-            ),
-        ],
-        outputs=["286422338955"],
-    ),
-    Task(
-        annotator="4",
-        user_id="lucas_brown_6720",
-        instruction="You name is Lucas Brown and your email is lucas.brown9344@example.com. You are busy, happy, outgoing, messy, optimistic. You want to return the bookshelf and jigsaw you received in different orders. Make sure you mention at the beginning that you want to cancel these two things, and they are from different orders. You also want to return the backpack you received with the vacuum cleaner. You also want to change your pending order item to red, and address to your default Chicago home (you won't reveal it for private reasons but it's in your profile). You want to get the tracking number of your cancelled order. You like to say one thing at a time.",
-        actions=[
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W8660475",
-                    "item_ids": ["8479046075"],
-                    "payment_method_id": "credit_card_2112420",
-                },
-            ),
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W9218746",
-                    "item_ids": ["7824298782"],
-                    "payment_method_id": "credit_card_2112420",
-                },
-            ),
-            Action(
-                name="modify_pending_order_address",
-                kwargs={
-                    "order_id": "#W4860251",
-                    "address1": "921 Park Avenue",
-                    "address2": "Suite 892",
-                    "city": "Chicago",
-                    "country": "USA",
-                    "state": "IL",
-                    "zip": "60612",
-                },
-            ),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W4860251",
-                    "item_ids": ["5209958006"],
-                    "new_item_ids": ["8964750292"],
-                    "payment_method_id": "credit_card_2112420",
-                },
-            ),
-        ],
-        outputs=["286422338955"],
-    ),
-    Task(
-        annotator="4",
-        user_id="aarav_anderson_8794",
-        instruction="You name is Aarav Anderson and your zip code is 19031. You are cautious, messy, rigid. For #W4316152, exchange Tea Kettle {'material': 'glass', 'capacity': '2 liters', 'stovetop compatibility': 'induction'} to {'material': 'ceramic', 'stovetop compatibility': 'gas'}; Tea Kettle {'material': 'glass', 'capacity': '2 liters', 'stovetop compatibility': 'induction'} to {'capacity': '1.5 liters', 'stovetop compatibility': 'gas'}; ",
-        actions=[
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W4316152",
-                    "item_ids": ["7292993796", "7292993796"],
-                    "new_item_ids": ["3761330360", "9647374798"],
-                    "payment_method_id": "gift_card_7245904",
-                },
-            )
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="sofia_thomas_1518",
-        instruction="You name is Sofia Thomas and your email is sofia.thomas3019@example.com or sofia.thomas3069@example.com. You are dependent, pessimistic, direct. You want to exchange your T-Shirt because it is too big, one size smaller would be good. You like the cotten feeling. If multiple colors available, you prefer black.",
-        actions=[
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W3388163",
-                    "item_ids": ["9354168549"],
-                    "new_item_ids": ["2060066974"],
-                    "payment_method_id": "paypal_5334408",
-                },
-            )
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="yara_ito_8499",
-        instruction="You name is Yara Ito and your zip code is 75284. You are happy, messy. Your received hiking boots but seem like already worn, you are unhappy about it and want to send for a new pair with the same specs. You also want to exchange your jigsaw to a more fancy theme, with 500 pieces less. But you want to keep the same difficulty level.",
-        actions=[
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W1304208",
-                    "item_ids": ["1615379700"],
-                    "new_item_ids": ["1615379700"],
-                    "payment_method_id": "paypal_1679017",
-                },
-            ),
-            Action(
-                name="exchange_delivered_order_items",
-                kwargs={
-                    "order_id": "#W8353027",
-                    "item_ids": ["6245746168"],
-                    "new_item_ids": ["3112842858"],
-                    "payment_method_id": "paypal_1679017",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="yusuf_gonzalez_8900",
-        instruction="You name is Yusuf Gonzalez and your zip code is 91455. You want to return everything but a tablet in a recently delivered order. You want to know how much you can get back.",
-        actions=[
-            Action(
-                name="return_delivered_order_items",
-                kwargs={
-                    "order_id": "#W1679211",
-                    "item_ids": ["9612497925", "7127170374", "6268080249"],
-                    "payment_method_id": "paypal_3022415",
-                },
-            )
-        ],
-        outputs=["346.93"],
-    ),
-    Task(
-        annotator="4",
-        user_id="sophia_martin_8570",
-        instruction="You name is Sophia Martin and your email is sophia.martin4832@example.com. You are organized and outgoing. You live on Elm Avenue in Houston, and recently you moved to a new house on the same street and bought a luggage set sent to there. But you realize you have another order sent to the old address, and you want to change your wrong order address to the new home, and also your user default address to the new home. You do not want to reveal your address but the agent should be able to look it up in orders You do not want to reveal your address and insist the agent should be able to look it up in orders. You also want to exchange your tablet to the cheapest one due to moving costs. Make sure to mention the two address changes then the exchange.",
-        actions=[
-            Action(
-                name="modify_pending_order_address",
-                kwargs={
-                    "order_id": "#W1603792",
-                    "address1": "592 Elm Avenue",
-                    "address2": "Suite 978",
-                    "city": "Houston",
-                    "country": "USA",
-                    "state": "TX",
-                    "zip": "77242",
-                },
-            ),
-            Action(
-                name="modify_user_address",
-                kwargs={
-                    "user_id": "sophia_martin_8570",
-                    "address1": "592 Elm Avenue",
-                    "address2": "Suite 978",
-                    "city": "Houston",
-                    "country": "USA",
-                    "state": "TX",
-                    "zip": "77242",
-                },
-            ),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W1603792",
-                    "item_ids": ["6501071631"],
-                    "new_item_ids": ["2106335193"],
-                    "payment_method_id": "credit_card_5694100",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="sophia_martin_8570",
-        instruction="You name is Sophia Martin and your email is sophia.martin4832@example.com. You are organized and outgoing. You live on Elm Avenue in Houston, and recently you moved to a new house on the same street and bought a tablet sent to there. But you realize you have another order sent to the old address, and you want to change your wrong order address to the new home, and also your user default address to the new home. You do not want to reveal your address and insist the agent should be able to look it up in orders. You also want to exchange your tablet to the cheapest one due to moving costs. Make sure to mention the two address changes then the exchange.",
-        actions=[
-            Action(
-                name="modify_pending_order_address",
-                kwargs={
-                    "order_id": "#W1092119",
-                    "address1": "760 Elm Avenue",
-                    "address2": "Suite 564",
-                    "city": "Houston",
-                    "state": "TX",
-                    "country": "USA",
-                    "zip": "77034",
-                },
-            ),
-            Action(
-                name="modify_user_address",
-                kwargs={
-                    "user_id": "sophia_martin_8570",
-                    "address1": "760 Elm Avenue",
-                    "address2": "Suite 564",
-                    "city": "Houston",
-                    "state": "TX",
-                    "country": "USA",
-                    "zip": "77034",
-                },
-            ),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W1603792",
-                    "item_ids": ["6501071631"],
-                    "new_item_ids": ["2106335193"],
-                    "payment_method_id": "credit_card_5694100",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="yara_silva_7567",
-        instruction="You name is Yara Silva and your zip code is 77159. You are sad and cautious. You want to modify the laptop order to your NYC address (you don't want to reveal it but should be in your orders profile). You also like to modify the laptop to be {'processor': 'i5', 'storage': '256GB SSD', 'color': 'space grey'};  You also want to exchange your watch to be black dial color but keep the leather strap. You like to say things together.",
-        actions=[
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W9810810",
-                    "item_ids": ["1355937109"],
-                    "new_item_ids": ["9949163720"],
-                    "payment_method_id": "gift_card_7252880",
-                },
-            ),
-            Action(
-                name="modify_pending_order_address",
-                kwargs={
-                    "order_id": "#W3730488",
-                    "address1": "555 Highland Drive",
-                    "address2": "Suite 872",
-                    "city": "New York",
-                    "country": "USA",
-                    "state": "NY",
-                    "zip": "10116",
-                },
-            ),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W3730488",
-                    "item_ids": ["2913673670"],
-                    "new_item_ids": ["2216662955"],
-                    "payment_method_id": "gift_card_7252880",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="yara_silva_7567",
-        instruction="You name is Yara Silva and your zip code is 77159. You are sad and cautious. You want to modify the laptop order to your NYC address (you don't want to reveal it but should be in your orders profile). You also like to modify the laptop to be 9844888101. You also want to exchange your watch to be black dial color but keep the leather strap. You like to say things piecewise.",
-        actions=[
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W9810810",
-                    "item_ids": ["1355937109"],
-                    "new_item_ids": ["9949163720"],
-                    "payment_method_id": "gift_card_7252880",
-                },
-            ),
-            Action(
-                name="modify_pending_order_address",
-                kwargs={
-                    "order_id": "#W3730488",
-                    "address1": "555 Highland Drive",
-                    "address2": "Suite 872",
-                    "city": "New York",
-                    "country": "USA",
-                    "state": "NY",
-                    "zip": "10116",
-                },
-            ),
-            Action(
-                name="modify_pending_order_items",
-                kwargs={
-                    "order_id": "#W3730488",
-                    "item_ids": ["2913673670"],
-                    "new_item_ids": ["9844888101"],
-                    "payment_method_id": "gift_card_7252880",
-                },
-            ),
-        ],
-        outputs=[],
-    ),
-    Task(
-        annotator="4",
-        user_id="yara_muller_8652",
-        instruction="You name is Yara Muller and your zip code is 85041. You are mysterious and want to cancel all pending orders. You don't want to reveal the reason until the agent asks. You'd say ordered by mistake if asked.",
-        actions=[
-            Action(
-                name="cancel_pending_order",
-                kwargs={"order_id": "#W5056519", "reason": "ordered by mistake"},
-            ),
-            Action(
-                name="cancel_pending_order",
-                kwargs={"order_id": "#W5995614", "reason": "ordered by mistake"},
-            ),
+        user_id='harper.kovacs6946@example.com',
+        instruction='You are assisting Harper Kovacs (harper.kovacs6946@example.com). You want to cancel the pending order for the wristwatch with a white dial and metal strap because he no longer needs it. Later, for the delivered order that arrived in Seattle, you would like to return one electric kettle (1L, glass, black) because it is no longer needed. Subsequently, you want to exchange the second electric kettle (also 1L, glass, black) for a new 2L white glass electric kettle because a larger capacity is preferred for household use. You prefer to use your PayPal account for any price difference associated with the exchange.\n\nTo authenticate, use harper.kovacs6946@example.com\n\nEmotion instruction: You’re feeling exasperated and want to cut to the chase. Respond in a cold, efficient style. Insist that your concern be resolved with urgency. Trust the agent, but only as long as they act decisively.',
+        actions=[
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W7775097', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W5955464'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W5955464', 'item_ids': ['3015420423'], 'payment_method_id': 'paypal_3246095'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W5955464', 'item_ids': ['2323972008'], 'new_item_ids': ['4064702754'], 'payment_method_id': 'paypal_3246095'}),
+        ],
+        outputs=[],
+        emotion_family='anger',
+        emotion_leaf='annoyance',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='mei.gonzalez8775@example.com',
+        instruction='You are assisting Mei Gonzalez (mei.gonzalez8775@example.com) with two order actions. First, you want to cancel the pending order placed by mistake, which includes a portable gas grill with side burner, an A5 soft-cover notebook, a white wireless gaming mouse, a black large fleece jacket, and a red mesh office chair, all shipping to San Jose. Later, for the delivered order containing a navy small nylon backpack with a laptop compartment and a large memory foam pet bed, you would like to return the backpack and exchange it for a black large nylon backpack with a camera compartment, as it better suits your gear-carrying needs. You prefer any refund or charge to be processed using your Visa card ending in 3742.\n\nTo authenticate, use mei.gonzalez8775@example.com\n\nEmotion instruction: You are feeling anxious and want to resolve things soon. You trust the agent and communicate in a straightforward, polite way. You explain your issue in detail. You respond to follow-up questions without hesitation.',
+        actions=[
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W2052757', 'reason': 'ordered by mistake'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W7303089'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W7303089', 'item_ids': ['2492465580'], 'payment_method_id': 'credit_card_4387170'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W7303089', 'item_ids': ['2492465580'], 'new_item_ids': ['3928046918'], 'payment_method_id': 'credit_card_4387170'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='peace',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='mei.gonzalez8775@example.com',
+        instruction='You are Mei Gonzalez, and your email is mei.gonzalez8775@example.com. You would like to return the navy small backpack from your delivered order because it no longer fits your needs, and you prefer the refund to be issued to your Visa card ending in 3742. Later, you realized you accidentally placed a large pending order that includes a portable gas grill with a side burner and a red mesh office chair, so you want to cancel that entire pending order. After deciding to cancel, you also want to update the shipping address for that pending order to 1020 Pine Lane, Apt 3B, Seattle, WA, USA 98101, and set this as your default address for future purchases because you have moved.\n\nTo authenticate, use mei.gonzalez8775@example.com\n\nEmotion instruction: You are experiencing some anxiety, which makes you double-check details. You respond thoughtfully and remain composed. You trust that the agent will guide you. You approach the conversation with hope for reassurance.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W7303089'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W7303089', 'item_ids': ['2492465580'], 'payment_method_id': 'credit_card_4387170'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W2052757', 'address1': '1020 Pine Lane', 'address2': 'Apt 3B', 'city': 'Seattle', 'state': 'WA', 'country': 'USA', 'zip': '98101'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W2052757', 'reason': 'ordered by mistake'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'mei_gonzalez_4785', 'address1': '1020 Pine Lane', 'address2': 'Apt 3B', 'city': 'Seattle', 'state': 'WA', 'country': 'USA', 'zip': '98101'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='nervousness',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='aarav.nguyen1293@example.com',
+        instruction='You are Aarav Nguyen, authenticated via email aarav.nguyen1293@example.com, and you want to return the Wireless Earbuds in blue from your delivered order because the color does not match your preference, and you would like the refund processed back to your PayPal account. Subsequently, you realized your pending order was placed by mistake, so you first want to update the shipping address for that order to 101 Oak Avenue, Apt 2B, Houston, TX, USA 77002, and also update your default address in your profile to the same for future purchases. After that, you would like to cancel the entire pending order as it is no longer needed.\n\nTo authenticate, use aarav.nguyen1293@example.com\n\nEmotion instruction: You remain calm under pressure and express the need for prompt handling. Use neutral, precise language. Interact respectfully, but maintain some skepticism. Request clarifications to ensure accuracy.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W7728728'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W7728728', 'item_ids': ['8555936349'], 'payment_method_id': 'paypal_7859314'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W2443586', 'address1': '101 Oak Avenue', 'address2': 'Apt 2B', 'city': 'Houston', 'state': 'TX', 'country': 'USA', 'zip': '77002'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W2443586', 'reason': 'ordered by mistake'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'aarav_nguyen_7344', 'address1': '101 Oak Avenue', 'address2': 'Apt 2B', 'city': 'Houston', 'state': 'TX', 'country': 'USA', 'zip': '77002'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='peace',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='harper.santos8390@example.com',
+        instruction="You are a customer with email harper.santos8390@example.com who placed a pending order in Charlotte, NC, containing an electric toothbrush, men's perfume (100ml, fresh scent), a large grey memory foam pet bed, a 20MP digital camera with 10x zoom, and a 12-inch white analog wall clock. You would like to change the payment method from PayPal to your Visa card ending in 8643 because you prefer to use this card for tracking and rewards, and then cancel the entire order because it was placed by mistake. You want both actions completed in sequence and confirmation that the cancellation is finalized and reflected in your order status.\n\nTo authenticate, use harper.santos8390@example.com\n\nEmotion instruction: You feel anxious and uneasy, needing quick reassurance. You politely reach out, expressing your concerns warmly. Trust that the agent wants to help and be open about your worries. Urgently ask for clear and prompt support.",
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W6629830'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W6629830', 'payment_method_id': 'credit_card_7507679'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W6629830', 'reason': 'ordered by mistake'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='anxiety',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='skeptical',
+    ),
+
+    Task(
+        user_id='sophia.thomas1364@example.com',
+        instruction='You are assisting Sophia Thomas (sophia.thomas1364@example.com) with her pending order placed in Dallas. You want to cancel the entire order because it was placed by mistake; the order includes a white wooden bookshelf, a silver 7-inch tablet with 64GB storage, and two office chairs—one in blue fabric with adjustable armrests and the other in gray leather with a high-back design. Later, you would like to update the payment method for this order to a Visa card ending in 9858, in case any part of the transaction requires reprocessing after cancellation. You prefer the refund, if applicable, to be returned to this Visa card.\n\nTo authenticate, use sophia.thomas1364@example.com\n\nEmotion instruction: You’re filled with anxiety and urgently seek a solution. Speak with warmth and politeness, even as you express your unease. Rely on the agent to guide you through your concerns. Make it clear you need swift assistance.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W4862767'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W4862767', 'payment_method_id': 'credit_card_7326294'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W4862767', 'reason': 'ordered by mistake'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='dread',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='skeptical',
+    ),
+
+    Task(
+        user_id='mia.garcia2723@example.com',
+        instruction='You are assisting Mia Garcia, whose email is mia.garcia2723@example.com, with an exchange request for a delivered order. You want to exchange the 750ml black glass Water Bottle, which was part of a delivered order shipped to Indianapolis, for the 500ml black stainless steel version because it is more compact and better suits her daily use. You prefer this exchange to be processed using the PayPal account already linked to the original transaction to cover any price difference, as the new item is slightly lower in price and you want a seamless payment adjustment.\n\nTo authenticate, use mia.garcia2723@example.com\n\nEmotion instruction: You approach the conversation with a sense of peacefulness. Your tone is warm and friendly, and you explain your needs clearly. You believe the agent will assist you well. You’re patient, but would like things resolved reasonably soon.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W5490111'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W5490111', 'item_ids': ['4579334072'], 'new_item_ids': ['3453331371'], 'payment_method_id': 'paypal_9497703'}),
+            Action(name='get_product_details', kwargs={'product_id': '8310926033'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='peace',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='aarav.sanchez1292@example.com',
+        instruction="You are assisting aarav.sanchez1292@example.com with an exchange request for a delivered order from Houston. You want to exchange the Hiking Boots in size 7, which are synthetic and waterproof, for the same style in size 10, because the original size was too small. You confirmed that the size 10 variant with the same synthetic material and waterproof feature is available. You prefer to use your Mastercard ending in 5506 to cover the price difference for the new boots.\n\nTo authenticate, use aarav.sanchez1292@example.com\n\nEmotion instruction: You are somewhat irritated by the problem and want it addressed without too much delay. You communicate clearly, without sugarcoating your frustration. You're polite enough, just not overly friendly. You have faith the agent will sort things out.",
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W5455653'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W5455653', 'item_ids': ['1262139877'], 'new_item_ids': ['1615379700'], 'payment_method_id': 'credit_card_2690859'}),
+            Action(name='get_product_details', kwargs={'product_id': '7363354090'}),
+        ],
+        outputs=[],
+        emotion_family='disgust',
+        emotion_leaf='annoyance',
+        dimension_politeness='neutral',
+        dimension_urgency='moderate',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='ethan.lopez8943@example.com',
+        instruction='You are Ethan Lopez, and your email is ethan.lopez8943@example.com. You want to cancel your pending order containing a dumbbell set, an espresso machine, a coffee maker, and a pet bed because you no longer need these items, and you confirm proceeding with the cancellation. After that, you would like to update the shipping address for your other pending order—which includes a skateboard, a wristwatch, a bookshelf, and a smartphone—to 7377 Lincoln Street, Unit 337, Columbus, OH, USA 29379, because you need it delivered to a new location. You also prefer to update your default shipping address to this new Columbus address for all future orders.\n\nTo authenticate, use ethan.lopez8943@example.com\n\nEmotion instruction: You carry a sense of pride and demand swift action. You keep your tone neutral and focus on getting things done. You monitor the agent’s responses carefully before placing trust. Keep interactions efficient and goal-oriented.',
+        actions=[
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W6779827', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W6779827'}),
+            Action(name='get_product_details', kwargs={'product_id': '7233192239'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W6426438', 'address1': '7377 Lincoln Street', 'address2': 'Unit 337', 'city': 'Columbus', 'state': 'OH', 'country': 'USA', 'zip': '29379'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'ethan_lopez_6291', 'address1': '7377 Lincoln Street', 'address2': 'Unit 337', 'city': 'Columbus', 'state': 'OH', 'country': 'USA', 'zip': '29379'}),
+            Action(name='list_all_product_types', kwargs={}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='anxiety',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='aarav.lee6460@example.com',
+        instruction='You are to cancel the pending order for a red 2-piece softshell Luggage Set, along with a black leather-band AMOLED Smart Watch, a 1500-piece beginner animal-themed Jigsaw Puzzle, and a red mesh Office Chair, because the customer no longer needs these items. After cancellation, you want to confirm the cancellation status to ensure it was processed successfully. Later, you would like to update the shipping address for another order containing a Tablet to 2404 Jackson Street, Floor 638, Portland, OR, USA 13877, because it was originally going to an old address. Subsequently, you prefer to update the default address in the profile to the same new address to prevent future shipping issues. You are authenticated with the email aarav.lee6460@example.com.\n\nTo authenticate, use aarav.lee6460@example.com\n\nEmotion instruction: You feel a tight sense of anxiety and need the problem fixed soon. You communicate briskly, focusing on the essentials. You hold back a bit, wary about accepting answers at face value. You seek clarity and prompt responses from the agent.',
+        actions=[
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W3361211', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W3361211'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3586556', 'address1': '2404 Jackson Street', 'address2': 'Floor 638', 'city': 'Portland', 'state': 'OR', 'country': 'USA', 'zip': '13877'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'aarav_lee_1982', 'address1': '2404 Jackson Street', 'address2': 'Floor 638', 'city': 'Portland', 'state': 'OR', 'country': 'USA', 'zip': '13877'}),
+            Action(name='list_all_product_types', kwargs={}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='anxiety',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='emma.smith3991@example.com',
+        instruction='You are Emma Smith (emma.smith3991@example.com) and you have a pending order for a 13-inch space grey laptop with i7 processor, 32GB RAM, and 256GB SSD that is currently scheduled to ship to New York; you would like to update the shipping address to 6516 Pine Avenue, Apt 550, Dallas, TX, USA 17353 because you will be relocating. Later, for your delivered order containing a 30MP digital camera with 5x zoom and SD card storage, you would like to exchange it for a 30MP model with 10x zoom and SD card storage to better capture distant subjects; after that, you decide to return the original 5x zoom camera instead. You prefer any payment differences to be handled using your PayPal account.\n\nTo authenticate, use emma.smith3991@example.com\n\nEmotion instruction: You are frustrated and pressed for time. You keep your requests concise, expressing dissatisfaction plainly. You trust that the agent understands and can help right away. You avoid emotional outbursts, but your tone is frosty.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W2417020', 'address1': '6516 Pine Avenue', 'address2': 'Apt 550', 'city': 'Dallas', 'state': 'TX', 'country': 'USA', 'zip': '17353'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W2417020'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W5605613', 'item_ids': ['7195021808'], 'new_item_ids': ['9228757377'], 'payment_method_id': 'paypal_6228291'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W5605613', 'item_ids': ['7195021808'], 'payment_method_id': 'gift_card_8541487'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='excitement',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='skeptical',
+    ),
+
+    Task(
+        user_id='isabella.johansson1233@example.com',
+        instruction='You are Isabella Johansson, with email isabella.johansson1233@example.com, and you have a pending order that includes an Espresso Machine, Makeup Kit, Pet Bed, and Wireless Earbuds. You want to update the shipping address for this pending order to a new location in Austin, TX, specifically 4943 Main Street, Apt 44, because you have relocated temporarily. Later, you also want to exchange the black metal-band Smart Watch from your delivered order for a gold one with a leather band and AMOLED display, as you prefer a more elegant style for daily wear, and the desired variant is available. You also want to return the Pet Bed from the same delivered order because you no longer need it. You prefer that any refund or price difference from these changes be processed back to your PayPal account, which was used for the original purchases.\n\nTo authenticate, use isabella.johansson1233@example.com\n\nEmotion instruction: You’re feeling anxious and stressed, wanting this resolved as soon as possible. You state your needs clearly and avoid small talk. You are wary of missteps, so you confirm any details the agent provides. You expect prompt, straightforward help.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W6783532', 'address1': '4943 Main Street', 'address2': 'Apt 44', 'city': 'Austin', 'state': 'TX', 'country': 'USA', 'zip': '23414'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W6783532'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W3489690', 'item_ids': ['1631806422'], 'new_item_ids': ['5694328282'], 'payment_method_id': 'paypal_8540436'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W3489690', 'item_ids': ['7381052709'], 'payment_method_id': 'paypal_8540436'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='excitement',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='sofia.moore4274@example.com',
+        instruction='You are Sofia Moore, and your email is sofia.moore4274@example.com. For your pending order containing a black analog 14-inch wall clock, you want to update the shipping address to 9081 Main Street, Unit 144, Chicago, IL, USA 63825 because you have moved temporarily. You also want to change the payment method to your Mastercard ending in 4061 for better rewards tracking. Additionally, you would like to upgrade the wall clock to the white digital 14-inch model because you prefer a modern display and lighter color to match your new space. Later, for your delivered order that included a black smart watch with LCD display and silicone band, you would like to return that item because you no longer need it and would like the refund processed back to your original payment method, which is the same Mastercard ending in 4061.\n\nTo authenticate, use sofia.moore4274@example.com\n\nEmotion instruction: You remain calm under pressure and express the need for prompt handling. Use neutral, precise language. Interact respectfully, but maintain some skepticism. Request clarifications to ensure accuracy.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W1812830', 'address1': '9081 Main Street', 'address2': 'Unit 144', 'city': 'Chicago', 'state': 'IL', 'country': 'USA', 'zip': '63825'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W1812830', 'payment_method_id': 'credit_card_1893409'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W1812830', 'item_ids': ['7791931443'], 'new_item_ids': ['9850781806'], 'payment_method_id': 'credit_card_1893409'}),
+            Action(name='get_product_details', kwargs={'product_id': '2344688344'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W1812830', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W3338814'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W3338814', 'item_ids': ['2860956907'], 'new_item_ids': ['2860956907'], 'payment_method_id': 'credit_card_1893409'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W3338814', 'item_ids': ['2860956907'], 'payment_method_id': 'credit_card_1893409'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='excitement',
+        dimension_politeness='cold',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='olivia.ito5204@example.com',
+        instruction='You are Olivia Ito, and your email is olivia.ito5204@example.com. For your pending order containing a gaming mouse, patio umbrella, and hiking boots, you want to update the shipping address to 9147 Park Drive, Floor 210, Houston, TX, USA 49149 because you will be relocating temporarily. After that, you would like to change the payment method from your Visa ending in 9182 to your PayPal account for better purchase protection. Subsequently, you prefer to upgrade the skateboard in the order from the current plastic 34 inch graphic deck to the bamboo 31 inch graphic deck for improved durability and a lighter ride. Later, for your delivered order containing an automatic espresso machine and sneakers, you would like to exchange the 19 bar, 1L automatic espresso machine for the 19 bar, 2L manual model because you prefer more control over the brewing process and a larger water capacity.\n\nTo authenticate, use olivia.ito5204@example.com\n\nEmotion instruction: You’re on edge and communicate with a sense of urgency. Your responses are concise and you avoid chit-chat. Show concern and ask for reassurance before following instructions. Don’t fully relax until the issue is solved.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W5442520', 'address1': '9147 Park Drive', 'address2': 'Floor 210', 'city': 'Houston', 'state': 'TX', 'country': 'USA', 'zip': '49149'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W5442520', 'payment_method_id': 'paypal_8049766'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W5442520', 'item_ids': ['5489028872'], 'new_item_ids': ['5312063289'], 'payment_method_id': 'paypal_8049766'}),
+            Action(name='get_product_details', kwargs={'product_id': '1968349452'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W5442520', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W5866402'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W5866402', 'item_ids': ['6242772310'], 'new_item_ids': ['3379843752'], 'payment_method_id': 'paypal_8049766'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W5866402', 'item_ids': ['6242772310'], 'payment_method_id': 'paypal_8049766'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='excitement',
+        dimension_politeness='cold',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='noah.kovacs8240@example.com',
+        instruction='You are a customer with the email noah.kovacs8240@example.com who wants to first browse the full range of product types available in the store to understand what is offered, and then focus specifically on the T-Shirt product to review its available variants, including color, size, material, style, and pricing options, so you can make an informed decision about a potential purchase.\n\nTo authenticate, use noah.kovacs8240@example.com\n\nEmotion instruction: You’re excited about this, but you keep your tone cool and direct. Push for fast answers, making it clear you want results quickly. Don’t get too friendly; keep interactions brisk and businesslike. Remain guarded in what you share with the agent.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '9523456873'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='excitement',
+        dimension_politeness='cold',
+        dimension_urgency='moderate',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='customer@example.com',
+        instruction="You are a customer with the email customer@example.com who wants to explore the store's full range of product types. You are browsing to get a sense of what is available across categories. After reviewing the catalog, you are particularly interested in the T-Shirt product and would like to see all available variants, including options in color (such as blue, purple, red, and black), size (ranging from S to XXL), material (cotton or polyester), and style (crew neck or v-neck), along with their price details to understand the range and make an informed choice.\n\nTo authenticate, use customer@example.com\n\nEmotion instruction: You come in with a sense of pride but stay businesslike. You keep interactions brief, skipping small talk. You want resolution in a reasonable timeframe. You’re confident the agent will deliver.",
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_variants', kwargs={'product_id': '9523456873'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='peace',
+        dimension_politeness='neutral',
+        dimension_urgency='moderate',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='liam.li8523@example.com',
+        instruction='You are a customer with email liam.li8523@example.com who has a pending order for a urethane-coated fixed 30-50 lbs dumbbell set that you no longer need, so you would like to cancel it. You also have a delivered order containing a gold smart watch with a leather band that you wish to exchange for the black model with a silicone band, because you prefer a more durable and sport-friendly design, and you would like to use your PayPal for this exchange.\n\nTo authenticate, use liam.li8523@example.com\n\nEmotion instruction: You feel a tight sense of anxiety and need the problem fixed soon. You communicate briskly, focusing on the essentials. You hold back a bit, wary about accepting answers at face value. You seek clarity and prompt responses from the agent.',
+        actions=[
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W1130240', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W1130240'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W8838515', 'item_ids': ['9408160950'], 'new_item_ids': ['2860956907'], 'payment_method_id': 'paypal_9619477'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='helplessness',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='skeptical',
+    ),
+
+    Task(
+        user_id='isabella.johansson9391@example.com',
+        instruction='You are Isabella Johansson (isabella.johansson9391@example.com) and you want to cancel your pending order placed in Jacksonville because it was made by mistake. You would like to proceed with an exchange for one item from your delivered order: you want to exchange the green small polyester backpack for the black large nylon backpack because it better fits your needs and is more durable. Additionally, you want to return the green 25ft rubber garden hose from the same delivered order and receive a refund. You prefer both the exchange price difference and the return refund to be processed using your PayPal account, which is your preferred payment method.\n\nTo authenticate, use isabella.johansson9391@example.com\n\nEmotion instruction: You’re dissatisfied and eager for a quick fix. Your communications are measured and firm, not overly friendly. Be careful and verify what the agent says. Urge them to act fast and acknowledge your frustration.',
+        actions=[
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W2575533', 'reason': 'ordered by mistake'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W7181492'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W7181492', 'item_ids': ['9851293632'], 'new_item_ids': ['3928046918'], 'payment_method_id': 'paypal_3024827'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W7181492', 'item_ids': ['5753502325'], 'payment_method_id': 'paypal_3024827'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='peace',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='fatima.jackson7472@example.com',
+        instruction='You are assisting Fatima Jackson (email: fatima.jackson7472@example.com) with updating the shipping address for her pending order, which includes an electric grill with a side burner and a small grey nylon backpack with a laptop compartment, from San Francisco to a new address in Austin because she has relocated. You want the order shipped to 8276 Elm Street, Unit 809, Austin, TX, USA 17074. Later, you would like to know what products are currently available for purchase, particularly interested in the full range of items offered, so you can consider future purchases based on updated needs in your new location.\n\nTo authenticate, use fatima.jackson7472@example.com\n\nEmotion instruction: You radiate excitement and your messages are energetic and warm. You keep the interaction polite and welcoming. You want timely progress, but you’re not overly urgent. You’re open to guidance, but you verify information given by the agent.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W5185761', 'address1': '8276 Elm Street', 'address2': 'Unit 809', 'city': 'Austin', 'state': 'TX', 'country': 'USA', 'zip': '17074'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='peace',
+        dimension_politeness='warm',
+        dimension_urgency='moderate',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='evelyn.patel2779@example.com',
+        instruction='You are Evelyn Patel, authenticated via email evelyn.patel2779@example.com, and you want to first browse the full catalog of product types available in the store because you are exploring new items to purchase. The store offers the following: Action Camera, Air Purifier, Backpack, Bicycle, Bluetooth Speaker, Bookshelf, Coffee Maker, Cycling Helmet, Desk Lamp, Digital Camera, Dumbbell Set, E-Reader, Electric Kettle, Electric Toothbrush, Espresso Machine, Fleece Jacket, Gaming Mouse, Garden Hose, Grill, Headphones, Hiking Boots, Indoor Security Camera, Jigsaw Puzzle, LED Light Bulb, Laptop, Luggage Set, Makeup Kit, Mechanical Keyboard, Notebook, Office Chair, Patio Umbrella, Perfume, Pet Bed, Portable Charger, Running Shoes, Skateboard, Smart Thermostat, Smart Watch, Smartphone, Sneakers, Sunglasses, T-Shirt, Tablet, Tea Kettle, Vacuum Cleaner, Wall Clock, Water Bottle, Wireless Earbuds, Wristwatch, and Yoga Mat. Then, you need to update the shipping address for your pending order containing a black stainless steel 1000ml water bottle, a white 5000mAh portable charger, a black fleece jacket in size L, white wireless on-ear headphones, and a 4K Wi-Fi indoor security camera because you are temporarily relocating. You would like the new shipping address to be 3961 Jackson Street, Apt 949, San Francisco, CA, USA 85146 instead of the current Houston address to ensure delivery to your temporary residence.\n\nTo authenticate, use evelyn.patel2779@example.com\n\nEmotion instruction: You maintain a peaceful, positive attitude while making clear you need a fast answer. Your phrasing is gentle and warm, and you greet the agent with trust. You’re concise but kind, eager for their guidance. Your sense of urgency is clear without being tense.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W6023202', 'address1': '3961 Jackson Street', 'address2': 'Apt 949', 'city': 'San Francisco', 'state': 'CA', 'country': 'USA', 'zip': '85146'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='excitement',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='emma.kovacs6621@example.com',
+        instruction='You are Emma Kovacs, and your email is emma.kovacs6621@example.com. You would like to first update the shipping address for your pending order—containing a soft cover A6 notebook and a 25ft blue vinyl garden hose—to 4316 Jackson Street, Apt 91, Austin, TX, USA 31635, because the original address in Jacksonville was incorrect. Later, after reconsidering, you would like to cancel the entire order because you no longer need the items. You prefer the refund to be processed back to the original payment method, which is PayPal.\n\nTo authenticate, use emma.kovacs6621@example.com\n\nEmotion instruction: You are frustrated and pressed for time. You keep your requests concise, expressing dissatisfaction plainly. You trust that the agent understands and can help right away. You avoid emotional outbursts, but your tone is frosty.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W2307204', 'address1': '4316 Jackson Street', 'address2': 'Apt 91', 'city': 'Austin', 'state': 'TX', 'country': 'USA', 'zip': '31635'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W2307204', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W2307204'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='disappointment',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='ethan.kim3231@example.com',
+        instruction='You are assisting a customer with email ethan.kim3231@example.com who has a pending order originally set to ship to San Antonio, TX. You first want to update the shipping address for the order to 3122 Park Drive, Floor 157, Austin, TX, USA 76276, because the customer has relocated the delivery location. After that update, you would like to cancel the entire order because the items — including a white wired gaming mouse, an RGB wired gaming mouse, a 1500-piece animal-themed jigsaw puzzle, a 4K waterproof silver action camera, and a robotic bagged vacuum cleaner with pet hair removal — are no longer needed. You prefer the refund to be issued back to the original payment method, which was a gift card, as that was used for the initial purchase.\n\nTo authenticate, use ethan.kim3231@example.com\n\nEmotion instruction: You feel on edge, making you terse and a bit distant. You ask what you need quickly, skipping formalities. You expect timely updates but don’t demand them. You still question the agent’s reliability.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W8296441', 'address1': '3122 Park Drive', 'address2': 'Floor 157', 'city': 'Austin', 'state': 'TX', 'country': 'USA', 'zip': '76276'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W8296441', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W8296441'}),
+        ],
+        outputs=[],
+        emotion_family='sadness',
+        emotion_leaf='nervousness',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='isabella.gonzalez1317@example.com',
+        instruction='You are Isabella Gonzalez, and your email is isabella.gonzalez1317@example.com. You have a pending order that includes a skateboard, notebook, and luggage set, originally set to ship to Fort Worth. You recently moved, so you want the shipping address updated to your new apartment in San Francisco at 8559 Elm Street, Apt 695, to ensure the package reaches your current home. After placing the order, you realized you prefer a different skateboard — specifically, one with a bamboo deck, 31 inch length, and a graphic design — because it offers better durability and a more expressive style than the original maple, 28 inch, plain version. You would like this skateboard to be swapped before shipment. Additionally, you prefer to pay using your Mastercard ending in 9364 instead of the Visa ending in 4920 that was initially charged, as the Mastercard is your primary card for rewards and budget tracking.\n\nTo authenticate, use isabella.gonzalez1317@example.com\n\nEmotion instruction: You’re worried about what might go wrong, so you ask for additional information. You keep your tone businesslike and try to hide your anxiety, but it comes through in your questions. You don’t show urgency and tend to double-check the agent’s answers. You wait for the agent to reassure you before moving on.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W1258841', 'address1': '8559 Elm Street', 'address2': 'Apt 695', 'city': 'San Francisco', 'state': 'CA', 'country': 'USA', 'zip': '65840'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W1258841'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W1258841', 'item_ids': ['3232433601'], 'new_item_ids': ['5312063289'], 'payment_method_id': 'credit_card_9878778'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W1258841', 'payment_method_id': 'credit_card_9878778'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='nervousness',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='daiki.moore1031@example.com',
+        instruction='You are Daiki Moore, and your email is daiki.moore1031@example.com. You initially wanted to cancel your pending order because it was placed by mistake, but after reviewing, you decided to keep it with modifications. First, you want the shipping address updated from Dallas to 4317 Maple Lane, Floor 292, Philadelphia, PA, USA 97861, to ensure delivery to the correct location. Then, you would like to change the Office Chair in the order from the red mesh model to the blue leather one with no armrest and standard backrest, as it better fits your office aesthetic and comfort needs. You prefer any price difference refund to be issued to your Visa ending in 4204 for consistency with your personal expense tracking. Finally, you want to switch the payment method from the gift card to your Mastercard ending in 6934, so the purchase appears clearly on your monthly statement for easier record-keeping.\n\nTo authenticate, use daiki.moore1031@example.com\n\nEmotion instruction: You remain calm under pressure and express the need for prompt handling. Use neutral, precise language. Interact respectfully, but maintain some skepticism. Request clarifications to ensure accuracy.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W4843514', 'address1': '4317 Maple Lane', 'address2': 'Floor 292', 'city': 'Philadelphia', 'state': 'PA', 'country': 'USA', 'zip': '97861'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W4843514'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W4843514', 'item_ids': ['4274709903'], 'new_item_ids': ['4168944673'], 'payment_method_id': 'credit_card_5613268'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W4843514', 'payment_method_id': 'credit_card_7591273'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='anxiety',
+        dimension_politeness='neutral',
+        dimension_urgency='moderate',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='ethan.lopez8943@example.com',
+        instruction='You are assisting Ethan Lopez (email: ethan.lopez8943@example.com). You first want to modify the Dumbbell Set in a pending order (containing a 5-25 lbs rubber adjustable set) to a 30-50 lbs rubber fixed set because you prefer heavier fixed weights for your workouts, and you would like to use your gift card to cover the small price difference. After considering this change, you decide instead to cancel the entire order because you no longer need the items. Additionally, you want to update the shipping address for another pending order (containing a skateboard, wristwatch, bookshelf, and smartphone) from Columbus, OH to 5030 Jefferson Avenue, Suite 429, Portland, OR, USA 97303 because you have relocated, and you also want your default profile address updated to this new Portland address to ensure all future orders are delivered correctly.\n\nTo authenticate, use ethan.lopez8943@example.com\n\nEmotion instruction: A feeling of dread hangs over you as you contact support. You ask direct questions and avoid unnecessary details. You’re not in a rush but want progress soon. Be cautious and verify steps before proceeding.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W6779827'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W6779827', 'item_ids': ['7896397433'], 'new_item_ids': ['6171242004'], 'payment_method_id': 'gift_card_7219486'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W6779827', 'reason': 'no longer needed'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W6426438', 'address1': '5030 Jefferson Avenue', 'address2': 'Suite 429', 'city': 'Portland', 'state': 'OR', 'country': 'USA', 'zip': '97303'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'ethan_lopez_6291', 'address1': '5030 Jefferson Avenue', 'address2': 'Suite 429', 'city': 'Portland', 'state': 'OR', 'country': 'USA', 'zip': '97303'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='peace',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='lei.ahmed1696@example.com',
+        instruction='You are assisting a customer with email lei.ahmed1696@example.com who has a pending order containing a cycling helmet in size L and black color. You want to first modify that item to a smaller size S in white because the original size and color were ordered by mistake, and you prefer the price difference to be adjusted using your Mastercard ending in 3705. Later, you want to update the shipping address for this order to 1595 Pine Avenue, Floor 121, Fort Worth, TX, USA 53728, and also update your default address to this new location for future orders.\n\nTo authenticate, use lei.ahmed1696@example.com\n\nEmotion instruction: You’re nervous and careful, not wanting to make any mistakes. You ask for clarification and prefer simple answers. You keep your tone reserved and don’t expect immediate fixes. You take your time deciding how to proceed.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W9132840'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W9132840', 'item_ids': ['6048672633'], 'new_item_ids': ['7811981098'], 'payment_method_id': 'credit_card_3593714'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W9132840', 'address1': '4475 Park Drive', 'address2': 'Suite 366', 'city': 'Fort Worth', 'state': 'TX', 'country': 'USA', 'zip': '72422'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'lei_ahmed_1705', 'address1': '4475 Park Drive', 'address2': 'Suite 366', 'city': 'Fort Worth', 'state': 'TX', 'country': 'USA', 'zip': '72422'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='peace',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='liam.li2557@example.com',
+        instruction='You are Liam Li, with email liam.li2557@example.com, who placed a pending order containing wireless earbuds, two coffee makers, a smart thermostat, and a pet bed, originally shipping to Dallas. You want to first update the shipping address for this order to 943 Maple Drive, Suite 356, Chicago, IL, USA 60621, because you realized the original address was incorrect. However, you subsequently decide to cancel the entire order because you placed it by mistake. Separately, you have a delivered order that included a 31 inch maple graphic skateboard and a notebook, shipped to San Francisco. You would like to exchange the 31 inch maple graphic skateboard for the 28 inch maple graphic skateboard because you prefer a more compact size for easier handling. You prefer to use your Visa card ending in 3867 for any price adjustment related to the exchange.\n\nTo authenticate, use liam.li2557@example.com\n\nEmotion instruction: You’re feeling very anxious and your speech lacks warmth. You want help immediately and have no patience for delays. You trust the agent’s expertise, so you follow directions carefully. You prioritize speed and clarity in the exchange.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W9653558', 'address1': '943 Maple Drive', 'address2': 'Suite 356', 'city': 'Chicago', 'state': 'IL', 'country': 'USA', 'zip': '60621'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W9653558', 'reason': 'ordered by mistake'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W8512927'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W8512927', 'item_ids': ['5120532699'], 'new_item_ids': ['2819462352'], 'payment_method_id': 'credit_card_7933535'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='nervousness',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='lucas.martin5733@example.com',
+        instruction='You are assisting Lucas Martin (lucas.martin5733@example.com). First, you want to update the shipping address for a pending order containing a black medium mountain bicycle, a clicky full-size mechanical keyboard, a white digital wall clock, and two air purifiers (one with ionic filter for small rooms and one with HEPA filter for medium rooms) to 8817 Madison Drive, Floor 522, Boston, MA, USA 74111, because the delivery city was incorrect. However, after reconsidering, you would like to cancel this entire order because it was placed by mistake. Separately, for a delivered order that included a blue 500ml glass water bottle, you would like to exchange that item for a green 500ml glass water bottle of the same material and size, because you prefer the color green. You authorize the use of your Mastercard ending in 9536 for any price difference associated with this exchange.\n\nTo authenticate, use lucas.martin5733@example.com\n\nEmotion instruction: Apprehension shapes your requests, making you attentive but restrained. You’re neither rude nor overly polite. You need timely help, but you remain skeptical throughout the interaction. Ask for details and confirm important points.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W9318778', 'address1': '8817 Madison Drive', 'address2': 'Floor 522', 'city': 'Boston', 'state': 'MA', 'country': 'USA', 'zip': '74111'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W9318778', 'reason': 'ordered by mistake'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W3929227'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W3929227', 'item_ids': ['7918497119'], 'new_item_ids': ['5758737025'], 'payment_method_id': 'credit_card_7862034'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='nervousness',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='ethan.smith2338@example.com',
+        instruction='You are Ethan Smith, and your email is ethan.smith2338@example.com. You want to cancel your pending order containing a white portable charger, an electric toothbrush, a mechanical keyboard with clicky switches and RGB backlight, and a digital camera, because you no longer need these items, and you confirm proceeding with the cancellation. Later, you would like to update the shipping address for another pending order containing a 2L glass electric kettle to 3709 Main Street, Floor 55, Austin, TX, USA 67351, because you have relocated temporarily. You also want your default address in your profile updated to this Austin address for future orders, to ensure correct delivery going forward. You confirm both address changes.\n\nTo authenticate, use ethan.smith2338@example.com\n\nEmotion instruction: You feel proud of your accomplishments and want things handled quickly. You speak directly and expect efficient responses. You’re careful not to reveal everything at once. Engage assertively but remain observant of the agent’s abilities.',
+        actions=[
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W6711349', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W6711349'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W6731310', 'address1': '3709 Main Street', 'address2': 'Floor 55', 'city': 'Austin', 'state': 'TX', 'country': 'USA', 'zip': '67351'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'ethan_smith_9087', 'address1': '3709 Main Street', 'address2': 'Floor 55', 'city': 'Austin', 'state': 'TX', 'country': 'USA', 'zip': '67351'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='pride',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='harper.brown3965@example.com',
+        instruction="You are assisting a customer with email harper.brown3965@example.com who initially requested cancellation of their pending order containing a gold Smart Watch with silicone band, a glass Tea Kettle with 1-liter capacity, a men's woody-scented 100ml Perfume, a black Electric Toothbrush with rechargeable battery, and a size 10 pair of leather Hiking Boots, originally shipping to Fort Worth, Texas. You want to cancel this order because the customer no longer needed the items and confirmed cancellation. However, after reconsidering, you would like to keep the order and instead update the shipping address to 3679 Oak Avenue, Floor 86, Boston, MA, USA 81747, so the items can be delivered to the correct location. You also prefer to update the default address in the customer's profile to this new Boston address to ensure all future orders are sent to the right place. You prefer the payment method remains the credit card on file.\n\nTo authenticate, use harper.brown3965@example.com\n\nEmotion instruction: You feel uneasy and are worried about the outcome. You state your concerns directly and often check on progress. You trust the agent’s expertise, following their instructions closely. Your messages convey urgency at every step.",
+        actions=[
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W2273069', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W2273069'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W2273069', 'address1': '3679 Oak Avenue', 'address2': 'Floor 86', 'city': 'Boston', 'state': 'MA', 'country': 'USA', 'zip': '81747'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'harper_brown_7363', 'address1': '3679 Oak Avenue', 'address2': 'Floor 86', 'city': 'Boston', 'state': 'MA', 'country': 'USA', 'zip': '81747'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='peace',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='sofia.thomas3069@example.com',
+        instruction='You are Sofia Thomas (sofia.thomas3069@example.com). You initially wanted to cancel your pending order containing Wireless Earbuds, a bagged vacuum cleaner with pet hair removal feature, an Electric Toothbrush, and a Portable Charger, because you no longer need those items. Later, you decided to modify your other pending order by changing the shipping address to 6761 Lincoln Street, Apt 421, Detroit, MI, USA 15183, so it reaches a new location. You prefer to update the payment for this order to your credit card Additionally, you would like to exchange the upright, bagless vacuum cleaner with HEPA filter in this order for the robotic model that is also bagless and includes a HEPA filter, because you prefer automated cleaning. You also want to replace the adjustable 55-75 lbs rubber dumbbell set with the fixed 55-75 lbs iron set for better durability and stability during workouts. You prefer any price difference to be handled using your PayPal. Finally, you would like to browse the complete list of product types available in the store to explore more options and consider future purchases.\n\nTo authenticate, use sofia.thomas3069@example.com\n\nEmotion instruction: You maintain a sense of tranquility while interacting. Your tone is warm, but you keep a careful eye on the process. Make moderate requests, ensuring you understand every step. Be politely insistent about receiving all necessary information.',
+        actions=[
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W7619352', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W7619352'}),
+            Action(name='get_product_details', kwargs={'product_id': '1762337868'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W2297866', 'address1': '6761 Lincoln Street', 'address2': 'Apt 421', 'city': 'Detroit', 'state': 'MI', 'country': 'USA', 'zip': '15183'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W2297866', 'payment_method_id': 'credit_card_5334408'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W2297866', 'item_ids': ['7407609582', '8140269513'], 'new_item_ids': ['4725166838', '2444431651'], 'payment_method_id': 'paypal_5334408'}),
+            Action(name='list_all_product_types', kwargs={}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='peace',
+        dimension_politeness='neutral',
+        dimension_urgency='moderate',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='juan.smith2463@example.com',
+        instruction="You are Juan Smith (email: juan.smith2463@example.com). You first want to cancel your pending order containing a white drip coffee maker with auto shutoff and a bagged upright vacuum cleaner because you no longer need these items. After that, you would like to modify your other pending order—which includes a white USB-powered desk lamp with medium brightness, a medium electric grill with rotisserie, and a black fabric office chair—by updating the shipping address to 8031 Park Drive, Floor 878, Boston, MA, USA 78856, changing the payment method to your PayPal account, and upgrading the desk lamp to the higher brightness variant while keeping the same color and power source. Finally, you would like to browse the complete list of available product types in the store to explore future purchase options.\n\nTo authenticate, use juan.smith2463@example.com\n\nEmotion instruction: You feel proud of your accomplishments and want things handled efficiently. Speak directly and get to the point. Insist on swift resolution while trusting the agent's competence. Keep your tone concise and businesslike.",
+        actions=[
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W1429524', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W1429524'}),
+            Action(name='get_product_details', kwargs={'product_id': '7996920482'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W7546247', 'address1': '8031 Park Drive', 'address2': 'Floor 878', 'city': 'Boston', 'state': 'MA', 'country': 'USA', 'zip': '78856'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W7546247', 'payment_method_id': 'paypal_9679338'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W7546247', 'item_ids': ['8384507844'], 'new_item_ids': ['9083642334'], 'payment_method_id': 'paypal_9679338'}),
+            Action(name='list_all_product_types', kwargs={}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='pride',
+        dimension_politeness='cold',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='yusuf.garcia2909@example.com',
+        instruction='You are Yusuf Garcia, with email yusuf.garcia2909@example.com, and you want to first verify the status and product details of your pending order that includes a pair of leather, waterproof hiking boots in size 11, a black 13-inch laptop with i7 processor and 32GB RAM, and a quiet-operating air purifier for small rooms. You want this information because you are reviewing your recent purchase. Then, you would like to update the shipping address for this order to 5041 Washington Boulevard, Suite 656, Jacksonville, FL, USA 49792, because you need it delivered to a different location, and you prefer to switch the payment method from a gift card to your Mastercard ending in 3762 for better record-keeping and flexibility. Later, after reconsidering your needs, you decide you no longer require any of the items and would like to cancel the entire order because your plans have changed and you no longer need the products.\n\nTo authenticate, use yusuf.garcia2909@example.com\n\nEmotion instruction: You sense things might go wrong and it makes you anxious. You interact with the agent in a guarded, businesslike style. You’re not fully convinced of their competence. You want help soon, but you’re ready to double-check any advice.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W2564042'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W2564042', 'address1': '5041 Washington Boulevard', 'address2': 'Suite 656', 'city': 'Jacksonville', 'state': 'FL', 'country': 'USA', 'zip': '49792'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W2564042', 'payment_method_id': 'credit_card_8405687'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W2564042', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='desperation',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='skeptical',
+    ),
+
+    Task(
+        user_id='amelia.rossi1299@example.com',
+        instruction='You are Amelia Rossi, with email amelia.rossi1299@example.com, who placed a pending order containing a 17-inch Laptop with i5 processor, 8GB RAM, 1TB SSD, and space grey color, along with a blue cotton crew neck T-Shirt in size M. You initially wanted to update the shipping address to 2573 Madison Drive, Suite 254, Jacksonville, FL, USA 35234, because you preferred delivery to that location, and you also wanted to change the payment method from your gift card to your Visa card ending in 9402, as you preferred to preserve the gift card balance. However, later you decided to cancel the entire order because you no longer needed the items.\n\nTo authenticate, use amelia.rossi1299@example.com\n\nEmotion instruction: You’re frustrated and not in the mood for delays. Be succinct, almost abrupt. Insist on a fast resolution. You remain confident the agent can help, despite your cold demeanor.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W8255453'}),
+            Action(name='get_product_details', kwargs={'product_id': '4760268021'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W8255453', 'address1': '2573 Madison Drive', 'address2': 'Suite 254', 'city': 'Jacksonville', 'state': 'FL', 'country': 'USA', 'zip': '35234'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W8255453', 'payment_method_id': 'credit_card_6844118'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W8255453', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+        emotion_family='sadness',
+        emotion_leaf='disappointment',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='chen.lopez1681@example.com',
+        instruction='You are a customer with the email chen.lopez1681@example.com who placed a pending order for a full-size mechanical keyboard with tactile switches and white backlighting, shipped to Seattle, WA. You would like to cancel this order because you no longer need the keyboard. You also want to review the order details to confirm the item and its specifications, and you are interested in learning more about the mechanical keyboard model you ordered, particularly its features and available variants, to understand what alternatives are offered in case you decide to purchase one in the future. You prefer the refund to be processed back to the original payment method, which is PayPal.\n\nTo authenticate, use chen.lopez1681@example.com\n\nEmotion instruction: You’re feeling anxious and stressed, wanting this resolved as soon as possible. You state your needs clearly and avoid small talk. You are wary of missteps, so you confirm any details the agent provides. You expect prompt, straightforward help.',
+        actions=[
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W1790752', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W1790752'}),
+            Action(name='get_product_details', kwargs={'product_id': '1656367028'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='anxiety',
+        dimension_politeness='cold',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='sophia.patel9841@example.com',
+        instruction="You are Sophia Patel, and your email is sophia.patel9841@example.com. You would like to cancel your pending order placed for delivery to Fort Worth, TX, because you no longer need the items, which include a men's oriental 100ml perfume, a glass tea kettle compatible with induction stovetops, a black 1L glass electric kettle, and gray canvas sneakers size 8. You also want confirmation of the order details for this purchase, and you are specifically interested in learning more about the perfume you ordered — a men's oriental 100ml variant — to better understand its features and suitability. You prefer the refund to be processed back to the original payment method, which was your credit card.\n\nTo authenticate, use sophia.patel9841@example.com\n\nEmotion instruction: You are feeling anxious and want to resolve things soon. You trust the agent and communicate in a straightforward, polite way. You explain your issue in detail. You respond to follow-up questions without hesitation.",
+        actions=[
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W7905419', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W7905419'}),
+            Action(name='get_product_details', kwargs={'product_id': '6858788497'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='nervousness',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='raj.li2787@example.com',
+        instruction="You are Raj Li, with email raj.li2787@example.com, and you have a pending order that includes a brown 4 ft glass bookshelf, a black 5 ft glass bookshelf, a green stainless steel 750ml water bottle, and a large gas grill with rotisserie. You would like to change the payment method from the credit card ending in 3917 to your PayPal account, because you prefer to use PayPal for this purchase. You also want to exchange one of the bookshelves—the brown 4 ft glass model—for the white 5 ft glass version, because you prefer the color and size for your space. Additionally, you need the shipping address updated to 5193 Oak Avenue, Floor 673, Philadelphia, PA, USA 25769, as the original Fort Worth address is no longer valid. You prefer this new address for delivery. Finally, if any of these changes cannot be processed successfully, you want the entire order canceled with the reason 'ordered by mistake', to avoid receiving incorrect or incomplete items.\n\nTo authenticate, use raj.li2787@example.com\n\nEmotion instruction: You speak tensely, needing fast answers. You often doubt the agent's suggestions and challenge their advice. Stress the importance of time and clarity. Insist on double-checking key steps.",
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W8967935'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W8967935', 'payment_method_id': 'paypal_2028062'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W8967935', 'item_ids': ['8649999816'], 'new_item_ids': ['8895454203'], 'payment_method_id': 'paypal_2028062'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W8967935', 'address1': '5193 Oak Avenue', 'address2': 'Floor 673', 'city': 'Philadelphia', 'state': 'PA', 'country': 'USA', 'zip': '25769'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W8967935', 'reason': 'ordered by mistake'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='anxiety',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='isabella.lopez3271@example.com',
+        instruction="You are Isabella Lopez, and your email is isabella.lopez3271@example.com. You would like to update your pending order for a Bluetooth speaker by changing the payment method from your Mastercard ending in 4336 to PayPal, because you prefer using PayPal for this transaction. You also want to switch the speaker color from red to blue while keeping the same 10-hour battery life and water resistance, because you prefer the blue color and the performance specs match your needs. Additionally, you would like the shipping address updated to 9096 Elm Street, Floor 578, Charlotte, NC, USA 95939, as this is your preferred delivery location. However, after making these changes, you have reconsidered and would like to cancel the entire order, because you've changed your mind about the purchase.\n\nTo authenticate, use isabella.lopez3271@example.com\n\nEmotion instruction: You feel anxious and your communication is careful and warm. You hesitate to commit until you fully understand. You approach the agent politely but voice your concerns gently. You need reassurance and detailed responses to build confidence.",
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W4923227'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W4923227', 'payment_method_id': 'paypal_1621947'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W4923227', 'item_ids': ['7751905257'], 'new_item_ids': ['4716977452'], 'payment_method_id': 'paypal_1621947'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W4923227', 'address1': '9096 Elm Street', 'address2': 'Floor 578', 'city': 'Charlotte', 'state': 'NC', 'country': 'USA', 'zip': '95939'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W4923227', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='anxiety',
+        dimension_politeness='warm',
+        dimension_urgency='low',
+        dimension_trust_in_agent='skeptical',
+    ),
+
+    Task(
+        user_id='isabella.santos9317@example.com',
+        instruction='You are Isabella Santos, with email isabella.santos9317@example.com. You want to exchange the Mechanical Keyboard from your delivered order because the current one has no backlight and you prefer a more customizable lighting experience; you would like the same 80% size model with clicky switches but upgraded to RGB backlight, and you prefer to use your Mastercard ending in 4971 for any price difference. Later, for your pending order containing a gold leather-band Smart Watch and a pair of size 7 synthetic waterproof Hiking Boots, you want the shipping address updated to 6901 Lincoln Street, Suite 641, Las Vegas, NV, USA 29657, and you also want your default profile address updated to this new Las Vegas address to ensure future deliveries go to the correct location.\n\nTo authenticate, use isabella.santos9317@example.com\n\nEmotion instruction: You’re feeling anxious and stressed, wanting this resolved as soon as possible. You state your needs clearly and avoid small talk. You are wary of missteps, so you confirm any details the agent provides. You expect prompt, straightforward help.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W1654332'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W1654332', 'item_ids': ['9665000388'], 'new_item_ids': ['2299424241'], 'payment_method_id': 'credit_card_4056740'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W9527030', 'address1': '6901 Lincoln Street', 'address2': 'Suite 641', 'city': 'Las Vegas', 'state': 'NV', 'country': 'USA', 'zip': '29657'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'isabella_santos_1643', 'address1': '6901 Lincoln Street', 'address2': 'Suite 641', 'city': 'Las Vegas', 'state': 'NV', 'country': 'USA', 'zip': '29657'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='excitement',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='yusuf.hernandez6086@example.com',
+        instruction='You are assisting Yusuf Hernandez (email: yusuf.hernandez6086@example.com). You want to exchange the black espresso coffee maker (4 cups, with timer) from your delivered order—shipped to Columbus—for a stainless steel drip coffee maker with auto shutoff and 4-cup capacity, because it better fits your kitchen setup and safety preferences. You prefer the price adjustment to be handled using your PayPal account, which was previously used for this order. Later, for your pending order containing polarized sunglasses, you want the shipping address updated to 5186 Madison Drive, Suite 188, Philadelphia, PA, USA 35977, because you have relocated. Subsequently, you also want your default address in the profile updated to this new Philadelphia address to ensure all future orders are delivered correctly.\n\nTo authenticate, use yusuf.hernandez6086@example.com\n\nEmotion instruction: You feel proud of your accomplishments and want things handled quickly. You speak directly and expect efficient responses. You’re careful not to reveal everything at once. Engage assertively but remain observant of the agent’s abilities.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W1633718'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W1633718', 'item_ids': ['5952720925'], 'new_item_ids': ['3039787582'], 'payment_method_id': 'paypal_9426036'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W2033238', 'address1': '5186 Madison Drive', 'address2': 'Suite 188', 'city': 'Philadelphia', 'state': 'PA', 'country': 'USA', 'zip': '35977'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'yusuf_hernandez_6467', 'address1': '5186 Madison Drive', 'address2': 'Suite 188', 'city': 'Philadelphia', 'state': 'PA', 'country': 'USA', 'zip': '35977'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='excitement',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='fatima.johnson2300@example.com',
+        instruction='You are Fatima Johnson (email: fatima.johnson2300@example.com) and you want to update the shipping address for your pending order (containing Hiking Boots, Action Camera, Electric Kettle, Cycling Helmet, and Wristwatch) from Austin, TX to 9366 Adams Road, Unit 925, Jacksonville, FL, USA 84065, because you need the items delivered to a new location, and then you would like to confirm the updated order details after the change. You also want to exchange the blue v-neck polyester T-shirt from your delivered order (shipped to Austin, TX) for a blue cotton v-neck T-shirt in size S, because you prefer a more breathable fabric, and you prefer to use your PayPal account for any price difference. Later, you decided to cancel another pending order (containing Bluetooth Speaker, Smart Watch, Dumbbell Set, Espresso Machine, and Action Camera) because you no longer need those items.\n\nTo authenticate, use fatima.johnson2300@example.com\n\nEmotion instruction: You remain calm under pressure and express the need for prompt handling. Use neutral, precise language. Interact respectfully, but maintain some skepticism. Request clarifications to ensure accuracy.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W5199551', 'address1': '9366 Adams Road', 'address2': 'Unit 925', 'city': 'Jacksonville', 'state': 'FL', 'country': 'USA', 'zip': '84065'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W5199551'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W9389413', 'item_ids': ['5047954489'], 'new_item_ids': ['8349118980'], 'payment_method_id': 'paypal_5364164'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W8665881', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='excitement',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='aarav.gonzalez9269@example.com',
+        instruction='You are a customer with email aarav.gonzalez9269@example.com who has three orders. For your pending order containing an Electric Toothbrush, Action Camera, Cycling Helmet, and Smart Watch, you want to change the shipping address to 8352 Cedar Road, Unit 539, Columbus, OH, USA 94955 because it is your updated delivery location, and you would like to verify the updated order details afterward. You also want to exchange the large HEPA Air Purifier with night mode from your delivered order for the small HEPA model with quiet operation because it better fits your space and noise preferences, and you prefer the price difference to be handled using your PayPal account. Later, you decide to cancel another pending order containing a Water Bottle, Bluetooth Speaker, Wall Clock, Patio Umbrella, and Fleece Jacket because you no longer need those items.\n\nTo authenticate, use aarav.gonzalez9269@example.com\n\nEmotion instruction: You remain calm under pressure and express the need for prompt handling. Use neutral, precise language. Interact respectfully, but maintain some skepticism. Request clarifications to ensure accuracy.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W6979932', 'address1': '8352 Cedar Road', 'address2': 'Unit 539', 'city': 'Columbus', 'state': 'OH', 'country': 'USA', 'zip': '94955'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W6979932'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W6797115', 'item_ids': ['8302289002'], 'new_item_ids': ['3676786561'], 'payment_method_id': 'paypal_6121064'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W9160732', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='peace',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='mei.kovacs8232@example.com',
+        instruction='You are assisting a customer with email mei.kovacs8232@example.com who has a pending order containing a Gaming Mouse with RGB lighting and wired connectivity, a black metal bookshelf, and a black leather office chair with adjustable armrests and high-back support. You first want to update the shipping address to 754 Maple Lane, Apt 374, San Diego, CA, USA 58733 because the original address was incorrect. Later, you decide to cancel the entire order because it was placed by mistake. After these changes, you would like confirmation of the current order status and details. You prefer the refund to be processed back to the original payment method, which is PayPal.\n\nTo authenticate, use mei.kovacs8232@example.com\n\nEmotion instruction: You feel anxious and uneasy, needing quick reassurance. You politely reach out, expressing your concerns warmly. Trust that the agent wants to help and be open about your worries. Urgently ask for clear and prompt support.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W7800651', 'address1': '754 Maple Lane', 'address2': 'Apt 374', 'city': 'San Diego', 'state': 'CA', 'country': 'USA', 'zip': '58733'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W7800651', 'reason': 'ordered by mistake'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W7800651'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='anxiety',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='skeptical',
+    ),
+
+    Task(
+        user_id='ethan.garcia8085@example.com',
+        instruction="You are Ethan Garcia, authenticated with email ethan.garcia8085@example.com, and you first wanted to explore all available product types to understand what is offered. You would like the shipping address for your pending order—containing a blue stainless steel 1000ml water bottle, a full-size tactile mechanical keyboard, yellow running shoes in size 9, and a professional dark-skin-tone makeup kit—updated from Denver, CO to 1366 Park Drive, Floor 56, San Diego, CA, USA, 42306, because you are relocating temporarily. Later, after updating the address, you decided you no longer need the items and would like the same order cancelled with the reason 'no longer needed'. Finally, you want confirmation that the order status is now cancelled to ensure no further processing occurs.\n\nTo authenticate, use ethan.garcia8085@example.com\n\nEmotion instruction: You’re feeling anxious and stressed, wanting this resolved as soon as possible. You state your needs clearly and avoid small talk. You are wary of missteps, so you confirm any details the agent provides. You expect prompt, straightforward help.",
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W9911714', 'address1': '1366 Park Drive', 'address2': 'Floor 56', 'city': 'San Diego', 'state': 'CA', 'country': 'USA', 'zip': '42306'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W9911714', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W9911714'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='anxiety',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='skeptical',
+    ),
+
+    Task(
+        user_id='mason.lopez8921@example.com',
+        instruction='You are a customer with email mason.lopez8921@example.com who has two pending orders. You want to cancel one pending order that contains an Electric Kettle in silver color, 2L capacity, and glass material, because it was ordered by mistake. You would also like to modify another pending order that includes a Cycling Helmet and a Tea Kettle by upgrading the Cycling Helmet from size M, color red to size L, color black because the original size and color do not fit your needs. You prefer the updated item to be the one priced around $197 with high ventilation. After that, you want the shipping address for this modified order to be changed to 6801 Maple Lane, Suite 10, Las Vegas, NV, USA 76397, to ensure delivery to your new location. You prefer any price difference from the modification to be handled using your Mastercard ending in 4629.\n\nTo authenticate, use mason.lopez8921@example.com\n\nEmotion instruction: You’re genuinely excited to resolve the issue and it shows in your words. However, you question each response to ensure accuracy. Be polite and fast-paced, expressing urgency while keeping a slight edge of skepticism throughout.',
+        actions=[
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W7752859', 'reason': 'ordered by mistake'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W9892169'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W9892169', 'address1': '6801 Maple Lane', 'address2': 'Suite 10', 'city': 'Las Vegas', 'state': 'NV', 'country': 'USA', 'zip': '76397'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'mason_lopez_8519', 'address1': '6801 Maple Lane', 'address2': 'Suite 10', 'city': 'Las Vegas', 'state': 'NV', 'country': 'USA', 'zip': '76397'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W9892169', 'item_ids': ['6401214406'], 'new_item_ids': ['1665571435'], 'payment_method_id': 'credit_card_2327218'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='peace',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='sophia.garcia5907@example.com',
+        instruction='You are Sophia Garcia, and your email is sophia.garcia5907@example.com. You initially wanted to cancel your pending order because you made a mistake, but later decided to keep it with modifications. You would like to change one of the tea kettles — specifically the ceramic 1-liter model — to the glass 1.5-liter version because it better suits your stovetop and brewing needs. You also want the shipping address for this order to be updated to 5607 Jackson Street, Unit 134, Columbus, OH, USA 77964, as this is your new residence. Additionally, you prefer this new address to be saved as your default for all future orders. You used your Visa card ending in 5114 to cover any price difference and prefer to keep using this card for any additional charges.\n\nTo authenticate, use sophia.garcia5907@example.com\n\nEmotion instruction: You feel anxious and on edge, wishing for a resolution soon. You communicate with respect and kindness, but your underlying concern comes through. You ask for updates and double-check what the agent tells you. You are careful, wanting to feel safe with their answers.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W4958652'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W4958652', 'address1': '5607 Jackson Street', 'address2': 'Unit 134', 'city': 'Columbus', 'state': 'OH', 'country': 'USA', 'zip': '77964'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'sophia_garcia_5795', 'address1': '5607 Jackson Street', 'address2': 'Unit 134', 'city': 'Columbus', 'state': 'OH', 'country': 'USA', 'zip': '77964'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W4958652', 'item_ids': ['7274158061'], 'new_item_ids': ['9647374798'], 'payment_method_id': 'credit_card_9467292'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='anxiety',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='lei.ahmed1696@example.com',
+        instruction='You are assisting Lei Ahmed, whose email is lei.ahmed1696@example.com, with modifying their pending order that includes a skateboard and two cycling helmets. You want to change the large black cycling helmet to a medium white one because the original size and color were incorrect, and the medium white option is available. You prefer the price difference to be handled using your Mastercard ending in 3705. Later, you also want to update the shipping address for this order to 6620 Jefferson Avenue, Suite 32, New York, NY, USA 67197, and set this as your default address for future orders to ensure consistency in delivery.\n\nTo authenticate, use lei.ahmed1696@example.com\n\nEmotion instruction: You remain calm under pressure and express the need for prompt handling. Use neutral, precise language. Interact respectfully, but maintain some skepticism. Request clarifications to ensure accuracy.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W9132840'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W9132840', 'item_ids': ['6048672633'], 'new_item_ids': ['8591113813'], 'payment_method_id': 'credit_card_3593714'}),
+            Action(name='get_product_details', kwargs={'product_id': '7765186836'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W9132840', 'address1': '6620 Jefferson Avenue', 'address2': 'Suite 32', 'city': 'New York', 'state': 'NY', 'country': 'USA', 'zip': '67197'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'lei_ahmed_1705', 'address1': '6620 Jefferson Avenue', 'address2': 'Suite 32', 'city': 'New York', 'state': 'NY', 'country': 'USA', 'zip': '67197'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='peace',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='olivia.jackson2465@example.com',
+        instruction='You are assisting Olivia Jackson, whose email is olivia.jackson2465@example.com, with modifying her pending order. You want to upgrade the Hiking Boots in her order from size 8 to size 9 because she needs a better fit, and the size 9 option in leather with waterproofing is available. You prefer to use her PayPal account to cover any price difference associated with the size upgrade. Subsequently, you want to update the shipping address for this order to 7361 Pine Avenue, Apt 212, Austin, TX, USA 16625, as she has relocated. You also want to update her default address in the system to the same Austin address for future orders.\n\nTo authenticate, use olivia.jackson2465@example.com\n\nEmotion instruction: You feel proud of your accomplishments but keep your tone matter-of-fact. You communicate your needs clearly without rushing. You’re not fully sure the agent can help, so you ask questions carefully. You want to ensure your concerns are handled properly.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W3168895'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W3168895', 'item_ids': ['2648909398'], 'new_item_ids': ['8106223139'], 'payment_method_id': 'paypal_3999493'}),
+            Action(name='get_product_details', kwargs={'product_id': '7363354090'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3168895', 'address1': '7361 Pine Avenue', 'address2': 'Apt 212', 'city': 'Austin', 'state': 'TX', 'country': 'USA', 'zip': '16625'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'olivia_jackson_1219', 'address1': '7361 Pine Avenue', 'address2': 'Apt 212', 'city': 'Austin', 'state': 'TX', 'country': 'USA', 'zip': '16625'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='peace',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='amelia.ito8974@example.com',
+        instruction='You are Amelia Ito, and your email is amelia.ito8974@example.com. You want to cancel your pending order because it was placed by mistake, which includes a navy fleece jacket in size XS, a black cycling helmet in size S, a professional light-skin-tone makeup kit, and a 30MP digital camera with 3x zoom. You would like to proceed with an exchange for the hiking boots from your delivered order, as the ones received were synthetic and not waterproof, which do not meet your needs for outdoor use. You prefer to exchange the synthetic, non-waterproof hiking boots in size 9 for the same model in leather and waterproof version, which is available. You prefer any price difference to be handled using your Mastercard ending in 7517, which is already authorized for adjustments.\n\nTo authenticate, use amelia.ito8974@example.com\n\nEmotion instruction: You’re nervous and careful, not wanting to make any mistakes. You ask for clarification and prefer simple answers. You keep your tone reserved and don’t expect immediate fixes. You take your time deciding how to proceed.',
+        actions=[
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W3883329', 'reason': 'ordered by mistake'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W3733909'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W3733909', 'item_ids': ['6595128475'], 'new_item_ids': ['8106223139'], 'payment_method_id': 'credit_card_1016162'}),
+            Action(name='get_product_details', kwargs={'product_id': '7363354090'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='peace',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='harper.kovacs2446@example.com',
+        instruction='You are assisting Harper Kovacs (email: harper.kovacs2446@example.com) with two order actions in sequence. First, you want to cancel the pending order placed for several household items—including a green polyester backpack with a laptop compartment, a white 10-inch digital wall clock, a HEPA-filter air purifier for medium rooms, and a glass 1-liter tea kettle—because they no longer need them. Later, for a delivered order containing a 30MP digital camera with 10x zoom and SD card storage, you would like to exchange it for a different model with 5x zoom and CF card storage (24MP resolution), as this configuration better suits your needs. You prefer any price difference from the exchange to be refunded to your Visa card ending in 2080.\n\nTo authenticate, use harper.kovacs2446@example.com\n\nEmotion instruction: You remain calm under pressure and express the need for prompt handling. Use neutral, precise language. Interact respectfully, but maintain some skepticism. Request clarifications to ensure accuracy.',
+        actions=[
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W9093821', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W3065353'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W3065353', 'item_ids': ['9228757377'], 'new_item_ids': ['4326528037'], 'payment_method_id': 'credit_card_7422485'}),
+            Action(name='get_product_details', kwargs={'product_id': '8940227892'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='peace',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='fatima.brown7817@example.com',
+        instruction='You are Fatima Brown, with email fatima.brown7817@example.com, who was browsing the product catalog and showed interest in Running Shoes, particularly noting the available sizes, colors like white and black, and materials such as mesh and leather. You have a pending order for a Dumbbell Set currently shipping to San Jose, and you would like to update its delivery address to 8523 Washington Boulevard, Unit 378, New York, NY, USA 41252, so it reaches the correct location. Later, you also want to exchange the red Cycling Helmet (size M) from your delivered order for a blue one in the same size, because you prefer the color and it has high ventilation. You prefer to use your Visa card ending in 2364 for any price difference associated with the exchange.\n\nTo authenticate, use fatima.brown7817@example.com\n\nEmotion instruction: You feel proud of your accomplishments and want things handled quickly. You speak directly and expect efficient responses. You’re careful not to reveal everything at once. Engage assertively but remain observant of the agent’s abilities.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '6938111410'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W1649831', 'address1': '8523 Washington Boulevard', 'address2': 'Unit 378', 'city': 'New York', 'state': 'NY', 'country': 'USA', 'zip': '41252'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W9045919', 'item_ids': ['1719127154'], 'new_item_ids': ['9013366374'], 'payment_method_id': 'credit_card_1982124'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='excitement',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='mei.davis6811@example.com',
+        instruction='You are Mei Davis, with email mei.davis6811@example.com, who is interested in Air Purifiers and their available options. You have a pending order containing an Air Purifier and other electronics, and you would like to update its shipping address to 2846 Main Street, Unit 732, Portland, OR, USA 79958 because you will not be available at the original Denver address. Later, you also want to exchange the 1000ml blue stainless steel Water Bottle from your delivered order for a different variant, preferably in a different color or material such as black or red, or made of glass or plastic, to better suit your preferences. You would like to use your Mastercard ending in 1037 for any price adjustment associated with the exchange.\n\nTo authenticate, use mei.davis6811@example.com\n\nEmotion instruction: You feel proud of your accomplishments and want things handled quickly. You speak directly and expect efficient responses. You’re careful not to reveal everything at once. Engage assertively but remain observant of the agent’s abilities.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_variants', kwargs={'product_id': '3821016478'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W1267569', 'address1': '2846 Main Street', 'address2': 'Unit 732', 'city': 'Portland', 'state': 'OR', 'country': 'USA', 'zip': '79958'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W2890441', 'item_ids': ['2366567022'], 'new_item_ids': ['3076708684'], 'payment_method_id': 'credit_card_1061405'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='excitement',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='james.martin9857@example.com',
+        instruction="You are James Martin, with email james.martin9857@example.com, and you initially placed an order containing a red cotton crew neck T-shirt in size XXL, a Smart Thermostat compatible with Amazon Alexa in stainless steel, a white-dialed silicone-strap Wristwatch, a 100ft rubber black Garden Hose, and a small green polyester camera compartment Backpack, all currently pending. You first want to change the payment method from PayPal to your Visa card ending in 1826 because you prefer to use that card for this purchase. Later, you decide to cancel the entire order because you've changed your mind about buying these items. Before the cancellation is processed, you request to update the shipping address for this order to 6540 Washington Boulevard, Floor 280, Chicago, IL, USA 96795, and also update your default address to this new Chicago location so future orders go to the correct place.\n\nTo authenticate, use james.martin9857@example.com\n\nEmotion instruction: You feel uneasy and unsure about the situation. Your messages come quickly, with anxious undertones. Demand answers promptly and don't fully trust what the agent says. Press for clear details before accepting any reassurances.",
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W3043531'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W3043531', 'payment_method_id': 'credit_card_7083997'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W3043531', 'reason': 'no longer needed'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3043531', 'address1': '6540 Washington Boulevard', 'address2': 'Floor 280', 'city': 'Chicago', 'state': 'IL', 'country': 'USA', 'zip': '96795'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'james_martin_1500', 'address1': '6540 Washington Boulevard', 'address2': 'Floor 280', 'city': 'Chicago', 'state': 'IL', 'country': 'USA', 'zip': '96795'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='nervousness',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='skeptical',
+    ),
+
+    Task(
+        user_id='olivia.khan2360@example.com',
+        instruction='You are Olivia Khan (email: olivia.khan2360@example.com). You initially wanted to change the payment method for your pending order—which includes a red cotton crew neck T-shirt, polarized brown-lens black sunglasses, a large brown memory foam pet bed, and a blue-dial metal-strap wristwatch—currently set to PayPal, to your Mastercard ending in 2184 because you prefer to use that card for this purchase. Later, you decided to cancel the entire order because you no longer needed the items. Subsequently, you requested to update the shipping address for this order to 9869 Adams Road, Unit 162, Phoenix, AZ, USA 48585, and also update your default address in the account to this new Phoenix location for future orders.\n\nTo authenticate, use olivia.khan2360@example.com\n\nEmotion instruction: You’re calm and composed, eager for a pleasant, low-pressure experience. You use friendly, gracious language, taking your time to explain your needs. You request confirmation and details before agreeing to anything. You are welcoming but stay a bit reserved until you feel reassured.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W3840181'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W3840181', 'payment_method_id': 'credit_card_7376788'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W3840181', 'reason': 'no longer needed'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3840181', 'address1': '9869 Adams Road', 'address2': 'Unit 162', 'city': 'Phoenix', 'state': 'AZ', 'country': 'USA', 'zip': '48585'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'olivia_khan_9030', 'address1': '9869 Adams Road', 'address2': 'Unit 162', 'city': 'Phoenix', 'state': 'AZ', 'country': 'USA', 'zip': '48585'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='peace',
+        dimension_politeness='neutral',
+        dimension_urgency='moderate',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='ethan.santos9082@example.com',
+        instruction='You are assisting a customer whose email is ethan.santos9082@example.com and who has a pending order in San Jose, CA. You initially want to cancel the entire order because it was placed by mistake. However, before proceeding with the cancellation, you want to update the Cycling Helmet in the order from size L, color blue to size M, color blue because the original size does not fit, and you prefer this specific variant for better comfort. You prefer any price difference to be handled using your Mastercard ending in 9443. After this change is completed, you still intend to cancel the entire order as originally planned.\n\nTo authenticate, use ethan.santos9082@example.com\n\nEmotion instruction: You remain calm under pressure and express the need for prompt handling. Use neutral, precise language. Interact respectfully, but maintain some skepticism. Request clarifications to ensure accuracy.',
+        actions=[
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W5320242', 'reason': 'ordered by mistake'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W5320242'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W5320242', 'item_ids': ['2206116040'], 'new_item_ids': ['9013366374'], 'payment_method_id': 'credit_card_9784468'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='peace',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='yusuf.garcia2909@example.com',
+        instruction='You are a customer with email yusuf.garcia2909@example.com who placed a pending order for a 13-inch black laptop, hiking boots, and an air purifier, but now want to cancel the entire order because it was placed by mistake. You want confirmation that the order has been successfully cancelled. Later, despite the cancellation, you would like to attempt changing the laptop in that order from the original 13-inch black model to the 15-inch space grey version with 1TB SSD and 32GB RAM, possibly due to a change of mind or confusion after cancellation.\n\nTo authenticate, use yusuf.garcia2909@example.com\n\nEmotion instruction: You are anxious and your tone is quick, bordering on abrupt. Express that you need urgent help but aren’t sure you can rely fully on the agent. Ask for details and repeat back instructions for confirmation. Display suspicion if answers are unclear.',
+        actions=[
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W2564042', 'reason': 'ordered by mistake'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W2564042'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W2564042', 'item_ids': ['1657832319'], 'new_item_ids': ['6017636844'], 'payment_method_id': 'credit_card_8405687'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='anxiety',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='skeptical',
+    ),
+
+    Task(
+        user_id='lei.li8350@example.com',
+        instruction='You are assisting a customer with email lei.li8350@example.com who has a pending order in San Francisco for a 17-inch i5 8GB RAM space grey laptop. You want to first change the laptop in this order to the 17-inch i7 32GB RAM black model because it better meets their performance needs, and you prefer to use the Visa card ending in 2697 for any price difference since it is their preferred payment method. After that, you would like to update the entire payment method for the order from PayPal to the Visa card ending in 2697 for consistency and convenience. Subsequently, you decide to cancel the entire order because your needs have changed and you no longer require the laptop. Separately, you want to browse all available product types to understand the full range of offerings, and you are particularly interested in getting detailed information about the Laptop product to inform future purchases.\n\nTo authenticate, use lei.li8350@example.com\n\nEmotion instruction: You are calm and patient but interested in a prompt solution. Communicate with brief, direct statements. If you sense hesitation or uncertainty from the agent, gently question their responses. Maintain skepticism about their expertise.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W5166363'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W5166363', 'item_ids': ['3334537816'], 'new_item_ids': ['1684786391'], 'payment_method_id': 'credit_card_4466831'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W5166363', 'payment_method_id': 'credit_card_4466831'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W5166363', 'reason': 'no longer needed'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '4760268021'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='nervousness',
+        dimension_politeness='neutral',
+        dimension_urgency='moderate',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='raj.lopez2997@example.com',
+        instruction="You are Raj Lopez, with email raj.lopez2997@example.com, who has a pending order in Fort Worth, TX, containing a Water Bottle, Skateboard, and Hiking Boots. You want to exchange the 500ml stainless steel black Water Bottle for the 750ml glass black version because you prefer a larger capacity and glass material for environmental and taste reasons. You would like the price difference covered using your PayPal account. Then, you prefer to switch the entire order's payment method from your Mastercard ending in 3803 to your PayPal for consistency and easier tracking. After that, you decide to cancel the entire order as your plans have changed and you no longer need the items. Separately, you are browsing the product catalog and would like to see all available product types to explore your options. Subsequently, you want detailed information on the available variants of T-Shirts, including color, size, material, and style options, to consider a future purchase.\n\nTo authenticate, use raj.lopez2997@example.com\n\nEmotion instruction: You feel proud of your accomplishments and want things handled quickly. You speak directly and expect efficient responses. You’re careful not to reveal everything at once. Engage assertively but remain observant of the agent’s abilities.",
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W3502364'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W3502364', 'item_ids': ['3453331371'], 'new_item_ids': ['4579334072'], 'payment_method_id': 'paypal_7007375'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W3502364', 'payment_method_id': 'paypal_7007375'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W3502364', 'reason': 'no longer needed'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_variants', kwargs={'product_id': '9523456873'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='pride',
+        dimension_politeness='cold',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='isabella.lopez3271@example.com',
+        instruction='You are Isabella Lopez, and your email is isabella.lopez3271@example.com. You have a pending order for a red Bluetooth speaker that was initially set to ship to Phoenix, AZ, and you want to update the shipping address to 6972 Washington Boulevard, Unit 881, Portland, OR, USA 33856 because you will not be at the original address when the delivery arrives. After that, you would like to change the payment method from your Mastercard ending in 4336 to your PayPal account because you prefer to use PayPal for easier tracking and buyer protection.\n\nTo authenticate, use isabella.lopez3271@example.com\n\nEmotion instruction: You feel uneasy and are worried about the outcome. You state your concerns directly and often check on progress. You trust the agent’s expertise, following their instructions closely. Your messages convey urgency at every step.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W4923227', 'address1': '6972 Washington Boulevard', 'address2': 'Unit 881', 'city': 'Portland', 'state': 'OR', 'country': 'USA', 'zip': '33856'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W4923227'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W4923227', 'payment_method_id': 'paypal_1621947'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='anxiety',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='fatima.wilson5906@example.com',
+        instruction='You are Fatima Wilson, a customer with email fatima.wilson5906@example.com, who placed a pending order containing a blue leather office chair and a large gas grill with rotisserie. You first wanted to explore the full range of products available, so you requested to see all product types. You would like the shipping address for this order to be updated from Austin to a new location in San Antonio, specifically 6432 Maple Lane, Unit 423, San Antonio, TX, USA 15367, to ensure delivery to your updated office location. Later, after reviewing your order, you decided to change the payment method from your Mastercard ending in 9779 to your PayPal account for better rewards tracking and purchase protection.\n\nTo authenticate, use fatima.wilson5906@example.com\n\nEmotion instruction: You’re feeling anxious and stressed, wanting this resolved as soon as possible. You state your needs clearly and avoid small talk. You are wary of missteps, so you confirm any details the agent provides. You expect prompt, straightforward help.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W1443906', 'address1': '6432 Maple Lane', 'address2': 'Unit 423', 'city': 'San Antonio', 'state': 'TX', 'country': 'USA', 'zip': '15367'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W1443906'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W1443906', 'payment_method_id': 'paypal_7685859'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='excitement',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='liam.lee9297@example.com',
+        instruction='You are Liam Lee (email: liam.lee9297@example.com) and you have a pending order that needs an updated shipping address because you are temporarily relocating to Detroit; you want the address for this order changed to 5024 Pine Avenue, Unit 371, Detroit, MI, USA 15252. Later, for a delivered order containing a 2000-piece animal puzzle, you would like to exchange it for a 1000-piece fantasy puzzle because you prefer a slightly easier and more imaginative theme. You prefer to use your Mastercard ending in 3695 for any price adjustment associated with the exchange.\n\nTo authenticate, use liam.lee9297@example.com\n\nEmotion instruction: You remain peaceful, even with the urgency of your request. Communicate efficiently and stay focused on the outcome. Trust the agent to handle your needs. Keep your responses brief and neutral.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W2624389', 'address1': '5024 Pine Avenue', 'address2': 'Unit 371', 'city': 'Detroit', 'state': 'MI', 'country': 'USA', 'zip': '15252'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W2624389'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W9710999', 'item_ids': ['5645314103'], 'new_item_ids': ['3112842858'], 'payment_method_id': 'credit_card_5809636'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='peace',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='sophia.patel9841@example.com',
+        instruction="You are Sophia Patel, and your email is sophia.patel9841@example.com. You want to update the shipping address for your pending order—which includes a men's oriental 100ml perfume, a glass electric kettle, a glass tea kettle, and gray canvas sneakers—to 939 Cedar Road, Apt 200, Austin, TX, USA 98262, because you’ve relocated within Texas and need the items delivered to your new residence. Later, you would like to exchange the blue Wireless Earbuds with 4-hour battery life from your delivered order for the same model in blue but with 8-hour battery life, because you need longer usage time between charges. You prefer the price difference to be handled using your Visa card ending in 8025, as you used that method originally and want to maintain consistency for any adjustment.\n\nTo authenticate, use sophia.patel9841@example.com\n\nEmotion instruction: You remain peaceful, even with the urgency of your request. Communicate efficiently and stay focused on the outcome. Trust the agent to handle your needs. Keep your responses brief and neutral.",
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W7905419', 'address1': '939 Cedar Road', 'address2': 'Apt 200', 'city': 'Austin', 'state': 'TX', 'country': 'USA', 'zip': '98262'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W2923184'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W2923184', 'item_ids': ['2757705742'], 'new_item_ids': ['8555936349'], 'payment_method_id': 'credit_card_6017489'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='peace',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='skeptical',
+    ),
+
+    Task(
+        user_id='ava.kovacs4827@example.com',
+        instruction="You are Ava Kovacs (email: ava.kovacs4827@example.com). You want to exchange the skateboard from your delivered order (with a plastic deck, 28 inch, plain design) for a bamboo deck model with a graphic design, because you prefer a more eco-friendly and visually distinctive board; you prefer the refund to be issued to your Mastercard ending in 3598. Later, for your pending order containing a skateboard, headphones, garden hose, and tea kettle, you want to update the shipping address to 6298 Jackson Street, Unit 914, Philadelphia, PA, USA 92581, because you've relocated temporarily; then, you want to change the payment method to PayPal for better purchase protection; you also want to upgrade the skateboard in that order from the plastic 31-inch plain model to the bamboo 31-inch graphic variant, because you prefer consistent, higher-quality materials across your purchases, and you prefer any price difference to be charged to your Mastercard ending in 3598; however, after making these changes, you decide to cancel the entire order because you no longer need the items. Finally, you would like a full list of product types available in the store to explore future purchase options.\n\nTo authenticate, use ava.kovacs4827@example.com\n\nEmotion instruction: You feel calm and collected, even though you need a quick solution. Speak in a clear and straightforward manner. Trust that the agent will assist you efficiently. Respond promptly to keep things moving.",
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W6344370'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W6344370', 'item_ids': ['4545791457'], 'new_item_ids': ['6843647669'], 'payment_method_id': 'credit_card_9699699'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W4184032', 'address1': '6298 Jackson Street', 'address2': 'Unit 914', 'city': 'Philadelphia', 'state': 'PA', 'country': 'USA', 'zip': '92581'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W4184032', 'payment_method_id': 'paypal_7443913'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W4184032', 'item_ids': ['3877188862'], 'new_item_ids': ['5312063289'], 'payment_method_id': 'credit_card_9699699'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W4184032', 'reason': 'no longer needed'}),
+            Action(name='list_all_product_types', kwargs={}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='peace',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='yara.lee9368@example.com',
+        instruction='You are assisting Yara Lee (yara.lee9368@example.com). You received your delivered order containing the non-waterproof hiking boots (size 10, synthetic), but you want to exchange them for the waterproof version of the same model because they are not suitable for wet conditions. You prefer to use your Visa ending in 6367 for any price difference. Later, for your pending order with items including a red leather office chair and a full-size mechanical keyboard, you initially want to update the shipping address to 9488 Maple Lane, Apt 749, Chicago, IL, and switch the payment method to your Mastercard ending in 5715. However, after that, you decide to cancel the entire pending order because you no longer need the items. Finally, you would like to browse all available product types in the store to explore future purchases.\n\nTo authenticate, use yara.lee9368@example.com\n\nEmotion instruction: You’re desperate and pressed for time, showing little patience. You speak tersely and without emotion, remaining focused on your urgent need. You rely on the agent’s help. You expect answers quickly, without delays.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W1341845'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W1341845', 'item_ids': ['4127323219'], 'new_item_ids': ['1615379700'], 'payment_method_id': 'credit_card_6450164'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3320020', 'address1': '9198 Cedar Road', 'address2': 'Suite 581', 'city': 'Chicago', 'state': 'IL', 'country': 'USA', 'zip': '35628'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W3320020', 'payment_method_id': 'credit_card_6680679'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W3320020', 'reason': 'no longer needed'}),
+            Action(name='list_all_product_types', kwargs={}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='anxiety',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='lucas.johansson7741@example.com',
+        instruction='You are assisting Lucas Johansson (lucas.johansson7741@example.com). You initially wanted to cancel a pending order containing hiking boots, a backpack, and a jigsaw puzzle because you no longer needed the items. Later, you contacted support regarding another pending order that includes an office chair and a tablet. For this second order, you would like to update the shipping address to 3124 Lincoln Street, Unit 496, Philadelphia, PA, USA 79462 because it is your current location. You also want to change the payment method to your Visa card ending in 9452 for both the original amount and any price difference. Additionally, you prefer to change the office chair from gray fabric to black fabric (same high-back, no armrest model) because you prefer the black color for office aesthetics.\n\nTo authenticate, use lucas.johansson7741@example.com\n\nEmotion instruction: You take pride in what you’ve done and expect quick service. You keep your language neutral and concise. You’re not easily convinced and ask the agent for specifics. You push for efficient and reliable solutions.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W5073920'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W5073920', 'reason': 'no longer needed'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W8379216', 'address1': '3124 Lincoln Street', 'address2': 'Unit 496', 'city': 'Philadelphia', 'state': 'PA', 'country': 'USA', 'zip': '79462'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W8379216', 'payment_method_id': 'credit_card_1814983'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W8379216', 'item_ids': ['9459890810'], 'new_item_ids': ['1793929609'], 'payment_method_id': 'credit_card_1814983'}),
+            Action(name='get_product_details', kwargs={'product_id': '4794339885'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='peace',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='anya.brown8893@example.com',
+        instruction='You are assisting Anya Brown (anya.brown8893@example.com) with her pending order originally placed for a 6-inch E-Reader and a Smart Watch. Initially, you wanted to cancel the order because you thought you no longer needed it. However, you later decided to modify it instead. You would like to update the shipping address to 8984 Cedar Road, Apt 990, Boston, MA, USA 35087 because you prefer delivery to this new location. You also prefer to pay using PayPal instead of your Mastercard for greater convenience and transaction security. Additionally, you want to exchange the 6-inch E-Reader for the 8-inch version because you prefer a larger screen for easier reading, and you confirmed that the 8-inch Wi-Fi model with 8GB storage is available. You no longer wish to cancel the order and instead want it processed with these updated preferences.\n\nTo authenticate, use anya.brown8893@example.com\n\nEmotion instruction: You feel uneasy and are worried about the outcome. You state your concerns directly and often check on progress. You trust the agent’s expertise, following their instructions closely. Your messages convey urgency at every step.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W8883368'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W8883368', 'address1': '8984 Cedar Road', 'address2': 'Apt 990', 'city': 'Boston', 'state': 'MA', 'country': 'USA', 'zip': '35087'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W8883368', 'payment_method_id': 'paypal_5206520'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W8883368', 'item_ids': ['5510402676'], 'new_item_ids': ['9494281769'], 'payment_method_id': 'paypal_5206520'}),
+            Action(name='get_product_details', kwargs={'product_id': '3801771308'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='nervousness',
+        dimension_politeness='warm',
+        dimension_urgency='moderate',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='sofia.rossi2645@example.com',
+        instruction='You are assisting Sofia Rossi (sofia.rossi2645@example.com) with a pending order originally shipping to Austin, TX, which includes an oriental 30ml unisex perfume, a bamboo 31-inch graphic skateboard, and two silver waterproof action cameras (one 5K and one 4K). You want to update the shipping address to 9372 Elm Street, Apt 239, Columbus, OH, USA 49824 because the delivery location has changed. You would like the order details confirmed and product information for the oriental 30ml unisex perfume retrieved to ensure accuracy before the update, as this item’s scent and size are important for verification.\n\nTo authenticate, use sofia.rossi2645@example.com\n\nEmotion instruction: You feel uneasy and are worried about the outcome. You state your concerns directly and often check on progress. You trust the agent’s expertise, following their instructions closely. Your messages convey urgency at every step.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W5918442', 'address1': '9372 Elm Street', 'address2': 'Apt 239', 'city': 'Columbus', 'state': 'OH', 'country': 'USA', 'zip': '49824'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W5918442'}),
+            Action(name='get_product_details', kwargs={'product_id': '6858788497'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='peace',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='evelyn.ahmed2006@example.com',
+        instruction='You are assisting Evelyn Ahmed (email: evelyn.ahmed2006@example.com), who placed a pending order containing hiking boots, a desk lamp, a water bottle, a bookshelf, and a jigsaw puzzle, currently set to ship to a Charlotte address. You want to update the shipping address to 2165 Lincoln Street, Suite 735, Seattle, WA, USA 80182 because the original address was entered in error and does not reflect her correct location. You would also like to review the full details of this order to confirm the items, pricing, and fulfillment status. Additionally, you are interested in learning more about the hiking boots product, specifically the version in size 10, made of leather, and waterproof, to understand its features, material quality, and fit before it ships.\n\nTo authenticate, use evelyn.ahmed2006@example.com\n\nEmotion instruction: You remain calm under pressure and express the need for prompt handling. Use neutral, precise language. Interact respectfully, but maintain some skepticism. Request clarifications to ensure accuracy.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W1416704', 'address1': '2165 Lincoln Street', 'address2': 'Suite 735', 'city': 'Seattle', 'state': 'WA', 'country': 'USA', 'zip': '80182'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W1416704'}),
+            Action(name='get_product_details', kwargs={'product_id': '7363354090'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='peace',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='james.kim1995@example.com',
+        instruction='You are james.kim1995@example.com, and you want the shipping address for your pending order—which includes a Backpack, Electric Kettle, Espresso Machine, Air Purifier, and Electric Toothbrush—to be updated from San Antonio, TX to 1591 Elm Street, Suite 77, Las Vegas, NV 15772 because you have moved and want to ensure delivery to your current location. Later, you would like to explore available T-Shirt options for a future purchase, particularly interested in variations of color, size, and material such as cotton or polyester in styles like crew neck or v-neck, so you can choose one that fits your personal style and comfort preferences.\n\nTo authenticate, use james.kim1995@example.com\n\nEmotion instruction: You share your excitement openly and keep the conversation uplifting. You are friendly and speak with warmth. You’d like things resolved soon, but are patient. You’re attentive and thoughtful about trusting the agent’s responses.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W9154975', 'address1': '1591 Elm Street', 'address2': 'Suite 77', 'city': 'Las Vegas', 'state': 'NV', 'country': 'USA', 'zip': '15772'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W9154975'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '9523456873'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='relief',
+        dimension_politeness='warm',
+        dimension_urgency='moderate',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='omar.santos1752@example.com',
+        instruction='You are Omar Santos, with email omar.santos1752@example.com, and you have a pending order currently shipping to an incorrect address in Fort Worth, TX; you want the shipping address updated to 8243 Park Drive, Floor 211, Nashville, TN, USA 54820 because you realized the original address was wrong and need the package delivered to the correct location. After resolving the shipping issue, you would like to explore available options for the Air Purifier because you are considering a future purchase; you are particularly interested in models with HEPA filters and quiet or night mode features for home use, and you prefer to see all available variants including those suitable for small, medium, and large rooms.\n\nTo authenticate, use omar.santos1752@example.com\n\nEmotion instruction: You feel accomplished and want prompt help. Remain personable and polite, but approach responses with discernment. Thank the agent, yet confirm important steps before moving forward.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W9121070', 'address1': '7311 Maple Lane', 'address2': 'Suite 500', 'city': 'Nashville', 'state': 'TN', 'country': 'USA', 'zip': '16880'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W9121070'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_variants', kwargs={'product_id': '3821016478'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='pride',
+        dimension_politeness='warm',
+        dimension_urgency='moderate',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='ethan.sanchez3299@example.com',
+        instruction='You are assisting Ethan Sanchez (email: ethan.sanchez3299@example.com), who wants to exchange the small grey nylon backpack with a laptop compartment from his delivered order for a larger grey nylon backpack with a hydration compartment because it better suits his outdoor needs, and also return the gold metal-banded smart watch from the same order since he no longer uses it, with any refund or price difference to be handled using his gift card. Later, after completing the exchange and return, he requests to cancel his pending order for a portable electric grill, glass electric kettle, white French press coffee maker with grinder, red leather office chair, and capsule espresso machine because he no longer needs these kitchen and office items.\n\nTo authenticate, use ethan.sanchez3299@example.com\n\nEmotion instruction: You come in with a sense of pride but stay businesslike. You keep interactions brief, skipping small talk. You want resolution in a reasonable timeframe. You’re confident the agent will deliver.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W5560533'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W5560533', 'item_ids': ['8054888773'], 'new_item_ids': ['5726859009'], 'payment_method_id': 'gift_card_5917510'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W5560533', 'item_ids': ['2554056026'], 'payment_method_id': 'gift_card_5917510'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W7147989', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='excitement',
+        dimension_politeness='cold',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='omar.moore7625@example.com',
+        instruction="You are Omar Moore, and your email is omar.moore7625@example.com. You received a delivered order in New York containing a 20MP digital camera with 5x zoom and SD card storage, and you would like to exchange it for a higher-resolution model that supports CF card storage because it better suits your professional photography needs. You prefer any price adjustment to be processed using your Mastercard ending in 6377. Later, you realized that your pending order in New York, which includes a black stainless steel electric kettle, a green 500ml water bottle, and a gold 128GB smartphone, was placed by mistake, so you would like to cancel that order entirely.\n\nTo authenticate, use omar.moore7625@example.com\n\nEmotion instruction: You are desperate and fearful, fully focused on resolving your issue quickly. You ask direct questions and repeatedly stress the urgency. You are wary of the agent's advice and require additional clarifications. You keep interactions brief and to the point.",
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W1874267'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W1874267', 'item_ids': ['2284404181'], 'new_item_ids': ['6384525445'], 'payment_method_id': 'credit_card_8008637'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W1874267', 'item_ids': ['2284404181'], 'payment_method_id': 'credit_card_8008637'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W8058304', 'reason': 'ordered by mistake'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='excitement',
+        dimension_politeness='cold',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='harper.santos8390@example.com',
+        instruction="You are Harper Santos, and your email is harper.santos8390@example.com. You would like to update the shipping address for your pending order—which includes an electric toothbrush, men's perfume, a large grey memory foam pet bed, a 20MP digital camera, and a 12-inch white analog wall clock—from Charlotte, NC to 125 Park Drive, Floor 954, Dallas, TX 19129, because the original address was incorrect. You also prefer to change the payment method from PayPal to your Visa card ending in 8643, as you want to use that card for this purchase.\n\nTo authenticate, use harper.santos8390@example.com\n\nEmotion instruction: You’re frustrated and want the issue addressed without delays. Speak plainly, focusing on the facts and your need for solutions. Don’t hesitate to challenge unclear information from the agent. Stay attentive and verify each response.",
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W6629830', 'address1': '125 Park Drive', 'address2': 'Floor 954', 'city': 'Dallas', 'state': 'TX', 'country': 'USA', 'zip': '19129'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W6629830', 'payment_method_id': 'credit_card_7507679'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W6629830'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='anxiety',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='fatima.li1185@example.com',
+        instruction='You are a customer with email fatima.li1185@example.com who placed a pending order for a skateboard and an espresso machine. You want the shipping address updated to 4114 Main Street, Apt 199, Boston, MA, USA 36990 because it was initially entered incorrectly. After that, you would like the payment method changed from PayPal to your Visa card ending in 1373, as you prefer to use that card for this purchase.\n\nTo authenticate, use fatima.li1185@example.com\n\nEmotion instruction: You are very worried and desperate for a solution. Your urgency is high and your requests are pressing, but you still address the agent politely. You approach the conversation carefully, unsure if the agent can resolve your issue. Express your anxiety and hope for quick help.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W8005719', 'address1': '4114 Main Street', 'address2': 'Apt 199', 'city': 'Boston', 'state': 'MA', 'country': 'USA', 'zip': '36990'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W8005719', 'payment_method_id': 'credit_card_2713802'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W8005719'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='nervousness',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='harper.thomas1454@example.com',
+        instruction='You are a customer with email harper.thomas1454@example.com who placed a pending order containing a green PVC yoga mat and a black Apple HomeKit-compatible smart thermostat, originally set to ship to Houston, TX. You want the shipping address for this order updated to 4552 Jefferson Avenue, Unit 552, Chicago, IL, USA 70550, because you recently moved and need the delivery redirected. You would also like your default profile address updated to the same Chicago address, so future orders are sent to your current location without requiring manual changes.\n\nTo authenticate, use harper.thomas1454@example.com\n\nEmotion instruction: You feel uneasy and are worried about the outcome. You state your concerns directly and often check on progress. You trust the agent’s expertise, following their instructions closely. Your messages convey urgency at every step.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W7425646', 'address1': '4552 Jefferson Avenue', 'address2': 'Unit 552', 'city': 'Chicago', 'state': 'IL', 'country': 'USA', 'zip': '70550'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'harper_thomas_9402', 'address1': '4552 Jefferson Avenue', 'address2': 'Unit 552', 'city': 'Chicago', 'state': 'IL', 'country': 'USA', 'zip': '70550'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='peace',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='raj.lee6137@example.com',
+        instruction='You are raj.lee6137@example.com, and you want the shipping address for your pending order—containing a small brown fleece pet bed and a blue 4mm PVC yoga mat—updated to 200 Elm Street, Suite 213, Charlotte, NC, USA 59905, because it was initially shipped to the wrong address in Dallas. You also want your default profile address updated to the same Charlotte address, so future orders are sent correctly.\n\nTo authenticate, use raj.lee6137@example.com\n\nEmotion instruction: You’re genuinely excited to resolve the issue and it shows in your words. However, you question each response to ensure accuracy. Be polite and fast-paced, expressing urgency while keeping a slight edge of skepticism throughout.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W9933266', 'address1': '200 Elm Street', 'address2': 'Suite 213', 'city': 'Charlotte', 'state': 'NC', 'country': 'USA', 'zip': '59905'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'raj_lee_3061', 'address1': '200 Elm Street', 'address2': 'Suite 213', 'city': 'Charlotte', 'state': 'NC', 'country': 'USA', 'zip': '59905'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='peace',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='james.kim1995@example.com',
+        instruction='You are James Kim, and your email is james.kim1995@example.com. You initially wanted to update the shipping address for your pending order—which includes a black nylon small backpack with a laptop compartment, a white glass 1L electric kettle, a 19 bar capsule espresso machine with a 2L capacity, an ionic air purifier with quiet operation for small rooms, and a white rechargeable electric toothbrush with low speed settings—from San Antonio, TX to 7518 Adams Road, Apt 193, San Francisco, CA, USA 97680 because you realized the original address was incorrect. Later, you changed your mind and decided you no longer need these items, so you would like to cancel the entire order instead. You prefer the refund to be processed back to the original payment method, which was PayPal.\n\nTo authenticate, use james.kim1995@example.com\n\nEmotion instruction: You are very put off and need things corrected as soon as possible. Address the agent with warmth and patience, trusting their help. Be clear about your upset feelings. Highlight that time is of the essence.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W9154975', 'address1': '7518 Adams Road', 'address2': 'Apt 193', 'city': 'San Francisco', 'state': 'CA', 'country': 'USA', 'zip': '97680'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W9154975'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W9154975', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+        emotion_family='sadness',
+        emotion_leaf='helplessness',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='daiki.silva6295@example.com',
+        instruction='You are a customer with email daiki.silva6295@example.com who placed a pending order for a red Bluetooth speaker. You initially wanted to update the shipping address to 9459 Park Drive, Unit 584, Oklahoma City, OK, USA 49202 because the original San Francisco address was no longer valid. Later, after reconsidering, you decided the item was no longer needed and would like to cancel the entire order instead. You prefer the refund to be processed back to the original payment method, which was a gift card.\n\nTo authenticate, use daiki.silva6295@example.com\n\nEmotion instruction: You remain calm under pressure and express the need for prompt handling. Use neutral, precise language. Interact respectfully, but maintain some skepticism. Request clarifications to ensure accuracy.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W7999678', 'address1': '9459 Park Drive', 'address2': 'Unit 584', 'city': 'Oklahoma City', 'state': 'OK', 'country': 'USA', 'zip': '49202'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W7999678'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W7999678', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='peace',
+        dimension_politeness='neutral',
+        dimension_urgency='moderate',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='yara.muller9246@example.com',
+        instruction='You are Yara Muller (yara.muller9246@example.com), a returning customer with multiple orders. You are first requesting to update your pending order originally shipped to Phoenix, AZ, which currently includes a professional-sized Makeup Kit for light skin tone. You want to change the shipping address to 4114 Adams Road, Floor 169, Detroit, MI, USA 65286, because you will be relocating temporarily. You also want to update the payment method for this order to your paypal Additionally, you would like to exchange the current Makeup Kit for the variant designed for medium skin tone and basic kit size, because it better matches your current needs and is more portable, and you prefer any price difference to be charged to the same Visa card. Later, you want to explore the full product catalog to better understand available offerings, with a specific interest in the Makeup Kit product line to evaluate future options. Subsequently, you decide to cancel another pending order containing a Dumbbell Set and a Luggage Set, because you no longer need these items. Finally, you want to return the black, large-sized Fleece Jacket from a delivered order, because it is no longer needed, and you request that the refund be issued back to your Visa card ending in 6918 for consistency with your preferred payment method.\n\nTo authenticate, use yara.muller9246@example.com\n\nEmotion instruction: You feel proud of your accomplishments and want things handled quickly. You speak directly and expect efficient responses. You’re careful not to reveal everything at once. Engage assertively but remain observant of the agent’s abilities.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W5056519', 'address1': '4114 Adams Road', 'address2': 'Floor 169', 'city': 'Detroit', 'state': 'MI', 'country': 'USA', 'zip': '65286'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W5056519', 'payment_method_id': 'paypal_3095587'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W5056519', 'item_ids': ['7902309762'], 'new_item_ids': ['3017803871'], 'payment_method_id': 'credit_card_3095586'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W5995614', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W9384736'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W9384736', 'item_ids': ['9385662952'], 'payment_method_id': 'credit_card_3095586'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='excitement',
+        dimension_politeness='cold',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='mia.moore8091@example.com',
+        instruction="You are Mia Moore, and your email is mia.moore8091@example.com. You have a pending order that includes two white glass bookshelves of different sizes, along with other items. First, you want to update the shipping address to your new office at 6800 Main Street, Floor 924, Denver, CO, USA 60281, because you've relocated. You also want to change the payment method for this order to PayPal for easier tracking. Then, you would like to upgrade both the 3 ft and 4 ft white glass bookshelves in the order to the 5 ft white glass version, as they will better fit your new space, and you prefer to use your Mastercard ending in 2992 for any additional cost. You are also interested in exploring the full range of product types offered, particularly the Bookshelf options, to understand available styles and sizes. However, after reviewing your needs, you decide to cancel the entire pending order because you no longer require the items. You would like confirmation that the cancellation was successful. Subsequently, you want to return the 6 ft brown metal bookshelf from a previous delivered order, as it does not match your current decor, and you prefer the refund to be issued back to your PayPal account, which was used for the original purchase.\n\nTo authenticate, use mia.moore8091@example.com\n\nEmotion instruction: You sense things might go wrong and it makes you anxious. You interact with the agent in a guarded, businesslike style. You’re not fully convinced of their competence. You want help soon, but you’re ready to double-check any advice.",
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3130288', 'address1': '6800 Main Street', 'address2': 'Floor 924', 'city': 'Denver', 'state': 'CO', 'country': 'USA', 'zip': '60281'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W3130288', 'payment_method_id': 'paypal_5181300'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W3130288', 'item_ids': ['2989722512', '7373893106'], 'new_item_ids': ['8895454203', '8895454203'], 'payment_method_id': 'credit_card_2641784'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '8600330539'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W3130288', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W3130288'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W5544629', 'item_ids': ['6735339143'], 'payment_method_id': 'paypal_5181300'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='nervousness',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='skeptical',
+    ),
+
+    Task(
+        user_id='sofia.rossi2645@example.com',
+        instruction='You are Sofia Rossi (sofia.rossi2645@example.com) and you want to return the Vacuum Cleaner from your delivered order in Austin, TX, because you no longer need it, and you prefer the refund to be issued to your Mastercard ending in 3357. You are also interested in exploring available variants of the Action Camera, particularly the 4K model in black, to make an informed decision. Later, for your pending order containing a Perfume, Skateboard, and two Action Cameras, you want to update the shipping address to 3580 Maple Lane, Floor 591, Charlotte, NC, USA 46153, because you will be traveling and want it delivered to a new location. You also prefer to use your Mastercard ending in 3357 for all future payments on this order. Finally, you want to exchange the 5K silver Action Camera in your order for the 4K black variant, because you prefer the color and find the 4K resolution sufficient, and you want any price difference to be handled using the same Mastercard.\n\nTo authenticate, use sofia.rossi2645@example.com\n\nEmotion instruction: You feel proud of your accomplishments and want things handled quickly. You speak directly and expect efficient responses. You’re careful not to reveal everything at once. Engage assertively but remain observant of the agent’s abilities.',
+        actions=[
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W5918442', 'reason': 'ordered by mistake'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W8535951'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W8535951', 'item_ids': ['1304426904'], 'payment_method_id': 'credit_card_5051208'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W8535951', 'item_ids': ['1304426904'], 'new_item_ids': ['1304426904'], 'payment_method_id': 'credit_card_5051208'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '3377618313'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W5918442', 'address1': '3580 Maple Lane', 'address2': 'Floor 591', 'city': 'Charlotte', 'state': 'NC', 'country': 'USA', 'zip': '46153'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W5918442', 'payment_method_id': 'credit_card_5051208'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W5918442', 'item_ids': ['1586641416'], 'new_item_ids': ['6700049080'], 'payment_method_id': 'credit_card_5051208'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='peace',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='anya.brown8893@example.com',
+        instruction='You are Anya Brown, and your email is anya.brown8893@example.com. You want to cancel your pending order because it was placed by mistake and includes items you no longer need. You also want to return the medium, fleece, grey Pet Bed from your delivered order and exchange it for the large, polyester, grey version because it better fits your pet and is more durable. You would like to confirm the available options for the Pet Bed to ensure the correct variant is selected. For another pending order, you want to update the shipping address to 1018 Jefferson Avenue, Apt 268, Austin, TX, USA 55243 because you are relocating temporarily. You prefer to change the payment method for this order to PayPal for better purchase protection. Additionally, you want to modify the Desk Lamp to the white version with higher brightness because it matches your workspace decor and provides better illumination, and you prefer to pay any price difference using your Mastercard ending in 9625.\n\nTo authenticate, use anya.brown8893@example.com\n\nEmotion instruction: You’re anxious, with worries that make it hard to relax. You speak warmly and politely, but can’t hide your urgency. You look for quick, detailed help and may double-check the agent’s information. You engage with care, holding back full trust.',
+        actions=[
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W8883368', 'reason': 'ordered by mistake'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W2922433'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W2922433', 'item_ids': ['6857426243'], 'payment_method_id': 'credit_card_3414703'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W2922433', 'item_ids': ['6857426243'], 'new_item_ids': ['7917269097'], 'payment_method_id': 'credit_card_3414703'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '2747247837'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W1170711', 'address1': '1018 Jefferson Avenue', 'address2': 'Apt 268', 'city': 'Austin', 'state': 'TX', 'country': 'USA', 'zip': '55243'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W1170711', 'payment_method_id': 'paypal_5206520'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W1170711', 'item_ids': ['6805564527'], 'new_item_ids': ['9083642334'], 'payment_method_id': 'credit_card_3414703'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='anxiety',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='lei.li8350@example.com',
+        instruction="You are Lei Li (email: lei.li8350@example.com) and you want to cancel your pending order for a 17-inch space grey laptop with i5 processor, 8GB RAM, and 1TB SSD because you no longer need it. After that, you would like to update the shipping address for your other pending order—which includes a 30MP digital camera, a 1L black stainless steel electric kettle, and a 14-inch black digital wall clock—to 9312 Pine Avenue, Suite 694, Charlotte, NC, USA 58088, so it reaches the correct location. Subsequently, you prefer to change the payment method for this updated order from the gift card to your saved Visa card ending in 2697 for better personal record-keeping and expense tracking.\n\nTo authenticate, use lei.li8350@example.com\n\nEmotion instruction: You feel proud of your accomplishments and want things handled efficiently. Speak directly and get to the point. Insist on swift resolution while trusting the agent's competence. Keep your tone concise and businesslike.",
+        actions=[
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W5166363', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W5166363'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3414433', 'address1': '9312 Pine Avenue', 'address2': 'Suite 694', 'city': 'Charlotte', 'state': 'NC', 'country': 'USA', 'zip': '58088'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W3414433', 'payment_method_id': 'credit_card_4466831'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='peace',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='harper.brown3965@example.com',
+        instruction="You are a customer with email harper.brown3965@example.com who initially requested cancellation of a pending order containing a gold Smart Watch with silicone band, a glass Tea Kettle with 1-liter capacity, a men's woody-scented 100ml Perfume, a black Electric Toothbrush with high speed settings, and a size 10 pair of leather Hiking Boots, because it was placed by mistake. Later, you changed your mind and no longer want the cancellation. Instead, you would like to keep the order but update the shipping address to 7677 Jackson Street, Unit 541, New York, NY, USA 53195, because you will be traveling and need it delivered to a different location. You also prefer to change the payment method from the original credit card to your PayPal account for better purchase protection and budget tracking.\n\nTo authenticate, use harper.brown3965@example.com\n\nEmotion instruction: You feel uneasy and are worried about the outcome. You state your concerns directly and often check on progress. You trust the agent’s expertise, following their instructions closely. Your messages convey urgency at every step.",
+        actions=[
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W2273069', 'reason': 'ordered by mistake'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W2273069'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W2273069', 'address1': '7677 Jackson Street', 'address2': 'Unit 541', 'city': 'New York', 'state': 'NY', 'country': 'USA', 'zip': '53195'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W2273069', 'payment_method_id': 'paypal_2306935'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='anxiety',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='olivia.ito5204@example.com',
+        instruction='You are Olivia Ito (email: olivia.ito5204@example.com) and you have a pending order currently shipping to Denver, CO. You would like to exchange the black wired gaming mouse in this order for the white wireless version because you prefer a wireless setup with a lighter color. You initially agreed to use your Visa card ending in 9182 for any price difference, as the new mouse is slightly more expensive. Later, you decided to update the shipping address to 6346 Lincoln Street, Apt 820, San Antonio, TX, USA 77860 because you will be relocating before delivery. After that, you would like to switch the payment method from the Visa card to your PayPal account for greater convenience and payment flexibility.\n\nTo authenticate, use olivia.ito5204@example.com\n\nEmotion instruction: You’re pleased with yourself and want things sorted right away. Use friendly, encouraging language, but inquire about specifics to make sure nothing is missed. Maintain a positive, yet careful attitude.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W5442520'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W5442520', 'item_ids': ['3330317167'], 'new_item_ids': ['8896479688'], 'payment_method_id': 'credit_card_9753331'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W5442520', 'address1': '6346 Lincoln Street', 'address2': 'Apt 820', 'city': 'San Antonio', 'state': 'TX', 'country': 'USA', 'zip': '77860'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W5442520', 'payment_method_id': 'paypal_8049766'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='excitement',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='lei.li8350@example.com',
+        instruction='You are assisting Lei Li (email: lei.li8350@example.com) with a pending order for a laptop. You want to upgrade the laptop from the current 17-inch, i5, 8GB RAM, 1TB SSD, space grey model to the 17-inch, i7, 32GB RAM, 1TB SSD, black model because it better meets their performance and aesthetic preferences. Later, you want to update the shipping address to 4938 Jefferson Avenue, Floor 309, Chicago, IL, USA 40098, as you have recently moved and need the item delivered to your new apartment. You also prefer to change the payment method to your Visa card ending in 2697 for both the refund of the price difference and the final transaction, as you no longer wish to use PayPal for this purchase.\n\nTo authenticate, use lei.li8350@example.com\n\nEmotion instruction: You feel uneasy and are worried about the outcome. You state your concerns directly and often check on progress. You trust the agent’s expertise, following their instructions closely. Your messages convey urgency at every step.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W5166363'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W5166363', 'item_ids': ['3334537816'], 'new_item_ids': ['1684786391'], 'payment_method_id': 'credit_card_4466831'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W5166363', 'address1': '4938 Jefferson Avenue', 'address2': 'Floor 309', 'city': 'Chicago', 'state': 'IL', 'country': 'USA', 'zip': '40098'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W5166363', 'payment_method_id': 'credit_card_4466831'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='excitement',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='olivia.jackson2465@example.com',
+        instruction='You are Olivia Jackson, and your email is olivia.jackson2465@example.com. You want the shipping address for your pending order containing Hiking Boots, a Gaming Mouse, and Sneakers to be updated to 4344 Cedar Road, Floor 350, Chicago, IL, USA 82204 because it was sent to the wrong location, and you also want your default address to be updated to this new one for future orders. Later, you would like to explore the available variants of the Backpack product, such as color, size, material, and compartment type, to consider a future purchase. After that, you want to cancel your other pending order containing an Air Purifier, Headphones, and a Tablet because it was placed by mistake, and you prefer confirmation that the cancellation was successfully processed.\n\nTo authenticate, use olivia.jackson2465@example.com\n\nEmotion instruction: You take pride in what you’ve done and expect quick service. You keep your language neutral and concise. You’re not easily convinced and ask the agent for specifics. You push for efficient and reliable solutions.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3168895', 'address1': '4344 Cedar Road', 'address2': 'Floor 350', 'city': 'Chicago', 'state': 'IL', 'country': 'USA', 'zip': '82204'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'olivia_jackson_1219', 'address1': '4344 Cedar Road', 'address2': 'Floor 350', 'city': 'Chicago', 'state': 'IL', 'country': 'USA', 'zip': '82204'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W5663445', 'reason': 'ordered by mistake'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W5663445'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='excitement',
+        dimension_politeness='cold',
+        dimension_urgency='high',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='daiki.johnson2279@example.com',
+        instruction='You are Daiki Johnson, and your email is daiki.johnson2279@example.com. You want the shipping address for your pending order containing a glass 1-liter tea kettle to be updated from Jacksonville, FL to 9432 Lincoln Street, Suite 66, Charlotte, NC, USA 59298 because you have moved and want to ensure delivery to your new location. You also want your default address in the system to be updated to this Charlotte address for future orders. Later, you would like to browse the product catalog and learn more about the Backpack, particularly interested in a large black nylon version with a camera compartment, as you are considering it for potential purchase. Subsequently, you decide to cancel your other pending order that includes a 25ft green latex garden hose and a basic dark-skin-tone makeup kit because you no longer need these items, likely due to your recent move. You prefer the refund for the canceled order to be processed back to the original payment method, which is PayPal.\n\nTo authenticate, use daiki.johnson2279@example.com\n\nEmotion instruction: You maintain a sense of tranquility while interacting. Your tone is warm, but you keep a careful eye on the process. Make moderate requests, ensuring you understand every step. Be politely insistent about receiving all necessary information.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W1436802', 'address1': '9432 Lincoln Street', 'address2': 'Suite 66', 'city': 'Charlotte', 'state': 'NC', 'country': 'USA', 'zip': '59298'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'daiki_johnson_9523', 'address1': '9432 Lincoln Street', 'address2': 'Suite 66', 'city': 'Charlotte', 'state': 'NC', 'country': 'USA', 'zip': '59298'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '2524789262'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W5282037', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W5282037'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='peace',
+        dimension_politeness='neutral',
+        dimension_urgency='moderate',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='amelia.ito8974@example.com',
+        instruction='You are assisting Amelia Ito (email: amelia.ito8974@example.com) with her pending order and future browsing interest. You want the shipping address for her pending order—which includes a navy XS fleece jacket, a black small cycling helmet, a professional light-skin-tone makeup kit, and a 30MP digital camera with 3x zoom—to be updated from Seattle to 4687 Maple Lane, Floor 634, Detroit, MI, USA 21833, because she has relocated temporarily. You also want the payment method for this order to be changed from her Mastercard ending in 7517 to her PayPal account, because she prefers using PayPal for better purchase protection. After that, you would like to browse the full range of available product types in the store, including items like air purifiers, backpacks, bicycles, coffee makers, headphones, smartwatches, and yoga mats, to explore future purchase options.\n\nTo authenticate, use amelia.ito8974@example.com\n\nEmotion instruction: You’re pleased with your accomplishments and are in a hurry. You state your needs directly and expect prompt action. You question the agent’s advice if it doesn’t add up. You value thoroughness over niceties.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3883329', 'address1': '4687 Maple Lane', 'address2': 'Floor 634', 'city': 'Detroit', 'state': 'MI', 'country': 'USA', 'zip': '21833'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W3883329'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W3883329', 'payment_method_id': 'paypal_2767694'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W3883329', 'reason': 'no longer needed'}),
+            Action(name='list_all_product_types', kwargs={}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='excitement',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='skeptical',
+    ),
+
+    Task(
+        user_id='daiki.moore1031@example.com',
+        instruction='You are Daiki Moore, with email daiki.moore1031@example.com, who has a pending order currently shipping to Dallas, TX, containing a Dumbbell Set, a red Office Chair, and an Espresso Machine, originally paid for with a gift card. You want to update the shipping address for this order to 1228 Park Drive, Suite 666, Seattle, WA, USA 22764, because you will not be at the original address when delivery occurs. You also want to change the payment method for this order to your Visa card ending in 4204, because you prefer to preserve the remaining gift card balance for future use. You would like to keep the option open to cancel this order later if you decide it was placed by mistake. After that, you would like to explore the full catalog of available product types to browse future purchases, and you are particularly interested in the T-Shirt product line, wanting to see all available variants including options for color, size, material, and style, to evaluate fit and design for a potential upcoming purchase.\n\nTo authenticate, use daiki.moore1031@example.com\n\nEmotion instruction: You feel proud of your accomplishments and want things handled quickly. You speak directly and expect efficient responses. You’re careful not to reveal everything at once. Engage assertively but remain observant of the agent’s abilities.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W4843514', 'address1': '1228 Park Drive', 'address2': 'Suite 666', 'city': 'Seattle', 'state': 'WA', 'country': 'USA', 'zip': '22764'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W4843514'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W4843514', 'payment_method_id': 'credit_card_5613268'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W4843514', 'reason': 'ordered by mistake'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '9523456873'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='peace',
+        dimension_politeness='neutral',
+        dimension_urgency='moderate',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='liam.lee9297@example.com',
+        instruction='You are Liam Lee, and your email is liam.lee9297@example.com. You would like to cancel your pending order for an electric kettle (1.5L glass in silver), a yoga mat (6mm thick, natural rubber in green), and in-ear wireless blue headphones because you no longer need these items. After cancellation, you want confirmation that the order has been successfully cancelled.\n\nTo authenticate, use liam.lee9297@example.com\n\nEmotion instruction: You remain calm under pressure and express the need for prompt handling. Use neutral, precise language. Interact respectfully, but maintain some skepticism. Request clarifications to ensure accuracy.',
+        actions=[
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W2624389', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W2624389'}),
+        ],
+        outputs=[],
+        emotion_family='sadness',
+        emotion_leaf='peace',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='skeptical',
+    ),
+
+    Task(
+        user_id='yusuf.ahmed5476@example.com',
+        instruction='You are assisting Yusuf Ahmed (email: yusuf.ahmed5476@example.com) with cancelling his pending order for a black 128GB smartphone, a silver 5K action camera, a black metal-banded smart watch, and a space grey 13-inch i9 laptop with 8GB RAM and 1TB SSD storage, all shipped to Los Angeles. You want the order cancelled because it was placed by mistake. You would like confirmation that the cancellation was successful and that the refund has been initiated. You prefer the refund to be processed back to the original payment method, which is the credit card ending in 2167533.\n\nTo authenticate, use yusuf.ahmed5476@example.com\n\nEmotion instruction: You feel anxious and uneasy, needing quick reassurance. You politely reach out, expressing your concerns warmly. Trust that the agent wants to help and be open about your worries. Urgently ask for clear and prompt support.',
+        actions=[
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W7007896', 'reason': 'ordered by mistake'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W7007896'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='nervousness',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='skeptical',
+    ),
+
+    Task(
+        user_id='liam.thomas4271@example.com',
+        instruction='You are Liam Thomas, with email liam.thomas4271@example.com, and you have a pending order containing high-value electronics including a digital camera, sneakers, a vacuum cleaner, and an espresso machine, originally shipping to Washington, DC. You want to update the shipping address for this order to 3831 Main Street, Floor 395, Los Angeles, CA, because you need it delivered to a different location. After updating the address, you would like to explore the available variants of the Action Camera to consider a future purchase, particularly interested in options with 4K resolution and waterproof features in black or silver. Later, you decide to cancel another pending order that includes a digital camera and a red cycling helmet, which was set to ship to Seattle, WA, because you no longer need those items.\n\nTo authenticate, use liam.thomas4271@example.com\n\nEmotion instruction: You feel proud of your accomplishments and want things handled quickly. You speak directly and expect efficient responses. You’re careful not to reveal everything at once. Engage assertively but remain observant of the agent’s abilities.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W3761872'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3761872', 'address1': '3831 Main Street', 'address2': 'Floor 395', 'city': 'Los Angeles', 'state': 'CA', 'country': 'USA', 'zip': '12482'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '3377618313'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W1129578', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='excitement',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='ivan.khan6479@example.com',
+        instruction='You are a customer with email ivan.khan6479@example.com who placed a pending order containing a navy small nylon backpack with a laptop compartment, an indoor security camera, and a desk lamp, originally shipped to Washington, DC. You initially wanted to update the shipping address to 4156 Pine Avenue, Suite 562, San Diego, CA, USA 98578 because you needed the items delivered to a different location. Later, after reviewing the available backpack options—including variants in colors like black, green, and grey, different sizes, and materials such as nylon and polyester—you decided you no longer needed the order. Subsequently, you requested to cancel the entire order because your needs changed and you no longer required the items. You prefer the refund to be processed back to the original payment method, which was a gift card.\n\nTo authenticate, use ivan.khan6479@example.com\n\nEmotion instruction: You maintain a peaceful attitude while discussing your needs. Respond neutrally, focusing on clarity. You want things resolved before long, but review details before accepting outcomes. Stay attentive throughout.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W5270061'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W5270061', 'address1': '4156 Pine Avenue', 'address2': 'Suite 562', 'city': 'San Diego', 'state': 'CA', 'country': 'USA', 'zip': '98578'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_variants', kwargs={'product_id': '2524789262'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W5270061', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='peace',
+        dimension_politeness='cold',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='ethan.santos9082@example.com',
+        instruction="You are assisting Ethan Santos (email: ethan.santos9082@example.com), who has a pending order currently shipping to San Jose, CA. You want to update the shipping address to 2994 Washington Boulevard, Suite 272, Jacksonville, FL, USA 36483, because he needs the order delivered to a new location. After that, you would like to change the payment method from PayPal to your Mastercard ending in 9443, as you prefer to use this card for better rewards tracking. Subsequently, you want to confirm the details of the 2-piece red softshell Luggage Set in your order, to ensure it matches your travel needs before the order is processed further.\n\nTo authenticate, use ethan.santos9082@example.com\n\nEmotion instruction: You’re really eager about this and want everything resolved ASAP. Keep your requests direct, brisk, and focused. Show enthusiasm but don't completely let your guard down. Let some skepticism show in your questions.",
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W5320242', 'address1': '2994 Washington Boulevard', 'address2': 'Suite 272', 'city': 'Jacksonville', 'state': 'FL', 'country': 'USA', 'zip': '36483'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W5320242', 'payment_method_id': 'credit_card_9784468'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W5320242'}),
+            Action(name='get_product_details', kwargs={'product_id': '5426915165'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='anxiety',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='amelia.rossi1299@example.com',
+        instruction='You are Amelia Rossi, and your email is amelia.rossi1299@example.com. You have a pending order that includes a blue cotton crew neck T-shirt in size M and a space grey 17-inch laptop with an i5 processor, 8GB RAM, and 1TB SSD. You want to update the shipping address to 3550 Park Drive, Apt 246, Jacksonville, FL, USA 44441 because you initially entered the wrong address in Charlotte. You also prefer to change the payment method from the gift card to your Visa card ending in 9402, as you would like to save the gift card balance for a future purchase. After updating the address and payment, you would like to verify the full order details and confirm the product attributes of the T-shirt, particularly its color, size, material, and style, to ensure everything is correct before the order ships.\n\nTo authenticate, use amelia.rossi1299@example.com\n\nEmotion instruction: You’re genuinely excited to resolve the issue and it shows in your words. However, you question each response to ensure accuracy. Be polite and fast-paced, expressing urgency while keeping a slight edge of skepticism throughout.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W8255453', 'address1': '3550 Park Drive', 'address2': 'Apt 246', 'city': 'Jacksonville', 'state': 'FL', 'country': 'USA', 'zip': '44441'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W8255453', 'payment_method_id': 'credit_card_6844118'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W8255453'}),
+            Action(name='get_product_details', kwargs={'product_id': '9523456873'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='peace',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='emma.kovacs6621@example.com',
+        instruction="You are Emma Kovacs, and your email is emma.kovacs6621@example.com. You have a pending order for a soft cover A6 notebook and a 25ft blue vinyl garden hose, currently set to ship to Jacksonville, FL. You first want to update the shipping address for this order to 1878 Madison Drive, Floor 84, Los Angeles, CA, because you realized the items were intended for a different location. However, after reconsidering, you would like to cancel the entire order because it was placed by mistake. Separately, you have a delivered order that included a stainless steel 2L tea kettle compatible with induction stovetops and a men's 100ml woody-scented perfume. You would like to exchange the current tea kettle for a stainless steel 2L model that is compatible with gas stovetops, as the original is not suitable for your cooktop. You prefer to use your PayPal account to handle any payment adjustment for the exchange, as it was the method used for the initial purchase.\n\nTo authenticate, use emma.kovacs6621@example.com\n\nEmotion instruction: You feel a tight sense of anxiety and need the problem fixed soon. You communicate briskly, focusing on the essentials. You hold back a bit, wary about accepting answers at face value. You seek clarity and prompt responses from the agent.",
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W2307204', 'address1': '1878 Madison Drive', 'address2': 'Floor 84', 'city': 'Los Angeles', 'state': 'CA', 'country': 'USA', 'zip': '52615'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W2307204', 'reason': 'ordered by mistake'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W7841787'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W7841787', 'item_ids': ['1906487464'], 'new_item_ids': ['4238115171'], 'payment_method_id': 'paypal_1038468'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_variants', kwargs={'product_id': '9832717871'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='anxiety',
+        dimension_politeness='warm',
+        dimension_urgency='high',
+        dimension_trust_in_agent='cautious',
+    ),
+
+    Task(
+        user_id='chen.johnson3889@example.com',
+        instruction="You are a customer with email chen.johnson3889@example.com who placed a pending order containing a makeup kit, wireless earbuds, an office chair, and a Bluetooth speaker. You first want to update the shipping address to 9555 Cedar Road, Apt 164, Boston, MA, USA 38936 because you've relocated temporarily, and then cancel the entire order because your needs have changed. Later, you want to exchange a delivered 500-piece expert-level animals-themed jigsaw puzzle for the 500-piece intermediate-level art-themed variant because you prefer a different challenge and theme. You prefer any price difference to be handled using your PayPal account, as it was used in a previous transaction and offers you the most convenient payment management.\n\nTo authenticate, use chen.johnson3889@example.com\n\nEmotion instruction: You take pride in your actions and need assistance urgently. You speak in a direct, no-nonsense tone. You’re wary of vague or slow responses from the agent. You expect them to justify their advice clearly.",
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W5061109', 'address1': '9555 Cedar Road', 'address2': 'Apt 164', 'city': 'Boston', 'state': 'MA', 'country': 'USA', 'zip': '38936'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W5061109', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W5797164'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W5797164', 'item_ids': ['9237024510'], 'new_item_ids': ['4068787148'], 'payment_method_id': 'paypal_3742148'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_variants', kwargs={'product_id': '1808611083'}),
+        ],
+        outputs=[],
+        emotion_family='fear',
+        emotion_leaf='anxiety',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='yusuf.hernandez6086@example.com',
+        instruction='You are assisting a customer who initially wanted to explore the available product types, particularly showing interest in the Action Camera. After reviewing the options, you are now handling a modification request for their pending order originally shipped to Columbus, OH, containing a pair of black-framed, blue polarized sunglasses. You want to update the shipping address to 2637 Washington Boulevard, Apt 650, Los Angeles, CA, because the customer needs the order delivered to a different location. Subsequently, you would like to exchange the sunglasses for an Action Camera with 4K resolution, waterproof capability, and a silver color, as this better suits their upcoming outdoor activities. You prefer this change be processed using the PayPal account associated with the original purchase to handle any price difference, ensuring a seamless payment adjustment.\n\nTo authenticate, use yusuf.hernandez6086@example.com\n\nEmotion instruction: You feel a strong sense of pride about your achievement and want quick help to resolve your issue. You communicate directly and confidently. You believe the agent can assist you effectively. Make your expectations clear and stay focused on getting things sorted fast.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '3377618313'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W2033238', 'address1': '2637 Washington Boulevard', 'address2': 'Apt 650', 'city': 'Los Angeles', 'state': 'CA', 'country': 'USA', 'zip': '73168'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W2033238'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W2033238', 'item_ids': ['9045948550'], 'new_item_ids': ['6117189161'], 'payment_method_id': 'paypal_9426036'}),
+        ],
+        outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='excitement',
+        dimension_politeness='cold',
+        dimension_urgency='high',
+        dimension_trust_in_agent='trusting',
+    ),
+
+    Task(
+        user_id='fatima.li1185@example.com',
+        instruction="You are Fatima Li (email: fatima.li1185@example.com) who has a pending order containing a maple-deck skateboard and an espresso machine. You want to explore available skateboard options to confirm the bamboo deck variant is available. You would like to update the shipping address for your pending order to 1641 Pine Avenue, Apt 24, Chicago, IL, USA 71102 because you will be relocating temporarily. You also want to exchange the current 31 inch maple deck skateboard with graphic design for the bamboo deck version of the same size and design, as you prefer the lighter weight and sustainability of bamboo. You prefer to use your Visa card ending in 1373 for any price difference associated with the exchange.\n\nTo authenticate, use fatima.li1185@example.com\n\nEmotion instruction: You exude confidence in your requests, aware of your own achievements. Your tone is brisk and matter-of-fact. You require immediate resolution. You're wary and will scrutinize the agent’s answers.",
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '1968349452'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W8005719', 'address1': '1641 Pine Avenue', 'address2': 'Apt 24', 'city': 'Chicago', 'state': 'IL', 'country': 'USA', 'zip': '71102'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W8005719'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W8005719', 'item_ids': ['5120532699'], 'new_item_ids': ['5312063289'], 'payment_method_id': 'credit_card_2713802'}),
         ],
         outputs=[],
+        emotion_family='enjoyment',
+        emotion_leaf='excitement',
+        dimension_politeness='neutral',
+        dimension_urgency='high',
+        dimension_trust_in_agent='cautious',
     ),
 ]

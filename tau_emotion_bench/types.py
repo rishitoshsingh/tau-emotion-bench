@@ -93,6 +93,7 @@ class RunConfig(BaseModel):
     agent_strategy: str = "tool-calling"
     temperature: float = 0.0
     task_split: str = "test"
+    emotion_enabled: bool = True
     start_index: int = 0
     end_index: int = -1
     task_ids: Optional[List[int]] = None

@@ -16,14 +16,21 @@ class MockAirlineDomainEnv(Env):
         user_model: str = "gpt-4o",
         user_provider: Optional[str] = None,
         task_split: str = "test",
+        emotion_enabled: bool = True,
         task_index: Optional[int] = None,
         api_base: Optional[str] = None,
     ):
         match task_split:
             case "test":
-                from tau_emotion_bench.envs.airline.tasks_test import TASKS as tasks
+                if emotion_enabled:
+                    from tau_emotion_bench.envs.airline.tasks_test import TASKS as tasks
+                else:
+                    from tau_emotion_bench.envs.airline.tasks_test_no_emotion import TASKS as tasks
             case "dev":
-                from tau_emotion_bench.envs.airline.tasks_dev import TASKS as tasks
+                if emotion_enabled:
+                    from tau_emotion_bench.envs.airline.tasks_dev import TASKS as tasks
+                else:
+                    from tau_emotion_bench.envs.airline.tasks_dev_no_emotion import TASKS as tasks
             case _:
                 raise ValueError(f"Unknown task split: {task_split}")
         super().__init__(
