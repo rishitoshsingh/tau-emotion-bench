@@ -58,7 +58,7 @@ def parse_args() -> RunConfig:
         help="Task split (retail: train/test/dev; airline: test/dev)",
     )
     parser.add_argument(
-        "--emotion_enabled",
+        "--emotion-enabled",
         action="store_true",
         help="Whether to run the environment with emotion",
     )
