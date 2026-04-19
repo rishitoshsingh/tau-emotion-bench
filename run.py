@@ -13,7 +13,7 @@ def parse_args() -> RunConfig:
     parser = argparse.ArgumentParser()
     parser.add_argument("--num-trials", type=int, default=1)
     parser.add_argument(
-        "--env", type=str, choices=["retail", "airline"], default="retail"
+        "--env", type=str, choices=["retail", "airline", "telecom", "telehealth"], default="retail"
     )
     parser.add_argument(
         "--model",
@@ -58,6 +58,11 @@ def parse_args() -> RunConfig:
         help="Task split (retail: train/test/dev; airline: test/dev)",
     )
     parser.add_argument(
+        "--emotion_enabled",
+        action="store_true",
+        help="Whether to run the environment with emotion",
+    )
+    parser.add_argument(
         "--api-base",
         type=str,
         default=None,
@@ -100,6 +105,7 @@ def parse_args() -> RunConfig:
         agent_strategy=args.agent_strategy,
         temperature=args.temperature,
         task_split=args.task_split,
+        emotion_enabled=args.emotion_enabled,
         start_index=args.start_index,
         end_index=args.end_index,
         task_ids=args.task_ids,
