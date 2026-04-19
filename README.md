@@ -1,12 +1,8 @@
-# τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains
-
-**⚠️ WARNING: The tasks in this repo are not updated.** This repository contains outdated versions of the airline and retail tasks. Please use [τ³-bench](https://github.com/sierra-research/tau2-bench) for the latest fixed tasks and new domains.
-
-**❗News**: The [τ²-bench](https://github.com/sierra-research/tau2-bench) repository has been updated to [τ³-bench](https://github.com/sierra-research/tau2-bench), which includes a new `banking` domain, a `voice` evaluation modality, as well as fixes to the `airline` and `retail` domain tasks. Please navigate to the [τ³-bench repository](https://github.com/sierra-research/tau2-bench) to use the latest version of this benchmark.
+# τ-emotion-bench: A Benchmark for Tool-Agent-Emotional-User Interaction in Real-World Domains
 
 ---
 
-We propose $\tau$-bench, a benchmark emulating dynamic conversations between a user (simulated by language models) and a language agent provided with domain-specific API tools and policy guidelines.
+We propose $\tau$-emotion-bench, a benchmark emulating dynamic conversations between a emotional user (simulated by language models) and a language agent provided with domain-specific API tools and policy guidelines.
 
 ## Leaderboard
 
@@ -14,25 +10,21 @@ We propose $\tau$-bench, a benchmark emulating dynamic conversations between a u
 
 | Strategy       | Pass^1 | Pass^2 | Pass^3 | Pass^4 |
 | -------------- | ------ | ------ | ------ | ------ |
-| [TC (claude-3-5-sonnet-20241022)](https://www.anthropic.com/news/3-5-models-and-computer-use)      | **0.460**     | **0.326**     | **0.263**     | **0.225**     |
-| [TC (gpt-4o)](https://platform.openai.com/docs/guides/function-calling)     | 0.420     | 0.273     | 0.220     | 0.200     |
-| [TC (claude-3-5-sonnet-20240620)](https://docs.anthropic.com/en/docs/build-with-claude/tool-use)      | 0.360     | 0.224     | 0.169     | 0.139     |
-| [TC (mistral-large-2407)](https://docs.mistral.ai/capabilities/function_calling/)     | ??     | ??     | ??     | ??     |
-| [TC (gpt-4o-mini)](https://platform.openai.com/docs/guides/function-calling)     | 0.225     | 0.140     | 0.110     | 0.100     |
-| [Act](https://arxiv.org/abs/2210.03629) (gpt-4o)     | 0.365 | 0.217 | 0.160 | 0.140     |
-| [ReAct](https://arxiv.org/abs/2210.03629) (gpt-4o)     | 0.325 | 0.233 | 0.185 | 0.160     |
 
 ### Retail
 
 | Strategy       | Pass^1 | Pass^2 | Pass^3 | Pass^4 |
 | -------------- | ------ | ------ | ------ | ------ |
-| [TC (claude-3-5-sonnet-20241022)](https://www.anthropic.com/news/3-5-models-and-computer-use)      | **0.692**     | **0.576**     | **0.509**     | **0.462**     |
-| [TC (gpt-4o)](https://platform.openai.com/docs/guides/function-calling)     | 0.604     | 0.491     | 0.430     | 0.383     |
-| [TC (claude-3-5-sonnet-20240620)](https://docs.anthropic.com/en/docs/build-with-claude/tool-use)      | 0.626     | 0.506     | 0.435     | 0.387     |
-| [TC (mistral-large-2407)](https://docs.mistral.ai/capabilities/function_calling/)     | ??     | ??     | ??     | ??     |
-| [TC (gpt-4o-mini)](https://platform.openai.com/docs/guides/function-calling)     | ??     | ??     | ??     | ??     |
-| [Act](https://arxiv.org/abs/2210.03629) (gpt-4o)     | ??     | ??     | ??     | ??     |
-| [ReAct](https://arxiv.org/abs/2210.03629) (gpt-4o)     | ??     | ??     | ??     | ??     |
+
+### Telecom
+
+| Strategy       | Pass^1 | Pass^2 | Pass^3 | Pass^4 |
+| -------------- | ------ | ------ | ------ | ------ |
+
+### Telehealth
+
+| Strategy       | Pass^1 | Pass^2 | Pass^3 | Pass^4 |
+| -------------- | ------ | ------ | ------ | ------ |
 
 *TC = `tool-calling` strategy (the function-calling strategy reported in the paper)
 
@@ -41,7 +33,7 @@ We propose $\tau$-bench, a benchmark emulating dynamic conversations between a u
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/sierra-research/tau-bench && cd ./tau-bench
+git clone https://github.com/rishitoshsingh/tau-emotion-bench && cd ./tau-emotion-bench
 ```
 
 2. Install from source (which also installs required packages):
@@ -61,10 +53,10 @@ MISTRAL_API_KEY=...
 
 ## Run
 
-Run a tool-calling agent on the τ-retail environment:
+Run a tool-calling agent on the τ-emotion-retail environment with emotions enabled:
 
 ```bash
-python run.py --agent-strategy tool-calling --env retail --model gpt-4o --model-provider openai --user-model gpt-4o --user-model-provider openai --user-strategy llm --max-concurrency 10
+python run.py --agent-strategy tool-calling --env retail --model gpt-4o --model-provider openai --user-model gpt-4o --user-model-provider openai --user-strategy llm --max-concurrency 10 --enabled_emotions
 ```
 
 Set max concurrency according to your API limit(s).
@@ -72,7 +64,7 @@ Set max concurrency according to your API limit(s).
 To run specific tasks, use the `--task-ids` flag. For example:
 
 ```bash
-python run.py --agent-strategy tool-calling --env retail --model gpt-4o --model-provider openai --user-model gpt-4o --user-model-provider openai --user-strategy llm --max-concurrency 10 --task-ids 2 4 6
+python run.py --agent-strategy tool-calling --env retail --model gpt-4o --model-provider openai --user-model gpt-4o --user-model-provider openai --user-strategy llm --max-concurrency 10 --task-ids 2 4 6 --enabled_emotions
 ```
 
 This command will run only the tasks with IDs 2, 4, and 6.
@@ -82,7 +74,7 @@ This command will run only the tasks with IDs 2, 4, and 6.
 By default, we use `gpt-4o` as the user simulator with strategy `llm`. You can use other models by setting the `--user-model` flag, or other strategies by setting the `--user-strategy` flag. For example, run a tool-calling agent with a claude user simulator:
 
 ```bash
-python run.py --agent-strategy tool-calling --env retail --model gpt-4o --model-provider openai --max-concurrency 10 --user-model claude-3-5-sonnet-20240620 --user-model-provider anthropic --user-strategy llm
+python run.py --agent-strategy tool-calling --env retail --model gpt-4o --model-provider openai --max-concurrency 10 --user-model claude-3-5-sonnet-20240620 --user-model-provider anthropic --user-strategy llm --enabled_emotions
 ```
 
 Other strategies:
@@ -90,7 +82,7 @@ Other strategies:
 To run `react` user simulator:
 
 ```bash
-python run.py --agent-strategy tool-calling --env retail --model gpt-4o --model-provider openai --max-concurrency 10 --user-model gpt-4o --user-model-provider openai --user-strategy react
+python run.py --agent-strategy tool-calling --env retail --model gpt-4o --model-provider openai --max-concurrency 10 --user-model gpt-4o --user-model-provider openai --user-strategy react --enabled_emotions
 ```
 
 Example of a `react` user response:
@@ -106,7 +98,7 @@ Sure, my name is Yusuf Rossi, and my zip code is 19122.
 To run `verify` user simulator:
 
 ```bash
-python run.py --agent-strategy tool-calling --env retail --model gpt-4o --model-provider openai --max-concurrency 10 --user-model gpt-4o --user-model-provider openai --user-strategy verify
+python run.py --agent-strategy tool-calling --env retail --model gpt-4o --model-provider openai --max-concurrency 10 --user-model gpt-4o --user-model-provider openai --user-strategy verify --enabled_emotions
 ```
 
 This strategy uses a subsequent LLM verification step to check if the user simulator's response is satisfactory. If not, the user simulator will be prompted to generate a new response.
@@ -114,7 +106,7 @@ This strategy uses a subsequent LLM verification step to check if the user simul
 To run `reflection` user simulator:
 
 ```bash
-python run.py --agent-strategy tool-calling --env retail --model gpt-4o --model-provider openai --max-concurrency 10 --user-model gpt-4o --user-model-provider openai --user-strategy reflection
+python run.py --agent-strategy tool-calling --env retail --model gpt-4o --model-provider openai --max-concurrency 10 --user-model gpt-4o --user-model-provider openai --user-strategy reflection --enabled_emotions
 ```
 
 This strategy uses a subsequent LLM verification step to check if the user simulator's response is satisfactory. If not, the user simulator will be prompted to reflect on its response and generate a new response.
@@ -153,24 +145,3 @@ See `./LICENSE`.
 Please submit issues or pull requests if you find problems with the benchmark.
 
 ## Citation
-
-```bibtex
-@misc{yao2024tau,
-      title={$\tau$-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains}, 
-      author={Shunyu Yao and Noah Shinn and Pedram Razavi and Karthik Narasimhan},
-      year={2024},
-      eprint={2406.12045},
-      archivePrefix={arXiv},
-      primaryClass={cs.AI},
-      url={https://arxiv.org/abs/2406.12045}, 
-}
-@misc{barres2025tau2,
-      title={$\tau^2$-Bench: Evaluating Conversational Agents in a Dual-Control Environment}, 
-      author={Victor Barres and Honghua Dong and Soham Ray and Xujie Si and Karthik Narasimhan},
-      year={2025},
-      eprint={2506.07982},
-      archivePrefix={arXiv},
-      primaryClass={cs.AI},
-      url={https://arxiv.org/abs/2506.07982}, 
-}
-```
