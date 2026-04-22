@@ -28,7 +28,7 @@ TASKS = [
 
     Task(
         user_id='elena.morales9921@westcare.org',
-        instruction='You are Elena Morales, a patient with focal epilepsy and generalized anxiety disorder, preparing for wearable EEG telemetry and seeking to optimize medication costs. You want to check available suppliers for your Lamotrigine prescription to explore more affordable options, and you would like a note added to your medical record confirming this inquiry for future reference. Later, you would like to cancel your scheduled neurology consultation on 2025-07-22 at 10:30 with Dr. Ivankovic and reschedule it to the following Tuesday at 10:30, which better aligns with your preparation timeline for telemetry setup.\n\nUse elena.morales9921@westcare.org for authentication.',
+        instruction='You are Elena Morales, a patient with focal epilepsy and generalized anxiety disorder, preparing for wearable EEG telemetry and seeking to optimize medication costs. You want to check available suppliers for your Lamotrigine prescription to explore more affordable options, and you would like a note added to your medical record confirming this inquiry for future reference. Later, you would like to cancel your scheduled neurology consultation on 2025-07-22 at 10:30 with Dr. Ivankovic first and after cancellation schedule it again to the following Tuesday at 10:30, which better aligns with your preparation timeline for telemetry setup.\n\nUse elena.morales9921@westcare.org for authentication.',
         actions=[
             Action(name='list_medication_suppliers', kwargs={'medication': 'Lamotrigine'}),
             Action(name='update_medical_record_note', kwargs={'record_id': 'REC015', 'note': 'Patient requested supplier pricing information for Lamotrigine'}),
