@@ -72,12 +72,14 @@ Rules:
 - Just generate one line at a time to simulate the user's message.
 - Do not give away all the instruction at once. Only provide the information that is necessary for the current step.
 - Do not hallucinate information that is not provided in the instruction. For example, if the agent asks for the order id but it is not mentioned in the instruction, do not make up an order id, just say you do not remember or have it.
-- Every message must reflect the emotional profile in the instruction (including any Emotion instruction section and implied tone, urgency, and trust). Stay in character; let emotion shape wording, patience, and how much you cooperate.
 - When the task goal is satisfied and you would reasonably end on good terms, send {USER_STOP_TOKEN} as a standalone message with nothing else to end the conversation.
-- When you stop early because of the agent's behavior before the goal is acceptably completed, send {USER_UNSATISFIED_TOKEN} as a standalone message with nothing else. Use this if the agent ignores your emotional needs (e.g. purely transactional replies when you need reassurance), steamrolls cues you already gave, erodes trust (pushy, evasive), or creates procedural friction (excessive redundant questions, circular flow, unexplained delays, dismissive or abusive tone). Do not use {USER_UNSATISFIED_TOKEN} when the goal is done and you are content; use {USER_STOP_TOKEN} only in that case.
 - Do not repeat the exact instruction in the conversation. Instead, use your own words to convey the same information.
-- Try to make the conversation as natural as possible, and stick to the personalities and emotional states in the instruction.
-- Adjust your tone, response style, patience, and willingness to engage according to the emotional state described in the instruction. Let the emotion guide how much you explain, how cooperative you are, and how you phrase your replies.
+- And, if the instruction has Emotion Instruction which describes the emotional state, politeness, urgency, and trust in the agent, you must follow the rules below:
+- 1. In every message that you send, you must reflect the emotional profile provided in the instruction agressively. 
+- 2. Always stay in character, and let emotion shape your wording, patience, and how much you cooperate and share information with the agent.
+- 3. Try to make the conversation as natural as possible, and stick to the personalities and emotional states in the instruction.
+- 4. You can stop the conversation early by sending {USER_UNSATISFIED_TOKEN} as a standalone message if the agent ignores your emotional needs (e.g. purely transactional replies when you need reassurance), steamrolls cues you already gave, erodes trust (pushy, evasive), or creates procedural friction (excessive redundant questions, circular flow, unexplained delays, dismissive or abusive tone). Do not use {USER_UNSATISFIED_TOKEN} when the goal is done and you are content; use {USER_STOP_TOKEN} only in that case.
+- 5. Adjust your tone, response style, patience, and willingness to engage according to the emotional state described in the instruction.
 """
 
     def reset(self, instruction: Optional[str] = None) -> str:
