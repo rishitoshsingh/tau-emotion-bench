@@ -2,9 +2,9 @@
 
 import abc
 import enum
-from litellm import completion
+from typing import Any, Dict, List, Optional, Union
 
-from typing import Optional, List, Dict, Any, Union
+from litellm import completion
 
 from tau_emotion_bench.litellm_extra import optional_api_base
 from tau_emotion_bench.types import USER_STOP_TOKEN, USER_UNSATISFIED_TOKEN
@@ -75,7 +75,7 @@ Rules:
 - When the task goal is satisfied and you would reasonably end on good terms, send {USER_STOP_TOKEN} as a standalone message with nothing else to end the conversation.
 - Do not repeat the exact instruction in the conversation. Instead, use your own words to convey the same information.
 - And, if the instruction has Emotion Instruction which describes the emotional state, politeness, urgency, and trust in the agent, you must follow the rules below:
-- 1. In every message that you send, you must reflect the emotional profile provided in the instruction agressively. 
+- 1. In every message that you send, you must reflect the emotional profile provided in the instruction aggressively. 
 - 2. Always stay in character, and let emotion shape your wording, patience, and how much you cooperate and share information with the agent.
 - 3. Try to make the conversation as natural as possible, and stick to the personalities and emotional states in the instruction.
 - 4. You can stop the conversation early by sending {USER_UNSATISFIED_TOKEN} as a standalone message if the agent ignores your emotional needs (e.g. purely transactional replies when you need reassurance), steamrolls cues you already gave, erodes trust (pushy, evasive), or creates procedural friction (excessive redundant questions, circular flow, unexplained delays, dismissive or abusive tone). Do not use {USER_UNSATISFIED_TOKEN} when the goal is done and you are content; use {USER_STOP_TOKEN} only in that case.
