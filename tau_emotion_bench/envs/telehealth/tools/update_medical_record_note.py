@@ -1,8 +1,7 @@
 from __future__ import annotations
 
-from typing import Any, Dict
-
 import json
+from typing import Any, Dict
 
 from tau_emotion_bench.envs.tool import Tool
 
@@ -13,7 +12,7 @@ class UpdateMedicalRecordNote(Tool):
         data: Dict[str, Any],
         record_id: str,
         note: str,
-        metadata: Dict[str, Any] | None = None,
+        # metadata: Dict[str, Any] | None = None,
     ) -> str:
         records = data.get("medical_records", {})
         record = records.get(record_id)
@@ -22,8 +21,8 @@ class UpdateMedicalRecordNote(Tool):
 
         notes = record.setdefault("notes", [])
         entry = {"note": note}
-        if metadata:
-            entry["metadata"] = metadata
+        # if metadata:
+        #     entry["metadata"] = metadata
         notes.append(entry)
 
         return json.dumps(record)
@@ -46,10 +45,10 @@ class UpdateMedicalRecordNote(Tool):
                             "type": "string",
                             "description": "Note text to append",
                         },
-                        "metadata": {
-                            "type": "object",
-                            "description": "Optional structured metadata to attach",
-                        },
+                        # "metadata": {
+                        #     "type": "object",
+                        #     "description": "Optional structured metadata to attach",
+                        # },
                     },
                     "required": ["record_id", "note"],
                 },
