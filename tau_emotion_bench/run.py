@@ -157,6 +157,7 @@ def run(config: RunConfig) -> List[EnvRunResult]:
                 user_strategy=config.user_strategy,
                 user_model=config.user_model,
                 task_split=config.task_split,
+                emotion_enabled=config.emotion_enabled,
                 user_provider=config.user_model_provider,
                 task_index=idx,
                 api_base=config.api_base,
