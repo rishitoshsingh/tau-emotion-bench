@@ -106,3 +106,4 @@ class RunConfig(BaseModel):
     user_strategy: str = "llm"
     few_shot_displays_path: Optional[str] = None
     api_base: Optional[str] = None
+    user_api_base: Optional[str] = None

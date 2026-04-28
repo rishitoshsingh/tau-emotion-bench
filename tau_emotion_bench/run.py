@@ -100,7 +100,7 @@ def run(config: RunConfig) -> List[EnvRunResult]:
         user_provider=config.user_model_provider,
         task_split=config.task_split,
         emotion_enabled=config.emotion_enabled,
-        api_base=config.api_base,
+        api_base=config.user_api_base,
     )
     agent = agent_factory(
         tools_info=env.tools_info,
@@ -160,7 +160,7 @@ def run(config: RunConfig) -> List[EnvRunResult]:
                 emotion_enabled=config.emotion_enabled,
                 user_provider=config.user_model_provider,
                 task_index=idx,
-                api_base=config.api_base,
+                api_base=config.user_api_base,
             )
 
             print(f"Running trial {trial_i} task {idx}")

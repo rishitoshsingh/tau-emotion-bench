@@ -66,7 +66,13 @@ def parse_args() -> RunConfig:
         "--api-base",
         type=str,
         default=None,
-        help="Optional OpenAI-compatible API base URL for LiteLLM (agent and user simulator)",
+        help="Optional OpenAI-compatible API base URL for LiteLLM (agent)",
+    )
+    parser.add_argument(
+        "--user-api-base",
+        type=str,
+        default=None,
+        help="Optional OpenAI-compatible API base URL for LiteLLM (user simulator)",
     )
     parser.add_argument("--start-index", type=int, default=0)
     parser.add_argument("--end-index", type=int, default=-1, help="Run all tasks if -1")
@@ -118,6 +124,7 @@ def parse_args() -> RunConfig:
         user_strategy=args.user_strategy,
         few_shot_displays_path=args.few_shot_displays_path,
         api_base=args.api_base,
+        user_api_base=args.user_api_base,
     )
 
 
