@@ -1,9 +1,8 @@
 # Copyright Sierra
 
 import json
-from litellm import completion
 
-from tau_emotion_bench.litellm_extra import optional_api_base
+from tau_emotion_bench.litellm_extra import optional_api_base, robust_completion
 from tau_emotion_bench.agents.base import Agent
 from tau_emotion_bench.envs.base import Env
 from tau_emotion_bench.types import (
@@ -40,7 +39,7 @@ class ChatReActAgent(Agent):
     def generate_next_step(
         self, messages: List[Dict[str, Any]]
     ) -> Tuple[Dict[str, Any], Action, float]:
-        res = completion(
+        res = robust_completion(
             model=self.model,
             custom_llm_provider=self.provider,
             messages=messages,

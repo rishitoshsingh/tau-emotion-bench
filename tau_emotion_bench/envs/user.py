@@ -4,9 +4,7 @@ import abc
 import enum
 from typing import Any, Dict, List, Optional, Union
 
-from litellm import completion
-
-from tau_emotion_bench.litellm_extra import optional_api_base
+from tau_emotion_bench.litellm_extra import optional_api_base, robust_completion
 from tau_emotion_bench.types import USER_STOP_TOKEN, USER_UNSATISFIED_TOKEN
 
 
@@ -47,10 +45,9 @@ class LLMUserSimulationEnv(BaseUserSimulationEnv):
         self.provider = provider
         self.api_base = api_base
         self.total_cost = 0.0
-        self.reset()
 
     def generate_next_message(self, messages: List[Dict[str, Any]]) -> str:
-        res = completion(
+        res = robust_completion(
             model=self.model,
             custom_llm_provider=self.provider,
             messages=messages,
@@ -105,7 +102,6 @@ class ReactUserSimulationEnv(LLMUserSimulationEnv):
         self, model: str, provider: str, api_base: Optional[str] = None
     ) -> None:
         super().__init__(model=model, provider=provider, api_base=api_base)
-        self.reset()
 
     def build_system_prompt(self, instruction: Optional[str]) -> str:
         instruction_display = (
@@ -134,7 +130,7 @@ User Response:
 <the user response (this will be parsed and sent to the agent)>"""
 
     def generate_next_message(self, messages: List[Dict[str, Any]]) -> str:
-        res = completion(
+        res = robust_completion(
             model=self.model,
             custom_llm_provider=self.provider,
             messages=messages,
@@ -189,13 +185,14 @@ class VerifyUserSimulationEnv(LLMUserSimulationEnv):
         self.provider = provider
         self.api_base = api_base
         self.max_attempts = max_attempts
-        self.reset()
+        self.messages: List[Dict[str, Any]] = []
+        self.total_cost = 0.0
 
     def generate_next_message(self, messages: List[Dict[str, Any]]) -> str:
         attempts = 0
         cur_message = None
         while attempts < self.max_attempts:
-            res = completion(
+            res = robust_completion(
                 model=self.model,
                 custom_llm_provider=self.provider,
                 messages=messages,
@@ -268,7 +265,7 @@ Your answer will be parsed, so do not include any other text than the classifica
 -----
 
 Classification:"""
-    res = completion(
+    res = robust_completion(
         model=model,
         custom_llm_provider=provider,
         messages=[{"role": "user", "content": prompt}],
@@ -307,7 +304,7 @@ Reflection:
 
 Response:
 <the response (this will be parsed and sent to the agent)>"""
-    res = completion(
+    res = robust_completion(
         model=model,
         custom_llm_provider=provider,
         messages=[{"role": "user", "content": prompt}],
@@ -329,7 +326,8 @@ class ReflectionUserSimulationEnv(LLMUserSimulationEnv):
         self.provider = provider
         self.api_base = api_base
         self.max_attempts = max_attempts
-        self.reset()
+        self.messages: List[Dict[str, Any]] = []
+        self.total_cost = 0.0
 
     def generate_next_message(self, messages: List[Dict[str, Any]]) -> str:
         cur_messages = messages.copy()

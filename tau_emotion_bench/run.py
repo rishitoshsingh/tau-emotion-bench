@@ -5,6 +5,7 @@ import json
 import random
 import tempfile
 import threading
+import time
 import traceback
 from math import comb
 from typing import List, Dict, Any, Tuple, Set, Optional
@@ -13,6 +14,11 @@ from concurrent.futures import ThreadPoolExecutor
 
 from tau_emotion_bench.envs import get_env
 from tau_emotion_bench.agents.base import Agent
+from tau_emotion_bench.litellm_extra import (
+    configure_litellm_resilience,
+    is_transient_error_text,
+    is_transient_model_error,
+)
 from tau_emotion_bench.types import EnvRunResult, RunConfig
 
 
@@ -72,6 +78,25 @@ def _dedupe_by_task_trial(results: List[EnvRunResult]) -> List[EnvRunResult]:
     return [by_key[k] for k in keys]
 
 
+def _result_has_transient_error(result: EnvRunResult) -> bool:
+    if result.info.get("error_type") == "transient_model_error":
+        return True
+    error_text = "\n".join(
+        str(result.info.get(key, "")) for key in ("error", "traceback", "error_type")
+    )
+    return bool(error_text.strip()) and is_transient_error_text(error_text)
+
+
+def _result_has_error_payload(result: EnvRunResult) -> bool:
+    return any(result.info.get(key) for key in ("error", "traceback", "exception"))
+
+
+def _sample_retry_delay(config: RunConfig, attempt: int) -> float:
+    base = max(0.0, config.sample_retry_initial_delay)
+    delay = min(max(0.0, config.sample_retry_max_delay), base * (2 ** max(0, attempt - 1)))
+    return delay + random.uniform(0.0, min(delay, 5.0) if delay > 0 else 0.0)
+
+
 def run(config: RunConfig) -> List[EnvRunResult]:
     assert config.env in ["retail", "airline", "telecom", "telehealth"], "Only retail, airline, telecom and telehealth envs are supported"
     assert config.model_provider in provider_list, "Invalid model provider"
@@ -81,6 +106,17 @@ def run(config: RunConfig) -> List[EnvRunResult]:
     assert config.user_strategy in [item.value for item in UserStrategy], "Invalid user strategy"
     if config.resume and not config.checkpoint_path:
         raise ValueError("--resume requires --checkpoint (path to the results JSON).")
+
+    configure_litellm_resilience(
+        max_attempts=config.llm_max_attempts,
+        initial_delay=config.llm_retry_initial_delay,
+        max_delay=config.llm_retry_max_delay,
+        backoff=config.llm_retry_backoff,
+        jitter=config.llm_retry_jitter,
+        rate_limit_cooldown=config.llm_rate_limit_cooldown,
+        min_call_interval=config.llm_min_call_interval,
+        max_concurrent_calls=config.llm_max_concurrent_calls,
+    )
 
     random.seed(config.seed)
     time_str = datetime.now().strftime("%m%d%H%M%S")
@@ -112,15 +148,16 @@ def run(config: RunConfig) -> List[EnvRunResult]:
     )
 
     loaded: List[EnvRunResult] = []
-    if config.resume:
-        loaded = _dedupe_by_task_trial(_load_checkpoint(ckpt_path))
+    if config.checkpoint_path and os.path.exists(ckpt_path) and not config.overwrite_checkpoint:
+        checkpoint_rows = _dedupe_by_task_trial(_load_checkpoint(ckpt_path))
+        loaded = [r for r in checkpoint_rows if not _result_has_error_payload(r)]
+        skipped = len(checkpoint_rows) - len(loaded)
         if loaded:
             print(f"📂 Resuming from {len(loaded)} saved (task_id, trial) result(s) in {ckpt_path}")
-    elif config.checkpoint_path and os.path.exists(ckpt_path):
-        print(
-            f"⚠️ Checkpoint file exists at {ckpt_path} but --resume was not set; "
-            "this run will overwrite it at the end."
-        )
+        if skipped:
+            print(f"♻️ Treating {skipped} errored checkpoint row(s) as pending for retry.")
+    elif config.checkpoint_path and os.path.exists(ckpt_path) and config.overwrite_checkpoint:
+        print(f"⚠️ Overwriting existing checkpoint at {ckpt_path}")
 
     done: Set[Tuple[int, int]] = {(r.task_id, r.trial) for r in loaded}
     all_results: List[EnvRunResult] = list(loaded)
@@ -134,6 +171,7 @@ def run(config: RunConfig) -> List[EnvRunResult]:
         )
 
     jobs: List[Tuple[int, int]] = []
+    target_keys: Set[Tuple[int, int]] = set()
     for i in range(config.num_trials):
         if config.task_ids and len(config.task_ids) > 0:
             idxs = list(config.task_ids)
@@ -142,6 +180,7 @@ def run(config: RunConfig) -> List[EnvRunResult]:
         if config.shuffle:
             random.shuffle(idxs)
         for idx in idxs:
+            target_keys.add((idx, i))
             if (idx, i) not in done:
                 jobs.append((i, idx))
 
@@ -150,8 +189,7 @@ def run(config: RunConfig) -> List[EnvRunResult]:
     else:
         print(f"Scheduled {len(jobs)} job(s) (missing trials).")
 
-        def _run(job: Tuple[int, int]) -> EnvRunResult:
-            trial_i, idx = job
+        def _run_once(trial_i: int, idx: int) -> EnvRunResult:
             isolated_env = get_env(
                 config.env,
                 user_strategy=config.user_strategy,
@@ -177,13 +215,43 @@ def run(config: RunConfig) -> List[EnvRunResult]:
                     trial=trial_i,
                 )
             except Exception as e:
+                error_info = {"error": str(e), "traceback": traceback.format_exc()}
+                if is_transient_model_error(e):
+                    error_info["error_type"] = "transient_model_error"
                 result = EnvRunResult(
                     task_id=idx,
                     reward=0.0,
-                    info={"error": str(e), "traceback": traceback.format_exc()},
+                    info=error_info,
                     traj=[],
                     trial=trial_i,
                 )
+            return result
+
+        def _run(job: Tuple[int, int]) -> Optional[EnvRunResult]:
+            trial_i, idx = job
+            result: Optional[EnvRunResult] = None
+            for attempt in range(1, max(1, config.sample_max_attempts) + 1):
+                result = _run_once(trial_i, idx)
+                if not _result_has_transient_error(result):
+                    break
+                if attempt >= max(1, config.sample_max_attempts):
+                    print(
+                        "♻️ Holding transient-error job for future retry:",
+                        f"trial={trial_i} task_id={idx}",
+                        result.info.get("error"),
+                    )
+                    print("-----")
+                    return None
+                sleep_for = _sample_retry_delay(config, attempt)
+                print(
+                    "♻️ Retrying transient-error job:",
+                    f"trial={trial_i} task_id={idx}",
+                    f"attempt={attempt}/{config.sample_max_attempts}",
+                    f"sleep={sleep_for:.1f}s",
+                    result.info.get("error"),
+                )
+                time.sleep(sleep_for)
+            assert result is not None
             print(
                 reward_status_emoji(result.reward),
                 f"trial={trial_i} task_id={idx}",
@@ -201,6 +269,13 @@ def run(config: RunConfig) -> List[EnvRunResult]:
             list(executor.map(_run, jobs))
 
     results = _dedupe_by_task_trial(all_results)
+    completed_keys = {(r.task_id, r.trial) for r in results}
+    pending_count = len(target_keys - completed_keys)
+    if pending_count:
+        print(
+            f"♻️ {pending_count} transient-error job(s) remain pending. "
+            "Rerun the same command to retry them."
+        )
     display_metrics(results, expected_num_trials=config.num_trials)
 
     _atomic_write_json(ckpt_path, [result.model_dump() for result in results])
