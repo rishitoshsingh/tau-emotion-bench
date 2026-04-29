@@ -5,16 +5,27 @@ eval "$(conda shell.bash hook)"
 conda activate applied
 
 DOMAINS=("retail" "airline" "telecom" "telehealth")
+pids=()
 
 # Cleanup function for Ctrl+C
 cleanup() {
     echo ""
-    echo "⚠️ Interrupted. Killing all worker processes..."
-    for pid in "${pids[@]}"; do
+    echo "⚠️ Interrupted. Killing all child processes..."
+
+    # Kill by PIDs with domain info
+    for i in "${!pids[@]}"; do
+        pid=${pids[$i]}
+        domain=${DOMAINS[$i]}
         if kill -0 "$pid" 2>/dev/null; then
-            kill "$pid" 2>/dev/null || true
+            echo "  Killing $domain (PID: $pid)"
+            kill -9 "$pid" 2>/dev/null || true
         fi
     done
+
+    # Kill stragglers
+    pkill -9 -f "run.py.*--env" 2>/dev/null || true
+
+    sleep 1
     exit 1
 }
 
