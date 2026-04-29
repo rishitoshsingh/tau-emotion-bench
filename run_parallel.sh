@@ -1,12 +1,24 @@
 #!/bin/bash
 
-set -e
-
 # Activate conda environment
 eval "$(conda shell.bash hook)"
 conda activate applied
 
 DOMAINS=("retail" "airline" "telecom" "telehealth")
+
+# Cleanup function for Ctrl+C
+cleanup() {
+    echo ""
+    echo "⚠️ Interrupted. Killing all worker processes..."
+    for pid in "${pids[@]}"; do
+        if kill -0 "$pid" 2>/dev/null; then
+            kill "$pid" 2>/dev/null || true
+        fi
+    done
+    exit 1
+}
+
+trap cleanup SIGINT SIGTERM
 TRAIN_TRAJ_DIR="${TRAIN_TRAJ_DIR:-./train_traj}"
 LOG_DIR="${LOG_DIR:-./logs}"
 
