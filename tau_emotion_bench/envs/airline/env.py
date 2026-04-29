@@ -21,6 +21,11 @@ class MockAirlineDomainEnv(Env):
         api_base: Optional[str] = None,
     ):
         match task_split:
+            case "train":
+                if emotion_enabled:
+                    from tau_emotion_bench.envs.airline.tasks_train import TASKS as tasks
+                else:
+                    from tau_emotion_bench.envs.airline.tasks_train_no_emotion import TASKS as tasks
             case "test":
                 if emotion_enabled:
                     from tau_emotion_bench.envs.airline.tasks_test import TASKS as tasks
