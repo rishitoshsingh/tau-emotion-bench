@@ -1,12 +1,35 @@
 #!/bin/bash
 
-set -e
-
 # Activate conda environment
 eval "$(conda shell.bash hook)"
 conda activate applied
 
 DOMAINS=("retail" "airline" "telecom" "telehealth")
+pids=()
+
+# Cleanup function for Ctrl+C
+cleanup() {
+    echo ""
+    echo "⚠️ Interrupted. Killing all child processes..."
+
+    # Kill by PIDs with domain info
+    for i in "${!pids[@]}"; do
+        pid=${pids[$i]}
+        domain=${DOMAINS[$i]}
+        if kill -0 "$pid" 2>/dev/null; then
+            echo "  Killing $domain (PID: $pid)"
+            kill -9 "$pid" 2>/dev/null || true
+        fi
+    done
+
+    # Kill stragglers
+    pkill -9 -f "run.py.*--env" 2>/dev/null || true
+
+    sleep 1
+    exit 1
+}
+
+trap cleanup SIGINT SIGTERM
 TRAIN_TRAJ_DIR="${TRAIN_TRAJ_DIR:-./train_traj}"
 LOG_DIR="${LOG_DIR:-./logs}"
 
@@ -19,6 +42,11 @@ USER_MODEL="qwen3-235b-a22b-instruct-2507"
 USER_MODEL_PROVIDER="hosted_vllm"
 API_BASE="https://openai.rc.asu.edu/v1"
 USER_API_BASE="https://openai.rc.asu.edu/v1"
+
+# Sampling params injected into agent litellm calls during training
+export LITELLM_TOP_P=0.95
+export LITELLM_TOP_K=20
+export LITELLM_MIN_P=0.0
 
 mkdir -p "$LOG_DIR"
 

@@ -3,7 +3,7 @@
 import json
 from litellm import completion
 
-from tau_emotion_bench.litellm_extra import optional_api_base
+from tau_emotion_bench.litellm_extra import optional_api_base, optional_sampling_params
 from tau_emotion_bench.agents.base import Agent
 from tau_emotion_bench.envs.base import Env
 from tau_emotion_bench.types import (
@@ -46,6 +46,7 @@ class ChatReActAgent(Agent):
             messages=messages,
             temperature=self.temperature,
             **optional_api_base(self.api_base),
+            **optional_sampling_params(),
         )
         message = res.choices[0].message
         action_str = message.content.split("Action:")[-1].strip()

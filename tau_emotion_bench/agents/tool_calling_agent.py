@@ -4,7 +4,7 @@ import json
 from litellm import completion
 from typing import List, Optional, Dict, Any
 
-from tau_emotion_bench.litellm_extra import optional_api_base
+from tau_emotion_bench.litellm_extra import optional_api_base, optional_sampling_params
 from tau_emotion_bench.agents.base import Agent
 from tau_emotion_bench.envs.base import Env
 from tau_emotion_bench.types import SolveResult, Action, RESPOND_ACTION_NAME
@@ -47,6 +47,7 @@ class ToolCallingAgent(Agent):
                 tools=self.tools_info,
                 temperature=self.temperature,
                 **optional_api_base(self.api_base),
+                **optional_sampling_params(),
             )
             next_message = res.choices[0].message.model_dump()
             total_cost += res._hidden_params["response_cost"] or 0
