@@ -43,6 +43,11 @@ USER_MODEL_PROVIDER="hosted_vllm"
 API_BASE="https://openai.rc.asu.edu/v1"
 USER_API_BASE="https://openai.rc.asu.edu/v1"
 
+# Sampling params injected into agent litellm calls during training
+export LITELLM_TOP_P=0.95
+export LITELLM_TOP_K=20
+export LITELLM_MIN_P=0.0
+
 mkdir -p "$LOG_DIR"
 
 echo "Parallel domain runner - independent task processing"
