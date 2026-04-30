@@ -7,3 +7,8 @@ __pycache__/
 *.egg-info/
 
 .env
+
+benchmarking_outs/
+jobs/
+test_trajectories/
+trajs.zip
