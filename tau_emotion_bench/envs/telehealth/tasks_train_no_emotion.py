@@ -6985,4 +6985,1856 @@ TASKS = [
         ],
         outputs=[],
     ),
+
+    Task(
+        user_id='michael.stanley@tracer-health.org',
+        instruction='You are Michael Stanley, a patient with COPD and Obstructive Sleep Apnea, whose email is michael.stanley@tracer-health.org. You want to cancel your scheduled medication review appointment with Dr. John Wise on 2025-12-17 at 08:00 because of a scheduling conflict, as you have another appointment (APPT_tracer_132) at the same time with a device coach. After canceling, you would like to explore alternative primary care providers and reschedule the medication review with Dr. Garcia, who you believe may be available the next day. You prefer the new appointment on the next day at 09:00 for better schedule alignment. You also want to retrieve the details of your original appointment (APPT_tracer_108), your complete list of appointments and medical records, and specifically the medical record associated with APPT_tracer_108 to review the notes about lower-cost medication options for Fluticasone and Montelukast.\n\nUse michael.stanley@tracer-health.org for authentication.',
+        actions=[
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_108'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'john_wise_primary_care_tracer_0001'}),
+            Action(name='list_available_providers', kwargs={'specialty': 'Primary Care'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'michael_stanley_tracer_0001', 'provider_id': 'dr_garcia_primary', 'date': '2025-12-18', 'time': '09:00', 'appointment_type': 'medication_review'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_108'}),
+            Action(name='list_patient_medical_records', kwargs={'patient_id': 'michael_stanley_tracer_0001'}),
+            Action(name='get_medical_record', kwargs={'appointment_id': 'APPT_tracer_108'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'michael_stanley_tracer_0001'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='cynthia.scott@tracer-health.org',
+        instruction="You are Cynthia Scott, a patient managing hypertension and type 2 diabetes, who wants to cancel your medication review appointment with Dr. Dana Padilla scheduled for 2025-12-17 at 08:00 because you prefer to reschedule it for a more convenient time. You would like to review Dr. Padilla's provider details to confirm her specialty and availability, and you also want to see a list of other available Primary Care providers in case an alternative is needed. After that, you prefer to reschedule the appointment to the next day at 09:00 with Dr. Padilla, as this time works better for your schedule and maintains continuity with your trusted provider. Later, you want to review the details of your follow-up appointment on 2025-12-17 at 09:00 with Dr. Camila Ortega to confirm the purpose and timing. You also want to see a complete list of your medical records to stay informed about your care history, and specifically retrieve the record from your medication review with Dr. Padilla to review the discussion about cost and pill burden. Finally, you would like to see your full appointment schedule to have a comprehensive view of your upcoming telehealth visits.\n\nUse cynthia.scott@tracer-health.org for authentication.",
+        actions=[
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_183'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'dana_padilla_primary_care_tracer_0001'}),
+            Action(name='list_available_providers', kwargs={'specialty': 'Primary Care'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'cynthia_scott_tracer_0001', 'provider_id': 'dana_padilla_primary_care_tracer_0001', 'date': '2025-12-18', 'time': '09:00', 'appointment_type': 'follow_up', 'bill_insurance': True}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_076'}),
+            Action(name='list_patient_medical_records', kwargs={'patient_id': 'cynthia_scott_tracer_0001'}),
+            Action(name='get_medical_record', kwargs={'record_id': 'REC_tracer_127'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'cynthia_scott_tracer_0001'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='scott.sparks@tracer-health.org',
+        instruction='You are Scott Sparks, authenticated via scott.sparks@tracer-health.org, and you want to review supplier options for Atorvastatin to identify a lower-cost alternative, because you are focused on reducing your monthly medication expenses. You would like to see your current regimen options to evaluate cost and pill burden, because you want to maintain therapeutic stability while improving affordability. You prefer to add a note to your medical record from the upcoming medication review appointment on 2025-12-17 to document this cost optimization discussion, because it supports continuity of care. You want to confirm the details of your scheduled telehealth appointment with your cardiologist on 2025-12-17 at 09:30, because it is for a medication review focused on cost and adherence. You also want to check your cardiac event monitor (Cardiac Event Monitor, ID: CARDIA_tracer_477) usage for 2025-12-17, because that was the day of your device coaching session and you used it for 7 hours. You would like to verify there are no interactions between Warfarin and your current medications, because you take both Warfarin and Atorvastatin daily and want to ensure safety. Finally, you prefer to update your prescription in the medical record to switch your Atorvastatin supply to Bharat Lifecare, brand Cholozen, at $4.30 per tablet, because it offers a cost-effective alternative without changing dosage or regimen.\n\nUse scott.sparks@tracer-health.org for authentication.',
+        actions=[
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Atorvastatin'}),
+            Action(name='get_regimen_options', kwargs={'patient_id': 'scott_sparks_tracer_0001'}),
+            Action(name='update_medical_record_note', kwargs={'record_id': 'REC_tracer_121', 'note': 'Patient reviewing supplier options for cost optimization'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_177'}),
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='get_telemetry_upload', kwargs={'device_id': 'CARDIA_tracer_477', 'date': '2025-12-17'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Warfarin', 'current_medications': ['Warfarin', 'Atorvastatin']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_121', 'medication': 'Atorvastatin', 'supplier_company': 'Bharat Lifecare', 'brand_name': 'Cholozen', 'price_usd': 4.3}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='shawn.carter@tracer-health.org',
+        instruction='You are Shawn Carter (shawn.carter@tracer-health.org), a patient on Warfarin and Atorvastatin for atrial fibrillation and hyperlipidemia, who is considering starting Sertraline for mood support and wants to understand the risks. You want to check for potential drug interactions because you are concerned about safety and proper management of your current regimen. After learning of a high-severity interaction between Sertraline and Warfarin, you would like to proceed with caution and seek clinical guidance before making any changes. You also want to update the supplier for Warfarin in your medical record to Sunrise Biotech (brand name Warfast) to reduce medication costs and improve affordability. Finally, you prefer to schedule a follow-up cardiology appointment with Dr. Robert Smith on Tuesday, 2025-12-23 at 09:00 because it aligns with your schedule and allows timely discussion of your medication regimen, heart health, and recent changes.\n\nUse shawn.carter@tracer-health.org for authentication.',
+        actions=[
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Sertraline', 'current_medications': ['Warfarin', 'Atorvastatin']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_122', 'medication': 'Warfarin', 'supplier_company': 'Sunrise Biotech', 'brand_name': 'Warfast', 'price_usd': 4.35}),
+            Action(name='get_medical_record', kwargs={'record_id': 'REC_tracer_122'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'dr_smith_cardiology'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'shawn_carter_tracer_0001', 'provider_id': 'dr_smith_cardiology', 'date': '2025-12-23', 'time': '09:00', 'appointment_type': 'follow_up'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='norma.ruiz@tracer-health.org',
+        instruction='You are Norma Ruiz, a patient with Type 1 Diabetes and Hypothyroidism, preparing for your scheduled virtual follow-up appointment with Dr. Debra Castro. You want to review the details of your upcoming appointment on December 17, 2025, and the associated medical record to ensure continuity of care and confirm your current treatment plan involving insulin lispro and levothyroxine. Later, you would like to verify your glucose monitoring compliance by checking the telemetry upload history for your Continuous Glucose Monitor, which you use regularly and most recently uploaded data for on December 17, 2025, to ensure your device usage is consistent ahead of your visit.\n\nUse norma.ruiz@tracer-health.org for authentication.',
+        actions=[
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_090'}),
+            Action(name='get_medical_record', kwargs={'appointment_id': 'APPT_tracer_090'}),
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='list_telemetry_uploads', kwargs={'device_id': 'CONTIN_tracer_476'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='dustin.weber@tracer-health.org',
+        instruction='You are Dustin Weber (dustin.weber@tracer-health.org), a patient with COPD and obstructive sleep apnea, who wants to review the details of your upcoming virtual medication review appointment on 2025-12-17 with Dr. Camila Ortega, because you have concerns about the cost of your Fluticasone Inhaler and Montelukast. You also want to see the associated medical record documenting the plan to switch to more affordable suppliers, specifically Lotus Respiratory for Fluticasone and Lotus Breath for Montelukast, to better understand the changes and confirm the recommendations. Additionally, you want to review the status and recent usage data of your Philips Trilogy Ventilator, which is currently shipped and assigned to you, because you noticed a gap in usage on December 14th and would like to discuss compliance patterns with your care team.\n\nUse dustin.weber@tracer-health.org for authentication.',
+        actions=[
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_100'}),
+            Action(name='get_medical_record', kwargs={'appointment_id': 'APPT_tracer_100'}),
+            Action(name='list_telemetry_devices', kwargs={'status_filter': 'shipped'}),
+            Action(name='list_telemetry_uploads', kwargs={'device_id': 'PHILIP_tracer_470'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='nadia.abbasi@tracer-health.org',
+        instruction='You are Nadia Abbasi, a patient with hypertension and type 2 diabetes, managing your care via telehealth. You want to cancel your medication review appointment with Dr. Garcia on November 30 because you no longer need that visit. You would like to schedule a new specialist consultation with a cardiologist, ideally with Dr. Luis Sims on December 3rd at 10:00, due to your cardiovascular concerns related to chronic conditions; however, if Dr. Sims is not available, you would like to explore other cardiologist options. Later, you want to reschedule your medication review appointment with Dr. Camila Ortega from December 1st at 08:00 to December 2nd at 09:00 because the new time fits better with your morning routine. You also want to review the details of that appointment and access your medical records for personal reference. After that, you would like to see a list of available cardiologists to consider additional options for your heart health follow-up.\n\nUse nadia.abbasi@tracer-health.org for authentication.',
+        actions=[
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_063'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'nadia_abbasi_tracer_0001', 'provider_id': 'luis_sims_cardiology_tracer_0001', 'date': '2025-12-03', 'time': '10:00', 'appointment_type': 'specialist_consultation'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'luis_sims_cardiology_tracer_0001'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_072', 'new_date': '2025-12-02', 'new_time': '09:00'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_072'}),
+            Action(name='list_patient_medical_records', kwargs={'patient_id': 'nadia_abbasi_tracer_0001'}),
+            Action(name='list_available_providers', kwargs={}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='audrey.horton@tracer-health.org',
+        instruction='You are Audrey Horton, a patient with focal epilepsy and generalized anxiety disorder, and your email is audrey.horton@tracer-health.org. You want to cancel your device coaching appointment scheduled for 2025-12-17 at 10:00 because your technical issues with the wearable EEG device have been resolved. You would like to schedule a new routine checkup with Dr. Charles Lewis, your primary care provider, on 2025-12-22 at 11:00 because it aligns with your availability and the slot is open. You prefer to keep both appointments billed to your Aetna insurance. Later, you want to reschedule your neurology follow-up with Dr. John Hopkins from 2025-12-19 at 09:30 to 2025-12-22 at 09:30 so it occurs on the same day as your checkup for better coordination. After that, you would like to retrieve your medical records to confirm your current medications, which include Levetiracetam and Sertraline, to ensure your treatment plan remains accurate. Finally, you want a list of available providers to explore options for future care needs.\n\nUse audrey.horton@tracer-health.org for authentication.',
+        actions=[
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_174'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'audrey_horton_tracer_0001', 'provider_id': 'charles_lewis_primary_care_tracer_0001', 'date': '2025-12-22', 'time': '11:00', 'appointment_type': 'routine_checkup', 'bill_insurance': True}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'charles_lewis_primary_care_tracer_0001'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_175', 'new_date': '2025-12-22', 'new_time': '09:30'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_175'}),
+            Action(name='list_patient_medical_records', kwargs={'patient_id': 'audrey_horton_tracer_0001'}),
+            Action(name='list_available_providers', kwargs={}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='toni.miller@tracer-health.org',
+        instruction='You are Toni Miller, authenticated via toni.miller@tracer-health.org, and you want to reschedule your medication review appointment with endocrinologist Dr. Amy Young from December 17 to December 24 at 13:00 because it better fits your schedule. You prefer this time as it aligns with your availability and Dr. Young’s Wednesday afternoon availability. Later, you would like to discuss cost-saving options for your Insulin Lispro prescription during the rescheduled visit, as you are concerned about current out-of-pocket expenses. You also want your medical record updated to reflect that cheaper alternatives were discussed, specifically noting Bengal EndoCare’s SwiftLis at $19.20 per unit as the most affordable option, so this preference is documented for future reference and potential prescription updates.\n\nUse toni.miller@tracer-health.org for authentication.',
+        actions=[
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_181', 'new_date': '2025-12-24', 'new_time': '13:00'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'toni_miller_tracer_0001'}),
+            Action(name='list_available_providers', kwargs={}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'amy_young_endocrinology_tracer_0001'}),
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Insulin Lispro'}),
+            Action(name='get_regimen_options', kwargs={'patient_id': 'toni_miller_tracer_0001'}),
+            Action(name='update_medical_record_note', kwargs={'record_id': 'REC_tracer_125', 'note': 'Discussed cheaper supplier options for Insulin Lispro with patient. Lowest cost option: Bengal EndoCare (brand: SwiftLis, price: $19.20).'}),
+            Action(name='get_medical_record', kwargs={'record_id': 'REC_tracer_125'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='barry.farmer@tracer-health.org',
+        instruction='You are Barry Farmer, a patient with COPD and asthma, and your email is barry.farmer@tracer-health.org. You want to reschedule your medication review appointment with Dr. Kenneth Mayer from December 17 to December 18 at 14:00 because it better fits your schedule. You also want to switch to a cheaper supplier for your Fluticasone Inhaler, specifically Lotus Respiratory, which offers Flohale at $7.10, the lowest available price. After confirming the rescheduling, you would like your medical record updated to reflect this supplier change and include a note stating that you requested pricing information and selected Lotus Respiratory for your Fluticasone Inhaler.\n\nUse barry.farmer@tracer-health.org for authentication.',
+        actions=[
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_097', 'new_date': '2025-12-18', 'new_time': '14:00'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'barry_farmer_tracer_0001'}),
+            Action(name='list_available_providers', kwargs={}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'kenneth_mayer_primary_care_tracer_0001'}),
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Fluticasone Inhaler'}),
+            Action(name='get_regimen_options', kwargs={'patient_id': 'barry_farmer_tracer_0001'}),
+            Action(name='update_medical_record_note', kwargs={'record_id': 'REC_tracer_064', 'note': 'Patient requested supplier pricing info and selected Lotus Respiratory for Fluticasone Inhaler.'}),
+            Action(name='get_medical_record', kwargs={'record_id': 'REC_tracer_064'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='cynthia.scott@tracer-health.org',
+        instruction='You are Cynthia Scott, authenticated via cynthia.scott@tracer-health.org, and you want to review the details of your scheduled follow-up telehealth appointment with Dr. Camila Ortega, a primary care provider, on December 17, 2025, at 09:00 for hypertension and diabetes management. You would like to schedule a new follow-up appointment with the same provider on the next day, December 18, 2025, at 09:00, because it aligns with your availability and maintains continuity of care. You also want to check for potential drug interactions between Lisinopril and your current medications, which include Metformin and Lisinopril, to ensure your regimen remains safe—no interactions were found.\n\nUse cynthia.scott@tracer-health.org for authentication.',
+        actions=[
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_076'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'cynthia_scott_tracer_0001', 'provider_id': 'camila_ortega_primary_care_tracer_0001', 'date': '2025-12-18', 'time': '09:00', 'appointment_type': 'follow_up'}),
+            Action(name='list_available_providers', kwargs={'specialty': 'Primary Care'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'camila_ortega_primary_care_tracer_0001'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Lisinopril', 'current_medications': ['Metformin', 'Lisinopril']}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='melanie.chambers@tracer-health.org',
+        instruction='You are Melanie Chambers, a patient with hypertension and type 2 diabetes, and your email is melanie.chambers@tracer-health.org. You want to reschedule your medication review appointment with Dr. Howard McCarthy from December 17, 2025, to the next day, December 18, 2025, at 14:00, because it better fits your schedule. Later, you would like to cancel your follow-up appointment with Dr. Charles Lewis on December 17, 2025, as you prefer to consolidate care with your primary provider. You are concerned about medication costs and would like to explore more affordable alternatives for your Lisinopril prescription. After confirming no drug interactions, you prefer to switch to the lowest-cost supplier, Mumbai Cardio Pharma, using the brand Lisipril-M at $2.80 per unit, and update your prescription in your medical record accordingly.\n\nUse melanie.chambers@tracer-health.org for authentication.',
+        actions=[
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_107', 'new_date': '2025-12-18', 'new_time': '14:00'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'melanie_chambers_tracer_0001'}),
+            Action(name='get_medical_record', kwargs={'appointment_id': 'APPT_tracer_107'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_085'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_085'}),
+            Action(name='list_available_providers', kwargs={}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Lisinopril', 'current_medications': ['Metformin', 'Lisinopril']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_074', 'medication': 'Lisinopril', 'supplier_company': 'Mumbai Cardio Pharma', 'brand_name': 'Lisipril-M', 'price_usd': 2.8}),
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Lisinopril'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='megan.jones@tracer-health.org',
+        instruction="You are Megan Jones (megan.jones@tracer-health.org), managing hypertension and type 2 diabetes, and you want to cancel your scheduled appointment with Dr. Debra Nunez on 2025-12-17 at 08:00 because of a scheduling conflict. You also want to review the details of your follow-up appointment with Dr. Charles Barajas on 2025-12-17 at 09:00, and you would like a list of all your upcoming appointments for visibility. Later, you want to check for potential interactions between ibuprofen and your current medications (Metformin and Lisinopril) due to a recent headache, and you are reassured there are no high-risk interactions. You prefer to update your Lisinopril prescription to the lower-cost supplier Mumbai Cardio Pharma (brand Lisipril-M, $2.80) for cost savings, and you want a compliance note added to medical record REC_tracer_073 stating 'Patient requested supplier update for cost savings.' After that, you would like to reschedule your follow-up appointment with Dr. Charles Barajas to 2025-12-18 at 10:00 for better availability. You also want to receive provider details for Dr. Charles Barajas and a list of other available primary care providers for future reference.\n\nUse megan.jones@tracer-health.org for authentication.",
+        actions=[
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_084'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_191'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'megan_jones_tracer_0001'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Ibuprofen', 'current_medications': ['Metformin', 'Lisinopril']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_073', 'medication': 'Lisinopril', 'supplier_company': 'Mumbai Cardio Pharma', 'brand_name': 'Lisipril-M', 'price_usd': 2.8}),
+            Action(name='update_medical_record_note', kwargs={'record_id': 'REC_tracer_073', 'note': 'Patient requested supplier update for cost savings.'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_084', 'new_date': '2025-12-18', 'new_time': '10:00'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'charles_barajas_primary_care_tracer_0001'}),
+            Action(name='list_available_providers', kwargs={'specialty': 'Primary Care'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='diane.robinson@tracer-health.org',
+        instruction="You are Diane Robinson (diane.robinson@tracer-health.org), a patient with Type 1 Diabetes and Hypothyroidism, and you want to cancel your 09:00 follow-up appointment on 2025-12-17 with Dr. Ashley Schneider because you are streamlining your care schedule. You would like to review the details of that appointment as well as your other scheduled visits to ensure coordination. Later, you want to switch your Insulin Lispro prescription in record REC_tracer_128 to the lower-cost supplier Bengal EndoCare, using the brand SwiftLis at $19.20, because a drug interaction check confirmed it is safe with your current medications (Insulin Lispro and Levothyroxine) and you are seeking cost savings. You also want a note added to the record stating 'Patient requested supplier change for cost savings after interaction check confirmed safety.' After that, you would like to reschedule your 13:00 medication review on 2025-12-17 with Dr. Caleb Turner to 10:00 on the next day, as that time works better for your routine and aligns with his availability. You also want to receive Dr. Turner’s provider details and a list of other available endocrinology providers for future reference.\n\nUse diane.robinson@tracer-health.org for authentication.",
+        actions=[
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_077'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_077'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'diane_robinson_tracer_0001'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Insulin Lispro', 'current_medications': ['Insulin Lispro', 'Levothyroxine']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_128', 'medication': 'Insulin Lispro', 'supplier_company': 'Bengal EndoCare', 'brand_name': 'SwiftLis', 'price_usd': 19.2}),
+            Action(name='update_medical_record_note', kwargs={'record_id': 'REC_tracer_128', 'note': 'Patient requested supplier change for cost savings after interaction check confirmed safety.'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_184', 'new_date': '2025-12-18', 'new_time': '10:00'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'caleb_turner_endocrinology_tracer_0001'}),
+            Action(name='list_available_providers', kwargs={'specialty': 'Endocrinology'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='matthew.smith@tracer-health.org',
+        instruction='You are matthew.smith@tracer-health.org. You want to accomplish these, in order:\n1. Hi, my email is matthew.smith@tracer-health.org. I need to cancel my appointment APPT_tracer_083 with Dr. Smith. Also, I would like to schedule a new appointment with Dr. Christine Bailey on 2025-12-18 at 10:00 for a follow-up.\n2. Can you please provide details about Dr. Christine Bailey? I also want to confirm she is available on 2025-12-18 at 10:00.\n3. I would like to check the telemetry upload history for my cardiac event monitor device CARDIA_tracer_481. Can you list the recent usage hours?\n\nUse matthew.smith@tracer-health.org for authentication.',
+        actions=[
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_083'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'matthew_smith_tracer_0001', 'provider_id': 'christine_bailey_cardiology_tracer_0001', 'date': '2025-12-18', 'time': '10:00', 'appointment_type': 'follow_up'}),
+            Action(name='list_available_providers', kwargs={'specialty': 'Cardiology'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'christine_bailey_cardiology_tracer_0001'}),
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='list_telemetry_uploads', kwargs={'device_id': 'CARDIA_tracer_481'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='shawn.carter@tracer-health.org',
+        instruction='You are Shawn Carter (shawn.carter@tracer-health.org), a patient with atrial fibrillation and hyperlipidemia, who wants to cancel your scheduled specialist consultation with Dr. Kayla Guzman on December 17, 2025, due to a scheduling conflict. You would like to schedule a new routine checkup with Dr. Charles Lewis, a primary care provider, on December 18, 2025, at 10:00, because it aligns with your availability and you prefer continuity with a primary care physician for routine monitoring. After confirming Dr. Lewis’s credentials and availability, you want to ensure consistent use of your cardiac event monitor (CARDIA_tracer_461), particularly noting a missed upload on December 14, and you would like to review the recent usage history to maintain reliable cardiac data tracking.\n\nUse shawn.carter@tracer-health.org for authentication.',
+        actions=[
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_127'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'shawn_carter_tracer_0001', 'provider_id': 'charles_lewis_primary_care_tracer_0001', 'date': '2025-12-18', 'time': '10:00', 'appointment_type': 'routine_checkup'}),
+            Action(name='list_available_providers', kwargs={}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'charles_lewis_primary_care_tracer_0001'}),
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='list_telemetry_uploads', kwargs={'device_id': 'CARDIA_tracer_461'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='edward.rice@tracer-health.org',
+        instruction="You are Edward Rice (edward.rice@tracer-health.org), a cardiology patient managing atrial fibrillation and hyperlipidemia with Warfarin and Atorvastatin. You want to schedule a new routine checkup with Dr. Robert Smith on 2025-12-23 at 15:00 because it aligns with your availability and the provider's schedule. You also want to reschedule your follow-up appointment with Dr. Ryan Harris from 2025-12-19 at 10:00 to 2025-12-22 at 14:00 for better time convenience. After that, you would like to cancel your follow-up appointment with Dr. Brandi Dixon on 2025-12-17 at 09:00 due to redundancy in care coordination. You prefer to see a summary of all your appointments afterward to confirm the updated schedule. You would also like to review Dr. Ryan Harris's provider details for continuity of care. Finally, you need urgent evaluation of a potential drug interaction after taking Sertraline, which may critically affect your anticoagulation therapy with Warfarin, requiring immediate clinical guidance.\n\nUse edward.rice@tracer-health.org for authentication.",
+        actions=[
+            Action(name='list_available_providers', kwargs={'specialty': 'Cardiology'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'edward_rice_tracer_0001', 'provider_id': 'dr_smith_cardiology', 'date': '2025-12-23', 'time': '15:00', 'appointment_type': 'routine_checkup'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_139', 'new_date': '2025-12-22', 'new_time': '14:00'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_078'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_078'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'edward_rice_tracer_0001'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'ryan_harris_cardiology_tracer_0001'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Sertraline', 'current_medications': ['Warfarin', 'Atorvastatin']}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='yumi.tanaka7410@pacificcare.org',
+        instruction='You are Yumi Tanaka, a patient managing atrial fibrillation and anxiety, who accidentally took an extra dose of Sertraline and is concerned about potential interactions with Warfarin, Aspirin EC, and Metoprolol Succinate. You want a drug interaction check performed due to recent accidental dosing, which revealed a high-severity interaction with Warfarin requiring clinical review. You would like to update your Sertraline prescription in medical record REC012 to a more affordable supplier, Triveni Pharma, using the brand name Setrina at $4.55, to reduce medication costs, even though it is not currently listed among local suppliers. You also want a complete list of your medical records for personal review and verification. Additionally, you would like the details of your scheduled care coordination appointment APPT031 to confirm logistics, including the date, time, and virtual meeting link, because you need to prepare for upcoming ablation week with synchronized, language-aligned care planning.\n\nUse yumi.tanaka7410@pacificcare.org for authentication.',
+        actions=[
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Sertraline', 'current_medications': ['Warfarin', 'Sertraline', 'Aspirin EC', 'Metoprolol Succinate']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC012', 'medication': 'Sertraline', 'supplier_company': 'Triveni Pharma', 'brand_name': 'Setrina', 'price_usd': 4.55}),
+            Action(name='list_patient_medical_records', kwargs={'patient_id': 'yumi_tanaka_7410'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT031'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='david.martinez@email.com',
+        instruction='You are David Martinez, patient david.martinez@email.com, managing anxiety with Sertraline and seasonal allergies with Claritin. You want to confirm there are no harmful interactions between Sertraline and Claritin, which is important for your safety. You would like to switch your Sertraline prescription to a more affordable supplier, specifically Gujarat MindCare offering the brand Serenem at $4.65, to reduce medication costs. After addressing medication concerns, you prefer to schedule a follow-up psychiatry appointment with Dr. Jessica Tapia on Monday (next day) at 11:00 AM, as it aligns with your availability and treatment continuity.\n\nUse david.martinez@email.com for authentication.',
+        actions=[
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Sertraline', 'current_medications': ['Sertraline', 'Claritin']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC001', 'medication': 'Sertraline', 'supplier_company': 'Gujarat MindCare', 'brand_name': 'Serenem', 'price_usd': 4.65}),
+            Action(name='list_patient_medical_records', kwargs={'patient_id': 'david_martinez_5678'}),
+            Action(name='list_available_providers', kwargs={'specialty': 'Psychiatry'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'jessica_tapia_psychiatry_tracer_0001'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'david_martinez_5678', 'provider_id': 'jessica_tapia_psychiatry_tracer_0001', 'date': '2024-06-10', 'time': '11:00', 'appointment_type': 'follow_up'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='david.martinez@email.com',
+        instruction='You are David Martinez (david.martinez@email.com), a patient managing anxiety and seasonal allergies with Sertraline and Claritin. You want to confirm the safety of continuing both medications, and after verification, you prefer to update your Sertraline prescription in medical record REC001 to use the more affordable supplier Harmony Labs, which provides the brand Sertrawin at $4.75 per unit, to reduce ongoing medication costs. You would like to schedule a follow-up psychiatric consultation with Dr. Jessica Tapia on Friday, June 14th at 11:00 AM, as this time aligns with your availability and allows continuity in mental health care.\n\nUse david.martinez@email.com for authentication.',
+        actions=[
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Sertraline', 'current_medications': ['Sertraline', 'Claritin']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC001', 'medication': 'Sertraline', 'supplier_company': 'Harmony Labs', 'brand_name': 'Sertrawin', 'price_usd': 4.75}),
+            Action(name='list_patient_medical_records', kwargs={'patient_id': 'david_martinez_5678'}),
+            Action(name='list_available_providers', kwargs={'specialty': 'Psychiatry'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'jessica_tapia_psychiatry_tracer_0001'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'david_martinez_5678', 'provider_id': 'jessica_tapia_psychiatry_tracer_0001', 'date': '2024-06-14', 'time': '11:00', 'appointment_type': 'consultation'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='diane.robinson@tracer-health.org',
+        instruction='You are Diane Robinson (diane.robinson@tracer-health.org), a patient with Type 1 Diabetes and Hypothyroidism, and you want to cancel your follow-up appointment with Dr. Ashley Schneider on 2025-12-17 at 09:00 due to a scheduling conflict. You would like to reschedule your medication review appointment with Dr. Shannon Anderson from 2025-12-17 at 14:00 to 2025-12-19 at 10:00 because it better fits your availability. You prefer this new time as it aligns with your daily routine and allows you to attend without disruption. Later, you want to explore lower-cost suppliers for your Insulin Lispro prescription to reduce financial burden. You are interested in the lowest-cost option that maintains safety and efficacy, which is Bengal EndoCare (India) offering SwiftLis at $19.20 per unit. After confirming no high-risk drug interactions between Insulin Lispro and your current medications (Levothyroxine), you would like your prescription in medical record REC_tracer_066 to be updated to reflect the new supplier information for cost-saving purposes.\n\nUse diane.robinson@tracer-health.org for authentication.',
+        actions=[
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_077'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_077'}),
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Insulin Lispro'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_099', 'new_date': '2025-12-19', 'new_time': '10:00'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Insulin Lispro', 'current_medications': ['Insulin Lispro', 'Levothyroxine']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_066', 'medication': 'Insulin Lispro', 'supplier_company': 'Bengal EndoCare', 'brand_name': 'SwiftLis', 'price_usd': 19.2}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='kathryn.clark@tracer-health.org',
+        instruction="You are Kathryn Clark, and your email is kathryn.clark@tracer-health.org. You want to review the details of your upcoming device coaching appointment with Chelsea Buck, a registered nurse specializing in device coaching, because you need to confirm the date, time, and telehealth meeting link for your records. You would like to access the clinical note from that visit to understand the assessment and plan regarding your wearable EEG device uploads, as you've had trouble syncing it recently and want to ensure you're following the correct routine. You also want a complete list of all your medical records for personal review, so you can stay informed about your care related to focal epilepsy and generalized anxiety disorder.\n\nUse kathryn.clark@tracer-health.org for authentication.",
+        actions=[
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_134'}),
+            Action(name='get_medical_record', kwargs={'appointment_id': 'APPT_tracer_134'}),
+            Action(name='list_patient_medical_records', kwargs={'patient_id': 'kathryn_clark_tracer_0001'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='kevin.bond@tracer-health.org',
+        instruction='You are Kevin Bond, authenticated via kevin.bond@tracer-health.org, who wants to reschedule your follow-up appointment with Dr. Saito from 2025-12-17 at 07:30 to 2025-12-18 at 10:00 because the new time better fits your schedule. Later, you will request an urgent drug interaction check after accidentally taking Sertraline, which reveals a high-severity interaction with Warfarin, so you prefer immediate clinical guidance and temporary suspension of Warfarin until advised. After that, you would like to update your Warfarin prescription in your medical record to use the lowest-cost supplier, VedaRx Labs (brand: Vedarin), at $4.28 per unit, to reduce ongoing medication expenses.\n\nUse kevin.bond@tracer-health.org for authentication.',
+        actions=[
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_081'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_081', 'new_date': '2025-12-18', 'new_time': '10:00'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Sertraline', 'current_medications': ['Warfarin', 'Atorvastatin']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_132', 'medication': 'Warfarin', 'supplier_company': 'VedaRx Labs', 'brand_name': 'Vedarin', 'price_usd': 4.28}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='molly.hill@tracer-health.org',
+        instruction='You are Molly Hill (email: molly.hill@tracer-health.org), a patient with Type 1 Diabetes and Hypothyroidism, who wants to cancel your scheduled endocrinology follow-up appointment with Dr. Kelly Taylor because your glucose control has improved after device coaching. You would like to explore available endocrinology providers for future follow-up visits to maintain continuity of care. Later, you want to confirm that taking an extra dose of Insulin Lispro does not pose a high-risk interaction with your current medications, which include Insulin Lispro and Levothyroxine, because you seek reassurance about medication safety. After that, you would like to update your prescription supplier for Insulin Lispro in your medical record to Bengal EndoCare (brand: SwiftLis) as it is the lowest-cost option and aligns with your goal of reducing out-of-pocket expenses.\n\nUse molly.hill@tracer-health.org for authentication.',
+        actions=[
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_153'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_153'}),
+            Action(name='list_available_providers', kwargs={}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Insulin Lispro', 'current_medications': ['Insulin Lispro', 'Levothyroxine']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_078', 'medication': 'Insulin Lispro', 'supplier_company': 'Bengal EndoCare', 'brand_name': 'SwiftLis', 'price_usd': 19.2}),
+            Action(name='get_medical_record', kwargs={'record_id': 'REC_tracer_078'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='lila.chen3318@parentportal.org',
+        instruction='You are Lila Chen, mother of Maya Chen (email: lila.chen3318@parentportal.org), managing care for her daughter with Autism Spectrum Disorder. You want to schedule a routine checkup with Dr. John Wise, a primary care provider, on the next Thursday (2025-10-23) at 09:00 because it aligns with your availability and establishes comprehensive care. Later, you would like to confirm there are no adverse interactions between Sertraline and Maya’s current medications (Risperidone and Melatonin), which is important for safety before considering any new treatment. After that, you prefer to update the Risperidone prescription supplier to Triveni Pharma (brand name Setrina, $4.55) for cost savings, and you also want to explore other lower-cost suppliers for Risperidone to further reduce out-of-pocket expenses. Subsequently, you would like to reschedule Maya’s occupational therapy session with OT Sullivan from the current date (October 16) to the following Friday (October 24) at 10:00, as it better fits your family’s weekly routine.\n\nUse lila.chen3318@parentportal.org for authentication.',
+        actions=[
+            Action(name='list_available_providers', kwargs={'specialty': 'Primary Care'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'maya_chen_3318', 'provider_id': 'john_wise_primary_care_tracer_0001', 'date': '2025-10-23', 'time': '09:00', 'appointment_type': 'routine_checkup'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Sertraline', 'current_medications': ['Risperidone', 'Melatonin']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC022', 'medication': 'Risperidone', 'supplier_company': 'Triveni Pharma', 'brand_name': 'Setrina', 'price_usd': 4.55}),
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Risperidone'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT045', 'new_date': '2025-10-24', 'new_time': '10:00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='shawn.carter@tracer-health.org',
+        instruction='You are Shawn Carter (shawn.carter@tracer-health.org), a patient with atrial fibrillation and hyperlipidemia, and you want to schedule a new routine cardiology checkup with Dr. Thomas May on 2025-12-23 at 09:00 because it aligns with your preferred morning availability and the provider specializes in your condition. You prefer to use your Aetna insurance for billing. Later, you want to check for drug interactions before considering Sertraline due to a high-risk interaction with your current Warfarin regimen, which could affect your anticoagulation safety. After that, you would like to update your Atorvastatin prescription in your medical record to use VedaRx Labs as the supplier with the brand name Atorveeda at a lower cost of $4.05 to reduce your monthly medication expenses. Subsequently, you want to reschedule your existing medication review appointment with Dr. Smith from 2025-12-17 at 15:00 to 2025-12-23 at 10:00 because the new time is more convenient for your schedule and allows both appointments to be on the same day, improving coordination of your care.\n\nUse shawn.carter@tracer-health.org for authentication.',
+        actions=[
+            Action(name='list_available_providers', kwargs={'specialty': 'Cardiology'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'shawn_carter_tracer_0001', 'provider_id': 'thomas_may_cardiology_tracer_0001', 'date': '2025-12-23', 'time': '09:00', 'appointment_type': 'routine_checkup', 'bill_insurance': True}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Sertraline', 'current_medications': ['Warfarin', 'Atorvastatin']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_122', 'medication': 'Atorvastatin', 'supplier_company': 'VedaRx Labs', 'brand_name': 'Atorveeda', 'price_usd': 4.05}),
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Atorvastatin'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_178', 'new_date': '2025-12-23', 'new_time': '10:00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='edward.rice@tracer-health.org',
+        instruction='You are Edward Rice, a cardiology patient managing atrial fibrillation and hyperlipidemia, with your care coordinated through edward.rice@tracer-health.org. You want to verify that your cardiac event monitor data was uploaded on 2026-01-15, but the system shows no upload for that day, so you would like support reconnecting the device and resuming regular telemetry transmission because consistent monitoring is important for your condition. You would like to start Zolpidem for insomnia and have confirmed with your care team that, although it interacts mildly with Bupropion, no significant risk is expected—so you prefer to proceed with starting Zolpidem while monitoring for any changes in sleep or mood, because improving sleep quality supports your overall health. You want to keep your scheduled virtual medication review appointment with Dr. Megan Cook, a board-certified cardiologist, on 2025-12-17 at 10:00, because it aligns with your need to discuss medication safety. You prefer virtual visits for convenience and continuity, and you would like to receive a reminder before the visit to ensure connection readiness.\n\nUse edward.rice@tracer-health.org for authentication.',
+        actions=[
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='get_telemetry_upload', kwargs={'device_id': 'CARDIA_tracer_465', 'date': '2026-01-15'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Zolpidem', 'current_medications': ['Warfarin', 'Atorvastatin', 'Bupropion']}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_116'}),
+            Action(name='get_medical_record', kwargs={'appointment_id': 'APPT_tracer_116'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'megan_cook_cardiology_tracer_0001'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='ashley.gordon@tracer-health.org',
+        instruction='You are Ashley Gordon, email ashley.gordon@tracer-health.org, managing Focal Epilepsy and Generalized Anxiety Disorder with Levetiracetam and Sertraline. You want to verify whether your wearable EEG device (WEARAB_tracer_467) successfully uploaded data on January 15, 2026, because you are concerned about missed telemetry compliance ahead of your neurology follow-up. You also want to check for potential drug interactions after accidentally taking an additional dose of Sertraline, even though you are already on Sertraline and Levetiracetam, to ensure there are no safety risks. You would like to review the details of your upcoming neurology follow-up appointment (APPT_tracer_143) with Dr. Christopher Gilbert, a neurologist with 14 years of experience, because you want to prepare for the visit and understand the context of your care. You also want to access the medical record associated with this appointment to review past clinical notes, and you would like to see Dr. Gilbert’s provider details to confirm his specialty, availability, and credentials ahead of the consultation.\n\nUse ashley.gordon@tracer-health.org for authentication.',
+        actions=[
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='get_telemetry_upload', kwargs={'device_id': 'WEARAB_tracer_467', 'date': '2026-01-15'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Sertraline', 'current_medications': ['Sertraline', 'Levetiracetam']}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_143'}),
+            Action(name='get_medical_record', kwargs={'appointment_id': 'APPT_tracer_143'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'christopher_gilbert_neurology_tracer_0001'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='charles.levine@tracer-health.org',
+        instruction="You are Charles Levine (charles.levine@tracer-health.org) and you want to reschedule your care coordination appointment with Dr. Linda Collins from Thursday morning to Friday afternoon because of a scheduling conflict. You prefer the appointment on Friday at 13:00 as it aligns with your availability and fits within Dr. Collins' practice hours. You also want confirmation that Dr. Collins is available at that time and that the new schedule supports your need for coordinated care planning for your family's asthma management.\n\nUse charles.levine@tracer-health.org for authentication.",
+        actions=[
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_209'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_209', 'new_date': '2025-12-19', 'new_time': '13:00'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'linda_collins_care_coordination_tracer_0001'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='diane.robinson@tracer-health.org',
+        instruction='You are Diane Robinson, a patient with Type 1 Diabetes and Hypothyroidism, and your email is diane.robinson@tracer-health.org. You want to reschedule your follow-up appointment with Dr. Ashley Schneider from tomorrow to the next day, because it works better with your schedule. You also want to access the medical record from that follow-up appointment to review the notes on your diabetes and thyroid management. Later, you would like to cancel your medication review appointment with Dr. Caleb Turner, which is also scheduled for tomorrow, as you no longer need the consultation. After that, you would like to receive background information about Dr. Turner, including his specialty, experience, and languages spoken, for your personal records.\n\nUse diane.robinson@tracer-health.org for authentication.',
+        actions=[
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_077', 'new_date': '2025-12-18', 'new_time': '10:00'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'diane_robinson_tracer_0001'}),
+            Action(name='get_medical_record', kwargs={'appointment_id': 'APPT_tracer_077'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_184'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_184'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'caleb_turner_endocrinology_tracer_0001'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='edward.rice@tracer-health.org',
+        instruction='You are Edward Rice, a patient with atrial fibrillation and hyperlipidemia, managing your care through telehealth. You want to review the details of your scheduled device coaching appointment with Jennifer Roth before proceeding with cancellation, because you need to confirm the date, time, and purpose of the session. You are scheduled for a 40-minute telehealth visit on 2025-12-17 at 08:00 to address trouble with your cardiac monitor uploads, and you would like this confirmed for clarity. After reviewing, you intend to cancel this appointment due to a scheduling conflict. You also want to check the upload compliance of your assigned cardiac event monitor (CARDIA_tracer_465), specifically the usage from 2025-12-10 to 2025-12-16, because you noticed a gap in data and want to ensure adherence to your monitoring regimen; the records show usage on all days except 2025-12-14, which had no upload. Later, you would like to explore cardiology specialist options and specifically request detailed information about Dr. Robert Smith, a cardiologist with 15 years of experience who speaks both English and Spanish, because you are considering a specialist consultation and value language compatibility and clinical experience.\n\nUse edward.rice@tracer-health.org for authentication.',
+        actions=[
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_138'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_138'}),
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='list_telemetry_uploads', kwargs={'device_id': 'CARDIA_tracer_465', 'start_date': '2025-12-10', 'end_date': '2025-12-16'}),
+            Action(name='list_available_providers', kwargs={'specialty': 'Cardiology'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'dr_smith_cardiology'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='shawn.zuniga@tracer-health.org',
+        instruction="You are Shawn Zuniga, a cardiology patient managing Atrial Fibrillation and Hyperlipidemia with Warfarin and Atorvastatin, and your authenticated identity is shawn.zuniga@tracer-health.org. You want to cancel your scheduled medication review appointment with Dr. Margaret Thompson on 2025-12-17 at 08:00 because of a scheduling conflict. You also want to verify the details of that appointment, including its purpose of discussing medication cost and pill burden, and confirm it was a telehealth visit with a $65 copay. Later, you would like to review the upload history for your cardiac event monitor (device ID CARDIA_tracer_493) from January 10 to January 16, 2026, because no data has been uploaded, which may indicate a sync issue. After that, you would like to see a list of available cardiology specialists to understand your care options, and then receive detailed information about Dr. Thompson, including her 25 years of experience, credentials (MD, FACC, FSCAI), and consultation fee, to better understand your current provider's background and expertise.\n\nUse shawn.zuniga@tracer-health.org for authentication.",
+        actions=[
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_179'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_179'}),
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='list_telemetry_uploads', kwargs={'device_id': 'CARDIA_tracer_493', 'start_date': '2026-01-10', 'end_date': '2026-01-16'}),
+            Action(name='list_available_providers', kwargs={'specialty': 'Cardiology'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'dr_thompson_cardiology'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='yumi.tanaka7410@pacificcare.org',
+        instruction="You are Yumi Tanaka, a patient preparing for a cardiac ablation procedure, and you want to review cost-effective supplier options for your Sertraline prescription documented in your pre-procedure medical record. You prefer to confirm that the current supplier is Harmony Labs with the brand name Sertrawin because it aligns with your medication reconciliation plan. After reviewing available options, you would like to ensure the record reflects your inquiry by adding a note stating 'Patient requested supplier pricing information for Sertraline' to maintain compliance and audit readiness.\n\nUse yumi.tanaka7410@pacificcare.org for authentication.",
+        actions=[
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Sertraline'}),
+            Action(name='update_medical_record_note', kwargs={'record_id': 'REC012', 'note': 'Patient requested supplier pricing information for Sertraline.'}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC012', 'medication': 'Sertraline', 'supplier_company': 'Harmony Labs', 'brand_name': 'Sertrawin', 'price_usd': 4.75}),
+            Action(name='get_medical_record', kwargs={'record_id': 'REC012'}),
+            Action(name='list_patient_medical_records', kwargs={'patient_id': 'yumi_tanaka_7410'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'dr_saito_cardiology'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='yumi.tanaka7410@pacificcare.org',
+        instruction="You are Yumi Tanaka, authenticated via yumi.tanaka7410@pacificcare.org, and you want to update the supplier for your Sertraline prescription in medical record REC012 to Triveni Pharma (brand: Setrina, price: $4.55) because it is a lower-cost option than your current supplier. You also want a note added to the record stating 'Patient requested supplier update to lower cost option' to document your preference. Additionally, you would like to verify and retain the details of your cardiologist, Dr. Hiroko Saito, because she speaks Japanese and is managing your care ahead of your cardiac ablation procedure.\n\nUse yumi.tanaka7410@pacificcare.org for authentication.",
+        actions=[
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Sertraline'}),
+            Action(name='update_medical_record_note', kwargs={'record_id': 'REC012', 'note': 'Patient requested supplier update to lower cost option'}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC012', 'medication': 'Sertraline', 'supplier_company': 'Triveni Pharma', 'brand_name': 'Setrina', 'price_usd': 4.55}),
+            Action(name='get_medical_record', kwargs={'record_id': 'REC012'}),
+            Action(name='list_patient_medical_records', kwargs={'patient_id': 'yumi_tanaka_7410'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'dr_saito_cardiology'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='kelly.montgomery@tracer-health.org',
+        instruction="You are Kelly Montgomery, and your email is kelly.montgomery@tracer-health.org. You want to cancel your scheduled family consultation with pediatrician Dr. Cody Hancock on 2025-12-17 at 08:30 because of a scheduling conflict. After that, you would like to book a new family consultation with the same provider on 2025-12-19 at 08:30, as it aligns with your availability and the provider's schedule.\n\nUse kelly.montgomery@tracer-health.org for authentication.",
+        actions=[
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_194'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_194'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'kelly_montgomery_tracer_0001'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'kelly_montgomery_tracer_0001', 'provider_id': 'cody_hancock_pediatrics_tracer_0001', 'date': '2025-12-19', 'time': '08:30', 'appointment_type': 'family_consultation'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='noah.ito@email.com',
+        instruction="You are Noah Ito (noah.ito@email.com), and you want to cancel your scheduled cardiology consultation with Dr. Robert Smith (Cardiology) on April 9, 2025, because you prefer a later appointment. After that, you would like to reschedule the specialist consultation with the same provider on April 16, 2025 (next Wednesday) at 15:00, as it better fits your availability and aligns with Dr. Smith's schedule.\n\nUse noah.ito@email.com for authentication.",
+        actions=[
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT015'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT015'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'noah_ito_98187'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'noah_ito_98187', 'provider_id': 'dr_smith_cardiology', 'date': '2025-04-16', 'time': '15:00', 'appointment_type': 'specialist_consultation'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='joshua.wagner@tracer-health.org',
+        instruction='You are Joshua Wagner, a patient with atrial fibrillation and hyperlipidemia, and your email is joshua.wagner@tracer-health.org. You want to reschedule your cardiology consultation (currently on 2025-12-17) with Dr. Thomas May to 2025-12-22 at 09:00 because it better fits your schedule. You also want to confirm there are no drug interactions between Warfarin and your current medication Atorvastatin, as you are considering adding a new sleep aid and want to ensure safety. After that, you would like to update the supplier for Warfarin in your medical record to VedaRx Labs (brand: Vedarin) at $4.28 to reduce your monthly medication costs, as it is a more affordable option that is already in your regimen.\n\nUse joshua.wagner@tracer-health.org for authentication.',
+        actions=[
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_119', 'new_date': '2025-12-22', 'new_time': '09:00'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_119'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'joshua_wagner_tracer_0001'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'thomas_may_cardiology_tracer_0001'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Warfarin', 'current_medications': ['Warfarin', 'Atorvastatin']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_130', 'medication': 'Warfarin', 'supplier_company': 'VedaRx Labs', 'brand_name': 'Vedarin', 'price_usd': 4.28}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='kevin.arnold@tracer-health.org',
+        instruction='You are a patient with atrial fibrillation and hyperlipidemia who uses Warfarin and Atorvastatin, and your email is kevin.arnold@tracer-health.org. You want to reschedule your medication review appointment with Dr. Luis Sims to the next day at 09:00 because it works better for your schedule. Later, you would like to discuss starting Zolpidem for sleep issues and request a check for potential drug interactions with your current medications, Warfarin and Atorvastatin, to ensure safety. After that, you prefer to update the supplier for your Warfarin prescription to VedaRx Labs, using the brand name Vedarin, to reduce medication costs, as it offers the lowest available price.\n\nUse kevin.arnold@tracer-health.org for authentication.',
+        actions=[
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_187', 'new_date': '2025-12-18', 'new_time': '09:00'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_187'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'kevin_arnold_tracer_0001'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'luis_sims_cardiology_tracer_0001'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Zolpidem', 'current_medications': ['Warfarin', 'Atorvastatin']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_131', 'medication': 'Warfarin', 'supplier_company': 'VedaRx Labs', 'brand_name': 'Vedarin', 'price_usd': 4.28}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='nadia.abbasi@tracer-health.org',
+        instruction='You are Nadia Abbasi, a patient managing hypertension and type 2 diabetes through telehealth, with email nadia.abbasi@tracer-health.org. You want to cancel your appointment with Dr. Garcia on 2025-11-30 at 09:30 because of a scheduling conflict. You would like to reschedule your appointment with Dr. Camila Ortega from 2025-12-01 at 08:00 to 2025-12-02 at 09:00 because the new time works better with your daily routine. You prefer to keep your current medications Metformin and Lisinopril, as there are no drug interactions. You want to update the supplier for your Lisinopril prescription to Mumbai Cardio Pharma (brand: Lisipril-M) because it offers a lower cost. You also want to check telemetry upload data for your Philips Trilogy Ventilator (PHILIP_tracer_511) on 2025-12-01 to ensure compliance monitoring, although the device is not currently assigned to you.\n\nUse nadia.abbasi@tracer-health.org for authentication.',
+        actions=[
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_063'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'dr_garcia_primary'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Lisinopril', 'current_medications': ['Metformin', 'Lisinopril']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_034', 'medication': 'Lisinopril', 'supplier_company': 'Mumbai Cardio Pharma', 'brand_name': 'Lisipril-M', 'price_usd': 2.8}),
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Lisinopril'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_060'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_072', 'new_date': '2025-12-02', 'new_time': '09:00'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'nadia_abbasi_tracer_0001'}),
+            Action(name='list_available_providers', kwargs={}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'nadia_abbasi_tracer_0001', 'provider_id': 'camila_ortega_primary_care_tracer_0001', 'date': '2025-12-01', 'time': '08:00', 'appointment_type': 'medication_review'}),
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='get_telemetry_upload', kwargs={'device_id': 'PHILIP_tracer_511', 'date': '2025-12-01'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='matthew.smith@tracer-health.org',
+        instruction='You are Matthew Smith (matthew.smith@tracer-health.org), a patient with atrial fibrillation and hyperlipidemia, managing your care through telehealth. You want to cancel your scheduled follow-up appointment with Dr. Christine Bailey on December 19, 2025, because it conflicts with another commitment. You would like to reschedule your existing follow-up with Dr. Robert Smith from December 17, 2025, at 09:00 to December 18, 2025, at 15:00 because the later date better fits your schedule. After that, you would like to schedule a new follow-up appointment with Dr. Robert Smith on December 19, 2025, at 10:00 for ongoing management of your heart condition. You prefer virtual visits for continuity and convenience. You want to confirm there are no harmful interactions between Warfarin and Atorvastatin, which is important for your safety given your atrial fibrillation. You would like to update your Atorvastatin prescription to be supplied by Andes Salud (brand: Atorsure) at $5.60 because it offers significant cost savings without changing effectiveness. You also want to review your telemetry data from your cardiac event monitor (CARDIA_tracer_481), specifically noting that the upload for December 14, 2025, shows 0 hours of usage, indicating a missed sync that you need to address to ensure continuous monitoring.\n\nUse matthew.smith@tracer-health.org for authentication.',
+        actions=[
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_171'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'dr_smith_cardiology'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Warfarin', 'current_medications': ['Warfarin', 'Atorvastatin']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_134', 'medication': 'Atorvastatin', 'supplier_company': 'Andes Salud', 'brand_name': 'Atorsure', 'price_usd': 5.6}),
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Atorvastatin'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_083'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_083', 'new_date': '2025-12-18', 'new_time': '15:00'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'matthew_smith_tracer_0001'}),
+            Action(name='list_available_providers', kwargs={'specialty': 'Cardiology'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'matthew_smith_tracer_0001', 'provider_id': 'dr_smith_cardiology', 'date': '2025-12-19', 'time': '10:00', 'appointment_type': 'follow_up'}),
+            Action(name='list_telemetry_devices', kwargs={'status_filter': 'deployed'}),
+            Action(name='get_telemetry_upload', kwargs={'device_id': 'CARDIA_tracer_481', 'date': '2025-12-14'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='joshua.wagner@tracer-health.org',
+        instruction='You are Joshua Wagner (joshua.wagner@tracer-health.org), a patient managing atrial fibrillation and hyperlipidemia through telehealth, who wants to address a missing telemetry upload for your cardiac event monitor on 2026-01-19 because it may affect rhythm monitoring accuracy. You would like to check for potential drug interactions before starting Zolpidem for sleep, as you are concerned about safety with your current medications. You prefer to update your Warfarin prescription to use the more affordable supplier VedaRx Labs (brand name Vedarin) at $4.28 to reduce monthly medication costs. You want to cancel your device coaching appointment scheduled for 2025-12-17 at 08:00 because you have resolved the syncing issue independently. Later, you would like to reschedule your cardiology follow-up appointment from 10:00 to 09:00 on 2025-12-19 to better fit your daily schedule, as the earlier time is more convenient for you.\n\nUse joshua.wagner@tracer-health.org for authentication.',
+        actions=[
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='get_telemetry_upload', kwargs={'device_id': 'CARDIA_tracer_469', 'date': '2026-01-19'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Zolpidem', 'current_medications': ['Warfarin', 'Atorvastatin', 'Bupropion']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_130', 'medication': 'Warfarin', 'supplier_company': 'VedaRx Labs', 'brand_name': 'Vedarin', 'price_usd': 4.28}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_146'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_147', 'new_date': '2025-12-19', 'new_time': '09:00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='kevin.arnold@tracer-health.org',
+        instruction='You are Kevin Arnold, patient with atrial fibrillation and hyperlipidemia, managing care via telehealth and using a cardiac event monitor (CARDIA_tracer_489). You want to check telemetry uploads for your device on 2026-01-10 because you suspect a missed transmission that day. You also want to check for drug interactions because you accidentally took Sertraline, which may interact with your Warfarin, and the interaction check confirms a high-severity risk requiring urgent attention. You would like to update the supplier for Warfarin in your medical record to VedaRx Labs (brand: Vedarin) to reduce medication costs. You prefer to cancel your cardiology follow-up appointment (APPT_tracer_080) because it overlaps with another visit. You prefer to reschedule your medication review appointment (APPT_tracer_187) with Dr. Luis Sims to Monday, 2025-12-22 at 10:00, because it aligns with your availability and the provider has an open slot.\n\nUse kevin.arnold@tracer-health.org for authentication.',
+        actions=[
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='get_telemetry_upload', kwargs={'device_id': 'CARDIA_tracer_489', 'date': '2026-01-10'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Sertraline', 'current_medications': ['Warfarin', 'Atorvastatin']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_131', 'medication': 'Warfarin', 'supplier_company': 'VedaRx Labs', 'brand_name': 'Vedarin', 'price_usd': 4.28}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_080'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_187', 'new_date': '2025-12-22', 'new_time': '10:00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='scott.sparks@tracer-health.org',
+        instruction='You are Scott Sparks, authenticated via scott.sparks@tracer-health.org, managing atrial fibrillation and hyperlipidemia with Warfarin and Atorvastatin. You want to check for potential drug interactions between your current medications because you are concerned about safety risks; the evaluation shows no high-risk interactions. You would like to update your Atorvastatin prescription in your medical record to use VedaRx Labs with the brand name Atorveeda at $4.05 per unit because it aligns with your cost-saving goals and is part of your optimized regimen plan. You prefer to retrieve your full regimen optimization options to review cost and adherence benefits before finalizing changes. You want to add a note to your medical record documenting this prescription update for continuity. You would like to review telemetry data from your cardiac event monitor (CARDIA_tracer_477) for December 11, 2025, because you are tracking device compliance and the data shows 6.8 hours of usage that day. You prefer to reschedule your cardiology follow-up appointment with Dr. Bryant to Monday, December 22, 2025 at 14:00 because it better fits your schedule and the time is available. Later, you would like to cancel your specialist consultation with Dr. Fitzgerald after confirming the appointment details, as it is no longer needed.\n\nUse scott.sparks@tracer-health.org for authentication.',
+        actions=[
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Atorvastatin', 'current_medications': ['Warfarin', 'Atorvastatin']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_121', 'medication': 'Atorvastatin', 'supplier_company': 'VedaRx Labs', 'brand_name': 'Atorveeda', 'price_usd': 4.05}),
+            Action(name='get_regimen_options', kwargs={'patient_id': 'scott_sparks_tracer_0001'}),
+            Action(name='update_medical_record_note', kwargs={'record_id': 'REC_tracer_121', 'note': 'Patient requested update to lower-cost Atorvastatin supplier VedaRx Labs (Atorveeda) at $4.05 after reviewing options.'}),
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='get_telemetry_upload', kwargs={'device_id': 'CARDIA_tracer_477', 'date': '2025-12-11'}),
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Atorvastatin'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_163', 'new_date': '2025-12-22', 'new_time': '14:00'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_126'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_126'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='david.martinez@email.com',
+        instruction='You are David Martinez (david.martinez@email.com), a patient with generalized anxiety disorder who recently had your Sertraline dosage increased to 75mg daily, and you want to confirm there are no adverse interactions with your current medication Claritin, which is safe based on clinical review. You would like to update your prescription supplier for Sertraline in medical record REC001 to Triveni Pharma (brand: Setrina) at $4.55, preferring a more affordable option. You also want to retrieve the list of available Sertraline suppliers to review cost and brand alternatives. Additionally, you would like to see your current medication regimen options, though no formal optimization plan is currently available. Finally, you request access to the telemetry upload data from device VC-449 for 2025-06-01, which shows 7.4 hours of usage, even though this device is not assigned to you.\n\nUse david.martinez@email.com for authentication.',
+        actions=[
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Sertraline', 'current_medications': ['Sertraline', 'Claritin']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC001', 'medication': 'Sertraline', 'supplier_company': 'Triveni Pharma', 'brand_name': 'Setrina', 'price_usd': 4.55}),
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Sertraline'}),
+            Action(name='get_regimen_options', kwargs={'patient_id': 'david_martinez_5678'}),
+            Action(name='get_telemetry_upload', kwargs={'device_id': 'VC-449', 'date': '2025-06-01'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='matthew.smith@tracer-health.org',
+        instruction='You are Matthew Smith, a patient with Atrial Fibrillation and Hyperlipidemia, currently taking Warfarin and Atorvastatin, and you want to ensure there are no harmful interactions between your current medications and any new ones you might consider, because you are proactively managing your health and medication safety. You would like your prescription for Atorvastatin in medical record REC_tracer_134 to be updated to use the supplier Andes Salud under the brand name Atorsure at $5.60, because it is a more affordable option that supports long-term adherence and reduces your monthly pharmacy costs.\n\nUse matthew.smith@tracer-health.org for authentication.',
+        actions=[
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Atorvastatin', 'current_medications': ['Warfarin', 'Atorvastatin']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_134', 'medication': 'Atorvastatin', 'supplier_company': 'Andes Salud', 'brand_name': 'Atorsure', 'price_usd': 5.6}),
+            Action(name='list_patient_medical_records', kwargs={'patient_id': 'matthew_smith_tracer_0001'}),
+            Action(name='get_medical_record', kwargs={'record_id': 'REC_tracer_134'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'matthew_smith_tracer_0001'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'owen_shaw_cardiology_tracer_0001'}),
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Atorvastatin'}),
+            Action(name='get_regimen_options', kwargs={'patient_id': 'matthew_smith_tracer_0001'}),
+            Action(name='get_telemetry_upload', kwargs={'device_id': 'CARDIA_tracer_481', 'date': '2025-12-14'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='kevin.shelton@tracer-health.org',
+        instruction='You are Kevin Shelton, a patient with COPD and obstructive sleep apnea, and you want to reschedule your medication review appointment with your primary care provider, Dr. Dana Padilla, from next day to the day after (2025-12-18 at 14:00), because it better fits your schedule. Later, you would like to schedule a new follow-up appointment with another primary care provider, Dr. Kenneth Mayer, on the following day (2025-12-19 at 11:00) to discuss ongoing respiratory management. You prefer both appointments to be billed to your Blue Cross Blue Shield insurance.\n\nUse kevin.shelton@tracer-health.org for authentication.',
+        actions=[
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_103', 'new_date': '2025-12-18', 'new_time': '14:00'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_103'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'dana_padilla_primary_care_tracer_0001'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'kevin_shelton_tracer_0001', 'provider_id': 'kenneth_mayer_primary_care_tracer_0001', 'date': '2025-12-19', 'time': '11:00', 'appointment_type': 'follow_up', 'bill_insurance': True}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='avery.morgan@tracer-health.org',
+        instruction='You are Avery Morgan, a patient with atrial fibrillation and hyperlipidemia, and your email is avery.morgan@tracer-health.org. You want to reschedule your cardiology follow-up with Dr. Saito from December 3, 2025, to December 4, 2025, at 09:00 because it better fits your schedule. Later, you would like to schedule a routine primary care checkup with Dr. Charles Barajas on December 5, 2025, at 09:00 to maintain your overall health monitoring. You prefer both appointments to be billed through your Blue Cross Blue Shield insurance.\n\nUse avery.morgan@tracer-health.org for authentication.',
+        actions=[
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_067', 'new_date': '2025-12-04', 'new_time': '09:00'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_067'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'dr_saito_cardiology'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'avery_morgan_tracer_0001', 'provider_id': 'charles_barajas_primary_care_tracer_0001', 'date': '2025-12-05', 'time': '09:00', 'appointment_type': 'routine_checkup', 'bill_insurance': True}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='cynthia.scott@tracer-health.org',
+        instruction="You are Cynthia Scott, a patient managing hypertension and type 2 diabetes, and your email is cynthia.scott@tracer-health.org. You want to update the supplier for your Lisinopril prescription to Mumbai Cardio Pharma (brand: Lisipril-M, price: $2.80) in medical record REC_tracer_065 because it offers significant cost savings. You also want a compliance note added to that record stating 'Patient requested cost-saving supplier change for Lisinopril; updated to Mumbai Cardio Pharma per plan.' Additionally, you would like to review your current optimized medication regimen options for further cost and adherence improvements. Later, you want to see the details of your upcoming follow-up appointment (APPT_tracer_076) with Dr. Camila Ortega, including the date, time, and telehealth link. You also want a complete list of your medical records for personal tracking. You would like to know more about your provider Dr. Camila Ortega, including her credentials, experience, and availability, because you value continuity and trust in your care. Finally, you want to confirm there are no drug interactions between Lisinopril and your current medications (Metformin and Lisinopril) to ensure your regimen remains safe, which has been verified as no high-risk interactions were found.\n\nUse cynthia.scott@tracer-health.org for authentication.",
+        actions=[
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Lisinopril'}),
+            Action(name='update_medical_record_note', kwargs={'record_id': 'REC_tracer_065', 'note': 'Patient requested cost-saving supplier change for Lisinopril; updated to Mumbai Cardio Pharma per plan.'}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_065', 'medication': 'Lisinopril', 'supplier_company': 'Mumbai Cardio Pharma', 'brand_name': 'Lisipril-M', 'price_usd': 2.8}),
+            Action(name='get_regimen_options', kwargs={'patient_id': 'cynthia_scott_tracer_0001'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_076'}),
+            Action(name='list_patient_medical_records', kwargs={'patient_id': 'cynthia_scott_tracer_0001'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'camila_ortega_primary_care_tracer_0001'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Lisinopril', 'current_medications': ['Metformin', 'Lisinopril']}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='yumi.tanaka7410@pacificcare.org',
+        instruction="You are Yumi Tanaka, a patient with atrial fibrillation and anxiety preparing for cardiac ablation, and your email is yumi.tanaka7410@pacificcare.org. You want to update your Sertraline prescription to a lower-cost supplier because you are optimizing medication expenses, and you would like a note added to your medical record stating 'Patient requested lower-cost Sertraline supplier.' You also want to review your scheduled cardiology consultation with Dr. Thompson because you are coordinating care ahead of your procedure. Later, you will need a drug interaction check between Sertraline and your current medications because of potential risks with your anticoagulation therapy, and you prefer this to be addressed before finalizing any prescription changes.\n\nUse yumi.tanaka7410@pacificcare.org for authentication.",
+        actions=[
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Sertraline'}),
+            Action(name='update_medical_record_note', kwargs={'record_id': 'REC012', 'note': 'Patient requested lower-cost Sertraline supplier.'}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC012', 'medication': 'Sertraline', 'supplier_company': 'Triveni Pharma', 'brand_name': 'Setrina', 'price_usd': 4.55}),
+            Action(name='get_regimen_options', kwargs={'patient_id': 'yumi_tanaka_7410'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT030'}),
+            Action(name='list_patient_medical_records', kwargs={'patient_id': 'yumi_tanaka_7410'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'dr_thompson_cardiology'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Sertraline', 'current_medications': ['Warfarin', 'Aspirin EC', 'Metoprolol Succinate', 'Sertraline']}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='valerie.mullen@tracer-health.org',
+        instruction="You are Valerie Mullen, and you want to review the details of your upcoming family consultation appointment scheduled for December 17, 2025, at 09:30, because you have concerns about managing asthma across household members and need to prepare for the virtual visit. You also want to see a list of all your scheduled appointments to coordinate your family's healthcare, which includes a follow-up care coordination session on December 18, 2025, at 11:00, so you can align care plans and access support resources for your household.\n\nUse valerie.mullen@tracer-health.org for authentication.",
+        actions=[
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_214'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'valerie_mullen_tracer_0001'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='yumi.tanaka7410@pacificcare.org',
+        instruction="You are Yumi Tanaka (yumi.tanaka7410@pacificcare.org), a patient with atrial fibrillation and anxiety, who wants to ensure safe medication management and efficient care coordination. You want to check for drug interactions between Sertraline and your current medications (Warfarin, Aspirin EC, Metoprolol Succinate), which revealed a high-severity interaction with Warfarin, requiring clinical review. Because of this, you want to update your Sertraline prescription in medical record REC012 to use the more affordable supplier Gujarat MindCare (brand: Serenem) at $4.65, and add an audit note stating 'Updated supplier per patient request on 2024-03-05' for documentation. You also want to schedule a new specialist consultation with your cardiologist, Dr. Margaret Thompson, on Wednesday, March 6, 2024, at 08:30, because it aligns with your availability and the provider's open slot. After reviewing your existing appointment APPT030 (annual cardiology review), you would like to reschedule it to Monday, May 19, 2025, at 11:00, to better coordinate with your care timeline. You also want to review Dr. Thompson's provider details to confirm her credentials and availability. Finally, you would like to cancel your care coordination appointment APPT031, as the medication update and specialist visit now address the original concerns.\n\nUse yumi.tanaka7410@pacificcare.org for authentication.",
+        actions=[
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Sertraline', 'current_medications': ['Warfarin', 'Sertraline', 'Aspirin EC', 'Metoprolol Succinate']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC012', 'medication': 'Sertraline', 'supplier_company': 'Gujarat MindCare', 'brand_name': 'Serenem', 'price_usd': 4.65}),
+            Action(name='update_medical_record_note', kwargs={'record_id': 'REC012', 'note': 'Updated supplier per patient request on 2024-03-05'}),
+            Action(name='list_available_providers', kwargs={'specialty': 'Cardiology'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'yumi_tanaka_7410', 'provider_id': 'dr_thompson_cardiology', 'date': '2024-03-06', 'time': '08:30', 'appointment_type': 'specialist_consultation'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT030'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT030', 'new_date': '2025-05-19', 'new_time': '11:00'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'dr_thompson_cardiology'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT031'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='scott.sparks@tracer-health.org',
+        instruction='You are Scott Sparks (scott.sparks@tracer-health.org), a patient with Atrial Fibrillation and Hyperlipidemia managing Warfarin and Atorvastatin. You want to check for interactions after accidentally taking Zolpidem, and you are reassured there are no high-risk interactions. You would like to update your Warfarin prescription in your medical record to use the Sunrise Biotech (Warfast) brand at $4.35, noting cost reduction as a key factor, and add a note confirming the update was made after interaction review. You prefer to schedule a new cardiology follow-up appointment with Dr. Juan Fitzgerald on 2025-12-23 at 14:00 because it aligns with your availability. You also want to reschedule your existing consultation (currently on 2025-12-17) to 2025-12-24 at 15:00 for better timing with your sleep medication review. After that, you would like to cancel your follow-up appointment on 2025-12-19 with Dr. Bryan Bryant because it is no longer needed after consolidating care with Dr. Fitzgerald.\n\nUse scott.sparks@tracer-health.org for authentication.',
+        actions=[
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Zolpidem', 'current_medications': ['Warfarin', 'Atorvastatin']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_121', 'medication': 'Warfarin', 'supplier_company': 'Sunrise Biotech', 'brand_name': 'Warfast', 'price_usd': 4.35}),
+            Action(name='update_medical_record_note', kwargs={'record_id': 'REC_tracer_121', 'note': 'Updated supplier per patient request after interaction check.'}),
+            Action(name='list_available_providers', kwargs={'specialty': 'Cardiology'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'scott_sparks_tracer_0001', 'provider_id': 'juan_fitzgerald_cardiology_tracer_0001', 'date': '2025-12-23', 'time': '14:00', 'appointment_type': 'follow_up'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_126'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_126', 'new_date': '2025-12-24', 'new_time': '15:00'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'juan_fitzgerald_cardiology_tracer_0001'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_163'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='matthew.smith@tracer-health.org',
+        instruction='You are Matthew Smith, a patient managing atrial fibrillation and hyperlipidemia through telehealth, with email matthew.smith@tracer-health.org. You want to reschedule your cardiology follow-up appointment with Dr. Robert Smith from the original date to Thursday, 2025-12-18 at 15:00, because it better fits your schedule. You would like to explore more affordable options for your Atorvastatin prescription due to cost concerns. After confirming no adverse interactions between Atorvastatin and your current medication Warfarin, you prefer to update your prescription in medical record REC_tracer_134 to use the lower-cost generic from VedaRx Labs, branded as Atorveeda, priced at $4.05, to reduce financial burden while maintaining treatment efficacy. Later, you would like to verify the telemetry data upload from your cardiac event monitor (device ID: CARDIA_tracer_481) for December 14, 2025, to ensure compliance with monitoring protocols, especially since the usage hours recorded for that day were 0.0 and require confirmation.\n\nUse matthew.smith@tracer-health.org for authentication.',
+        actions=[
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Atorvastatin'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_083', 'new_date': '2025-12-18', 'new_time': '15:00'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Atorvastatin', 'current_medications': ['Warfarin', 'Atorvastatin']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_134', 'medication': 'Atorvastatin', 'supplier_company': 'VedaRx Labs', 'brand_name': 'Atorveeda', 'price_usd': 4.05}),
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='get_telemetry_upload', kwargs={'device_id': 'CARDIA_tracer_481', 'date': '2025-12-14'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='diane.robinson@tracer-health.org',
+        instruction='You are Diane Robinson (diane.robinson@tracer-health.org), a patient with Type 1 Diabetes and Hypothyroidism, who wants to reschedule your endocrinology follow-up appointment with Dr. Schneider from 2025-12-17 to Friday, 2025-12-19 at 10:00 because it better fits your schedule. You would like to explore supplier options for Insulin Lispro to evaluate cost and accessibility. You are considering switching your Insulin Lispro to Frontier Pharma (brand: LisproFast) and want to confirm there are no adverse interactions with your current medication, Levothyroxine, before proceeding. After confirming safety, you would like your prescription in medical record REC_tracer_066 to be updated to reflect Frontier Pharma as the supplier for Insulin Lispro. Additionally, you want to review the glucose monitor telemetry data from your device on 2025-12-17 to assess your glycemic control on that day.\n\nUse diane.robinson@tracer-health.org for authentication.',
+        actions=[
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Insulin Lispro'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_077', 'new_date': '2025-12-19', 'new_time': '10:00'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Insulin Lispro', 'current_medications': ['Insulin Lispro', 'Levothyroxine']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_066', 'medication': 'Insulin Lispro', 'supplier_company': 'Frontier Pharma', 'brand_name': 'LisproFast', 'price_usd': 25.5}),
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='get_telemetry_upload', kwargs={'device_id': 'CONTIN_tracer_484', 'date': '2025-12-17'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='joel.garner@tracer-health.org',
+        instruction="You are Joel Garner (joel.garner@tracer-health.org) and you want to cancel your scheduled pediatric family consultation with Dr. Meera Santos on 2025-12-17 at 08:30 because your family's care needs have shifted. You would like to see a list of available providers to explore future care options. Later, you want to review the details of your care coordination appointment with Dr. Monica Reyes currently set for 2025-12-18 at 10:00, and you prefer to reschedule it to Friday, 2025-12-19 at 11:00 because it better fits your availability and aligns with your follow-up planning after the pediatric consultation.\n\nUse joel.garner@tracer-health.org for authentication.",
+        actions=[
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_212'}),
+            Action(name='list_available_providers', kwargs={}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_213'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_213', 'new_date': '2025-12-19', 'new_time': '11:00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='laurie.carson@tracer-health.org',
+        instruction='You are Laurie Carson, a patient with Type 1 Diabetes and Hypothyroidism, and your email is laurie.carson@tracer-health.org. You want to cancel your device coaching appointment with Riley Stone, a registered therapist specializing in device support, scheduled for today at 09:00, because of a scheduling conflict. You also want to explore other available providers for future support. Later, you would like to reschedule your medication review appointment with Dr. Charles Scott, an endocrinologist, from today at 13:00 to tomorrow at 10:00, because it better fits your daily routine.\n\nUse laurie.carson@tracer-health.org for authentication.',
+        actions=[
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_168'}),
+            Action(name='list_available_providers', kwargs={}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_189'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_189', 'new_date': '2025-12-18', 'new_time': '10:00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='barry.farmer@tracer-health.org',
+        instruction='You are Barry Farmer, authenticated via barry.farmer@tracer-health.org, and you want to first review the details of your current medication review appointment with Dr. Kenneth Mayer, which is scheduled for Wednesday, because you have concerns about medication costs and want to ensure everything is in order. You also want a complete list of all your upcoming appointments for your records. After that, you would like to schedule a new follow-up medication review appointment with Dr. Kenneth Mayer on Thursday, because you prefer to have continuity with your primary care provider and the morning time works better for your routine. Later, you need to reschedule your original appointment from 2:00 PM to 3:00 PM on Wednesday, because the later time fits better with your daily schedule. You also want to verify Dr. Kenneth Mayer’s credentials and availability, because you value knowing your provider’s background and language skills. Finally, you would like to confirm there are no harmful interactions between Fluticasone Inhaler and your current medications, because you want to ensure your regimen remains safe and effective.\n\nUse barry.farmer@tracer-health.org for authentication.',
+        actions=[
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_097'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'barry_farmer_tracer_0001'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'barry_farmer_tracer_0001', 'provider_id': 'kenneth_mayer_primary_care_tracer_0001', 'date': '2025-12-18', 'time': '10:00', 'appointment_type': 'follow_up'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_097', 'new_date': '2025-12-17', 'new_time': '15:00'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'kenneth_mayer_primary_care_tracer_0001'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Fluticasone Inhaler', 'current_medications': ['Fluticasone Inhaler', 'Montelukast']}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jin.park7284@northsoundsleep.org',
+        instruction='You are Jin Park, a patient managing complex sleep apnea and major depressive disorder, with email jin.park7284@northsoundsleep.org. You want to review the details of your upcoming specialist consultation with Dr. Anjali Kumar, a pulmonologist, scheduled for next day at 09:30, and see your full list of scheduled appointments, which include two compliance coaching sessions with Coach Riley. You would like to book a new specialist consultation with a psychiatrist for mental health support, preferably on the same day as your rescheduled appointment. Later, you decided to reschedule your appointment with Dr. Kumar from next day at 09:30 to the following Friday at 10:30 because it better fits your schedule. You also want to confirm Dr. Kumar’s credentials and availability, knowing she is board-certified in pulmonology with 18 years of experience and speaks both English and Korean. After that, you would like to check for potential drug interactions due to concerns about combined sedative effects, and you now know that taking Xywav together with Bupropion poses a high risk of central nervous system depression, while combining Xywav with Zolpidem carries a moderate risk of respiratory depression, requiring clinician review before continuing. You prefer to address these medication risks before finalizing any new appointments.\n\nUse jin.park7284@northsoundsleep.org for authentication.',
+        actions=[
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT043'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'jin_park_7284', 'status_filter': 'scheduled'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'jin_park_7284', 'provider_id': 'austin_yu_pulmonology_tracer_0001', 'date': '2025-06-20', 'time': '08:00', 'appointment_type': 'specialist_consultation'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT043', 'new_date': '2025-06-20', 'new_time': '10:30'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'dr_kumar_respiratory'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Xywav', 'current_medications': ['Xywav', 'Bupropion', 'Zolpidem']}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='kevin.bond@tracer-health.org',
+        instruction='You are Kevin Bond, a patient managing atrial fibrillation and hyperlipidemia with Warfarin and Atorvastatin, and your email is kevin.bond@tracer-health.org. You want to cancel your follow-up appointment with Dr. Saito on 2025-12-17 because of a scheduling conflict. You would like to reschedule your medication review appointment with Dr. Megan Cook to the next day, 2025-12-18 at 10:00, because it better fits your availability and the time is open. After that, you want a complete list of all your currently scheduled appointments for your personal records.\n\nUse kevin.bond@tracer-health.org for authentication.',
+        actions=[
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_081'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_188', 'new_date': '2025-12-18', 'new_time': '10:00'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'kevin_bond_tracer_0001', 'status_filter': 'scheduled'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sarah.johnson@email.com',
+        instruction='You are Sarah Johnson (sarah.johnson@email.com), and you want to cancel your routine checkup appointment with your primary care provider, Dr. Garcia, scheduled for next Monday at 09:00, due to a scheduling conflict. Later, you would like to reschedule your pending cardiology consultation with Dr. Smith from Thursday at 15:00 to Friday at 15:00, because the new time works better with your availability and aligns with your ongoing hypertension management plan.\n\nUse sarah.johnson@email.com for authentication.',
+        actions=[
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT001'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT004', 'new_date': '2024-01-19', 'new_time': '15:00'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'sarah_johnson_1234'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='omar.hassan2156@email.com',
+        instruction='You are Omar Hassan, authenticated with email omar.hassan2156@email.com, recovering from right knee arthroscopy. You want to cancel your scheduled orthopedic follow-up appointment with Dr. Rodriguez on 2025-10-02 at 10:00 because you are feeling well and believe the visit is no longer necessary. Later, you would like to reschedule your physical therapy session with PT James Chen from 14:00 to 15:00 on 2025-10-03 for better convenience with your daily schedule. After these changes, you would like confirmation of the updated appointment details for the rescheduled physical therapy session.\n\nUse omar.hassan2156@email.com for authentication.',
+        actions=[
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT054'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT055', 'new_date': '2025-10-03', 'new_time': '15:00'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT055'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='matthew.smith@tracer-health.org',
+        instruction='You are Matthew Smith, a patient managing atrial fibrillation and hyperlipidemia, with upcoming cardiology appointments. You want to cancel your follow-up appointment scheduled for December 19, 2025, because you need to adjust your schedule. You would like to reschedule your specialist consultation with Dr. Christine Bailey from December 17, 2025, at 10:00 to Monday, December 22, 2025, at 14:00, because it better fits your availability. After that, you want to view the updated appointment details for the rescheduled visit to confirm the new time and retrieve the telehealth meeting link.\n\nUse matthew.smith@tracer-health.org for authentication.',
+        actions=[
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_171'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_122', 'new_date': '2025-12-22', 'new_time': '14:00'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_122'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='matthew.smith@tracer-health.org',
+        instruction='You are Matthew Smith (matthew.smith@tracer-health.org), a patient with atrial fibrillation and hyperlipidemia currently on Warfarin and Atorvastatin. You want to check for potential drug interactions before starting Sertraline for anxiety, because there is a known high-severity interaction between Sertraline and Warfarin that requires clinical review. You would like to update the supplier for Atorvastatin in your medical record to Bharat Lifecare (brand: Cholozen, $4.30 USD), because it aligns with your goal of reducing medication costs. You also want a full list of available Atorvastatin suppliers for comparison, to evaluate lower-cost alternatives such as VedaRx Labs (Atorveeda, $4.05) and Sunrise Biotech (Lipistal, $4.15). Finally, you prefer to review your complete regimen optimization options, including cost-synchronized fills and adherence packaging, to maintain therapeutic efficacy while improving affordability and long-term adherence.\n\nUse matthew.smith@tracer-health.org for authentication.',
+        actions=[
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Sertraline', 'current_medications': ['Warfarin', 'Atorvastatin']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_134', 'medication': 'Atorvastatin', 'supplier_company': 'Bharat Lifecare', 'brand_name': 'Cholozen', 'price_usd': 4.3}),
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Atorvastatin'}),
+            Action(name='get_regimen_options', kwargs={'patient_id': 'matthew_smith_tracer_0001'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='shawn.carter@tracer-health.org',
+        instruction='You are Shawn Carter, authenticated via shawn.carter@tracer-health.org, and you want to evaluate starting Sertraline for mood support, but only after a clinical review due to a high-severity interaction risk with your current Warfarin therapy. You would like to update the supplier for your Atorvastatin prescription in record REC_tracer_122 to Bharat Lifecare, using the brand Cholozen at $4.30, because it is the lowest-cost verified option and supports your goal of reducing medication expenses. You also want to review your full medication regimen options to understand long-term optimization strategies, particularly those that maintain low pill burden while improving cost efficiency or adherence support.\n\nUse shawn.carter@tracer-health.org for authentication.',
+        actions=[
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Sertraline', 'current_medications': ['Warfarin', 'Atorvastatin']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_122', 'medication': 'Atorvastatin', 'supplier_company': 'Bharat Lifecare', 'brand_name': 'Cholozen', 'price_usd': 4.3}),
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Atorvastatin'}),
+            Action(name='get_regimen_options', kwargs={'patient_id': 'shawn_carter_tracer_0001'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='scott.sparks@tracer-health.org',
+        instruction="You are Scott Sparks (email: scott.sparks@tracer-health.org), a patient with atrial fibrillation and hyperlipidemia, preparing for a medication review appointment with Dr. Hiroko Saito, a cardiologist. You want to review the details of your upcoming medication review appointment (APPT_tracer_177) because you need to confirm the time and purpose of the visit. You would like to access Dr. Saito's full provider information because you want to understand her credentials and specialty background. You prefer to retrieve your medical record (REC_tracer_121) from this appointment because it contains the assessment and plan regarding your medication costs and pill burden. You want a complete list of all your scheduled appointments because you are coordinating multiple telehealth visits on the same day and need to manage your schedule. You also want a complete list of all your medical records because you are tracking your care history and ensuring all documentation is accessible for personal review.\n\nUse scott.sparks@tracer-health.org for authentication.",
+        actions=[
+            Action(name='list_available_providers', kwargs={}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'dr_saito_cardiology'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_177'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'scott_sparks_tracer_0001'}),
+            Action(name='get_medical_record', kwargs={'record_id': 'REC_tracer_121'}),
+            Action(name='list_patient_medical_records', kwargs={'patient_id': 'scott_sparks_tracer_0001'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='rebecca.washington@tracer-health.org',
+        instruction='You are Rebecca Washington, authenticated via rebecca.washington@tracer-health.org, and you want to cancel your scheduled follow-up appointment with your endocrinologist, Dr. Lucia Fernandez, because you need to reschedule due to a conflict. Later, you would like to book a new telehealth follow-up appointment with Dr. Fernandez on the next day, which is Thursday, because it works better for your schedule and the 3:30 PM slot aligns with your availability. You prefer to maintain continuity with Dr. Fernandez for ongoing management of your Type 1 Diabetes and Hypothyroidism.\n\nUse rebecca.washington@tracer-health.org for authentication.',
+        actions=[
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_091'}),
+            Action(name='list_available_providers', kwargs={}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'rebecca_washington_tracer_0001', 'provider_id': 'dr_fernandez_endocrinology', 'date': '2025-12-18', 'time': '15:30', 'appointment_type': 'follow_up'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'dr_fernandez_endocrinology'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_091'}),
+            Action(name='get_medical_record', kwargs={}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='barry.farmer@tracer-health.org',
+        instruction='You are Barry Farmer, authenticated at barry.farmer@tracer-health.org, and you want to cancel your scheduled medication review appointment. After that, you would like to schedule a new routine checkup with your current provider, Dr. Kenneth Mayer, on the next day, Thursday, at 14:00, because it aligns with your availability and maintains continuity of care with your trusted primary care physician.\n\nUse barry.farmer@tracer-health.org for authentication.',
+        actions=[
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_097'}),
+            Action(name='list_available_providers', kwargs={}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'barry_farmer_tracer_0001', 'provider_id': 'kenneth_mayer_primary_care_tracer_0001', 'date': '2025-12-18', 'time': '14:00', 'appointment_type': 'routine_checkup'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'kenneth_mayer_primary_care_tracer_0001'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_097'}),
+            Action(name='get_medical_record', kwargs={'appointment_id': 'APPT_tracer_097'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='kevin.shelton@tracer-health.org',
+        instruction='You are Kevin Shelton, a patient with COPD and obstructive sleep apnea, and your email is kevin.shelton@tracer-health.org. You want to reschedule your medication review appointment with your primary care provider, Dr. Dana Padilla, from December 17, 2025, at 14:00 to the next day, December 18, 2025, at 09:00, because it better fits your schedule. After that, you would like to receive a full list of your current appointments to review your upcoming care plan.\n\nUse kevin.shelton@tracer-health.org for authentication.',
+        actions=[
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_103'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_103', 'new_date': '2025-12-18', 'new_time': '09:00'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'kevin_shelton_tracer_0001'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='scott.sparks@tracer-health.org',
+        instruction='You are Scott Sparks (scott.sparks@tracer-health.org), a patient on Warfarin and Atorvastatin for Atrial Fibrillation and Hyperlipidemia. You want to reschedule your specialist consultation with Dr. Fitzgerald from 2025-12-17 to the next day, 2025-12-18 at 10:00, because it works better with your schedule. Later, you would like to cancel your device coaching session on 2025-12-17, as it is no longer needed. You are considering starting Sertraline and want to check for drug interactions, especially since there is a high-risk interaction with your current Warfarin regimen that requires clinical review. After that, you prefer to update your Warfarin prescription to use VedaRx Labs (brand: Vedarin) at $4.28 to reduce medication costs. Finally, you would like to schedule a new follow-up cardiology appointment with Dr. Megan Cook on 2025-12-19 at 09:00 to review your cardiac health, as this time is convenient and aligns with your care plan.\n\nUse scott.sparks@tracer-health.org for authentication.',
+        actions=[
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_126'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_126', 'new_date': '2025-12-18', 'new_time': '10:00'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_162'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'juan_fitzgerald_cardiology_tracer_0001'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Sertraline', 'current_medications': ['Warfarin', 'Atorvastatin']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_121', 'medication': 'Warfarin', 'supplier_company': 'VedaRx Labs', 'brand_name': 'Vedarin', 'price_usd': 4.28}),
+            Action(name='list_available_providers', kwargs={'specialty': 'Cardiology'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'scott_sparks_tracer_0001', 'provider_id': 'megan_cook_cardiology_tracer_0001', 'date': '2025-12-19', 'time': '09:00', 'appointment_type': 'follow_up'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='cynthia.scott@tracer-health.org',
+        instruction='You are Cynthia Scott, a patient with hypertension and type 2 diabetes, managing your care via telehealth. You want to reschedule your follow-up appointment with your primary care provider, Dr. Camila Ortega, from its current date to the next day at 10:00, because it works better with your schedule. You also want to cancel your duplicate medication review appointment with another provider on the same original day, as it is no longer needed after the rescheduling and supplier update. You would like to confirm there are no harmful interactions between your medications Lisinopril and Metformin, because you are concerned about safety when making changes. You prefer to update the prescription for Lisinopril to be supplied by Mumbai Cardio Pharma under the brand name Lisipril-M at a lower cost, to reduce your out-of-pocket expenses. After that, you would like to schedule a new follow-up appointment with Dr. Camila Ortega for the day after the rescheduled visit at 09:00, to maintain continuity of care with your preferred provider.\n\nUse cynthia.scott@tracer-health.org for authentication.',
+        actions=[
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_076'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_076', 'new_date': '2025-12-18', 'new_time': '10:00'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_098'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'camila_ortega_primary_care_tracer_0001'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Lisinopril', 'current_medications': ['Metformin', 'Lisinopril']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_065', 'medication': 'Lisinopril', 'supplier_company': 'Mumbai Cardio Pharma', 'brand_name': 'Lisipril-M', 'price_usd': 2.8}),
+            Action(name='list_available_providers', kwargs={}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'cynthia_scott_tracer_0001', 'provider_id': 'camila_ortega_primary_care_tracer_0001', 'date': '2025-12-19', 'time': '09:00', 'appointment_type': 'follow_up'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='joshua.wagner@tracer-health.org',
+        instruction='You are Joshua Wagner, a patient with atrial fibrillation and hyperlipidemia, preparing for your upcoming cardiology follow-up. You want to review the recent usage data from your cardiac event monitor (CARDIA_tracer_469) because you had trouble syncing it on one day and want to ensure compliance ahead of your visit. You also want to confirm the details of your scheduled telehealth appointment with Dr. Bryant on 2025-12-17, as it is important for ongoing management of your condition. After that, you would like to review all your medical records, particularly those related to your device compliance, medication regimen, and recent interaction review, so you can be fully informed and prepared for your discussion with the provider.\n\nUse joshua.wagner@tracer-health.org for authentication.',
+        actions=[
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='list_telemetry_uploads', kwargs={'device_id': 'CARDIA_tracer_469'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_079'}),
+            Action(name='list_patient_medical_records', kwargs={'patient_id': 'joshua_wagner_tracer_0001'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='shawn.carter@tracer-health.org',
+        instruction='You are Shawn Carter (shawn.carter@tracer-health.org), a patient with atrial fibrillation and hyperlipidemia using a cardiac event monitor (CARDIA_tracer_461) for rhythm surveillance. You want to review your telemetry upload history for the period of 2026-01-10 to 2026-01-12 because you are concerned about missed syncs and want to prepare for your upcoming device coaching appointment. You also want to retrieve the details of your scheduled appointment (APPT_tracer_130) because it is focused on troubleshooting upload issues and reinforcing proper device use. Additionally, you would like to access all your medical records because they contain important clinical notes about your current medication regimen, telemetry compliance, and potential drug interactions, which you wish to review ahead of your consultation for continuity of care.\n\nUse shawn.carter@tracer-health.org for authentication.',
+        actions=[
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='list_telemetry_uploads', kwargs={'device_id': 'CARDIA_tracer_461', 'start_date': '2026-01-10', 'end_date': '2026-01-12'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_130'}),
+            Action(name='list_patient_medical_records', kwargs={'patient_id': 'shawn_carter_tracer_0001'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='ashley.gordon@tracer-health.org',
+        instruction='You are Ashley Gordon, a patient with focal epilepsy using a wearable EEG device, and your email is ashley.gordon@tracer-health.org. You want to cancel your scheduled device coaching appointment on 2025-12-17 because you prefer to address your device connectivity issues during a clinical follow-up instead. Later, you would like to schedule a neurology follow-up appointment with Dr. Victor Liao on 2025-12-23 at 10:30 to review your recent telemetry data, which shows inconsistent daily usage including a full day with no recording, because you want a comprehensive clinical assessment of your adherence and seizure control. You also want to confirm the upload history of your current device WEARAB_tracer_467 to understand your recent usage patterns, and check the available telemetry inventory to be informed about potential replacement options if needed.\n\nUse ashley.gordon@tracer-health.org for authentication.',
+        actions=[
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_142'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'ashley_gordon_tracer_0001', 'provider_id': 'victor_liao_neurology_tracer_0001', 'date': '2025-12-23', 'time': '10:30', 'appointment_type': 'follow_up'}),
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='list_telemetry_uploads', kwargs={'device_id': 'WEARAB_tracer_467', 'start_date': '2025-12-10', 'end_date': '2025-12-16'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='toni.miller@tracer-health.org',
+        instruction='You are Toni Miller, a patient with Type 1 Diabetes and Hypothyroidism, and your email is toni.miller@tracer-health.org. You want to cancel your scheduled virtual medication review appointment with your endocrinologist, Dr. Amy Young, because you have decided not to proceed with the visit. You also want to review all of your upcoming appointments to understand your current schedule. Additionally, you would like to access your medical record from the upcoming visit to better understand your current medication regimen and the optimization options discussed, particularly regarding cost and convenience. After that, you want a complete list of all your medical records for personal review.\n\nUse toni.miller@tracer-health.org for authentication.',
+        actions=[
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_181'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'toni_miller_tracer_0001'}),
+            Action(name='get_medical_record', kwargs={'record_id': 'REC_tracer_125'}),
+            Action(name='list_patient_medical_records', kwargs={'patient_id': 'toni_miller_tracer_0001'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='diane.robinson@tracer-health.org',
+        instruction='You are Diane Robinson, a patient with Type 1 Diabetes and Hypothyroidism, and your email is diane.robinson@tracer-health.org. You want to cancel your scheduled follow-up appointment with your endocrinologist, Dr. Ashley Schneider, because of a scheduling conflict. You also want a complete list of all your upcoming appointments so you can review your care plan. Additionally, you would like to retrieve the medical record from the appointment you are cancelling to review the clinical notes for your personal records. Finally, you want a full list of all your medical records to ensure you have complete access to your health history.\n\nUse diane.robinson@tracer-health.org for authentication.',
+        actions=[
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_077'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'diane_robinson_tracer_0001'}),
+            Action(name='get_medical_record', kwargs={'record_id': 'REC_tracer_044'}),
+            Action(name='list_patient_medical_records', kwargs={'patient_id': 'diane_robinson_tracer_0001'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='laurie.carson@tracer-health.org',
+        instruction="You are Laurie Carson, a patient with Type 1 Diabetes and Hypothyroidism, and your email is laurie.carson@tracer-health.org. You want to review the details of your upcoming endocrinology follow-up with Dr. Caleb Turner, including the appointment information, the associated medical record, and your provider's background, because you are preparing for your visit and want to be fully informed. You prefer to reschedule your appointment with Dr. Turner from its original date to next Monday morning at 09:00, because it better fits your schedule and aligns with your provider's availability. Later, you would like to cancel your duplicate device coaching session with Riley Stone, because it conflicts with your updated plan and is no longer needed. After accidentally taking an extra dose of Insulin Lispro, you want a drug interaction check to ensure your safety, which confirms no high-risk interactions. Subsequently, you would like to update your prescription in your medical record to use Bengal EndoCare (brand: SwiftLis) as a lower-cost insulin supplier, because it reduces financial burden while maintaining treatment efficacy. Finally, you want a note added to your medical record stating 'Patient requested supplier update after interaction check and cost review,' to document your informed decision.\n\nUse laurie.carson@tracer-health.org for authentication.",
+        actions=[
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_082'}),
+            Action(name='get_medical_record', kwargs={'appointment_id': 'APPT_tracer_082'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'caleb_turner_endocrinology_tracer_0001'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_082', 'new_date': '2025-12-22', 'new_time': '09:00'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'laurie_carson_tracer_0001'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_168'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Insulin Lispro', 'current_medications': ['Insulin Lispro', 'Levothyroxine']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_071', 'medication': 'Insulin Lispro', 'supplier_company': 'Bengal EndoCare', 'brand_name': 'SwiftLis', 'price_usd': 19.2}),
+            Action(name='update_medical_record_note', kwargs={'record_id': 'REC_tracer_071', 'note': 'Patient requested supplier update after interaction check and cost review.'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='scott.sparks@tracer-health.org',
+        instruction='You are Scott Sparks, a patient with atrial fibrillation and hyperlipidemia, and your email is scott.sparks@tracer-health.org. You want to review the details of your upcoming cardiology follow-up appointment on 2025-12-19 at 10:00 with Dr. Bryan Bryant, including the meeting link and copay amount, because you are preparing for the visit. You also want a complete list of all your scheduled appointments to manage your healthcare calendar effectively, as you have multiple visits around the same time. Additionally, you would like to see which cardiology providers are available in case you need a second opinion or alternative scheduling options, to ensure continuity and flexibility in your cardiac care.\n\nUse scott.sparks@tracer-health.org for authentication.',
+        actions=[
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_163'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'scott_sparks_tracer_0001'}),
+            Action(name='list_available_providers', kwargs={'specialty': 'Cardiology'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='michael.stanley@tracer-health.org',
+        instruction='You are Michael Stanley, with email michael.stanley@tracer-health.org, managing your respiratory care for COPD and Obstructive Sleep Apnea. You want to review the details of your upcoming follow-up appointment with your pulmonologist, Dr. Adrian Christensen, scheduled for December 19, 2025, at 10:00 AM, because it is a post-device coaching visit to assess ventilator compliance and symptom response. You also want a complete list of all your scheduled appointments, which includes a medication review and a device coaching session, both on December 17, 2025, to ensure you are prepared for each. Finally, you would like to see which providers are currently available in the system to understand future care options, particularly in cardiology, neurology, and endocrinology, to support your overall health management.\n\nUse michael.stanley@tracer-health.org for authentication.',
+        actions=[
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_133'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'michael_stanley_tracer_0001'}),
+            Action(name='list_available_providers', kwargs={}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='yumi.tanaka7410@pacificcare.org',
+        instruction='You are Yumi Tanaka, authenticated at yumi.tanaka7410@pacificcare.org, and you want to verify potential drug interactions between Sertraline and your current medications—Warfarin, Aspirin EC, and Metoprolol Succinate—because you are concerned about safety given your atrial fibrillation and anxiety conditions. You would like to confirm the interaction risk before continuing Sertraline. After reviewing supplier options, you prefer to update your Sertraline prescription in medical record REC012 to use Triveni Pharma (brand: Setrina) at $4.55 for cost-saving purposes, as it is the most affordable option you identified. You also want a note added to record REC012 stating that you requested the switch to Triveni Pharma (Setrina) after evaluating available suppliers, so the change is documented for audit and continuity.\n\nUse yumi.tanaka7410@pacificcare.org for authentication.',
+        actions=[
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Sertraline', 'current_medications': ['Warfarin', 'Sertraline', 'Aspirin EC', 'Metoprolol Succinate']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC012', 'medication': 'Sertraline', 'supplier_company': 'Triveni Pharma', 'brand_name': 'Setrina', 'price_usd': 4.55}),
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Sertraline'}),
+            Action(name='update_medical_record_note', kwargs={'record_id': 'REC012', 'note': 'Patient requested supplier update for Sertraline to Triveni Pharma (Setrina) at $4.55 after reviewing options.'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='scott.sparks@tracer-health.org',
+        instruction='You are Scott Sparks (scott.sparks@tracer-health.org), a patient with atrial fibrillation and hyperlipidemia, who wants to schedule a routine cardiology checkup with Dr. Megan Cook on the next available Monday morning at 09:00 because it fits your preferred weekly schedule. Later, you would like to reschedule your current medication review appointment with Dr. Saito from 2025-12-17 to the following Thursday morning at 08:00 to better align with your work commitments. After that, you would like to explore supplier options for Atorvastatin to understand more affordable alternatives for your ongoing treatment.\n\nUse scott.sparks@tracer-health.org for authentication.',
+        actions=[
+            Action(name='list_available_providers', kwargs={'specialty': 'Cardiology'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'scott_sparks_tracer_0001', 'provider_id': 'megan_cook_cardiology_tracer_0001', 'date': '2025-12-15', 'time': '09:00', 'appointment_type': 'routine_checkup'}),
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Atorvastatin'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_177', 'new_date': '2025-12-18', 'new_time': '08:00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='kevin.arnold@tracer-health.org',
+        instruction="You are Kevin Arnold (kevin.arnold@tracer-health.org), a patient with atrial fibrillation and hyperlipidemia, who wants to schedule a new routine checkup with Dr. Brandi Dixon, a cardiologist, on December 18, 2025, at 14:00, because it aligns with your availability and the provider's schedule. You also want to reschedule your follow-up appointment with Dr. Christine Bailey from December 17, 2025, to December 19, 2025, at 11:00, to better accommodate your weekly routine. Additionally, you would like to review current suppliers for your Atorvastatin medication to evaluate cost and sourcing options, as you are interested in potentially more affordable alternatives.\n\nUse kevin.arnold@tracer-health.org for authentication.",
+        actions=[
+            Action(name='list_available_providers', kwargs={'specialty': 'Cardiology'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'kevin_arnold_tracer_0001', 'provider_id': 'brandi_dixon_cardiology_tracer_0001', 'date': '2025-12-18', 'time': '14:00', 'appointment_type': 'routine_checkup'}),
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Atorvastatin'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_080', 'new_date': '2025-12-19', 'new_time': '11:00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='patrick.rangel@tracer-health.org',
+        instruction="You are Patrick Rangel, a patient managing depression and insomnia with Sertraline and Zolpidem, and your email is patrick.rangel@tracer-health.org. You want to explore more affordable supplier options for your Sertraline medication because you are seeking cost-effective alternatives. You would like a note stating 'Patient inquired about Sertraline supplier options.' to be added to your medical record REC_tracer_091 for documentation and audit purposes. You also want the details of your upcoming specialist consultation (APPT_tracer_124) retrieved so you can review the appointment context. Later, you decide to cancel that appointment due to a scheduling conflict. After that, you would like to schedule a new follow-up appointment with your provider, Dr. Robert Smith, on 2025-12-24 at 15:00, because it aligns better with your availability. You also prefer to receive Dr. Smith’s full provider details, including contact information and availability, so you can better coordinate care and understand scheduling options.\n\nUse patrick.rangel@tracer-health.org for authentication.",
+        actions=[
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Sertraline'}),
+            Action(name='update_medical_record_note', kwargs={'record_id': 'REC_tracer_091', 'note': 'Patient inquired about Sertraline supplier options.'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_124'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_124'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'patrick_rangel_tracer_0001', 'provider_id': 'dr_smith_cardiology', 'date': '2025-12-24', 'time': '15:00', 'appointment_type': 'follow_up'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'dr_smith_cardiology'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='shawn.zuniga@tracer-health.org',
+        instruction='You are Shawn Zuniga, a patient with atrial fibrillation and hyperlipidemia managing Warfarin and Atorvastatin, and you are concerned about medication costs and adherence. You want to explore cheaper suppliers for Atorvastatin because you are looking to reduce out-of-pocket expenses, and you would like to review your current medication regimen options to evaluate cost-effective and adherence-focused alternatives. You also want to check for missing telemetry uploads from your cardiac event monitor (CARDIA_tracer_493), specifically on 2025-06-05, because a gap in data could affect your cardiac rhythm assessment. Later, you would like to cancel your scheduled medication review appointment with Dr. Margaret Thompson because you prefer to consolidate discussions in a follow-up visit, and you prefer to schedule a new follow-up appointment with Dr. Thompson on the next day at 08:00 because it aligns with your availability and allows continuity of care, using your Aetna insurance for coverage. After that, you would like to reschedule your specialist consultation with Dr. Luis Sims from the same day at 14:00 to the day after next at 10:00 because the new time better fits your daily routine. Finally, you would like a list of your current appointments and available cardiology providers to stay informed about your care plan and potential future options.\n\nUse shawn.zuniga@tracer-health.org for authentication.',
+        actions=[
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Atorvastatin'}),
+            Action(name='get_regimen_options', kwargs={'patient_id': 'shawn_zuniga_tracer_0001'}),
+            Action(name='list_telemetry_uploads', kwargs={'device_id': 'CARDIA_tracer_493', 'start_date': '2025-06-05', 'end_date': '2025-06-05'}),
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='get_telemetry_upload', kwargs={'device_id': 'CARDIA_tracer_493', 'date': '2025-06-05'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_179'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'shawn_zuniga_tracer_0001', 'provider_id': 'dr_thompson_cardiology', 'date': '2025-12-18', 'time': '08:00', 'appointment_type': 'follow_up', 'bill_insurance': True}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'luis_sims_cardiology_tracer_0001'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_128'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_128', 'new_date': '2025-12-19', 'new_time': '10:00'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'shawn_zuniga_tracer_0001'}),
+            Action(name='list_available_providers', kwargs={'specialty': 'Cardiology'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='shawn.carter@tracer-health.org',
+        instruction="You are Shawn Carter (shawn.carter@tracer-health.org), a patient with atrial fibrillation and hyperlipidemia managing care through telehealth. You want to review suppliers for Atorvastatin and evaluate your current regimen options to understand cost-saving opportunities, because you are concerned about monthly medication expenses. You also want to check telemetry uploads for your cardiac event monitor (CARDIA_tracer_461) to assess usage patterns, particularly noting a missing upload on 2025-06-05, because you've had trouble with consistent syncing. You prefer to cancel your scheduled device coaching appointment on 2025-12-17 at 08:00, because you plan to address upload issues through self-management. Later, you would like to schedule a new routine checkup with Dr. Robert Smith (Cardiology) on 2025-12-23 at 09:00, because it aligns with your availability and preferred provider. After that, you want to reschedule your medication review appointment (originally on 2025-12-17 at 15:00) to 2025-12-22 at 10:00, because the earlier time better fits your daily routine and allows follow-up before the new checkup.\n\nUse shawn.carter@tracer-health.org for authentication.",
+        actions=[
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Atorvastatin'}),
+            Action(name='get_regimen_options', kwargs={'patient_id': 'shawn_carter_tracer_0001'}),
+            Action(name='list_telemetry_uploads', kwargs={'device_id': 'CARDIA_tracer_461'}),
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='get_telemetry_upload', kwargs={'device_id': 'CARDIA_tracer_461', 'date': '2025-06-05'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_130'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'shawn_carter_tracer_0001', 'provider_id': 'dr_smith_cardiology', 'date': '2025-12-23', 'time': '09:00', 'appointment_type': 'routine_checkup'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'dr_smith_cardiology'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_178'}),
+            Action(name='get_medical_record', kwargs={'appointment_id': 'APPT_tracer_178'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_178', 'new_date': '2025-12-22', 'new_time': '10:00'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'shawn_carter_tracer_0001'}),
+            Action(name='list_available_providers', kwargs={}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='kevin.arnold@tracer-health.org',
+        instruction='You are Kevin Arnold (kevin.arnold@tracer-health.org), a cardiology patient managing atrial fibrillation and hyperlipidemia with Warfarin and Atorvastatin. You want to investigate why your cardiac event monitor (CARDIA_tracer_489) has not uploaded any data recently, as there are no recorded uploads in its history. You would like to explore more affordable suppliers for your Warfarin medication to reduce out-of-pocket costs, with options available internationally at lower prices. You prefer to reschedule your medication review appointment with Dr. Luis Sims from December 17 to Friday, December 19 at 11:00 due to a scheduling conflict. After that, you would like to schedule a new routine checkup with Dr. Luis Sims on Thursday, December 18 at 10:00 to discuss your treatment plan and device usage, as both times are convenient and align with your availability.\n\nUse kevin.arnold@tracer-health.org for authentication.',
+        actions=[
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='list_telemetry_uploads', kwargs={'device_id': 'CARDIA_tracer_489'}),
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Warfarin'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_187', 'new_date': '2025-12-19', 'new_time': '11:00'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_187'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'kevin_arnold_tracer_0001', 'provider_id': 'luis_sims_cardiology_tracer_0001', 'date': '2025-12-18', 'time': '10:00', 'appointment_type': 'routine_checkup'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='shawn.carter@tracer-health.org',
+        instruction='You are Shawn Carter, a patient with atrial fibrillation and hyperlipidemia, and your email is shawn.carter@tracer-health.org. You want to cancel your device coaching appointment with Anthony Moran scheduled for 2025-12-17 at 08:00 because of a scheduling conflict. You would like to review the details of your cardiologist, Dr. Robert Smith, and your upcoming medication review appointment with him on the same day at 15:00, because you want to discuss your treatment continuity and care plan. Later, you will check that your cardiac monitor (Cardiac Event Monitor, device ID CARDIA_tracer_461) missed an upload on 2025-12-10, and you want this gap documented. You also want to confirm that there is a low-severity interaction between your current Bupropion and the proposed Zolpidem, so you can proceed with caution. After that, you would like to update your Warfarin prescription in your medical record to use the supplier VedaRx Labs, brand name Vedarin, priced at $4.28, because it reduces your monthly medication cost and supports long-term adherence.\n\nUse shawn.carter@tracer-health.org for authentication.',
+        actions=[
+            Action(name='list_available_providers', kwargs={}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'dr_smith_cardiology'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_130'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_130'}),
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='get_telemetry_upload', kwargs={'device_id': 'CARDIA_tracer_461', 'date': '2025-12-10'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Zolpidem', 'current_medications': ['Warfarin', 'Atorvastatin', 'Bupropion']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_122', 'medication': 'Warfarin', 'supplier_company': 'VedaRx Labs', 'brand_name': 'Vedarin', 'price_usd': 4.28}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='shawn.carter@tracer-health.org',
+        instruction='You are Shawn Carter, a patient with atrial fibrillation and hyperlipidemia, and your email is shawn.carter@tracer-health.org. You want to cancel your scheduled cardiology follow-up appointment with Dr. Owen Shaw on 2025-12-19 at 10:00 due to a scheduling conflict. You also want to review your cardiac event monitor (device ID: CARDIA_tracer_461) telemetry data, which shows 6.2 hours of usage on 2025-12-15, to assess compliance ahead of your next visit. You would like to confirm there are no harmful interactions between your current medications, Warfarin and Atorvastatin, which is supported by a clean drug interaction report. After that, you prefer to update your Warfarin prescription to be supplied by Sunrise Biotech (brand name: Warfast) at a lower cost, as part of your effort to reduce ongoing medication expenses while maintaining effective treatment.\n\nUse shawn.carter@tracer-health.org for authentication.',
+        actions=[
+            Action(name='list_available_providers', kwargs={}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'owen_shaw_cardiology_tracer_0001'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_131'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_131'}),
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='get_telemetry_upload', kwargs={'device_id': 'CARDIA_tracer_461', 'date': '2025-12-15'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Warfarin', 'current_medications': ['Warfarin', 'Atorvastatin']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_122', 'medication': 'Warfarin', 'supplier_company': 'Sunrise Biotech', 'brand_name': 'Warfast', 'price_usd': 4.35}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='michael.stanley@tracer-health.org',
+        instruction='You are Michael Stanley (michael.stanley@tracer-health.org), a patient with COPD and obstructive sleep apnea who uses a Philips Trilogy Ventilator for nightly therapy. You want to verify the telemetry data upload for your device on 2025-12-14, as it shows 0.0 usage hours and you suspect a potential sync issue. You also want to cancel your scheduled medication review appointment with Dr. John Wise on 2025-12-17 at 08:00. After that, you would like to reschedule the medication review with Dr. John Wise for 2025-12-19 at 09:00, because it better aligns with your availability and allows time to address concerns about medication costs during a virtual visit.\n\nUse michael.stanley@tracer-health.org for authentication.',
+        actions=[
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='get_telemetry_upload', kwargs={'device_id': 'PHILIP_tracer_462', 'date': '2025-12-14'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_108'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'michael_stanley_tracer_0001', 'provider_id': 'john_wise_primary_care_tracer_0001', 'date': '2025-12-19', 'time': '09:00', 'appointment_type': 'medication_review'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='laurie.carson@tracer-health.org',
+        instruction='You are Laurie Carson (laurie.carson@tracer-health.org), a patient with Type 1 Diabetes and Hypothyroidism, who has noticed that your continuous glucose monitor failed to upload data on 2026-01-10, which is confirmed as a missing upload day. You want to investigate this gap in telemetry to ensure accurate clinical monitoring of your glucose levels. You would like to cancel your scheduled device coaching session on 2025-12-17 at 09:00 because you need to prioritize a clinical follow-up with a specialist. Later, you would like to schedule a new follow-up appointment with Dr. Amy Young, an endocrinologist, on 2025-12-22 at 09:00, as this time works well with your schedule and aligns with your need for ongoing diabetes and thyroid management.\n\nUse laurie.carson@tracer-health.org for authentication.',
+        actions=[
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='get_telemetry_upload', kwargs={'device_id': 'CONTIN_tracer_480', 'date': '2026-01-10'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_168'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'laurie_carson_tracer_0001', 'provider_id': 'amy_young_endocrinology_tracer_0001', 'date': '2025-12-22', 'time': '09:00', 'appointment_type': 'follow_up'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='yumi.tanaka7410@pacificcare.org',
+        instruction="You are Yumi Tanaka, a patient with atrial fibrillation and anxiety preparing for an ablation procedure, and your email is yumi.tanaka7410@pacificcare.org. You want to check for potential drug interactions between Sertraline and your current medications (Warfarin, Aspirin EC, Metoprolol Succinate) because you are concerned about safety ahead of your procedure. You also prefer to update your Sertraline prescription in medical record REC012 to use Gujarat MindCare (brand: Serenem) at $4.65 for cost savings, as it is more affordable than your current supplier. You would like to add a note to your medical record REC012 stating 'Patient requested supplier pricing info and opted for cost-effective alternative' to document your decision. You also want full details of your medical record REC012 and your pending appointment APPT029 with Dr. Saito to review your pre-procedure plan and ensure all risks are addressed.\n\nUse yumi.tanaka7410@pacificcare.org for authentication.",
+        actions=[
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Sertraline', 'current_medications': ['Warfarin', 'Aspirin EC', 'Metoprolol Succinate']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC012', 'medication': 'Sertraline', 'supplier_company': 'Gujarat MindCare', 'brand_name': 'Serenem', 'price_usd': 4.65}),
+            Action(name='get_medical_record', kwargs={'record_id': 'REC012'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'dr_saito_cardiology'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT029'}),
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Sertraline'}),
+            Action(name='update_medical_record_note', kwargs={'record_id': 'REC012', 'note': 'Patient requested supplier pricing info and opted for cost-effective alternative.'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='kevin.bond@tracer-health.org',
+        instruction='You are Kevin Bond (kevin.bond@tracer-health.org), a patient with atrial fibrillation and hyperlipidemia using a cardiac event monitor (CARDIA_tracer_485) for rhythm surveillance. You want to verify that telemetry data is missing for January 16, 2026, because you suspect a gap in monitoring. You also want to review the details of your upcoming follow-up appointment with Dr. Saito and access your medical records for context before making changes. You would like to reschedule your appointment from December 17, 2025, at 07:30 to December 22, 2025, at 08:30 because it better fits your schedule. After the rescheduling, you want a complete list of your current appointments to confirm the update has been processed correctly.\n\nUse kevin.bond@tracer-health.org for authentication.',
+        actions=[
+            Action(name='list_telemetry_devices', kwargs={'status_filter': 'deployed', 'limit': 1}),
+            Action(name='get_telemetry_upload', kwargs={'device_id': 'CARDIA_tracer_485', 'date': '2026-01-16'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_081'}),
+            Action(name='list_patient_medical_records', kwargs={'patient_id': 'kevin_bond_tracer_0001'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_081', 'new_date': '2025-12-22', 'new_time': '08:30'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'kevin_bond_tracer_0001'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jamie.huynh@tracer-health.org',
+        instruction='You are Jamie Huynh, a patient with focal epilepsy and generalized anxiety disorder, using a wearable EEG device for neurology monitoring, and your email is jamie.huynh@tracer-health.org. You want to review the telemetry data from your wearable EEG device for December 17, 2025, because you had a device coaching session that day and experienced syncing issues, and the data shows 7.0 hours of usage. You would like to see the details of your device coaching appointment on December 17 and access all your medical records to ensure your records are up to date. You prefer to reschedule your neurology follow-up appointment from December 19 to Monday, December 22 at 14:30, because it allows you to fully address the device syncing issues after your coaching session and ensures continuity with Dr. Cynthia Perry, who is available at that time. After rescheduling, you want to confirm all your scheduled appointments to verify the updated appointment details.\n\nUse jamie.huynh@tracer-health.org for authentication.',
+        actions=[
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='get_telemetry_upload', kwargs={'device_id': 'WEARAB_tracer_471', 'date': '2025-12-17'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_150'}),
+            Action(name='list_patient_medical_records', kwargs={'patient_id': 'jamie_huynh_tracer_0001'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_151', 'new_date': '2025-12-22', 'new_time': '14:30'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'jamie_huynh_tracer_0001'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='scott.sparks@tracer-health.org',
+        instruction='You are Scott Sparks (scott.sparks@tracer-health.org), managing atrial fibrillation and hyperlipidemia with Warfarin and Atorvastatin, and you want to explore more cost-effective sourcing for your Atorvastatin because you are looking to optimize medication expenses. You would like to review your current regimen and optimized alternatives, including the Cost-Synchronized Generic Fill and Adherence Packaging Option, to understand potential savings and adherence benefits without changing your current pill burden. You prefer to see recent usage data from your assigned cardiac event monitor (CARDIA_tracer_477) because you want to confirm consistent daily use for rhythm surveillance. Later, you would like to review the available telemetry devices in inventory, such as the Philips Trilogy Ventilator and Wearable EEG, to understand future device options should your care needs evolve.\n\nUse scott.sparks@tracer-health.org for authentication.',
+        actions=[
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Atorvastatin'}),
+            Action(name='get_regimen_options', kwargs={'patient_id': 'scott_sparks_tracer_0001'}),
+            Action(name='list_telemetry_uploads', kwargs={'device_id': 'CARDIA_tracer_477'}),
+            Action(name='list_telemetry_devices', kwargs={}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='toni.miller@tracer-health.org',
+        instruction='You are Toni Miller, a patient with Type 1 Diabetes and Hypothyroidism, and your email is toni.miller@tracer-health.org. You want to explore more affordable and reliable supplier options for your Insulin Lispro medication because your current supply from Bengal EndoCare, while cost-effective, may benefit from comparative evaluation. You would like to review your current medication regimen and the optimized alternatives, particularly the Cost-Synchronized Generic Fill and Adherence Packaging Option, to assess potential improvements in cost efficiency and daily adherence support. You prefer to verify the telemetry data upload history from your Continuous Glucose Monitor (device ID: CONTIN_tracer_492) because no uploads are currently recorded, which may affect treatment insights. Additionally, you would like to see a list of all available telemetry devices in the system to understand potential device upgrades or replacements, especially if your current device is not functioning as expected.\n\nUse toni.miller@tracer-health.org for authentication.',
+        actions=[
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Insulin Lispro'}),
+            Action(name='get_regimen_options', kwargs={'patient_id': 'toni_miller_tracer_0001'}),
+            Action(name='list_telemetry_uploads', kwargs={'device_id': 'CONTIN_tracer_492'}),
+            Action(name='list_telemetry_devices', kwargs={}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='scott.sparks@tracer-health.org',
+        instruction='You are Scott Sparks, a patient managing atrial fibrillation and hyperlipidemia, with email scott.sparks@tracer-health.org. You want to reschedule your device coaching appointment with Joseph Robertson, the device coach, from the original date to the next day at 10:00 AM because it better fits your schedule. Later, you will cancel your cardiology follow-up appointment as it is no longer needed. After that, you would like to review the recent telemetry upload history for your cardiac event monitor to ensure you are staying compliant with your monitoring regimen and to address any gaps in usage, such as the missed upload on the previous Sunday.\n\nUse scott.sparks@tracer-health.org for authentication.',
+        actions=[
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_162', 'new_date': '2025-12-18', 'new_time': '10:00'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_163'}),
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='list_telemetry_uploads', kwargs={'device_id': 'CARDIA_tracer_477'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='michelle.adams@tracer-health.org',
+        instruction='You are Michelle Adams, a patient with Type 1 Diabetes and Hypothyroidism who uses a Continuous Glucose Monitor to track glucose levels. You want to reschedule your endocrinology follow-up appointment with Dr. Charles Scott from the original date to the next day at 13:00 because it better fits your schedule. Later, you would like to cancel your device coaching session as you have resolved your data upload issues. After that, you prefer your care team to review your telemetry device inventory and verify recent CGM upload patterns to ensure data continuity and compliance, especially noting improved usage in the past few days after a brief gap.\n\nUse michelle.adams@tracer-health.org for authentication.',
+        actions=[
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_087', 'new_date': '2025-12-18', 'new_time': '13:00'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_144'}),
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='list_telemetry_uploads', kwargs={'device_id': 'CONTIN_tracer_468'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='morgan.grant@tracer-health.org',
+        instruction="You are Morgan Grant, a patient with hypertension and type 2 diabetes managing care through telehealth, and your email is morgan.grant@tracer-health.org. You want to schedule a new follow-up appointment with Dr. Lisa Chen, a primary care provider, on Friday, December 19, 2025, at 10:00 AM via telehealth because it aligns with your availability and the provider's schedule, and you prefer to use your insurance for billing. You also want to review the details of your upcoming medication review appointment with Dr. Camila Ortega. Later, you would like to reschedule that medication review appointment from Thursday, December 17, 2025, at 8:00 AM to Thursday, December 18, 2025, at 2:00 PM with the same provider because of a scheduling conflict, and this new time is available in her calendar. After that, you would like to check for potential drug interactions between Sertraline, which you recently started for anxiety, and your current medications Metformin and Lisinopril to ensure safety, and the system confirms no high-risk interactions are present.\n\nUse morgan.grant@tracer-health.org for authentication.",
+        actions=[
+            Action(name='list_available_providers', kwargs={'specialty': 'Primary Care'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'morgan_grant_tracer_0001', 'provider_id': 'dr_chen_primary_care', 'date': '2025-12-19', 'time': '10:00', 'appointment_type': 'follow_up', 'bill_insurance': True}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_112'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_112', 'new_date': '2025-12-18', 'new_time': '14:00'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'camila_ortega_primary_care_tracer_0001'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Sertraline', 'current_medications': ['Metformin', 'Lisinopril']}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='diane.robinson@tracer-health.org',
+        instruction="You are Diane Robinson, a patient with Type 1 Diabetes and Hypothyroidism, and your email is diane.robinson@tracer-health.org. You want to schedule a new routine checkup with Dr. Debra Castro, an endocrinologist, on 2025-12-22 at 09:00 because it aligns with your preferred morning availability and allows continuity in diabetes and thyroid management. After that, you would like to reschedule your existing follow-up appointment with your current endocrinologist, Dr. Ashley Schneider (appointment ID APPT_tracer_077), from its current date and time to 2025-12-18 at 10:00 because you need to adjust your schedule for better personal availability. You also want to review Dr. Ashley Schneider's provider details to confirm her credentials and specialty in endocrinology. Additionally, you accidentally took Sertraline and would like to check for potential drug interactions with your current medications—Insulin Lispro and Levothyroxine—because you want to ensure there are no adverse effects, though the system indicates no high-risk interactions are documented.\n\nUse diane.robinson@tracer-health.org for authentication.",
+        actions=[
+            Action(name='list_available_providers', kwargs={'specialty': 'Endocrinology'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'diane_robinson_tracer_0001', 'provider_id': 'debra_castro_endocrinology_tracer_0001', 'date': '2025-12-22', 'time': '09:00', 'appointment_type': 'routine_checkup'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_077'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_077', 'new_date': '2025-12-18', 'new_time': '10:00'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'ashley_schneider_endocrinology_tracer_0001'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Sertraline', 'current_medications': ['Insulin Lispro', 'Levothyroxine']}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='matthew.smith@tracer-health.org',
+        instruction="You are Matthew Smith, authenticated via matthew.smith@tracer-health.org, who wants to review recent telemetry uploads for your cardiac event monitor (CARDIA_tracer_481) due to concerns about missed data, particularly on the day with zero usage hours. You would like to cancel your scheduled device coaching session on December 17, 2025, because you have resolved syncing issues independently. Later, you want to reschedule your cardiology follow-up appointment with Dr. Christine Bailey from its original date to Monday, December 22, 2025, at 09:00, because it better fits your availability and aligns with the provider's open time slot.\n\nUse matthew.smith@tracer-health.org for authentication.",
+        actions=[
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='list_telemetry_uploads', kwargs={'device_id': 'CARDIA_tracer_481'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_170'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_171'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_171', 'new_date': '2025-12-22', 'new_time': '09:00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='kevin.shelton@tracer-health.org',
+        instruction='You are Kevin Shelton, a patient with COPD and obstructive sleep apnea, and your email is kevin.shelton@tracer-health.org. You want to cancel your scheduled medication review appointment with your primary care provider, Dr. Dana Padilla, because of a scheduling conflict. Later, you would like to reschedule your pulmonology follow-up appointment with Dr. Brian Kim from Friday, 2025-12-19 at 10:00 to Monday, 2025-12-22 at 09:00, because the new time better fits your availability. After managing your appointments, you checked for potential drug interactions between your new inhaler and current medications (Fluticasone Inhaler and Montelukast), and since no significant risks were found, you are satisfied with the safety profile. Subsequently, you would like to update your prescription in your medical record to reflect the current supplier information for your Fluticasone Inhaler, specifying Lotus Respiratory as the supplier and Flohale as the brand name, to maintain accurate and up-to-date treatment documentation.\n\nUse kevin.shelton@tracer-health.org for authentication.',
+        actions=[
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_103'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_157', 'new_date': '2025-12-22', 'new_time': '09:00'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Fluticasone Inhaler', 'current_medications': ['Fluticasone Inhaler', 'Montelukast']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_070', 'medication': 'Fluticasone Inhaler', 'supplier_company': 'Lotus Respiratory', 'brand_name': 'Flohale', 'price_usd': 7.1}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='yumi.tanaka7410@pacificcare.org',
+        instruction='You are Yumi Tanaka, authenticated via yumi.tanaka7410@pacificcare.org, and you want to cancel your scheduled care coordination appointment on 2025-05-06 because it no longer aligns with your updated care timeline. You would like to reschedule your cardiology consultation from 2025-05-19 to 2025-05-26 at 09:00 because it better fits your availability and aligns with Dr. Thompson’s schedule. Later, you will need a drug interaction check for Sertraline against your current regimen of Warfarin, Aspirin EC, and Metoprolol Succinate because you accidentally took a dose and are concerned about safety. You also prefer to update your Sertraline prescription in medical record REC012 to reflect Triveni Pharma as the supplier under the brand name Setrina for cost-saving purposes, even though it is not currently listed in the formulary.\n\nUse yumi.tanaka7410@pacificcare.org for authentication.',
+        actions=[
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT031'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT030', 'new_date': '2025-05-26', 'new_time': '09:00'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Sertraline', 'current_medications': ['Warfarin', 'Aspirin EC', 'Metoprolol Succinate', 'Sertraline']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC012', 'medication': 'Sertraline', 'supplier_company': 'Triveni Pharma', 'brand_name': 'Setrina', 'price_usd': 4.55}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='diane.robinson@tracer-health.org',
+        instruction='You are Diane Robinson, a patient with Type 1 Diabetes and Hypothyroidism, seeking to optimize your medication costs and appointment schedule. You want to verify the safety and cost-effectiveness of switching your Insulin Lispro supplier, and because there are no interactions with your current medication Levothyroxine and Bengal EndoCare (SwiftLis) is the lowest-cost option at $19.20, you would like to update your prescription in medical record REC_tracer_066 to reflect this change and add a note documenting the cost-saving switch. You also want to cancel your medication review appointment APPT_tracer_099 due to scheduling conflicts. Additionally, you would like to reschedule your endocrinology follow-up appointment APPT_tracer_077 from 09:00 to 10:00 on the same day, because the later time better fits your daily routine.\n\nUse diane.robinson@tracer-health.org for authentication.',
+        actions=[
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Insulin Lispro'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Insulin Lispro', 'current_medications': ['Insulin Lispro', 'Levothyroxine']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_066', 'medication': 'Insulin Lispro', 'supplier_company': 'Bengal EndoCare', 'brand_name': 'SwiftLis', 'price_usd': 19.2}),
+            Action(name='update_medical_record_note', kwargs={'record_id': 'REC_tracer_066', 'note': 'Updated prescription supplier for Insulin Lispro to lowest-cost option per patient request'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_099'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_077'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_077', 'new_date': '2025-12-17', 'new_time': '10:00'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'diane_robinson_tracer_0001'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='kevin.bond@tracer-health.org',
+        instruction="You are Kevin Bond (kevin.bond@tracer-health.org), a patient with Atrial Fibrillation and Hyperlipidemia managing Warfarin and Atorvastatin. You want to explore cheaper suppliers for Atorvastatin to reduce medication costs. After confirming no drug interactions between Atorvastatin and your current medications, you would like your prescription in record REC_tracer_132 to be updated to use Qianlong Remedies (brand: LongStat, $5.40) because it offers a cost-effective and safe alternative. You also want to add a note to the same record stating 'Patient requested supplier update for Atorvastatin after interaction check.' Later, you would like to cancel your consultation with Dr. Bryan Bryant (APPT_tracer_121) because it is no longer needed. After that, you would like to reschedule your medication review with Dr. Megan Cook (APPT_tracer_188) from December 17, 2025, to Friday, December 19, 2025, at 10:00 AM because it better fits your schedule and aligns with the provider's availability.\n\nUse kevin.bond@tracer-health.org for authentication.",
+        actions=[
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Atorvastatin'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Atorvastatin', 'current_medications': ['Warfarin', 'Atorvastatin']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_132', 'medication': 'Atorvastatin', 'supplier_company': 'Qianlong Remedies', 'brand_name': 'LongStat', 'price_usd': 5.4}),
+            Action(name='update_medical_record_note', kwargs={'record_id': 'REC_tracer_132', 'note': 'Patient requested supplier update for Atorvastatin after interaction check.'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_121'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_188'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_188', 'new_date': '2025-12-19', 'new_time': '10:00'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'kevin_bond_tracer_0001'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='kevin.bond@tracer-health.org',
+        instruction="You are Kevin Bond, a patient managing atrial fibrillation and hyperlipidemia with Warfarin and Atorvastatin, and your email is kevin.bond@tracer-health.org. You want to reschedule your specialist consultation with Dr. Bryan Bryant from 2025-12-17 at 10:00 to 2025-12-22 at 09:00 because of a scheduling conflict, and this new time works better for your availability. You would like to review your upcoming appointments to stay informed about your care schedule. You want to see the details of the appointment being rescheduled to understand the visit purpose and clinical context. You prefer to access your medical records, including the note from this visit, to stay updated on your treatment plan and medication interaction review. You also want to learn more about Dr. Bryant's background, including his specialty, experience, and availability, to feel confident in your care continuity.\n\nUse kevin.bond@tracer-health.org for authentication.",
+        actions=[
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_121', 'new_date': '2025-12-22', 'new_time': '09:00'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'kevin_bond_tracer_0001'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_121'}),
+            Action(name='get_medical_record', kwargs={'appointment_id': 'APPT_tracer_121'}),
+            Action(name='list_patient_medical_records', kwargs={'patient_id': 'kevin_bond_tracer_0001'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'bryan_bryant_cardiology_tracer_0001'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sarah.johnson@email.com',
+        instruction="You are Sarah Johnson, a patient with hypertension and type 2 diabetes, and you want to reschedule your routine checkup with your primary care provider, Dr. Carlos Garcia, from January 15, 2024, at 09:00 to January 16, 2024, at 10:00, because it better fits your schedule. You would like to confirm the updated appointment details afterward to ensure the change was processed. You also want to review your medical record to stay informed about your health status and treatment plan. Additionally, you would like to verify Dr. Garcia's credentials and availability, as continuity with your trusted provider who speaks both English and Spanish is important for your care. You prefer to keep your current insurance copay arrangement with Blue Cross Blue Shield for this visit.\n\nUse sarah.johnson@email.com for authentication.",
+        actions=[
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT001', 'new_date': '2024-01-16', 'new_time': '10:00'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'sarah_johnson_1234'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT001'}),
+            Action(name='get_medical_record', kwargs={'appointment_id': 'APPT001'}),
+            Action(name='list_patient_medical_records', kwargs={'patient_id': 'sarah_johnson_1234'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'dr_garcia_primary'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='cynthia.scott@tracer-health.org',
+        instruction='You are Cynthia Scott (cynthia.scott@tracer-health.org), managing hypertension and type 2 diabetes with Metformin and Lisinopril. You want to switch to a lower-cost supplier for Lisinopril because of financial strain, and you prefer Mumbai Cardio Pharma as it offers the lowest price without compromising safety. You would like to confirm there are no interactions between Lisinopril and your current medications, which is supported by the absence of high-risk interactions in your regimen. You need to review the details of your upcoming follow-up appointment with Dr. Camila Ortega on 2025-12-17 and access all your medical records for personal review. Later, you decide to cancel that appointment due to scheduling conflicts and would like to reschedule a new follow-up with Dr. Kenneth Mayer on 2025-12-18 at 10:00 because it better fits your availability and aligns with his open slot.\n\nUse cynthia.scott@tracer-health.org for authentication.',
+        actions=[
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Lisinopril'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Lisinopril', 'current_medications': ['Metformin', 'Lisinopril']}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_076'}),
+            Action(name='list_patient_medical_records', kwargs={'patient_id': 'cynthia_scott_tracer_0001'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_076'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'cynthia_scott_tracer_0001', 'provider_id': 'kenneth_mayer_primary_care_tracer_0001', 'date': '2025-12-18', 'time': '10:00', 'appointment_type': 'follow_up'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='austin.roberts@tracer-health.org',
+        instruction='You are Austin Roberts, a patient managing depression and insomnia with Sertraline and Zolpidem, and your email is austin.roberts@tracer-health.org. You want to explore more affordable suppliers for Sertraline because you are looking to reduce medication costs, and you would like to check for potential drug interactions between Sertraline and Zolpidem to ensure safe co-administration, especially given your concerns about starting a new sleep aid. You also want to review the details of your upcoming specialist consultation and access your medical records for personal reference and continuity of care. After reviewing, you prefer to reschedule your current appointment from December 17th to December 18th at 09:00 with Dr. Kayla Guzman, a cardiology specialist, because the new time better fits your schedule and maintains continuity with the same provider for your medication review.\n\nUse austin.roberts@tracer-health.org for authentication.',
+        actions=[
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Sertraline'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Sertraline', 'current_medications': ['Sertraline', 'Zolpidem']}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_114'}),
+            Action(name='list_patient_medical_records', kwargs={'patient_id': 'austin_roberts_tracer_0001'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_114'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'austin_roberts_tracer_0001', 'provider_id': 'kayla_guzman_cardiology_tracer_0001', 'date': '2025-12-18', 'time': '09:00', 'appointment_type': 'specialist_consultation'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sandra.brown@tracer-health.org',
+        instruction='You are Sandra Brown, managing hypertension and type 2 diabetes, and your email is sandra.brown@tracer-health.org. You want to explore lower-cost suppliers for Lisinopril because affordability is a priority, and you would like confirmation that adding Lisinopril to your current regimen of Metformin is safe, which is supported by a system check showing no high-risk interactions. Later, you would like to cancel your scheduled follow-up appointment with Dr. Garcia on December 17, 2025, because you have decided to adjust your care plan, and you also want to review the full appointment details including clinical notes and the telehealth meeting link to ensure continuity before cancellation.\n\nUse sandra.brown@tracer-health.org for authentication.',
+        actions=[
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Lisinopril'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Lisinopril', 'current_medications': ['Metformin', 'Lisinopril']}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_094'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_094'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='shawn.zuniga@tracer-health.org',
+        instruction='You are Shawn Zuniga, email shawn.zuniga@tracer-health.org, and you want to explore more affordable options for your Atorvastatin medication because you are concerned about prescription costs. You would like to consider suppliers such as Sunrise Biotech (Lipistal) from India, which offers the lowest price, while ensuring continued safety with your current Warfarin therapy, especially since no interactions were found. Later, you would like to cancel your scheduled medication review appointment on December 17, 2025, at 08:00, because of a personal scheduling conflict, even though it was originally intended to discuss cost and pill burden.\n\nUse shawn.zuniga@tracer-health.org for authentication.',
+        actions=[
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Atorvastatin'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Atorvastatin', 'current_medications': ['Warfarin', 'Atorvastatin']}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_179'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_179'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sarah.barnes@tracer-health.org',
+        instruction='You are Sarah Barnes, authenticated via sarah.barnes@tracer-health.org, with hypertension and type 2 diabetes, who wants to cancel your scheduled medication review appointment with Dr. Charles Barajas on 2025-12-17 at 08:00 due to a scheduling conflict. You would like to book a new routine checkup with Dr. Carlos Garcia, a primary care provider, on the next day, 2025-12-18, at 09:00, because it better fits your availability and ensures continuity of care. You prefer this visit to be billed through your Cigna insurance with standard primary care copay processing.\n\nUse sarah.barnes@tracer-health.org for authentication.',
+        actions=[
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_176'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_176'}),
+            Action(name='list_available_providers', kwargs={}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'sarah_barnes_tracer_0001', 'provider_id': 'dr_garcia_primary', 'date': '2025-12-18', 'time': '09:00', 'appointment_type': 'routine_checkup', 'bill_insurance': True}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='kevin.shelton@tracer-health.org',
+        instruction="You are Kevin Shelton, authenticated via kevin.shelton@tracer-health.org, and you want to cancel your scheduled medication review appointment with Dr. Dana Padilla on 2025-12-17 at 14:00 because you prefer to address your health concerns through a routine checkup instead. Later, you would like to schedule a new routine checkup appointment with Dr. Debra Nunez, a primary care provider, on the next day at 10:00 AM, as this time aligns with your availability and the provider's schedule. You prefer this visit to be billed through your insurance.\n\nUse kevin.shelton@tracer-health.org for authentication.",
+        actions=[
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_103'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_103'}),
+            Action(name='list_available_providers', kwargs={'specialty': 'Primary Care'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'kevin_shelton_tracer_0001', 'provider_id': 'debra_nunez_primary_care_tracer_0001', 'date': '2025-12-18', 'time': '10:00', 'appointment_type': 'routine_checkup', 'bill_insurance': True}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='toni.miller@tracer-health.org',
+        instruction="You are Toni Miller, a patient with Type 1 Diabetes and Hypothyroidism, who wants to review your upcoming medication review appointment with your endocrinologist, Dr. Amy Young, scheduled for December 17, 2025. You want to access the details of this appointment, including the provider's credentials and schedule, to better understand the context of your visit. You also want to review your medical records, specifically record REC_tracer_125, which contains your current regimen plan. You would like to check for potential drug interactions between your medications, Insulin Lispro and Levothyroxine, to ensure safety. After confirming there are no interactions, you want to explore cost and adherence optimization options for your current regimen, particularly focusing on reducing out-of-pocket expenses. You prefer to update the prescription supplier for Insulin Lispro in your medical record to Bengal EndoCare, using the brand name SwiftLis at $19.20 per unit, as it aligns with your cost-saving goals. You also want to review your continuous glucose monitor telemetry data from device CONTIN_tracer_492 to assess recent glucose trends before your appointment. After gathering all this information and resolving your questions independently, you decide to cancel your scheduled appointment with Dr. Amy Young, as you no longer require the consultation.\n\nUse toni.miller@tracer-health.org for authentication.",
+        actions=[
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_181'}),
+            Action(name='list_patient_medical_records', kwargs={'patient_id': 'toni_miller_tracer_0001'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'amy_young_endocrinology_tracer_0001'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_181'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Insulin Lispro', 'current_medications': ['Insulin Lispro', 'Levothyroxine']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_125', 'medication': 'Insulin Lispro', 'supplier_company': 'Bengal EndoCare', 'brand_name': 'SwiftLis', 'price_usd': 19.2}),
+            Action(name='get_regimen_options', kwargs={'patient_id': 'toni_miller_tracer_0001'}),
+            Action(name='list_telemetry_uploads', kwargs={'device_id': 'CONTIN_tracer_492'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='laurie.carson@tracer-health.org',
+        instruction='You are Laurie Carson, a patient with Type 1 Diabetes and Hypothyroidism, using a Continuous Glucose Monitor and managing medication costs. You want to cancel your upcoming device coaching appointment with Riley Stone, a Device Coaching specialist, scheduled for December 17, because you prefer to focus on medication cost and regimen optimization during your other visits that day. Later, you would like to confirm there are no drug interactions between Insulin Lispro and your current medications (Insulin Lispro and Levothyroxine), which is important for your safety. After that, you prefer to update the prescription for Insulin Lispro in your medical record to use the lower-cost supplier Bengal EndoCare with the brand name SwiftLis, as this reduces your out-of-pocket expenses. You also want to review your optimized regimen options, particularly those that support cost savings and adherence, to make informed decisions about your long-term treatment plan. Finally, you would like to check your recent telemetry upload history for your glucose monitor to assess your compliance over the past week, as consistent device use is key to effective diabetes management.\n\nUse laurie.carson@tracer-health.org for authentication.',
+        actions=[
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_168'}),
+            Action(name='list_patient_medical_records', kwargs={'patient_id': 'laurie_carson_tracer_0001'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'riley_stone_device_coaching_tracer_0001'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_168'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Insulin Lispro', 'current_medications': ['Insulin Lispro', 'Levothyroxine']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_071', 'medication': 'Insulin Lispro', 'supplier_company': 'Bengal EndoCare', 'brand_name': 'SwiftLis', 'price_usd': 19.2}),
+            Action(name='get_regimen_options', kwargs={'patient_id': 'laurie_carson_tracer_0001'}),
+            Action(name='list_telemetry_uploads', kwargs={'device_id': 'CONTIN_tracer_480'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sharon.baird@tracer-health.org',
+        instruction="You are Sharon Baird (sharon.baird@tracer-health.org), a patient with focal epilepsy and generalized anxiety disorder using a wearable EEG device. You want to review the upload history of your device WEARAB_tracer_479 from December 10 to 16, 2025, because you noticed a gap in the data on December 14. You would like to schedule a follow-up neurology appointment with Dr. Patel on December 18, 2025, at 15:00, as it aligns with your schedule and the provider's availability, to discuss your epilepsy management. After that, you want to cancel your device coaching session on December 17 at 09:00, because the follow-up with Dr. Patel will cover the necessary review and the coaching session is no longer needed. Later, you would like to review the details of your new neurology appointment (scheduled for December 19 at 14:00) to confirm the timing and virtual meeting link. You also want to access your medical record REC_tracer_115 from the device coaching session to verify the notes on your telemetry compliance and ensure accurate documentation before your neurology visit.\n\nUse sharon.baird@tracer-health.org for authentication.",
+        actions=[
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='list_telemetry_uploads', kwargs={'device_id': 'WEARAB_tracer_479', 'start_date': '2025-12-10', 'end_date': '2025-12-16'}),
+            Action(name='list_available_providers', kwargs={'specialty': 'Neurology'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'sharon_baird_tracer_0001', 'provider_id': 'dr_patel_neurology', 'date': '2025-12-18', 'time': '15:00', 'appointment_type': 'follow_up'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_166'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_167'}),
+            Action(name='list_patient_medical_records', kwargs={'patient_id': 'sharon_baird_tracer_0001'}),
+            Action(name='get_medical_record', kwargs={'record_id': 'REC_tracer_115'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='diane.robinson@tracer-health.org',
+        instruction='You are Diane Robinson (diane.robinson@tracer-health.org), a patient with Type 1 Diabetes and Hypothyroidism who uses a Continuous Glucose Monitor. You want to investigate a data gap in your glucose monitoring from 2026-01-10 to 2026-01-15, as no telemetry uploads were recorded during that period, which may affect your treatment insights. You would like to cancel your existing follow-up appointment with Dr. Ashley Schneider on 2025-12-17 at 09:00 (APPT_tracer_077) because you prefer to consolidate your care with another provider. You prefer to schedule a new follow-up appointment with Dr. Michael Moss, an endocrinologist, on 2025-12-18 at 10:00, as it aligns with your schedule and allows continuity of care. You also want access to the details of your canceled appointment (APPT_tracer_077) and your medical record REC_tracer_128, which contains a recent regimen review note from Dr. Caleb Turner, to stay informed about your medication plan and cost optimization options.\n\nUse diane.robinson@tracer-health.org for authentication.',
+        actions=[
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='list_telemetry_uploads', kwargs={'device_id': 'CONTIN_tracer_484'}),
+            Action(name='list_available_providers', kwargs={'specialty': 'Endocrinology'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'diane_robinson_tracer_0001', 'provider_id': 'michael_moss_endocrinology_tracer_0001', 'date': '2025-12-18', 'time': '10:00', 'appointment_type': 'follow_up'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_077'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_077'}),
+            Action(name='list_patient_medical_records', kwargs={'patient_id': 'diane_robinson_tracer_0001'}),
+            Action(name='get_medical_record', kwargs={'record_id': 'REC_tracer_128'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='richard.dunn@tracer-health.org',
+        instruction="You are Richard Dunn, authenticated at richard.dunn@tracer-health.org, and you want to cancel your scheduled pediatric family consultation with Dr. Daniel Pitts, a Spanish-speaking pediatrician, because you've decided to adjust your care plan. You would like to schedule a new cardiology consultation with Dr. Robert Smith, a cardiologist, on the next day (Friday) at 11:00 for a heart health check-up, as this time aligns with your availability. Later, you would like to reschedule your care coordination follow-up with Care Coordinator Naomi Ito to the following Wednesday at 14:30, because it works better for your schedule.\n\nUse richard.dunn@tracer-health.org for authentication.",
+        actions=[
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_196'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_196'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'daniel_pitts_pediatrics_tracer_0001'}),
+            Action(name='list_available_providers', kwargs={'specialty': 'Cardiology'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'richard_dunn_tracer_0001', 'provider_id': 'dr_smith_cardiology', 'date': '2025-12-19', 'time': '11:00', 'appointment_type': 'consultation'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_197', 'new_date': '2025-12-24', 'new_time': '14:30'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sarah.johnson@email.com',
+        instruction='You are Sarah Johnson (sarah.johnson@email.com), and you want to cancel your routine checkup appointment with Dr. Carlos Garcia, a primary care physician, because you no longer need the annual physical. You would like to schedule a new cardiology consultation with Dr. Juan Fitzgerald, a cardiologist with 19 years of experience, on 2025-02-10 at 10:00 because it aligns with your preference for specialized cardiovascular care. Later, you will reschedule your existing cardiology appointment with Dr. Smith to 2025-03-19 at 15:00 to better fit your availability.\n\nUse sarah.johnson@email.com for authentication.',
+        actions=[
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT001'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT001'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'dr_garcia_primary'}),
+            Action(name='list_available_providers', kwargs={'specialty': 'Cardiology'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'sarah_johnson_1234', 'provider_id': 'juan_fitzgerald_cardiology_tracer_0001', 'date': '2025-02-10', 'time': '10:00', 'appointment_type': 'specialist_consultation'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT012', 'new_date': '2025-03-19', 'new_time': '15:00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='audrey.horton@tracer-health.org',
+        instruction='You are assisting a patient who identifies as Audrey Horton with email audrey.horton@tracer-health.org. You want to reschedule her device coaching appointment currently scheduled for December 17, 2025, to Monday, December 22, 2025, at 09:00, because the original time conflicts with her work schedule. You also want to review all of her scheduled appointments and confirm the details of her original visit with provider Anthony Moran. The new time should be confirmed as available with the provider’s schedule. After rescheduling, you would like to verify the updated appointment details.\n\nUse audrey.horton@tracer-health.org for authentication.',
+        actions=[
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_174', 'new_date': '2025-12-22', 'new_time': '09:00'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'audrey_horton_tracer_0001', 'status_filter': 'scheduled'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_174'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='diane.robinson@tracer-health.org',
+        instruction="You are Diane Robinson, a patient with Type 1 Diabetes and Hypothyroidism, who wants to review all your current appointments and the details of your upcoming endocrinology follow-up visit with Dr. Ashley Schneider. You would like to reschedule appointment APPT_tracer_077 from its original time because it conflicts with your work schedule. You prefer to move it to next Monday at 10:00 AM, as that time works better for your availability and aligns with Dr. Schneider's schedule.\n\nUse diane.robinson@tracer-health.org for authentication.",
+        actions=[
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_077', 'new_date': '2025-12-22', 'new_time': '10:00'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'diane_robinson_tracer_0001'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_077'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='laurie.carson@tracer-health.org',
+        instruction='You are Laurie Carson, a patient with Type 1 Diabetes and Hypothyroidism, whose email is laurie.carson@tracer-health.org. You want to review the details of your scheduled medication review appointment and access your complete medical record history to inform your care decisions, because you are preparing for a discussion about medication costs and regimen adherence. You would like to reschedule your appointment with your primary care provider, Dr. Debra Nunez, from its original date to Monday, which is the next available day that fits your schedule, at 09:00, because it aligns better with your availability. You also prefer to confirm Dr. Nunez’s credentials and specialty in Primary Care, because continuity with your trusted provider is important for managing your chronic conditions.\n\nUse laurie.carson@tracer-health.org for authentication.',
+        actions=[
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_104'}),
+            Action(name='list_patient_medical_records', kwargs={'patient_id': 'laurie_carson_tracer_0001'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_104', 'new_date': '2025-12-22', 'new_time': '09:00'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'debra_nunez_primary_care_tracer_0001'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='scott.sparks@tracer-health.org',
+        instruction="You are Scott Sparks, authenticated via scott.sparks@tracer-health.org, and you want to first review the details of your scheduled cardiology consultation with Dr. Juan Fitzgerald on 2025-12-17 at 14:00, as well as access all your medical records for context. After reviewing, you would like to reschedule the appointment to the next day, 2025-12-18 at 14:00, because it better fits your availability and aligns with Dr. Fitzgerald's open slot on Thursday. You also prefer to confirm Dr. Fitzgerald's provider details to ensure continuity of care with your cardiologist.\n\nUse scott.sparks@tracer-health.org for authentication.",
+        actions=[
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_126'}),
+            Action(name='list_patient_medical_records', kwargs={'patient_id': 'scott_sparks_tracer_0001'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_126', 'new_date': '2025-12-18', 'new_time': '14:00'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'juan_fitzgerald_cardiology_tracer_0001'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='molly.hill@tracer-health.org',
+        instruction='You are Molly Hill, a patient with Type 1 Diabetes and Hypothyroidism, and your email is molly.hill@tracer-health.org. You want to schedule a new routine checkup with your primary care provider, Dr. Shannon Anderson, on Thursday, December 18, 2025, at 11:00, because it aligns with your preferred time and provider continuity. Later, you would like to cancel your previously scheduled medication review appointment with Dr. Anderson on Wednesday, December 17, at 08:00 (appointment ID: APPT_tracer_111), due to overlapping visits on the same day. After that, you would like a review of your continuous glucose monitor (device ID: CONTIN_tracer_472) telemetry data from December 16, 2025, to assess your device usage compliance, as the data shows only 6.7 hours of usage that day, indicating a need for improved nightly adherence.\n\nUse molly.hill@tracer-health.org for authentication.',
+        actions=[
+            Action(name='list_available_providers', kwargs={'specialty': 'Primary Care'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'molly_hill_tracer_0001', 'provider_id': 'shannon_anderson_primary_care_tracer_0001', 'date': '2025-12-18', 'time': '11:00', 'appointment_type': 'routine_checkup'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_111'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_111'}),
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='get_telemetry_upload', kwargs={'device_id': 'CONTIN_tracer_472', 'date': '2025-12-16'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='joshua.wagner@tracer-health.org',
+        instruction="You are Joshua Wagner, a patient with atrial fibrillation and hyperlipidemia, whose email is joshua.wagner@tracer-health.org. You want to schedule a new follow-up appointment with Dr. Brandi Dixon, a cardiologist, on Tuesday, December 16, 2025, at 14:00, because it aligns with your preferred time and the provider's availability. Later, you will cancel your existing appointment with Dr. Thomas May scheduled for Friday, December 19, 2025, at 10:00, to avoid duplication and ensure continuity with Dr. Dixon. After that, you would like to verify the telemetry data upload for your cardiac event monitor (CARDIA_tracer_469), specifically checking that it recorded 6.2 hours of usage on December 15, 2025, to confirm compliance ahead of your upcoming visit.\n\nUse joshua.wagner@tracer-health.org for authentication.",
+        actions=[
+            Action(name='list_available_providers', kwargs={'specialty': 'Cardiology'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'joshua_wagner_tracer_0001', 'provider_id': 'brandi_dixon_cardiology_tracer_0001', 'date': '2025-12-16', 'time': '14:00', 'appointment_type': 'follow_up'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_147'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_147'}),
+            Action(name='list_telemetry_devices', kwargs={'status_filter': 'deployed'}),
+            Action(name='get_telemetry_upload', kwargs={'device_id': 'CARDIA_tracer_469', 'date': '2025-12-15'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='toni.miller@tracer-health.org',
+        instruction='You are Toni Miller, a patient with Type 1 Diabetes and Hypothyroidism, and your email is toni.miller@tracer-health.org. You want to identify lower-cost suppliers for your medication Insulin Lispro to reduce out-of-pocket expenses, with a preference for options priced under $20 USD per unit. After reviewing the available suppliers, you would like a note added to your medical record (REC_tracer_125) documenting that you inquired about lower-cost Insulin Lispro suppliers during your telehealth visit, to ensure continuity of care and support future decision-making.\n\nUse toni.miller@tracer-health.org for authentication.',
+        actions=[
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Insulin Lispro'}),
+            Action(name='update_medical_record_note', kwargs={'record_id': 'REC_tracer_125', 'note': 'Patient inquired about lower-cost Insulin Lispro suppliers during telehealth visit.'}),
+            Action(name='get_medical_record', kwargs={'record_id': 'REC_tracer_125'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='cynthia.scott@tracer-health.org',
+        instruction="You are Cynthia Scott (cynthia.scott@tracer-health.org), managing hypertension and type 2 diabetes, and experiencing financial strain due to medication costs. You want to check the available suppliers for your Lisinopril prescription to ensure you are on the most affordable option, because cost-efficiency is important for your ongoing treatment adherence. After confirming that Mumbai Cardio Pharma offers the lowest price at $2.80 per month, you would like the medical record (REC_tracer_065) to be updated with the note 'Patient requested supplier pricing information for Lisinopril' to maintain accurate documentation for audit and care continuity. After that, you want to retrieve the updated medical record to verify that the note has been correctly added and ensure the accuracy of your health information.\n\nUse cynthia.scott@tracer-health.org for authentication.",
+        actions=[
+            Action(name='list_medication_suppliers', kwargs={'medication': 'Lisinopril'}),
+            Action(name='update_medical_record_note', kwargs={'record_id': 'REC_tracer_065', 'note': 'Patient requested supplier pricing information for Lisinopril.'}),
+            Action(name='get_medical_record', kwargs={'record_id': 'REC_tracer_065'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='carla.harris@tracer-health.org',
+        instruction="You are Carla Harris (carla.harris@tracer-health.org) and you want to reschedule your pediatric consultation with Dr. Harry Wood from its original date to next Monday at 10:30, because it works better with your family's schedule. Later, you will cancel your follow-up care coordination appointment with Dr. Jasmine Norris, as it is no longer needed after the rescheduling. After managing your appointments, you would like to view the full details of Dr. Melissa Mcfarland, a neurologist, to consider her as a potential provider for future care.\n\nUse carla.harris@tracer-health.org for authentication.",
+        actions=[
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_222', 'new_date': '2025-12-22', 'new_time': '10:30'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_223'}),
+            Action(name='list_available_providers', kwargs={}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'melissa_mcfarland_neurology_tracer_0001'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sarah.johnson@email.com',
+        instruction="You are Sarah Johnson (sarah.johnson@email.com). You want to reschedule your routine checkup with your primary care provider, Dr. Carlos Garcia, from its original date to the next day, because it better fits your schedule. You prefer the appointment on the next day at 10:00 AM, as it aligns with your availability and Dr. Garcia's schedule. Later, you would like to cancel your future cardiology consultation with Dr. Robert Smith, as you no longer need the appointment. After that, you want to review the list of available cardiologists to explore other options, and then confirm the details of your current cardiologist, Dr. Robert Smith, to ensure you have accurate information for your records.\n\nUse sarah.johnson@email.com for authentication.",
+        actions=[
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT001', 'new_date': '2024-01-16', 'new_time': '10:00'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT012'}),
+            Action(name='list_available_providers', kwargs={'specialty': 'Cardiology'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'dr_smith_cardiology'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='yumi.tanaka7410@pacificcare.org',
+        instruction="You are Yumi Tanaka (yumi.tanaka7410@pacificcare.org), a patient with atrial fibrillation and anxiety. You want to cancel your care coordination appointment with Care Coordinator Ito scheduled for 2025-05-06 at 13:00 because it is no longer needed. You would like to reschedule your cardiology appointment with Dr. Margaret Thompson from 2025-05-19 at 10:00 to the same day at 08:00 because it works better with your morning routine. After that, you want to check for drug interactions after accidentally taking Sertraline, which reveals a high-severity interaction with Warfarin requiring urgent clinical attention. Subsequently, you would like to update your Sertraline prescription in medical record REC012 to use supplier Midwest Mood Meds with brand name MoodBalance and price $6.90 for better brand availability and consistency. Finally, you want to add a note to the same record stating 'Patient requested supplier change after interaction check' to document the rationale for the change.\n\nUse yumi.tanaka7410@pacificcare.org for authentication.",
+        actions=[
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT031'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT030', 'new_date': '2025-05-19', 'new_time': '08:00'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Sertraline', 'current_medications': ['Warfarin', 'Sertraline', 'Aspirin EC', 'Metoprolol Succinate']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC012', 'medication': 'Sertraline', 'supplier_company': 'Midwest Mood Meds', 'brand_name': 'MoodBalance', 'price_usd': 6.9}),
+            Action(name='update_medical_record_note', kwargs={'record_id': 'REC012', 'note': 'Patient requested supplier change after interaction check.'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sarah.johnson@email.com',
+        instruction='You are Sarah Johnson (sarah.johnson@email.com), a patient with Type 2 Diabetes and Hypertension, who wants to reschedule your routine checkup with your primary care provider Dr. Garcia from January 15 to January 16 at 10:00 because it works better with your schedule. Later, you would like to schedule a new follow-up consultation with cardiologist Dr. Thompson on January 17 at 09:00 to discuss your hypertension management. You prefer both appointments to be billed to your Blue Cross Blue Shield insurance.\n\nUse sarah.johnson@email.com for authentication.',
+        actions=[
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT001', 'new_date': '2024-01-16', 'new_time': '10:00'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'sarah_johnson_1234'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'sarah_johnson_1234', 'provider_id': 'dr_thompson_cardiology', 'date': '2024-01-17', 'time': '09:00', 'appointment_type': 'follow_up', 'bill_insurance': True}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='yumi.tanaka7410@pacificcare.org',
+        instruction='You are Yumi Tanaka, a patient with atrial fibrillation and hypertension, and your email is yumi.tanaka7410@pacificcare.org. You want to reschedule your annual cardiology review (APPT030) with Dr. Thompson from its current date to the next day, 2025-05-20 at 14:00, because it better fits your schedule. You also want a complete list of all your upcoming appointments for review. After that, you would like to schedule a new follow-up appointment with a cardiology provider, specifically Dr. Guzman (as Dr. Smith could not be located), on 2025-05-16 at 09:00 to discuss potential new therapy options, as this time is available and aligns with your need for timely consultation.\n\nUse yumi.tanaka7410@pacificcare.org for authentication.',
+        actions=[
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT030', 'new_date': '2025-05-20', 'new_time': '14:00'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'yumi_tanaka_7410'}),
+            Action(name='schedule_appointment', kwargs={'patient_id': 'yumi_tanaka_7410', 'provider_id': 'dr_smith_cardiology', 'date': '2025-05-16', 'time': '09:00', 'appointment_type': 'follow_up'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='joshua.wagner@tracer-health.org',
+        instruction='You are Joshua Wagner, authenticated via joshua.wagner@tracer-health.org, and you are preparing for a cardiology consultation while managing a regimen of Warfarin and Atorvastatin. You want to review the usage data from your assigned Cardiac Event Monitor (CARDIA_tracer_469), specifically the 6.7 hours of telemetry uploaded on December 16, 2025, to ensure continuity of cardiac rhythm surveillance. You would like to reschedule your specialist consultation (APPT_tracer_119) from December 17 to December 18 at 14:00, as this time works better with your schedule and aligns with your provider’s availability. After that, you want to confirm the credentials and specialty of your provider, Dr. Thomas May, who is a board-certified cardiologist with 20 years of experience, to ensure confidence in your care ahead of the rescheduled visit.\n\nUse joshua.wagner@tracer-health.org for authentication.',
+        actions=[
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='list_telemetry_uploads', kwargs={'device_id': 'CARDIA_tracer_469', 'start_date': '2025-12-16', 'end_date': '2025-12-16'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_119', 'new_date': '2025-12-18', 'new_time': '14:00'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'thomas_may_cardiology_tracer_0001'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jamie.huynh@tracer-health.org',
+        instruction='You are Jamie Huynh, a patient with focal epilepsy, and your email is jamie.huynh@tracer-health.org. You want to investigate a missing telemetry upload for your wearable EEG device on 2025-12-10 because it may affect your epilepsy monitoring. You also want to reschedule your device coaching appointment with William Benson from 2025-12-17 at 08:00 to 2025-12-18 at 09:00 because the new time better fits your schedule. You prefer the new appointment on Thursday morning as it aligns with your availability. After that, you would like to receive the provider details for William Benson, a certified device coach, for your personal records.\n\nUse jamie.huynh@tracer-health.org for authentication.',
+        actions=[
+            Action(name='list_telemetry_devices', kwargs={}),
+            Action(name='get_telemetry_upload', kwargs={'device_id': 'WEARAB_tracer_471', 'date': '2025-12-10'}),
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_150', 'new_date': '2025-12-18', 'new_time': '09:00'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'william_benson_device_coaching_tracer_0001'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='ashley.gordon@tracer-health.org',
+        instruction='You are Ashley Gordon, a patient with epilepsy and anxiety, who authenticates with the email ashley.gordon@tracer-health.org. You want to reschedule your device coaching appointment with Dr. Kimberly Rosales from its original date to Monday, 2025-12-22 at 09:00 because it better fits your schedule. After that, you would like to cancel your neurology follow-up appointment with Dr. Christopher Gilbert because you feel your condition is currently stable and the visit is no longer necessary.\n\nUse ashley.gordon@tracer-health.org for authentication.',
+        actions=[
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_142', 'new_date': '2025-12-22', 'new_time': '09:00'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'ashley_gordon_tracer_0001'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_142'}),
+            Action(name='list_available_providers', kwargs={'specialty': 'Neurology'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'christopher_gilbert_neurology_tracer_0001'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_143'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='emily.chen@email.com',
+        instruction='You are Emily Chen (emily.chen@email.com). You want to reschedule your dermatology appointment with Dr. Patel from its original date to Friday at 14:00 because it works better with your schedule. You would like to review all your current appointments and see the full details of your dermatology visit to confirm the changes. Later, you will cancel your cardiology appointment with Dr. Thompson because you no longer need the follow-up. You also want to see a list of available dermatology providers for future reference, and you prefer to have detailed information about Dr. Patel, including her credentials and availability, because you value continuity and trust in your dermatology care.\n\nUse emily.chen@email.com for authentication.',
+        actions=[
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT003', 'new_date': '2024-01-19', 'new_time': '14:00'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'emily_chen_9012'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT003'}),
+            Action(name='list_available_providers', kwargs={'specialty': 'Dermatology'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'dr_patel_dermatology'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT016'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='shawn.zuniga@tracer-health.org',
+        instruction='You are Shawn Zuniga, a patient with atrial fibrillation and hyperlipidemia, and your email is shawn.zuniga@tracer-health.org. You want to reschedule your medication review appointment with Dr. Margaret Thompson from the original date to the next day at 09:00 because it better fits your schedule. You also want to cancel your specialist consultation with Dr. Luis Sims on the same original day due to overlapping times and scheduling conflict. You are concerned about potential interactions between Warfarin and Atorvastatin, so you would like a drug interaction check for reassurance, which confirms no high-risk interactions. You prefer to update the Warfarin prescription in your medical record to be supplied by VedaRx Labs under the brand Vedarin at $4.28 for cost-effectiveness and adherence support. After that, you would like to review your current regimen optimization options, including cost-synchronized fill and adherence packaging, to make an informed decision about long-term medication management.\n\nUse shawn.zuniga@tracer-health.org for authentication.',
+        actions=[
+            Action(name='reschedule_appointment', kwargs={'appointment_id': 'APPT_tracer_179', 'new_date': '2025-12-18', 'new_time': '09:00'}),
+            Action(name='list_patient_appointments', kwargs={'patient_id': 'shawn_zuniga_tracer_0001'}),
+            Action(name='get_medical_record', kwargs={'appointment_id': 'APPT_tracer_179'}),
+            Action(name='cancel_appointment', kwargs={'appointment_id': 'APPT_tracer_128'}),
+            Action(name='get_provider_details', kwargs={'provider_id': 'luis_sims_cardiology_tracer_0001'}),
+            Action(name='get_appointment_details', kwargs={'appointment_id': 'APPT_tracer_128'}),
+            Action(name='check_drug_interactions', kwargs={'primary_medication': 'Warfarin', 'current_medications': ['Atorvastatin']}),
+            Action(name='update_prescription_supplier', kwargs={'record_id': 'REC_tracer_123', 'medication': 'Warfarin', 'supplier_company': 'VedaRx Labs', 'brand_name': 'Vedarin', 'price_usd': 4.28}),
+            Action(name='get_regimen_options', kwargs={'patient_id': 'shawn_zuniga_tracer_0001'}),
+        ],
+        outputs=[],
+    ),
 ]

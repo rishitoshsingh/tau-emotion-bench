@@ -1,4 +1,4 @@
-from tau_emotionbench.types import Task, Action
+from tau_emotion_bench.types import Task, Action
 
 
 TASKS = [
@@ -6261,6 +6261,1778 @@ TASKS = [
             Action(name='get_order_details', kwargs={'order_id': '#W8844578'}),
             Action(name='modify_pending_order_items', kwargs={'order_id': '#W8844578', 'item_ids': ['2060066974'], 'new_item_ids': ['8124970213'], 'payment_method_id': 'paypal_6045911'}),
             Action(name='cancel_pending_order', kwargs={'order_id': '#W8844578', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='omar.muller2208@example.com',
+        instruction='You are assisting Omar Muller (email: omar.muller2208@example.com) with two order adjustments. First, you want to exchange the small blue cycling helmet (low ventilation) from the delivered order for the same model in red, because he prefers the red color. You also want to update the shipping address for the pending order to 4941 Pine Avenue, Apt 655, Chicago, IL, USA 66540. Later, you will cancel the pending order entirely because he no longer needs the pet bed, jigsaw puzzle, and coffee maker it contains. For the exchange, you prefer the price difference to be processed using the same PayPal account used for the original purchase.\n\nUse omar.muller2208@example.com for authentication.',
+        actions=[
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W9941744', 'item_ids': ['5886093635'], 'new_item_ids': ['3358616356'], 'payment_method_id': 'paypal_4439305'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W8343509', 'address1': '4941 Pine Avenue', 'address2': 'Apt 655', 'city': 'Chicago', 'state': 'IL', 'country': 'USA', 'zip': '66540'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W8343509', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='evelyn.lopez6910@example.com',
+        instruction='You are Evelyn Lopez, email evelyn.lopez6910@example.com, and you have a pending order for a blue cycling helmet. You want to change the shipping address from San Diego to 9686 Main Street, Apt 520, Chicago, IL, because you will be traveling and need it delivered there. Later, you realized you no longer need the helmet, so you would like to cancel the entire order. You prefer the refund to be issued back to your Mastercard ending in 8951.\n\nUse evelyn.lopez6910@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W1890669'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W1890669', 'address1': '9686 Main Street', 'address2': 'Apt 520', 'city': 'Chicago', 'state': 'IL', 'country': 'USA', 'zip': '39694'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W1890669', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sophia.thomas1364@example.com',
+        instruction='You are Sophia Thomas, with email sophia.thomas1364@example.com, and you have a pending order that includes a white wooden bookshelf, a 7-inch silver tablet with 64GB storage, a blue fabric office chair with adjustable armrests, and a gray leather high-back office chair. You want to update the shipping address to 4853 Cedar Road, Suite 547, Jacksonville, FL, USA 63506 because it was mistakenly placed at your old Dallas address. You also prefer to change the payment method from PayPal to your Mastercard ending in 2378 for better rewards tracking. After initiating these changes, you would like to explore other available product types to consider alternatives, including items like air purifiers, backpacks, bicycles, coffee makers, headphones, smartwatches, and yoga mats. Later, after reviewing your needs, you decide you no longer require the items in the order and would like to cancel the entire order.\n\nUse sophia.thomas1364@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W4862767', 'address1': '4853 Cedar Road', 'address2': 'Suite 547', 'city': 'Jacksonville', 'state': 'FL', 'country': 'USA', 'zip': '63506'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W4862767', 'payment_method_id': 'credit_card_1034663'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W4862767'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '8600330539'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W4862767', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='mei.gonzalez8775@example.com',
+        instruction='You are assisting Mei Gonzalez (mei.gonzalez8775@example.com). You want to exchange the navy small backpack from a delivered order for a black large nylon backpack with a camera compartment because it better suits her travel needs, and you prefer the price difference to be settled using her Visa ending in 3742. Later, for a pending order, you would like to update the shipping address to 4082 Main Street, Suite 204, Portland, OR, USA 24867 for better delivery access. After that, you prefer to change the payment method from PayPal to the same Visa ending in 3742 for consistency. Subsequently, you want to exchange the black L fleece jacket in the order for an XL navy fleece jacket with a full zipper because it fits better and matches her preferred color.\n\nUse mei.gonzalez8775@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W7303089'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W7303089', 'item_ids': ['2492465580'], 'new_item_ids': ['3928046918'], 'payment_method_id': 'credit_card_4387170'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W7303089', 'item_ids': ['2492465580'], 'payment_method_id': 'credit_card_4387170'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W2052757', 'address1': '4082 Main Street', 'address2': 'Suite 204', 'city': 'Portland', 'state': 'OR', 'country': 'USA', 'zip': '24867'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W2052757', 'payment_method_id': 'credit_card_4387170'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W2052757', 'item_ids': ['9385662952'], 'new_item_ids': ['7528037711'], 'payment_method_id': 'credit_card_4387170'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='ethan.lopez8943@example.com',
+        instruction='You are Ethan Lopez (email: ethan.lopez8943@example.com). You want to update the shipping address for your pending order (containing a Dumbbell Set, Espresso Machine, Coffee Maker, and Pet Bed) from Columbus, OH to 9478 Jefferson Avenue, Floor 17, Jacksonville, FL, USA 64571 because you are relocating temporarily. Later, you would like to exchange the grey medium Backpack (with laptop compartment) from your delivered order (shipped to San Diego, CA) for a new one in large size with a hydration compartment, as it better suits your hiking needs. You prefer the replacement Backpack in grey if available, and you authorize using your Mastercard ending in 1020 for any price difference. After that, you would like to cancel your other pending order (containing a Skateboard, Wristwatch, Bookshelf, and Smartphone) because you no longer need the items.\n\nUse ethan.lopez8943@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W6779827', 'address1': '9478 Jefferson Avenue', 'address2': 'Floor 17', 'city': 'Jacksonville', 'state': 'FL', 'country': 'USA', 'zip': '64571'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W8632528'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W8632528', 'item_ids': ['5917587651'], 'new_item_ids': ['6309044598'], 'payment_method_id': 'credit_card_9789590'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W6426438', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sofia.thomas3069@example.com',
+        instruction='You are Sofia Thomas, email sofia.thomas3069@example.com. You want to update the shipping address for your pending order (containing Wireless Earbuds, Vacuum Cleaner, Electric Toothbrush, and Portable Charger) from Dallas to 6059 Elm Street, Suite 952, Phoenix, AZ, USA 35981 because you will be traveling and want the package delivered to your temporary location. Later, you would like to exchange the red XXL cotton T-shirt from your delivered order for the blue M cotton crew neck variant because the original size and color do not fit your preference, and you prefer the smaller size and different color. You prefer to use your PayPal account for any price difference. After that, you would like to cancel your other pending order (containing a bagless upright Vacuum Cleaner with HEPA filter and an adjustable 55-75 lbs Dumbbell Set) because you no longer need the items.\n\nUse sofia.thomas3069@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W7619352', 'address1': '6059 Elm Street', 'address2': 'Suite 952', 'city': 'Phoenix', 'state': 'AZ', 'country': 'USA', 'zip': '35981'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W3388163'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W3388163', 'item_ids': ['9354168549'], 'new_item_ids': ['9612497925'], 'payment_method_id': 'paypal_5334408'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W2297866', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='yusuf.gonzalez2399@example.com',
+        instruction='You are assisting Yusuf Gonzalez, whose email is yusuf.gonzalez2399@example.com. You want to update the shipping address for his pending order—containing a black 128GB smartphone and a 1.5-liter ceramic tea kettle—to 3480 Lincoln Street, Suite 502, Austin, TX, USA 43512, because the original address was incorrect. You also prefer to change the payment method from the Mastercard on file to PayPal for better transaction tracking and security. After confirming these updates, you intend to cancel the order because it was placed by mistake. Later, you would like to browse the available tea kettles to understand current options before placing a new order, particularly interested in models with gas stovetop compatibility and ceramic or glass materials, to ensure the next purchase meets your kitchen setup needs.\n\nUse yusuf.gonzalez2399@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W2806889', 'address1': '3480 Lincoln Street', 'address2': 'Suite 502', 'city': 'Austin', 'state': 'TX', 'country': 'USA', 'zip': '43512'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W2806889', 'payment_method_id': 'paypal_3022415'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W2806889'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W2806889', 'reason': 'ordered by mistake'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '9832717871'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='emma.brown5032@example.com',
+        instruction='You are assisting Emma Brown (email: emma.brown5032@example.com) with her pending order for a skateboard. You want to first update the shipping address to 1382 Jefferson Avenue, Unit 829, Columbus, OH, USA 68350, because she needs it delivered to a new location. Then, you prefer to change the payment method from PayPal to her Visa card ending in 9135 for better expense tracking. After confirming the updated order details, you would like to cancel the order because the skateboard is no longer needed. Later, you want to browse the full product catalog to explore available items, with interest in seeing more details about the skateboard product (plastic deck, 34-inch length, plain design) she originally ordered, so she can consider other variants such as different materials, sizes, or designs for future purchases.\n\nUse emma.brown5032@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W6460787', 'address1': '1382 Jefferson Avenue', 'address2': 'Unit 829', 'city': 'Columbus', 'state': 'OH', 'country': 'USA', 'zip': '68350'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W6460787', 'payment_method_id': 'credit_card_8850930'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W6460787'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W6460787', 'reason': 'no longer needed'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '1968349452'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='amelia.ito8974@example.com',
+        instruction='You are assisting Amelia Ito (email: amelia.ito8974@example.com) with updates to her pending order originally shipped to Seattle. You want to change the shipping address to 6295 Oak Avenue, Unit 893, Boston, MA, USA 43310, so the package reaches her at her temporary stay. You would like to update the payment method from Mastercard ending in 7517 to her PayPal account for easier tracking and personal budgeting. You also prefer to exchange the Fleece Jacket from size XS to XL, keeping the same navy color and full zipper style, because the original size is too small; you prefer the XL version for a more comfortable fit. You would like any price difference for the jacket adjustment to be processed using the new PayPal payment method.\n\nUse amelia.ito8974@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3883329', 'address1': '6295 Oak Avenue', 'address2': 'Unit 893', 'city': 'Boston', 'state': 'MA', 'country': 'USA', 'zip': '43310'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W3883329', 'payment_method_id': 'paypal_2767694'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W3883329', 'item_ids': ['8161321868'], 'new_item_ids': ['8590708195'], 'payment_method_id': 'paypal_2767694'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='yara.lee9368@example.com',
+        instruction='You are Yara Lee, authenticated via email yara.lee9368@example.com, and you have a pending order currently shipping to Houston. You want to update the shipping address for this order to 1122 Adams Road, Unit 204, Austin, TX, USA 96886, because you will be relocating and prefer the delivery at your new location. Later, you would like to learn more about the Hiking Boots in your order, specifically those with a synthetic material and size 10, because you are interested in their available variants, including waterproof options and different sizes, to understand potential alternatives or future purchases.\n\nUse yara.lee9368@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3320020', 'address1': '1122 Adams Road', 'address2': 'Unit 204', 'city': 'Austin', 'state': 'TX', 'country': 'USA', 'zip': '96886'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W3320020'}),
+            Action(name='get_product_details', kwargs={'product_id': '7363354090'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='emma.santos7683@example.com',
+        instruction='You are Emma Santos, with email emma.santos7683@example.com, and you want to update the shipping address for your pending order—which includes a space grey 13-inch Laptop with i7 processor and 32GB RAM, two Water Bottles (one blue plastic 750ml and one red stainless steel 750ml), a bamboo 31-inch custom-designed Skateboard, and a blue leather Office Chair with standard backrest—to 1379 Madison Drive, Apt 546, San Antonio, TX, USA 93318 because you have relocated and need the delivery redirected. You also want to explore the full range of products offered by the store to assess future purchase options, particularly interested in understanding what types of electronics, gear, and accessories are available. Later, you would like detailed information about the Laptop product, including its available configurations and pricing, because you are considering upgrading to a model with more storage or a larger screen in the future and want to compare options.\n\nUse emma.santos7683@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W9903153', 'address1': '1379 Madison Drive', 'address2': 'Apt 546', 'city': 'San Antonio', 'state': 'TX', 'country': 'USA', 'zip': '93318'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W9903153'}),
+            Action(name='get_product_details', kwargs={'product_id': '4760268021'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='emma.ito3790@example.com',
+        instruction='You are Emma Ito, and your email is emma.ito3790@example.com. You have a pending order for a blue 1000ml stainless steel water bottle. You want to update the shipping address to 8489 Pine Avenue, Unit 80, Boston, MA, USA 13062 because you will be relocating temporarily. You also prefer to pay using your Visa card ending in 3660 instead of the current PayPal method for better rewards tracking. After these updates, you would like to exchange the blue water bottle for the red 1000ml stainless steel version of the same size and material, as you prefer the red color for better visibility during outdoor use.\n\nUse emma.ito3790@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W8664580', 'address1': '8489 Pine Avenue', 'address2': 'Unit 80', 'city': 'Boston', 'state': 'MA', 'country': 'USA', 'zip': '13062'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W8664580', 'payment_method_id': 'credit_card_8058445'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W8664580'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W8664580', 'item_ids': ['2366567022'], 'new_item_ids': ['2439754078'], 'payment_method_id': 'credit_card_8058445'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='harper.garcia9090@example.com',
+        instruction='You are assisting Harper Garcia (email: harper.garcia9090@example.com) with her pending order for a red 4-piece hardshell luggage set, red wired in-ear headphones, and a bagged canister vacuum cleaner with pet hair removal. You want to update the shipping address for this order to 7349 Adams Road, Unit 494, San Antonio, TX, USA 99498, because it is currently set to an old Dallas address. You also want to update your default address to this new San Antonio address for future orders. Later, you would like to review the details of the Action Camera product, particularly the available variants with 4K resolution and waterproof features in black and silver, to inform a future purchase decision. You prefer to keep using the credit card on file for any future payments.\n\nUse harper.garcia9090@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W8360923', 'address1': '7349 Adams Road', 'address2': 'Unit 494', 'city': 'San Antonio', 'state': 'TX', 'country': 'USA', 'zip': '99498'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'harper_garcia_5438', 'address1': '7349 Adams Road', 'address2': 'Unit 494', 'city': 'San Antonio', 'state': 'TX', 'country': 'USA', 'zip': '99498'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W8360923'}),
+            Action(name='get_product_details', kwargs={'product_id': '3377618313'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sophia.davis1718@example.com',
+        instruction='You are assisting Sophia Davis (sophia.davis1718@example.com), who has a pending order for a mechanical keyboard with clicky switches, RGB backlight, and 80% size. You want to update the shipping address for this order to 1770 Oak Avenue, Apt 655, San Diego, CA, USA 95600 because it was initially set to a different address in Charlotte. Later, you also want to update her default address in the system to the same San Diego address to ensure future orders are delivered correctly. You would like to confirm the order includes the correct keyboard model with the selected features (clicky switches, RGB backlight, 80% size) to ensure accuracy before shipment. You prefer the payment to remain as originally processed via PayPal.\n\nUse sophia.davis1718@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W7273405', 'address1': '1770 Oak Avenue', 'address2': 'Apt 655', 'city': 'San Diego', 'state': 'CA', 'country': 'USA', 'zip': '95600'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'sophia_davis_9653', 'address1': '1770 Oak Avenue', 'address2': 'Apt 655', 'city': 'San Diego', 'state': 'CA', 'country': 'USA', 'zip': '95600'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W7273405'}),
+            Action(name='get_product_details', kwargs={'product_id': '1656367028'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='ivan.santos3158@example.com',
+        instruction="You are assisting Ivan Santos (email: ivan.santos3158@example.com) with a pending order for an Office Chair currently shipping to Dallas, TX. You want to update the shipping address to 7933 Adams Road, Unit 416, Houston, TX, USA 12035, and also set this as the new default address, because the original delivery location is no longer valid. You prefer the order to reflect this change to ensure correct delivery. You have reviewed the full catalog of available product types, including items like Backpack, Laptop, Smart Watch, and Office Chair, to understand current offerings. You would like to verify that the Office Chair in the order is the red mesh version with no armrests and standard backrest height, as originally selected. If the address update is not possible, you would like to cancel the order with the reason 'ordered by mistake' to prevent incorrect delivery. After any address change or cancellation decision, you want to confirm the final order status and details to ensure accuracy.\n\nUse ivan.santos3158@example.com for authentication.",
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W8770097', 'address1': '7933 Adams Road', 'address2': 'Unit 416', 'city': 'Houston', 'state': 'TX', 'country': 'USA', 'zip': '12035'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'ivan_santos_6635', 'address1': '7933 Adams Road', 'address2': 'Unit 416', 'city': 'Houston', 'state': 'TX', 'country': 'USA', 'zip': '12035'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W8770097', 'reason': 'ordered by mistake'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W8770097'}),
+            Action(name='get_product_details', kwargs={'product_id': '4794339885'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='evelyn.ito2168@example.com',
+        instruction="You are assisting Evelyn Ito (email: evelyn.ito2168@example.com) with her pending order in San Diego. You want to change the payment method from credit card to PayPal because she prefers using her PayPal account for this purchase. You would like to exchange the green small leather backpack with a camera compartment for a black large nylon backpack with a camera compartment because you prefer the larger size, darker color, and lighter material. Later, if any issue arises with the modification process, you would like to cancel the entire order with the reason 'ordered by mistake'.\n\nUse evelyn.ito2168@example.com for authentication.",
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W6207110'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W6207110', 'payment_method_id': 'paypal_5377635'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W6207110', 'item_ids': ['7251508981'], 'new_item_ids': ['3928046918'], 'payment_method_id': 'paypal_5377635'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W6207110', 'reason': 'ordered by mistake'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sophia.thomas1364@example.com',
+        instruction='You are assisting Sophia Thomas (sophia.thomas1364@example.com) with her pending order placed in Dallas. You want to change the payment method from PayPal to her Visa card ending in 9858 for this order. After that, you would like to exchange the gray leather office chair with fixed armrest for a blue leather office chair with no armrest, as you prefer the latter style and color for better fit with your office decor. Later, you will cancel the entire order as you no longer need the items.\n\nUse sophia.thomas1364@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W4862767'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W4862767', 'payment_method_id': 'credit_card_7326294'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W4862767', 'item_ids': ['1071497737'], 'new_item_ids': ['4168944673'], 'payment_method_id': 'credit_card_7326294'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W4862767', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='emma.brown5032@example.com',
+        instruction='You are assisting Emma Brown (email: emma.brown5032@example.com) with her pending skateboard order. You want to first update the shipping address to 7492 Jackson Street, Floor 920, Austin, TX, USA 38692, because she needs the order delivered to a new location. You would like to change the payment method from PayPal to her Visa card ending in 9135 for both the original charge and any potential price adjustments, as she prefers using this card for better rewards and tracking. You prefer to exchange the current 34-inch plastic deck skateboard for the 31-inch bamboo deck model with a graphic design, because you find the smaller size more maneuverable and the bamboo material more sustainable and stylish. Later, you decide to cancel the entire order because your plans have changed and you no longer need the skateboard. After cancellation, you would like confirmation of the order status and details of the refund, to ensure the process is complete. You also want to review the available variants for the skateboard product line, particularly those with bamboo decks and graphic designs, because you are considering a future purchase that better matches your style and riding preferences.\n\nUse emma.brown5032@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W6460787', 'address1': '7492 Jackson Street', 'address2': 'Floor 920', 'city': 'Austin', 'state': 'TX', 'country': 'USA', 'zip': '38692'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W6460787', 'payment_method_id': 'credit_card_8850930'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W6460787', 'item_ids': ['3098764622'], 'new_item_ids': ['5312063289'], 'payment_method_id': 'credit_card_8850930'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W6460787', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W6460787'}),
+            Action(name='get_product_details', kwargs={'product_id': '1968349452'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='raj.lopez2997@example.com',
+        instruction='You are raj.lopez2997@example.com and want to update your pending order currently shipping to Fort Worth, TX. First, you want the shipping address changed to 9709 Oak Avenue, Suite 604, Los Angeles, CA, USA 75023 because you need it delivered to a new location. Then, you want to change the payment method from your Mastercard to PayPal for this order. Additionally, you want to exchange the 500ml stainless steel black water bottle for the 750ml glass black one, preferring the larger capacity and glass material for durability and taste, and you prefer the price difference be charged to your PayPal. After completing these updates, you want to cancel your other pending order containing a black crew neck polyester T-shirt in size S and a bagless canister vacuum cleaner with pet hair removal, because you no longer need those items. You also want to confirm the current status of that second order remains pending before cancellation.\n\nUse raj.lopez2997@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3502364', 'address1': '9709 Oak Avenue', 'address2': 'Suite 604', 'city': 'Los Angeles', 'state': 'CA', 'country': 'USA', 'zip': '75023'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W3502364', 'payment_method_id': 'paypal_7007375'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W3502364', 'item_ids': ['3453331371'], 'new_item_ids': ['4579334072'], 'payment_method_id': 'paypal_7007375'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W7162915', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W7162915'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='emma.ito3790@example.com',
+        instruction='You are Emma Ito (email: emma.ito3790@example.com). You want to browse the details of the Action Camera product. Then, for your pending order containing a 1000ml stainless steel water bottle, you want to update the shipping address to a new address in Seattle, WA, because you need it delivered to a different location. Later, you would like to change the payment method from PayPal to your Visa card ending in 3660, because you prefer using that card for this purchase. After that, you would like to change the water bottle color from blue to black while keeping the same 1000ml stainless steel specifications, because you prefer the black version over the blue one.\n\nUse emma.ito3790@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '3377618313'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W8664580', 'address1': '4664 Maple Lane', 'address2': 'Floor 966', 'city': 'Seattle', 'state': 'WA', 'country': 'USA', 'zip': '52714'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W8664580', 'payment_method_id': 'credit_card_8058445'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W8664580'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W8664580', 'item_ids': ['2366567022'], 'new_item_ids': ['7661609223'], 'payment_method_id': 'credit_card_8058445'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W8664580', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sophia.patel9841@example.com',
+        instruction="You are a customer with the email sophia.patel9841@example.com who initially wanted to browse the product catalog to understand the range of available items. You then placed a pending order containing a men's oriental 100ml perfume, a glass 1.5-liter induction-compatible tea kettle, a black 1L glass electric kettle, and gray size-8 canvas sneakers. You want to update the shipping address for this order to 6200 Washington Boulevard, Floor 845, Austin, TX, USA 61805 because you need it delivered to a different location. After that, you would like to change the payment method from your Visa ending in 8025 to your Mastercard ending in 1639 for better rewards tracking. Later, you decided to cancel the entire order because you no longer need the items. You prefer the refund to be issued back to the new payment method used, your Mastercard ending in 1639.\n\nUse sophia.patel9841@example.com for authentication.",
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W7905419', 'address1': '6200 Washington Boulevard', 'address2': 'Floor 845', 'city': 'Austin', 'state': 'TX', 'country': 'USA', 'zip': '61805'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W7905419', 'payment_method_id': 'credit_card_6419343'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W7905419', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='james.martin9857@example.com',
+        instruction='You are assisting James Martin (email: james.martin9857@example.com) with his pending order. You want to update the shipping address to 1700 Washington Boulevard, Apt 826, New York, NY, USA 57789 because he has relocated temporarily. You would like to exchange the red XXL cotton crew neck T-shirt for the blue M cotton crew neck T-shirt, as the original size and color do not fit his current needs, and you prefer the price adjustment to be processed using his Mastercard ending in 2067. Later, after completing these changes, you have decided to cancel the entire order because you no longer require the items.\n\nUse james.martin9857@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3043531', 'address1': '1700 Washington Boulevard', 'address2': 'Apt 826', 'city': 'New York', 'state': 'NY', 'country': 'USA', 'zip': '57789'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W3043531'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W3043531', 'item_ids': ['9354168549'], 'new_item_ids': ['9612497925'], 'payment_method_id': 'credit_card_6932154'}),
+            Action(name='get_product_details', kwargs={'product_id': '9523456873'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W3043531', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='isabella.lopez3271@example.com',
+        instruction='You are Isabella Lopez, email isabella.lopez3271@example.com, with a pending order for a Bluetooth speaker. You want to update the shipping address to 4725 Maple Lane, Unit 733, Chicago, IL, USA 34870 because you need it delivered to a different location. You also want to exchange the red Bluetooth speaker for the blue one, preferring the blue color over red for personal style preference, and you prefer to use your Visa ending in 8902 for any price difference. Later, after considering your needs, you decided you no longer require the speaker and would like to cancel the entire order #W4923227.\n\nUse isabella.lopez3271@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W4923227', 'address1': '4725 Maple Lane', 'address2': 'Unit 733', 'city': 'Chicago', 'state': 'IL', 'country': 'USA', 'zip': '34870'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W4923227'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W4923227', 'item_ids': ['7751905257'], 'new_item_ids': ['4716977452'], 'payment_method_id': 'credit_card_8897086'}),
+            Action(name='get_product_details', kwargs={'product_id': '4768869376'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W4923227', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='amelia.ito8974@example.com',
+        instruction='You are Amelia Ito, and your email is amelia.ito8974@example.com. For your pending order containing a navy XS fleece jacket, a black small cycling helmet, a professional light-skin-tone makeup kit, and a 30MP digital camera, you want to first update the shipping address to 3695 Main Street, Suite 869, Los Angeles, CA, USA 46903, because you need it delivered to a new location. Later, you would like to cancel the entire order because it was placed by mistake. Separately, for your delivered order that included a black Bluetooth speaker with 20-hour battery life, you would like to exchange it for the green version of the same model because you prefer the color. If the exchange is not possible, you would like to return the black speaker instead. You prefer any refund or charge to be processed to your Mastercard ending in 7517.\n\nUse amelia.ito8974@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3883329', 'address1': '3695 Main Street', 'address2': 'Suite 869', 'city': 'Los Angeles', 'state': 'CA', 'country': 'USA', 'zip': '46903'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W3883329', 'reason': 'ordered by mistake'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W3733909'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W3733909', 'item_ids': ['5650803029'], 'new_item_ids': ['9440686670'], 'payment_method_id': 'credit_card_1016162'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W3733909', 'item_ids': ['5650803029'], 'payment_method_id': 'credit_card_1016162'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='mia.davis7878@example.com',
+        instruction='You are Mia Davis, and your email is mia.davis7878@example.com. You want to update the shipping address for your pending order, which includes a professional-sized makeup kit and a black electric toothbrush, from Charlotte, NC to 8402 Jefferson Avenue, Floor 307, San Antonio, TX 71304, because you have relocated and need the items delivered to your new residence. Later, you would like to exchange the Smart Watch from your delivered order—currently with a silver leather band and AMOLED display—for the variant with a black silicone band and LCD display, because you prefer a more durable and sporty band for daily wear. You prefer to use your existing gift card for any price difference associated with the exchange.\n\nUse mia.davis7878@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W6577842', 'address1': '748 Main Street', 'address2': 'Unit 202', 'city': 'San Antonio', 'state': 'TX', 'country': 'USA', 'zip': '99209'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W6577842', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W8580621'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W8580621', 'item_ids': ['2993891288'], 'new_item_ids': ['2860956907'], 'payment_method_id': 'gift_card_5897764'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W8580621', 'item_ids': ['2993891288'], 'payment_method_id': 'gift_card_5897764'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sophia.thomas1364@example.com',
+        instruction='You are assisting Sophia Thomas (email: sophia.thomas1364@example.com). You want to update the shipping address for her pending furniture and electronics order to 2610 Elm Street, Unit 297, San Jose, CA, USA 58524, because she has relocated within the city. You prefer to change the payment method for this order to the Visa card ending in 9858 for better rewards tracking. You also want to modify one of the office chairs in the order from the blue fabric version with adjustable armrest to the black fabric one with fixed armrest, as it better matches her home office decor and provides more consistent support. Later, you would like to return the green 6mm yoga mat from her delivered order, because it is too thick and slippery for her practice, and exchange it for the blue 4mm PVC version, which she finds more comfortable and stable. After completing these changes, you intend to cancel the entire pending order because your needs have changed and you no longer require the items.\n\nUse sophia.thomas1364@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W4862767', 'address1': '2610 Elm Street', 'address2': 'Unit 297', 'city': 'San Jose', 'state': 'CA', 'country': 'USA', 'zip': '58524'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W4862767', 'payment_method_id': 'credit_card_7326294'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W4862767', 'item_ids': ['8323284863'], 'new_item_ids': ['8426249116'], 'payment_method_id': 'credit_card_7326294'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W1867876'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W1867876', 'item_ids': ['7510236436'], 'payment_method_id': 'credit_card_1034663'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W1867876', 'item_ids': ['7510236436'], 'new_item_ids': ['5586947715'], 'payment_method_id': 'credit_card_1034663'}),
+            Action(name='get_product_details', kwargs={'product_id': '4635925001'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W4862767', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='fatima.li1185@example.com',
+        instruction="You are assisting a customer with email fatima.li1185@example.com who initially wants to update her pending order. You want to change the payment method from PayPal to her Visa card ending in 1373 for smoother tracking. You would like to exchange the current skateboard with a maple deck for the bamboo deck version, keeping the same 31 inch length and graphic design, because you prefer the eco-friendly material and durability of bamboo. You also want to update the shipping address for this order to 2173 Jackson Street, Floor 57, San Francisco, CA, USA 56170, to ensure delivery to your new location. Additionally, you prefer to update your default shipping address to the same San Francisco address for future orders. Later, after considering your needs, you decide the order is no longer required and would like to cancel the entire order for the reason 'no longer needed'.\n\nUse fatima.li1185@example.com for authentication.",
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W8005719'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W8005719', 'payment_method_id': 'credit_card_2713802'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W8005719', 'item_ids': ['5120532699'], 'new_item_ids': ['5312063289'], 'payment_method_id': 'credit_card_2713802'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W8005719', 'address1': '2173 Jackson Street', 'address2': 'Floor 57', 'city': 'San Francisco', 'state': 'CA', 'country': 'USA', 'zip': '56170'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'fatima_li_5040', 'address1': '2173 Jackson Street', 'address2': 'Floor 57', 'city': 'San Francisco', 'state': 'CA', 'country': 'USA', 'zip': '56170'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W8005719', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='yara.silva2443@example.com',
+        instruction='You are Yara Silva (email: yara.silva2443@example.com) and you want to update the shipping address for your pending order (containing an Espresso Machine and a Laptop) from Houston to 7565 Maple Lane, Suite 130, Denver, CO, USA 71361. After that, you would like to exchange a Cycling Helmet (size L, blue) from your delivered order for a Cycling Helmet in size M, color red, preferring the version with medium ventilation if available, and you want any price difference covered using your gift card. Later, you intend to browse the full catalog of available product types to explore other items. After reviewing the product selection, you decide to cancel the same pending order (with the Espresso Machine and Laptop) because you no longer need those items.\n\nUse yara.silva2443@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3730488', 'address1': '7565 Maple Lane', 'address2': 'Suite 130', 'city': 'Denver', 'state': 'CO', 'country': 'USA', 'zip': '71361'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W3730488'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W3964602', 'item_ids': ['7907773809'], 'new_item_ids': ['8573379326'], 'payment_method_id': 'gift_card_7252880'}),
+            Action(name='get_product_details', kwargs={'product_id': '7765186836'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W3730488', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='olivia.smith9157@example.com',
+        instruction="You are Olivia Smith, with email olivia.smith9157@example.com, and you want to update the shipping address for your pending order—which includes a red large mountain bicycle, a men's fresh-scent 50ml perfume, a 31-inch bamboo skateboard, and a 30MP digital camera—from Jacksonville to 835 Lincoln Street, Suite 629, Chicago, IL, USA 80167, because you need the items delivered to your new location. Later, you would like to exchange your delivered blue medium cycling helmet with low ventilation for a red medium helmet with high ventilation, because you prefer better airflow and a different color, and you prefer any price difference to be refunded to your PayPal account. After that, you want to browse all available product types in the catalog to explore other items. Finally, after reconsidering your needs, you would like to cancel your pending order because you no longer require the items.\n\nUse olivia.smith9157@example.com for authentication.",
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W1348609', 'address1': '835 Lincoln Street', 'address2': 'Suite 629', 'city': 'Chicago', 'state': 'IL', 'country': 'USA', 'zip': '80167'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W1348609'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W3794101', 'item_ids': ['3339188619'], 'new_item_ids': ['8573379326'], 'payment_method_id': 'paypal_2076152'}),
+            Action(name='get_product_details', kwargs={'product_id': '7765186836'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W1348609', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='yara.johansson3155@example.com',
+        instruction='You are Yara Johansson, and your email is yara.johansson3155@example.com. You want to update the shipping address for your pending order—which includes a wristwatch, office chair, and wireless earbuds—to 6903 Madison Drive, Suite 676, San Jose, CA, USA 37193, because you have relocated. You also want your default address updated to this new San Jose address for future orders. Later, you would like to exchange the blue cycling helmet in size S from your delivered order for a red one in size M, because you prefer the color red and need a larger fit. You prefer the red size M helmet with either medium or high ventilation, as long as it is available. You authorize the use of your Mastercard ending in 5736 for any price difference associated with the exchange.\n\nUse yara.johansson3155@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W3372648'}),
+            Action(name='get_product_details', kwargs={'product_id': '7765186836'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3372648', 'address1': '7354 Jefferson Avenue', 'address2': 'Suite 636', 'city': 'San Jose', 'state': 'CA', 'country': 'USA', 'zip': '26659'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'yara_johansson_1629', 'address1': '7354 Jefferson Avenue', 'address2': 'Suite 636', 'city': 'San Jose', 'state': 'CA', 'country': 'USA', 'zip': '26659'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W9994227', 'item_ids': ['5886093635'], 'new_item_ids': ['8573379326'], 'payment_method_id': 'credit_card_4582364'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='omar.silva4147@example.com',
+        instruction='You are Omar, with email omar.silva4147@example.com, who initially wanted to explore the product catalog, particularly Action Cameras, which are available in the store. You want to cancel your pending order containing a 2000-piece fantasy-themed jigsaw puzzle, a brown wooden bookshelf, a silver 4K Action Camera, polarized green-lens sunglasses, and another 2000-piece animals-themed puzzle because you no longer need the items. Later, for another pending order containing a purple XL cotton crew neck T-shirt, a silver leather-band smart watch, and a 1L manual espresso machine, you would like to update the shipping address to 9395 Lincoln Street, Unit 302, Detroit, MI, USA 97756 for better delivery access. You also prefer to change the payment method from the current gift card to your Mastercard ending in 5859 for this order. After that, you would like to exchange the purple XL cotton T-shirt for a blue medium cotton crew neck variant because you prefer the color and a smaller size that fits better.\n\nUse omar.silva4147@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '3377618313'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W9728773'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W9728773', 'reason': 'no longer needed'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W9673784', 'address1': '9395 Lincoln Street', 'address2': 'Unit 302', 'city': 'Detroit', 'state': 'MI', 'country': 'USA', 'zip': '97756'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W9673784', 'payment_method_id': 'credit_card_5322562'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W9673784', 'item_ids': ['8124970213'], 'new_item_ids': ['9612497925'], 'payment_method_id': 'credit_card_5322562'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='ethan.santos9082@example.com',
+        instruction='You are assisting Ethan Santos (ethan.santos9082@example.com). You want to modify the Cycling Helmet in the pending order containing a Luggage Set, Smart Watch, and Indoor Security Camera from size L, blue to size M, blue, and prefer to use PayPal for any price difference. Later, you decided to cancel the entire order as you no longer need the items. At the same time, for another pending order containing a Pet Bed, Gaming Mouse, and Office Chair, you would like to update the shipping address to 459 Oak Avenue, Unit 608, New York, NY, USA 92527. You also prefer to switch the payment method for this order to PayPal.\n\nUse ethan.santos9082@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W5320242'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W5320242', 'item_ids': ['2206116040'], 'new_item_ids': ['9013366374'], 'payment_method_id': 'paypal_3549141'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W5320242', 'reason': 'no longer needed'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W4642822', 'address1': '459 Oak Avenue', 'address2': 'Unit 608', 'city': 'New York', 'state': 'NY', 'country': 'USA', 'zip': '92527'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W4642822', 'payment_method_id': 'paypal_3549141'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='ethan.thomas7730@example.com',
+        instruction='You are assisting a customer with email ethan.thomas7730@example.com regarding their pending order containing a Smart Watch and a Smartphone. You want to change the payment method from a gift card to PayPal because you prefer using PayPal for this transaction. You also want to update the shipping address to 1346 Pine Avenue, Apt 32, Las Vegas, NV, USA 46546, and update your default profile address to the same location for future orders. Additionally, you would like to exchange the Smart Watch with AMOLED display for the same model but with an LCD display, as you prefer the LCD version. After reviewing the available product types and confirming the Smart Watch variants, you later decide to cancel the entire order because it is no longer needed.\n\nUse ethan.thomas7730@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W8465042'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W8465042', 'payment_method_id': 'paypal_6982172'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W8465042', 'address1': '1346 Pine Avenue', 'address2': 'Apt 32', 'city': 'Las Vegas', 'state': 'NV', 'country': 'USA', 'zip': '46546'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'ethan_thomas_1791', 'address1': '1346 Pine Avenue', 'address2': 'Apt 32', 'city': 'Las Vegas', 'state': 'NV', 'country': 'USA', 'zip': '46546'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W8465042', 'item_ids': ['4920090458'], 'new_item_ids': ['2860956907'], 'payment_method_id': 'credit_card_7472558'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '6945232052'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W8465042', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='noah.ito4296@example.com',
+        instruction='You are assisting a customer with email noah.ito4296@example.com who placed a pending order containing a 2000-piece expert-level jigsaw puzzle with an animal theme, along with two blue-dial wristwatches (one with a silicone strap and one with a metal strap). You want to first review the details of this order to confirm the items. You would like to change the shipping address for this order to 619 Broadway, Suite 484, Seattle, WA, USA 98187, because it is your current preferred delivery location. You also want to update your default address profile to this Seattle address to ensure all future orders are sent there. Later, after confirming the changes, you would like to cancel the entire order because you no longer need the items. You prefer the refund to be processed back to the original payment method, which is the credit card ending in 1620755.\n\nUse noah.ito4296@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W4219264'}),
+            Action(name='get_product_details', kwargs={'product_id': '1808611083'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W4219264', 'address1': '619 Broadway', 'address2': 'Suite 484', 'city': 'Seattle', 'state': 'WA', 'country': 'USA', 'zip': '98187'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'noah_ito_3850', 'address1': '619 Broadway', 'address2': 'Suite 484', 'city': 'Seattle', 'state': 'WA', 'country': 'USA', 'zip': '98187'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W4219264', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='evelyn.ahmed2006@example.com',
+        instruction='You are assisting Evelyn Ahmed, whose email is evelyn.ahmed2006@example.com. You want to update the shipping address for her pending order—which includes a pair of leather, waterproof hiking boots in size 10, a black desk lamp, a 500ml black plastic water bottle, a 5-foot wooden bookshelf, and a 1000-piece beginner jigsaw puzzle—from 137 Willow Lane, Suite 127, Charlotte, NC, USA 28249 to 6089 Elm Street, Unit 708, Dallas, TX, USA 42597 because she needs it delivered to a different location. Later, you will request to cancel the entire order because it was placed by mistake. The original payment was made using a gift card, so you prefer any applicable refund to be returned to the same gift card.\n\nUse evelyn.ahmed2006@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W1416704', 'address1': '6089 Elm Street', 'address2': 'Unit 708', 'city': 'Dallas', 'state': 'TX', 'country': 'USA', 'zip': '42597'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W1416704', 'reason': 'ordered by mistake'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W1416704'}),
+            Action(name='get_product_details', kwargs={'product_id': '7363354090'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='emma.kovacs2974@example.com',
+        instruction='You are Emma Kovacs (email: emma.kovacs2974@example.com) and you want to update the shipping address for your pending order, which includes a white-dial silicone-strap wristwatch, a 500ml black stainless steel water bottle, and a black fabric office chair, to 8930 Washington Boulevard, Suite 937, Houston, TX, USA 94031. Later, you would like to cancel this order because you no longer need the items. You also want to review the product details of the wristwatch you ordered, particularly its design and available variants, to understand what was selected.\n\nUse emma.kovacs2974@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W8661412', 'address1': '8930 Washington Boulevard', 'address2': 'Suite 937', 'city': 'Houston', 'state': 'TX', 'country': 'USA', 'zip': '94031'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W8661412', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W8661412'}),
+            Action(name='get_product_details', kwargs={'product_id': '6066914160'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='isabella.gonzalez1317@example.com',
+        instruction='You are Isabella Gonzalez, authenticated by email isabella.gonzalez1317@example.com. You are checking the status of your pending order that includes a skateboard, notebook, and luggage set, and you want to know more about the skateboard made of maple with a plain design and 28-inch length. Later, you would like to update the shipping address for this order to 2536 Oak Avenue, Unit 753, Denver, CO, USA 17234 because you will be staying there when the items are delivered. After that, you prefer to change the payment method from your Visa ending in 4920 to your Mastercard ending in 9364 for better rewards on this purchase.\n\nUse isabella.gonzalez1317@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W1258841'}),
+            Action(name='get_product_details', kwargs={'product_id': '1968349452'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W1258841', 'address1': '2536 Oak Avenue', 'address2': 'Unit 753', 'city': 'Denver', 'state': 'CO', 'country': 'USA', 'zip': '17234'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W1258841', 'payment_method_id': 'credit_card_9878778'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='mei.patel3193@example.com',
+        instruction="You are assisting Mei Patel (email: mei.patel3193@example.com) with her pending order. You want to first confirm the status of her order and get details about the men's oriental 100ml perfume she ordered, as it is a key item in her purchase. Later, you would like to update the shipping address to 7377 Oak Avenue, Floor 622, Oklahoma City, OK, USA 25148, to ensure delivery to her new location. After that, you prefer to change the payment method from PayPal to her Visa card ending in 9904, as she wants to use her preferred card for this transaction.\n\nUse mei.patel3193@example.com for authentication.",
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W9583042'}),
+            Action(name='get_product_details', kwargs={'product_id': '6858788497'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W9583042', 'address1': '7377 Oak Avenue', 'address2': 'Floor 622', 'city': 'Oklahoma City', 'state': 'OK', 'country': 'USA', 'zip': '25148'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W9583042', 'payment_method_id': 'credit_card_9503061'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='evelyn.lopez6910@example.com',
+        instruction="You are Evelyn Lopez (evelyn.lopez6910@example.com). You want to update the shipping address for your pending order containing a blue Cycling Helmet to 841 Washington Boulevard, Suite 260, Portland, OR, USA 34296, because you've moved temporarily and need it delivered there. Later, you would like to return the black Cycling Helmet from your delivered order and exchange it for the same model in red, size S, because you prefer the visibility and style of the red color for safety while riding. You prefer the price difference to be handled using your Mastercard ending in 8951. After that, you want to explore all available product types in the catalog to consider future purchases. Subsequently, you would like to cancel your other pending order that includes Running Shoes and a Grill, because you decided you no longer need those items.\n\nUse evelyn.lopez6910@example.com for authentication.",
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W1890669', 'address1': '841 Washington Boulevard', 'address2': 'Suite 260', 'city': 'Portland', 'state': 'OR', 'country': 'USA', 'zip': '34296'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W1890669'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W1355800', 'item_ids': ['5537798301'], 'payment_method_id': 'credit_card_3566337'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W1355800', 'item_ids': ['5537798301'], 'new_item_ids': ['3358616356'], 'payment_method_id': 'credit_card_3566337'}),
+            Action(name='get_product_details', kwargs={'product_id': '7765186836'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W3007862', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sophia.thomas1364@example.com',
+        instruction='You are Sophia Thomas (email: sophia.thomas1364@example.com). You initially want to update the shipping address for your pending order (with items including a blue fabric office chair and a gray leather office chair) to 8394 Jefferson Avenue, Apt 635, Portland, OR, USA 34763, and also update your default address to match, because you have moved. You also want to replace the blue fabric office chair with an adjustable armrest and standard backrest in that order with a black leather office chair that has an adjustable armrest and high-back, because you prefer a more professional look and better support, and you prefer to use your PayPal for any price difference. Later, you decide to cancel that entire pending order because you no longer need the items. After that, you would like to exchange the green PVC yoga mat (6mm thick) from your delivered order for a pink TPE yoga mat (5mm thick), because you prefer a more eco-friendly material and a different color, and you prefer to use your Mastercard ending in 2378 for any price adjustment.\n\nUse sophia.thomas1364@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W4862767', 'address1': '8394 Jefferson Avenue', 'address2': 'Apt 635', 'city': 'Portland', 'state': 'OR', 'country': 'USA', 'zip': '34763'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'sophia_thomas_5301', 'address1': '8394 Jefferson Avenue', 'address2': 'Apt 635', 'city': 'Portland', 'state': 'OR', 'country': 'USA', 'zip': '34763'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W4862767', 'item_ids': ['8323284863'], 'new_item_ids': ['4648362606'], 'payment_method_id': 'paypal_5297429'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W4862767', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W4862767'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W1867876', 'item_ids': ['7510236436'], 'payment_method_id': 'credit_card_1034663'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W1867876', 'item_ids': ['7510236436'], 'new_item_ids': ['1794273251'], 'payment_method_id': 'credit_card_1034663'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='raj.lopez2997@example.com',
+        instruction='You are Raj Lopez, authenticated with email raj.lopez2997@example.com. You want to cancel your pending order that includes a black crew neck polyester T-shirt and a bagless canister vacuum cleaner, placed by mistake, and you would like confirmation of the cancellation and refund to the original payment method. Later, you would like to modify another pending order that includes a skateboard, hiking boots, and a 500ml stainless steel black water bottle by changing the payment method from your Mastercard ending in 3803 to your PayPal account. You also want to exchange the 500ml stainless steel black water bottle for the 750ml glass black version, preferring the larger capacity and glass material for better usability, and you prefer any price difference to be charged to your PayPal account.\n\nUse raj.lopez2997@example.com for authentication.',
+        actions=[
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W7162915', 'reason': 'ordered by mistake'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W7162915'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W3502364', 'payment_method_id': 'paypal_7007375'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W3502364', 'item_ids': ['3453331371'], 'new_item_ids': ['4579334072'], 'payment_method_id': 'paypal_7007375'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='liam.thomas9081@example.com',
+        instruction='You are assisting Liam Thomas (liam.thomas9081@example.com) with a series of order modifications and inquiries. First, for his pending order containing an air purifier and an E-Reader, you want to update the shipping address to 4871 Oak Avenue, Suite 234, Nashville, TN, USA 69688, because he has relocated temporarily. Then, you would like to change the payment method from his Visa ending in 3194 to his PayPal, as he prefers using it for better purchase protection. Additionally, you want to upgrade the E-Reader from the 7-inch, 8GB model to the 8-inch, 32GB version, because he needs more screen space and storage for reading lengthy documents and storing a larger library. Later, for his delivered order containing leather hiking boots in size 11 that are not waterproof, you would like to exchange them for the waterproof version in the same size, because he plans to use them on wet trails and needs better protection; if the exchange is not possible, you would like to return the boots instead. For any refund or charge related to this exchange or return, you prefer the amount to be processed to his PayPal, as it was the original payment method and he wants to keep his transactions consolidated. After that, you would like to receive a full list of all product types offered in the store, because he is exploring future purchases and wants to browse the complete catalog to discover new items of interest.\n\nUse liam.thomas9081@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W1654931', 'address1': '4871 Oak Avenue', 'address2': 'Suite 234', 'city': 'Nashville', 'state': 'TN', 'country': 'USA', 'zip': '69688'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W1654931', 'payment_method_id': 'paypal_3650980'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W1654931', 'item_ids': ['6268080249'], 'new_item_ids': ['7609274509'], 'payment_method_id': 'credit_card_3261838'}),
+            Action(name='get_product_details', kwargs={'product_id': '3801771308'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W1654931', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W8488728'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W8488728', 'item_ids': ['5676696062'], 'new_item_ids': ['6159919747'], 'payment_method_id': 'paypal_3650980'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W8488728', 'item_ids': ['5676696062'], 'payment_method_id': 'paypal_3650980'}),
+            Action(name='list_all_product_types', kwargs={}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='olivia.jackson2465@example.com',
+        instruction='You are Olivia Jackson (email: olivia.jackson2465@example.com). You want to update the shipping address for your pending order containing hiking boots, a gaming mouse, and sneakers to 6768 Adams Road, Suite 670, Denver, CO, USA 74887, because it was initially set to San Jose. After that, you would like to return the black leather-banded smartwatch from your delivered order, as it is no longer needed, and you prefer the refund to be issued back to your PayPal account for convenience. Later, you decided to cancel the same pending order with the hiking boots, gaming mouse, and sneakers because you ordered it by mistake and no longer need the items. After the cancellation, you would like to explore available products, particularly the Laptop, to consider a future purchase, and you are interested in its variants including screen size, processor, RAM, storage, and color options.\n\nUse olivia.jackson2465@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3168895', 'address1': '6768 Adams Road', 'address2': 'Suite 670', 'city': 'Denver', 'state': 'CO', 'country': 'USA', 'zip': '74887'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W3168895'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W3895186', 'item_ids': ['9320099340'], 'payment_method_id': 'paypal_3999493'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W3168895', 'reason': 'ordered by mistake'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '4760268021'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='noah.martin8712@example.com',
+        instruction='You are assisting Noah Martin (email: noah.martin8712@example.com). You want to update the shipping address for a pending order containing a blue cotton v-neck T-shirt, a vacuum cleaner, and a laptop to 943 Oak Avenue, Apt 2B, Denver, CO, USA 80202, because he needs it delivered to a new location. You also want to initiate a return for a mechanical keyboard from a delivered order, as it is no longer needed, and you prefer the refund to be issued back to your PayPal account for convenience. Later, you decide to cancel the same pending order with the T-shirt, vacuum cleaner, and laptop because it was placed by mistake. After that, you would like to learn more about the T-shirt product line, particularly the available styles and colors of the cotton and polyester T-shirts, as you are considering a future purchase and want to explore options that better match your preferences.\n\nUse noah.martin8712@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W7594624', 'address1': '943 Oak Avenue', 'address2': 'Apt 2B', 'city': 'Denver', 'state': 'CO', 'country': 'USA', 'zip': '80202'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W7594624'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W1971958', 'item_ids': ['6342039236'], 'payment_method_id': 'paypal_7383471'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W7594624', 'reason': 'ordered by mistake'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '9523456873'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='daiki.moore1031@example.com',
+        instruction="You are Daiki Moore, with email daiki.moore1031@example.com, and you have a pending order containing a red mesh office chair with no armrest and standard backrest, along with a dumbbell set and an espresso machine. You want to change the payment method from gift card to your Visa card ending in 4204 for this order, because you prefer using your card for tracking and rewards. After that, you would like to exchange the red mesh office chair for the gray mesh one with fixed armrest and high-back, because you prefer a more supportive and professional look for your workspace, and you want any price difference handled using the same Visa card. Later, you want to update the shipping address to 459 Cedar Road, Suite 662, Detroit, MI, USA 71431, to align with your new office location. After updating the address, you decide to cancel the entire order because you no longer need the items. You would like the cancellation reason recorded as 'no longer needed' and the refund processed back to your Visa card ending in 4204. After cancellation, you would like to browse the product catalog, starting with a full list of available product types. Finally, you want to see detailed information about the Office Chair product to explore future options that better match your ergonomic preferences.\n\nUse daiki.moore1031@example.com for authentication.",
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W4843514'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W4843514', 'payment_method_id': 'credit_card_5613268'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W4843514', 'item_ids': ['4274709903'], 'new_item_ids': ['2386562819'], 'payment_method_id': 'credit_card_5613268'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W4843514', 'address1': '459 Cedar Road', 'address2': 'Suite 662', 'city': 'Detroit', 'state': 'MI', 'country': 'USA', 'zip': '71431'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W4843514', 'reason': 'no longer needed'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '4794339885'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='emma.ito3790@example.com',
+        instruction='You are assisting Emma Ito (email: emma.ito3790@example.com) with her pending order for a stainless steel water bottle. You want to change the payment method from PayPal to her Visa card ending in 3660 because she prefers using that card for this purchase. You would like to switch the water bottle color from blue to black while keeping the same 1000ml capacity and stainless steel material, as she prefers the black finish. Later, you want to update the shipping address to 7477 Washington Boulevard, Apt 387, Portland, OR, USA 97347, to redirect the delivery. After that, you would like to cancel the order entirely as she no longer needs the item. Finally, you are interested in browsing the full product catalog to explore all available options, and specifically want to view all variants of the Water Bottle product to make a more informed decision for a future purchase.\n\nUse emma.ito3790@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W8664580'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W8664580', 'payment_method_id': 'credit_card_8058445'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W8664580', 'item_ids': ['2366567022'], 'new_item_ids': ['7661609223'], 'payment_method_id': 'credit_card_8058445'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W8664580', 'address1': '7477 Washington Boulevard', 'address2': 'Apt 387', 'city': 'Portland', 'state': 'OR', 'country': 'USA', 'zip': '97347'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W8664580', 'reason': 'no longer needed'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '8310926033'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='juan.smith2463@example.com',
+        instruction='You are assisting Juan Smith (email: juan.smith2463@example.com) with his pending order. You want to first browse the product catalog. Then, you would like to update the shipping address for the pending order containing a white Coffee Maker and a Vacuum Cleaner to 9309 Main Street, Apt 730, Dallas, TX, USA 40516, and also update your default address to the same. After that, you want to change the Coffee Maker from white to stainless steel while keeping the same 4-cup drip type with auto shutoff, and you prefer to use your PayPal account to cover any price difference. Later, after reconsidering, you would like to cancel the entire order as you have changed your mind.\n\nUse juan.smith2463@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W1429524', 'address1': '9309 Main Street', 'address2': 'Apt 730', 'city': 'Dallas', 'state': 'TX', 'country': 'USA', 'zip': '40516'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'juan_smith_5229', 'address1': '9309 Main Street', 'address2': 'Apt 730', 'city': 'Dallas', 'state': 'TX', 'country': 'USA', 'zip': '40516'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W1429524', 'item_ids': ['1349017811'], 'new_item_ids': ['3039787582'], 'payment_method_id': 'paypal_9679338'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W1429524', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='evelyn.hernandez3060@example.com',
+        instruction='You are assisting Evelyn Hernandez (email: evelyn.hernandez3060@example.com) with her order preferences. You want to first understand the available Grill product variants, particularly the differences in type, size, and features, to make an informed decision. After reviewing the options, you would like to modify the pending order originally containing an electric medium grill with side burner, because you prefer a charcoal cooking experience for more authentic flavor. You prefer to switch to the charcoal medium grill with side burner instead, as it meets your outdoor cooking needs while maintaining the same convenient size and added functionality. You also specify that any refund for the price difference should be processed using your saved Visa card ending in 4171, as it is your preferred payment method for adjustments.\n\nUse evelyn.hernandez3060@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '6819683148'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W3482034', 'item_ids': ['5666020311'], 'new_item_ids': ['7848293342'], 'payment_method_id': 'credit_card_3631888'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='anya.lee3013@example.com',
+        instruction='You are Anya Lee (anya.lee3013@example.com). You want to cancel your pending order that includes a red in-ear headphone, size 12 synthetic hiking boots, a 750ml blue stainless steel water bottle, a stainless steel drip coffee maker with auto shutoff, and a black silicone-banded smart watch, because you no longer need the items. Later, you would like to update the shipping address for another pending order — which includes a small grey fleece pet bed, a HEPA-filter air purifier with quiet operation, a black desk lamp with medium brightness, a 500ml black glass water bottle, and a black full-zip fleece jacket in size L — to 4946 Cedar Road, Suite 331, San Jose, CA, USA 67361. After that, you also want to update your default profile address to the same San Jose address for future orders. Subsequently, you would like to return the espresso machine (15 bar pressure, 1L capsule type) from your delivered order and receive the refund back to your original PayPal payment method, as you no longer need it.\n\nUse anya.lee3013@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W3176007'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W3176007', 'reason': 'no longer needed'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W2989580', 'address1': '4946 Cedar Road', 'address2': 'Suite 331', 'city': 'San Jose', 'state': 'CA', 'country': 'USA', 'zip': '67361'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'anya_lee_8315', 'address1': '4946 Cedar Road', 'address2': 'Suite 331', 'city': 'San Jose', 'state': 'CA', 'country': 'USA', 'zip': '67361'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W1335809', 'item_ids': ['4875647558'], 'payment_method_id': 'paypal_3728317'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='mia.moore8091@example.com',
+        instruction="You are Mia Moore (mia.moore8091@example.com) and you have a pending order containing a white glass bookshelf (3 ft), another white glass bookshelf (4 ft), a bagged upright cordless vacuum cleaner, a gold silicone-band smart watch, and a black electric toothbrush with low speed settings. You want to change the payment method for this order from the current gift card to your Mastercard ending in 2992 because you prefer to preserve the remaining gift card balance. After that, you would like to update the shipping address to 9633 Elm Street, Apt 891, San Diego, CA, USA 31018, as the original address in San Francisco is no longer valid. If either of these changes cannot be completed, you would like to cancel the entire order with the reason 'ordered by mistake' because it was placed unintentionally. After resolving the order, you would like to browse the product catalog and learn more about the Laptop, particularly interested in models with high performance and ample storage, as you are considering a powerful device for work and personal use.\n\nUse mia.moore8091@example.com for authentication.",
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W3130288'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W3130288', 'payment_method_id': 'credit_card_2641784'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3130288', 'address1': '9633 Elm Street', 'address2': 'Apt 891', 'city': 'San Diego', 'state': 'CA', 'country': 'USA', 'zip': '31018'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W3130288', 'reason': 'ordered by mistake'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '4760268021'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='olivia.ito5204@example.com',
+        instruction='You are Olivia Ito (olivia.ito5204@example.com). You want to update the payment method for your pending order containing a black wired optical Gaming Mouse, a red 7 ft polyester patio umbrella, and leather hiking boots from your Visa ending in 9182 to PayPal. You also want to change the shipping address to 3271 Adams Road, Unit 946, Seattle, WA, USA 70668, as you are relocating temporarily. Later, if you decide the changes are unnecessary, you would like to cancel the entire order because it was placed by mistake. Additionally, you would like to explore the Gaming Mouse product details, particularly interested in comparing the current black wired model with other variants such as wireless or white-colored options, to ensure it meets your gaming setup preferences. You prefer the changes to be processed only if the order remains unfulfilled, and if cancellation occurs, you prefer the refund to be issued to the original payment method.\n\nUse olivia.ito5204@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W5442520'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W5442520', 'payment_method_id': 'paypal_8049766'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W5442520', 'address1': '3271 Adams Road', 'address2': 'Unit 946', 'city': 'Seattle', 'state': 'WA', 'country': 'USA', 'zip': '70668'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W5442520', 'reason': 'ordered by mistake'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '5713490933'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='anya.brown8893@example.com',
+        instruction='You are Anya Brown, authenticated via email anya.brown8893@example.com. You want to modify your pending order for an E-Reader and a Smart Watch by updating the shipping address to 9780 Jefferson Avenue, Suite 708, Seattle, WA, USA 71564, because you have relocated within the city. You prefer to switch the payment method from your Mastercard to your PayPal account for better purchase protection and budget tracking. You also prefer the gold-colored Smart Watch with leather band and AMOLED display over the current black version, as it better matches your personal style. Later, you decide to cancel this entire pending order because your needs have changed and you no longer require the items. After that, you would like to manage your delivered order containing a Pet Bed, a basic Makeup Kit, a Tablet, and a Grill. You want to return the grey medium fleece Pet Bed because it does not suit your pet’s comfort needs. You also want to exchange the basic Makeup Kit with medium skin tone for the professional version with the same skin tone, because you need higher-quality products for daily use.\n\nUse anya.brown8893@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W8883368', 'address1': '9780 Jefferson Avenue', 'address2': 'Suite 708', 'city': 'Seattle', 'state': 'WA', 'country': 'USA', 'zip': '71564'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W8883368', 'payment_method_id': 'paypal_5206520'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W8883368', 'item_ids': ['9320099340'], 'new_item_ids': ['5694328282'], 'payment_method_id': 'paypal_5206520'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W8883368', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W2922433'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W2922433', 'item_ids': ['6857426243'], 'payment_method_id': 'credit_card_3414703'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W2922433', 'item_ids': ['1709726483'], 'new_item_ids': ['2882812427'], 'payment_method_id': 'credit_card_3414703'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='mei.patel3193@example.com',
+        instruction="You are assisting Mei Patel (mei.patel3193@example.com). You want to update the payment method for a pending order containing a men's oriental 100ml perfume, an adjustable 30-50 lbs dumbbell set, a red 2-piece softshell luggage set, and a 25ft green latex garden hose from PayPal to her Visa card ending in 9904, because she prefers using her credit card for this purchase. Later, you will cancel another pending order that includes a 1000-piece art-themed jigsaw puzzle, a grey medium polyester backpack with a laptop compartment, a portable electric grill with a side burner, a women's woody 30ml perfume, and a gold silicone-banded smart watch with an LCD display, because she no longer needs those items. After that, you would like to browse product details for backpacks, as she is interested in learning more about available styles and features.\n\nUse mei.patel3193@example.com for authentication.",
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W9583042'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W9583042', 'payment_method_id': 'credit_card_9503061'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W4082615', 'reason': 'no longer needed'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '2524789262'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='lucas.martin5733@example.com',
+        instruction='You are assisting Lucas Martin (lucas.martin5733@example.com). You want to modify the pending order currently shipping to Washington, DC, by replacing the small ionic Air Purifier with the medium room size HEPA model because it better suits his room size and filtration preference. You prefer to use the Mastercard ending in 9536 for any price difference. Later, you want to update the shipping address for this order to 5627 Jefferson Avenue, Unit 615, Chicago, IL, and also update your default address to the same for future orders. After that, you would like to exchange the 500ml blue glass Water Bottle from your delivered order in Charlotte, NC, for the 750ml blue stainless steel version because you prefer a larger, more durable bottle, and return the original. You prefer the Mastercard ending in 9536 to be used for any applicable refunds or charges related to the exchange.\n\nUse lucas.martin5733@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W9318778'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W9318778', 'item_ids': ['5669664287'], 'new_item_ids': ['3076708684'], 'payment_method_id': 'credit_card_7862034'}),
+            Action(name='get_product_details', kwargs={'product_id': '3821016478'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W9318778', 'address1': '5627 Jefferson Avenue', 'address2': 'Unit 615', 'city': 'Chicago', 'state': 'IL', 'country': 'USA', 'zip': '90260'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'lucas_martin_4549', 'address1': '5627 Jefferson Avenue', 'address2': 'Unit 615', 'city': 'Chicago', 'state': 'IL', 'country': 'USA', 'zip': '90260'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W3929227', 'item_ids': ['7918497119'], 'new_item_ids': ['7843064651'], 'payment_method_id': 'credit_card_7862034'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W3929227', 'item_ids': ['7918497119'], 'payment_method_id': 'credit_card_7862034'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='anya.patel9309@example.com',
+        instruction='You are Anya Patel (anya.patel9309@example.com). You want to modify your pending order by upgrading the ceramic 1.5L tea kettle to the stainless steel 2L version because you prefer a larger, more durable option that matches your gas stovetop. You prefer to use your Mastercard ending in 2340 for any price adjustment. Later, you want to update the shipping address for the same order to 6988 Oak Avenue, Floor 347, San Jose, CA, USA 21239 because you have moved. After that, you would like to exchange the upright vacuum from your delivered order for a robotic model because you prefer a hands-free cleaning solution, and you prefer the refund for this exchange to be applied to your Mastercard ending in 2340. You also want to return the navy XL fleece jacket from that same delivered order because it doesn’t fit well, and you prefer the refund to be issued back to your original gift card.\n\nUse anya.patel9309@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W4604258'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W4604258', 'item_ids': ['7497340597'], 'new_item_ids': ['4238115171'], 'payment_method_id': 'credit_card_4142574'}),
+            Action(name='get_product_details', kwargs={'product_id': '9832717871'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W4604258', 'address1': '6988 Oak Avenue', 'address2': 'Floor 347', 'city': 'San Jose', 'state': 'CA', 'country': 'USA', 'zip': '21239'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'anya_patel_3710', 'address1': '6988 Oak Avenue', 'address2': 'Floor 347', 'city': 'San Jose', 'state': 'CA', 'country': 'USA', 'zip': '21239'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W6174054', 'item_ids': ['9970989750'], 'new_item_ids': ['4602305039'], 'payment_method_id': 'credit_card_4142574'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W6174054', 'item_ids': ['8590708195'], 'payment_method_id': 'gift_card_6566420'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='olivia.lopez4535@example.com',
+        instruction='You are Olivia Lopez (olivia.lopez4535@example.com). You want to update the shipping address for your pending order (containing a 1.5L glass white electric kettle and size 8 synthetic hiking boots) from Fort Worth, TX to 263 Cedar Road, Unit 908, Oklahoma City, OK, USA 79081 because you entered the wrong address initially. After updating, you would like to confirm the revised shipping details. Separately, you want to return the black 10-inch, 128GB tablet from your delivered order because you no longer need it, and you prefer the refund to be issued back to your gift card. Later, you decided to cancel your other pending order for a blue 20,000mAh wireless portable charger because you no longer need it, even though it was originally intended as a backup.\n\nUse olivia.lopez4535@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W5481803', 'address1': '263 Cedar Road', 'address2': 'Unit 908', 'city': 'Oklahoma City', 'state': 'OK', 'country': 'USA', 'zip': '79081'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W5481803'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W2692684', 'item_ids': ['3788616824'], 'payment_method_id': 'gift_card_7711863'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W9373487', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='yusuf.hernandez8836@example.com',
+        instruction='You are assisting Yusuf Hernandez (email: yusuf.hernandez8836@example.com). You want to update the shipping address for a pending order containing a Gaming Mouse, Running Shoes, and a Bicycle from Denver, CO to 5124 Washington Boulevard, Unit 226, Fort Worth, TX, USA 89485 because the original address is no longer valid. Later, you would like to return the Makeup Kit (professional size, dark skin tone, Brand A) from a delivered order because it is no longer needed, and you prefer the refund to be issued back to your PayPal account used for the original purchase. After that, you would like to cancel another pending order containing a charcoal grill, glass bookshelf, and fleece jacket because it was placed by mistake.\n\nUse yusuf.hernandez8836@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W2166301', 'address1': '5124 Washington Boulevard', 'address2': 'Unit 226', 'city': 'Fort Worth', 'state': 'TX', 'country': 'USA', 'zip': '89485'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W2166301'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W7739115', 'item_ids': ['1573035764'], 'payment_method_id': 'paypal_7529813'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W2466703', 'reason': 'ordered by mistake'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='omar.muller4197@example.com',
+        instruction='You are assisting a customer with email omar.muller4197@example.com who initially wanted to learn about the Backpack product, which comes in various colors like black, green, grey, and navy, with sizes from small to large, materials including nylon and polyester, and specialized compartments for camera, laptop, or hydration. You want to inform them about these options so they can choose based on their needs. Later, you are asked to update the shipping address for their pending order containing a 500-piece art-themed jigsaw puzzle and an A6 soft-cover notebook from Chicago to 5165 Oak Avenue, Apt 8, Dallas, TX, USA 70187, because they preferred delivery to that location. After that, you are instructed to cancel the same order because they no longer need the items. You prefer the refund to be processed back to the original payment method, which was a gift card.\n\nUse omar.muller4197@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '2524789262'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W7044833'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W7044833', 'address1': '5165 Oak Avenue', 'address2': 'Apt 8', 'city': 'Dallas', 'state': 'TX', 'country': 'USA', 'zip': '70187'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W7044833', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='juan.smith2463@example.com',
+        instruction='You are assisting Juan Smith (email: juan.smith2463@example.com) with his order changes. You want to first update the shipping address for your pending order—containing a white 4-cup drip coffee maker with auto shutoff and a bagged upright vacuum cleaner with pet hair removal—from Dallas to 516 Maple Lane, Apt 440, San Antonio, TX, USA 98778, because you will be relocating temporarily. You also want to update your default address to this new San Antonio address for future orders. Later, after reconsidering your needs, you have decided to cancel the entire order because you no longer require the items. You prefer the refund to be processed back to the original payment method, which was a gift card.\n\nUse juan.smith2463@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W1429524', 'address1': '516 Maple Lane', 'address2': 'Apt 440', 'city': 'San Antonio', 'state': 'TX', 'country': 'USA', 'zip': '98778'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'juan_smith_5229', 'address1': '516 Maple Lane', 'address2': 'Apt 440', 'city': 'San Antonio', 'state': 'TX', 'country': 'USA', 'zip': '98778'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W1429524'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W1429524', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='harper.ahmed7911@example.com',
+        instruction='You are assisting a customer with email harper.ahmed7911@example.com who initially wanted to update the shipping address for their pending order containing an electric toothbrush in white with low speed settings and rechargeable battery, an action camera with 5K resolution and waterproof in silver, a blue cycling helmet in size M with low ventilation, and a silver smart watch with leather band and AMOLED display. You want to change the shipping address to 5162 Jefferson Avenue, Suite 297, Seattle, WA, USA 67154, because the customer has relocated. You also want to update the default address to this new address for future orders. Before making these changes, you need to confirm the current order contents and product availability to ensure accuracy. Later, you will cancel the entire order, because the customer no longer needs the items. After cancellation, no further actions are required.\n\nUse harper.ahmed7911@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W6979932', 'address1': '5162 Jefferson Avenue', 'address2': 'Suite 297', 'city': 'Seattle', 'state': 'WA', 'country': 'USA', 'zip': '67154'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'aarav_gonzalez_5113', 'address1': '5162 Jefferson Avenue', 'address2': 'Suite 297', 'city': 'Seattle', 'state': 'WA', 'country': 'USA', 'zip': '67154'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W6979932'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W6979932', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='mei.kovacs4296@example.com',
+        instruction='You are Mei Kovacs, with email mei.kovacs4296@example.com, and you want to update the shipping address for your pending order—which includes a Portable Charger, Grill, Electric Kettle, Jigsaw Puzzle, and Garden Hose—from Columbus, OH to 1720 Oak Avenue, Suite 277, Austin, TX, USA 20739, because you have relocated. You are also interested in learning about available backpack options, particularly those with laptop or camera compartments, in various sizes and colors such as black, green, grey, or navy, made from nylon or polyester. Later, after considering your needs, you decide the original order is no longer required and would like to cancel it entirely, as the items are no longer needed. You prefer the refund to be processed back to the original payment method, which was a gift card.\n\nUse mei.kovacs4296@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W8193638', 'address1': '1720 Oak Avenue', 'address2': 'Suite 277', 'city': 'Austin', 'state': 'TX', 'country': 'USA', 'zip': '20739'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W8193638'}),
+            Action(name='get_product_details', kwargs={'product_id': '2524789262'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W8193638', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='omar.moore7625@example.com',
+        instruction='You are Omar Moore (email: omar.moore7625@example.com). You want to update the shipping address for your pending order—which includes an Electric Kettle, a Water Bottle, and a Smartphone—to 8276 Washington Boulevard, Floor 890, Portland, OR, USA 10215, because you need it delivered to a new location. You also want to check the details of the Action Camera product, which offers 4K resolution, waterproof build, and comes in black or silver, to confirm its features. Later, after reviewing your needs, you decide you no longer require the order and would like to cancel the entire order instead, with the reason that it is no longer needed. You prefer the refund to be processed back to the original payment method, which is your credit card.\n\nUse omar.moore7625@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W8058304', 'address1': '8276 Washington Boulevard', 'address2': 'Floor 890', 'city': 'Portland', 'state': 'OR', 'country': 'USA', 'zip': '10215'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W8058304'}),
+            Action(name='get_product_details', kwargs={'product_id': '3377618313'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W8058304', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='mei.gonzalez8775@example.com',
+        instruction='You are assisting Mei Gonzalez, whose email is mei.gonzalez8775@example.com. You want to return the navy small nylon laptop compartment backpack from the delivered order that shipped to San Jose, because it is no longer needed, and you prefer the refund to be issued to the Visa card ending in 3742, which was used for the original purchase. Later, you would like to cancel the pending order that includes a portable gas grill with a side burner, an A5 softcover notebook, a white wireless gaming mouse, a black large fleece jacket, and a red mesh office chair, because the items are no longer required.\n\nUse mei.gonzalez8775@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W7303089'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W7303089', 'item_ids': ['2492465580'], 'payment_method_id': 'credit_card_4387170'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W2052757', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='mei.davis6811@example.com',
+        instruction='You are assisting Mei Davis (mei.davis6811@example.com) with two order actions. First, you want to return the stainless steel blue 1000ml water bottle from the delivered order placed at the Denver address, because she no longer needs it, and you prefer the refund to be issued to her Mastercard ending in 1037. Later, you would like to cancel the pending order also placed at the Denver address, because she has decided she no longer needs the gaming mouse, headphones, air purifier, smart thermostat, and wireless earbuds included in that shipment.\n\nUse mei.davis6811@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W2890441'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W2890441', 'item_ids': ['2366567022'], 'payment_method_id': 'credit_card_1061405'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W1267569', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sofia.moore4274@example.com',
+        instruction='You are assisting Sofia Moore (sofia.moore4274@example.com). You want to exchange the 7-inch E-Reader with Wi-Fi + Cellular and 32GB storage from your delivered order for the 8-inch version with Wi-Fi and 8GB storage, because you prefer a larger screen and do not need cellular connectivity. You prefer the price difference to be charged to your Mastercard ending in 4061. Later, you would like to update the shipping address for your pending order to 5454 Main Street, Floor 913, Las Vegas, NV, USA 14993, because the original Washington, DC address is no longer valid for this shipment.\n\nUse sofia.moore4274@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W3338814'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W3338814', 'item_ids': ['4273929280'], 'new_item_ids': ['9494281769'], 'payment_method_id': 'credit_card_1893409'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W1812830', 'address1': '5454 Main Street', 'address2': 'Floor 913', 'city': 'Las Vegas', 'state': 'NV', 'country': 'USA', 'zip': '14993'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sofia.li5953@example.com',
+        instruction="You are assisting Sofia Li (sofia.li5953@example.com). You want to return the navy XL Fleece Jacket from the delivered order and exchange it for the black L size with a full zipper, because it better fits her preference for color and size. You prefer any price adjustment to be processed using the Mastercard ending in 8609. Later, you would like to update the shipping address for the pending order to 7461 Elm Street, Suite 251, Seattle, WA, USA 34206, to ensure delivery to the correct location. After that, if the address change cannot be completed, you would like the pending order cancelled with the reason 'ordered by mistake', as it was placed in error.\n\nUse sofia.li5953@example.com for authentication.",
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W6874763'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W6874763', 'item_ids': ['7528037711'], 'payment_method_id': 'credit_card_4046723'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W6874763', 'item_ids': ['7528037711'], 'new_item_ids': ['9385662952'], 'payment_method_id': 'credit_card_4046723'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W1557241', 'address1': '7461 Elm Street', 'address2': 'Suite 251', 'city': 'Seattle', 'state': 'WA', 'country': 'USA', 'zip': '34206'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W1557241', 'reason': 'ordered by mistake'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='aarav.davis1165@example.com',
+        instruction='You are Aarav Davis, with email aarav.davis1165@example.com, and you want to update the shipping address for your pending order containing a white gaming mouse, a white desk lamp, red in-ear headphones, a black 3-piece softshell luggage set, and a 1L silver glass electric kettle to 4237 Main Street, Apt 90, San Francisco, CA, USA 90686 because you need it delivered to a new location. You also want your default address updated to this new San Francisco address for future orders. Later, after making these changes, you decide you no longer need the items, so you would like to cancel the entire order #W7430166. You prefer the refund to be processed back to the original payment method, which was a gift card.\n\nUse aarav.davis1165@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W7430166', 'address1': '4237 Main Street', 'address2': 'Apt 90', 'city': 'San Francisco', 'state': 'CA', 'country': 'USA', 'zip': '90686'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'aarav_davis_4756', 'address1': '4237 Main Street', 'address2': 'Apt 90', 'city': 'San Francisco', 'state': 'CA', 'country': 'USA', 'zip': '90686'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W7430166'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W7430166', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='isabella.gonzalez1317@example.com',
+        instruction='You are assisting Isabella Gonzalez (email: isabella.gonzalez1317@example.com). You want to know what product types are available in the store to understand the range of items offered. You would like to update the shipping address for your pending order—which includes a 28-inch maple skateboard, an A4 soft-cover notebook, and a silver 2-piece hardshell luggage set—currently set to Fort Worth, TX, to a new address: 1628 Elm Street, Floor 54, Portland, OR, USA 42416, because you prefer delivery to this new location. You also want your default address updated to this same Portland address for future orders. Later, after reviewing the order status, you would like to cancel the order because you no longer need the items. You prefer the refund to be processed back to the original payment method, which is the credit card used for the purchase.\n\nUse isabella.gonzalez1317@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W1258841', 'address1': '1628 Elm Street', 'address2': 'Floor 54', 'city': 'Portland', 'state': 'OR', 'country': 'USA', 'zip': '42416'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'isabella_gonzalez_4546', 'address1': '1628 Elm Street', 'address2': 'Floor 54', 'city': 'Portland', 'state': 'OR', 'country': 'USA', 'zip': '42416'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W1258841'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W1258841', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='fatima.wilson5906@example.com',
+        instruction='You are assisting Fatima Wilson (email: fatima.wilson5906@example.com) with multiple order adjustments. First, you want to update the shipping address for her pending order (containing a blue leather office chair and a large gas grill) to 9746 Washington Boulevard, Unit 121, Las Vegas, NV, USA 46878, because she realized the original Austin address was incorrect. Later, you will cancel this entire order because she decided it was placed by mistake. Separately, for her delivered order from Los Angeles, you would like to exchange the 1L silver glass electric kettle for the 2L white glass version because she prefers a larger capacity and a more modern look. You also want to return the blue wired over-ear headphones from the same order because they do not suit her needs. Both the exchange and return should be processed using her PayPal account (ending in 7685859) for refund and payment handling, as that was her preferred method for the original transaction.\n\nUse fatima.wilson5906@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W1443906', 'address1': '9746 Washington Boulevard', 'address2': 'Unit 121', 'city': 'Las Vegas', 'state': 'NV', 'country': 'USA', 'zip': '46878'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W1443906', 'reason': 'ordered by mistake'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W7990410'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W7990410', 'item_ids': ['1240311797'], 'new_item_ids': ['4064702754'], 'payment_method_id': 'paypal_7685859'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W7990410', 'item_ids': ['5635439102'], 'payment_method_id': 'paypal_7685859'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='noah.martin8712@example.com',
+        instruction='You are assisting Noah Martin (email: noah.martin8712@example.com) who wants to update the shipping address for his pending order to 1416 Park Drive, Apt 415, Portland, OR, USA 85618 because he has moved. After updating the address, he would like to cancel the entire order because it was placed by mistake and includes a vacuum cleaner, a blue v-neck cotton T-shirt in size S, and a space grey 15-inch laptop with i5 processor, 32GB RAM, and 256GB SSD. Later, he would like to exchange the mechanical keyboard from his delivered order, which currently has clicky switches and white backlighting, for a full-size version with tactile switches and white backlighting instead, because he prefers a quieter and smoother typing experience. You prefer to use the original PayPal payment method for any refund or price difference associated with these changes.\n\nUse noah.martin8712@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W7594624', 'address1': '1416 Park Drive', 'address2': 'Apt 415', 'city': 'Portland', 'state': 'OR', 'country': 'USA', 'zip': '85618'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W7594624', 'reason': 'ordered by mistake'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W7594624'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W1971958', 'item_ids': ['6342039236'], 'new_item_ids': ['3616838507'], 'payment_method_id': 'paypal_7383471'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W1971958', 'item_ids': ['6342039236'], 'payment_method_id': 'paypal_7383471'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='noah.martin8712@example.com',
+        instruction='You are assisting Noah Martin (email: noah.martin8712@example.com). You want to update the shipping address for the pending order—which includes a bagless upright vacuum cleaner with HEPA filter, a blue cotton v-neck T-shirt in size S, and a 15-inch space grey laptop with i5 processor, 32GB RAM, and 256GB SSD—from Columbus, OH to 1830 Jackson Street, Apt 102, Portland, OR, USA 98560, because the delivery location has changed. Later, you would like to return the 10-inch wood-finish analog wall clock from the delivered order, because it is no longer needed, and you prefer the refund to be issued back to your PayPal account, as that was the original payment method.\n\nUse noah.martin8712@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W7594624', 'address1': '1830 Jackson Street', 'address2': 'Apt 102', 'city': 'Portland', 'state': 'OR', 'country': 'USA', 'zip': '98560'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W1971958'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W1971958', 'item_ids': ['6534134392'], 'payment_method_id': 'paypal_7383471'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='aarav.nguyen1293@example.com',
+        instruction='You are Aarav Nguyen, and your email is aarav.nguyen1293@example.com. You want to update the shipping address for your pending order, which includes a mechanical keyboard, hiking boots in size 7 made of synthetic material without waterproofing, and a green 25ft vinyl garden hose, to 7775 Jefferson Avenue, Floor 400, Austin, TX, USA 65401 because you have relocated temporarily. Later, you would like to return all items from your delivered order, specifically the blue wireless earbuds with 8-hour battery life and IPX4 water resistance and the same hiking boots in size 7 made of synthetic material without waterproofing, because they no longer fit your needs. You prefer the refund to be issued back to your gift card for future use.\n\nUse aarav.nguyen1293@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W2443586', 'address1': '7775 Jefferson Avenue', 'address2': 'Floor 400', 'city': 'Austin', 'state': 'TX', 'country': 'USA', 'zip': '65401'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W7728728'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W7728728', 'item_ids': ['8555936349', '1437889264'], 'payment_method_id': 'gift_card_2742113'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='ava.nguyen1851@example.com',
+        instruction="You are assisting Ava Nguyen, who is authenticated with the email ava.nguyen1851@example.com. You want to update the shipping address for her pending order—which includes a women's woody-scented 30ml perfume—to 5087 Washington Boulevard, Suite 668, San Jose, CA, USA 16971, because she needs it delivered to a new location. Later, you would like to change the payment method for the same order from PayPal to her Visa card ending in 3061, as she prefers to use this card for the purchase. After that, if she decides the item is no longer needed, you would like to cancel the order with the reason 'no longer needed'. Subsequently, you want to browse the full list of product types offered, to explore available options. After reviewing the catalog, you would like to see detailed information about the Action Camera, specifically the model with 4K resolution and waterproof capability, to evaluate its features for potential interest.\n\nUse ava.nguyen1851@example.com for authentication.",
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W8732376', 'address1': '5087 Washington Boulevard', 'address2': 'Suite 668', 'city': 'San Jose', 'state': 'CA', 'country': 'USA', 'zip': '16971'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W8732376', 'payment_method_id': 'credit_card_3975380'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W8732376', 'reason': 'no longer needed'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '3377618313'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sophia.thomas1364@example.com',
+        instruction="You are Sophia Thomas (sophia.thomas1364@example.com). You want to update the shipping address for your pending order (items: white wood bookshelf, silver 7-inch tablet, blue fabric and gray leather office chairs) to 123 Oak Avenue, Suite 100, Houston, TX, USA 77001 because it was initially shipped to the wrong location. After that, you would like to change the payment method to your Visa card ending in 9858 for this order, as you prefer using your credit card for better purchase protection. If the payment method cannot be changed, you would like to cancel the entire order with the reason 'ordered by mistake'. Separately, you want to return the green 6mm PVC yoga mat from your delivered order (originally shipped to Dallas) because it does not meet your expectations, and you prefer the refund to be processed back to the original payment method used (credit card) for consistency and faster processing.\n\nUse sophia.thomas1364@example.com for authentication.",
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W4862767', 'address1': '123 Oak Avenue', 'address2': 'Suite 100', 'city': 'Houston', 'state': 'TX', 'country': 'USA', 'zip': '77001'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W4862767', 'payment_method_id': 'credit_card_7326294'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W4862767', 'reason': 'ordered by mistake'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W1867876'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W1867876', 'item_ids': ['7510236436'], 'payment_method_id': 'credit_card_1034663'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='yusuf.garcia2909@example.com',
+        instruction="You are Yusuf Garcia, with email yusuf.garcia2909@example.com. You want to update the shipping address for your pending order—containing Hiking Boots in size 11, a black 13-inch laptop with i7 processor and 32GB RAM, and a small ionic air purifier—to 2236 Lincoln Street, Apt 419, New York, NY, USA 72064, because you’ve moved temporarily. After that, you would like to change the payment method from the original gift card to your Mastercard ending in 3762 for better expense tracking. If the payment update fails, you prefer to cancel the entire order with the reason 'ordered by mistake' to avoid unintended charges. Separately, you would like to return the black Electric Toothbrush with high speed settings from your delivered order—shipped to Washington, DC—and receive a refund back to your original PayPal account used at purchase, because it doesn’t meet your expectations for daily use.\n\nUse yusuf.garcia2909@example.com for authentication.",
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W2564042', 'address1': '2236 Lincoln Street', 'address2': 'Apt 419', 'city': 'New York', 'state': 'NY', 'country': 'USA', 'zip': '72064'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W2564042', 'payment_method_id': 'credit_card_8405687'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W2564042', 'reason': 'ordered by mistake'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W2286012'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W2286012', 'item_ids': ['8098621301'], 'payment_method_id': 'paypal_7503218'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='omar.muller2208@example.com',
+        instruction='You are assisting Omar Muller (email: omar.muller2208@example.com). You want to first understand the available product types, particularly the Cycling Helmet, to make informed decisions. You would like to exchange the blue Cycling Helmet (size S) from your delivered order for a red one (size S), as you prefer the red color while keeping the same size and fit. You prefer this exchange to be processed using your PayPal account for any price adjustment. You also want to update the shipping address of your pending order to 3238 Madison Drive, Suite 426, Portland, OR, USA 50324, because you will be relocating temporarily. After that, you want your default profile address updated to the same Portland address for future orders. Later, after confirming the address change on the pending order, you decide to cancel that order entirely because your needs have changed and you no longer require the items. Throughout, you prefer clear communication and confirmation of each step.\n\nUse omar.muller2208@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '7765186836'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W8343509', 'address1': '3238 Madison Drive', 'address2': 'Suite 426', 'city': 'Portland', 'state': 'OR', 'country': 'USA', 'zip': '50324'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'omar_muller_8833', 'address1': '3238 Madison Drive', 'address2': 'Suite 426', 'city': 'Portland', 'state': 'OR', 'country': 'USA', 'zip': '50324'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W9941744', 'item_ids': ['5886093635'], 'new_item_ids': ['3358616356'], 'payment_method_id': 'paypal_4439305'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W8343509'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W8343509', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='isabella.johansson9391@example.com',
+        instruction='You are Isabella Johansson, with email isabella.johansson9391@example.com. You first wanted to browse the available skateboard variants, particularly interested in those with a graphic design. You then wanted to update the shipping address for your pending order (containing a vacuum cleaner, portable charger, e-reader, garden hose, and office chair) from Jacksonville, FL to 812 Cedar Avenue, Suite 500, Houston, TX, USA 77129, and simultaneously exchange the plain bamboo skateboard (31 inch) from your delivered order for a new skateboard with a graphic design, preferring models with bamboo or maple decks and similar length, using your PayPal account for any price adjustment. Later, you changed your mind and decided to cancel the pending order entirely, so you no longer need the address update. You prefer the exchange to proceed with a skateboard that has a graphic design over the plain one you received, and any refund or charge should be processed through your PayPal.\n\nUse isabella.johansson9391@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '1968349452'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W2575533', 'address1': '812 Cedar Avenue', 'address2': 'Suite 500', 'city': 'Houston', 'state': 'TX', 'country': 'USA', 'zip': '77129'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'isabella_johansson_2152', 'address1': '812 Cedar Avenue', 'address2': 'Suite 500', 'city': 'Houston', 'state': 'TX', 'country': 'USA', 'zip': '77129'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W3792453', 'item_ids': ['4293355847'], 'new_item_ids': ['5312063289'], 'payment_method_id': 'paypal_3024827'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W3792453'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W2575533', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='emma.santos7683@example.com',
+        instruction='You are Emma Santos, with email emma.santos7683@example.com, and you have two pending orders. First, you want to update the shipping address for your pending order—which includes a blue leather office chair, a bamboo skateboard, two water bottles, and a space grey laptop—to 101 Ocean View Drive, Apt 4B, Miami, FL, USA 33101, because you need it delivered there. Later, you decide to cancel this order instead, because you placed it by mistake. Separately, you would like to modify the 3-piece Luggage Set in another pending order—from silver to blue—because you prefer the blue color, and you prefer to use your Mastercard ending in 6380 for any price difference associated with this change.\n\nUse emma.santos7683@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W9903153', 'address1': '101 Ocean View Drive', 'address2': 'Apt 4B', 'city': 'Miami', 'state': 'FL', 'country': 'USA', 'zip': '33101'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W9903153', 'reason': 'ordered by mistake'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W1620235'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W1620235', 'item_ids': ['6690069155'], 'new_item_ids': ['6301799585'], 'payment_method_id': 'credit_card_5869505'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='raj.lopez2997@example.com',
+        instruction='You are assisting Raj Lopez (email: raj.lopez2997@example.com). You want to first update the shipping address for an order containing a black stainless steel 500ml water bottle, a bamboo 31-inch graphic skateboard, and synthetic size 9 hiking boots from Fort Worth, TX to 5363 Maple Lane, Unit 6, Boston, MA, USA 43625, because the original delivery location is no longer valid. However, you later decide to cancel this order entirely because the items are no longer needed. After that, you would like to modify another pending order containing a black polyester crew neck T-Shirt in size S and a bagless canister vacuum cleaner by exchanging the T-shirt for a blue cotton crew neck T-Shirt in size M, as you prefer the larger size and more comfortable material. You would like the price difference from this exchange to be refunded, and you prefer the refund to be issued back to your Mastercard ending in 3803.\n\nUse raj.lopez2997@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3502364', 'address1': '5363 Maple Lane', 'address2': 'Unit 6', 'city': 'Boston', 'state': 'MA', 'country': 'USA', 'zip': '43625'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W3502364', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W7162915'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W7162915', 'item_ids': ['1176194968'], 'new_item_ids': ['9612497925'], 'payment_method_id': 'credit_card_6731308'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='harper.khan1177@example.com',
+        instruction='You are assisting Harper Khan (email: harper.khan1177@example.com). You want to return the Espresso Machine from the delivered order (shipped to Philadelphia) because you no longer need it, and you prefer the refund to be issued back to your gift card. Later, you would like to update the shipping address for your pending electronics order (currently shipping to San Diego) to 1946 Lincoln Street, Apt 556, Oklahoma City, OK, USA 61524, because you temporarily reconsidered the delivery location. After that, you would like to cancel the entire pending order because you realized it was placed by mistake and no longer wish to proceed with it.\n\nUse harper.khan1177@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W3134391'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W3134391', 'item_ids': ['7806008610'], 'payment_method_id': 'gift_card_6445682'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W8073958', 'address1': '7727 Adams Road', 'address2': 'Floor 382', 'city': 'Oklahoma City', 'state': 'OK', 'country': 'USA', 'zip': '63362'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W8073958', 'reason': 'ordered by mistake'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sofia.hernandez3039@example.com',
+        instruction='You are assisting Sofia Hernandez (sofia.hernandez3039@example.com) with a series of order actions. First, you want to return the espresso machine (19 bar, 1L capsule type) from a delivered order originally shipped to Seattle, because it is no longer needed, and you prefer the refund be issued to the original payment method, your Visa ending in 7312. Later, for a pending order containing a portable gas grill, you would like to update the shipping address to 6987 Park Drive, Unit 190, Charlotte, NC, USA 75387, to redirect delivery. After that, you would like to cancel the entire order because the item is no longer required.\n\nUse sofia.hernandez3039@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W6876713'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W6876713', 'item_ids': ['6200867091'], 'payment_method_id': 'credit_card_7901829'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3561391', 'address1': '6987 Park Drive', 'address2': 'Unit 190', 'city': 'Charlotte', 'state': 'NC', 'country': 'USA', 'zip': '75387'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W3561391', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='fatima.wilson5906@example.com',
+        instruction='You are assisting Fatima Wilson (email: fatima.wilson5906@example.com). You want to exchange the 1L glass silver Electric Kettle from her delivered order for a 1.5L glass white Electric Kettle because she prefers a larger capacity and a more modern look, and you prefer the price difference to be processed using her PayPal account. Later, for her pending order, you would like to update the shipping address to 9217 Madison Drive, Apt 90, San Jose, CA, USA 48839, and change the payment method to PayPal for consistency and convenience. After that, you would like to browse the available product types, with a specific interest in learning more about Electric Kettles, as she is considering additional purchases in that category.\n\nUse fatima.wilson5906@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W7990410'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W7990410', 'item_ids': ['1240311797'], 'new_item_ids': ['9472539378'], 'payment_method_id': 'paypal_7685859'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W7990410', 'item_ids': ['1240311797'], 'payment_method_id': 'paypal_7685859'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W1443906', 'address1': '9217 Madison Drive', 'address2': 'Apt 90', 'city': 'San Jose', 'state': 'CA', 'country': 'USA', 'zip': '48839'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W1443906', 'payment_method_id': 'paypal_7685859'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W1443906', 'reason': 'no longer needed'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '1075968781'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='harper.brown3965@example.com',
+        instruction="You are assisting Harper Brown (email: harper.brown3965@example.com). You want to exchange one of the two identical navy XL fleece jackets with half zippers from a delivered order for the same jacket but with a full zipper, because you prefer the full-zip version for easier use. You prefer the replacement item to be the navy XL full-zip variant of the same fleece jacket, and you would like the small price difference covered using your PayPal account, which was used for the original purchase. Later, for a pending order containing a smart watch, tea kettle, perfume, electric toothbrush, and hiking boots, you would like to update the shipping address to 841 Park Drive, Floor 951, Jacksonville, FL, USA 25340, because the items need to be sent to a new location. You also want to change the payment method for this order from the current credit card to your PayPal account, as you prefer using PayPal for better purchase protection. After that, you would like to browse the full catalog of available product types to explore other offerings. Finally, you want detailed information about the Perfume product, particularly the men's woody 100ml variant in your pending order, to better understand its features and available options.\n\nUse harper.brown3965@example.com for authentication.",
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W1840144'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W1840144', 'item_ids': ['8590708195'], 'new_item_ids': ['7528037711'], 'payment_method_id': 'paypal_2306935'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W1840144', 'item_ids': ['8590708195'], 'payment_method_id': 'paypal_2306935'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W2273069', 'address1': '841 Park Drive', 'address2': 'Floor 951', 'city': 'Jacksonville', 'state': 'FL', 'country': 'USA', 'zip': '25340'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W2273069', 'payment_method_id': 'paypal_2306935'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W2273069', 'reason': 'no longer needed'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '6858788497'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='yara.lee9368@example.com',
+        instruction='You are Yara Lee, and your email is yara.lee9368@example.com. You want to update the shipping address for your pending order to 963 Madison Drive, Unit 475, Nashville, TN, USA 34576 because you will be relocating. You prefer to change the payment method from your Mastercard to your Visa card ending in 6367 for better rewards tracking. You also want to modify the Mechanical Keyboard in your order to a full-size clicky switch variant without backlighting because you find backlighting distracting in low-light environments. Later, after making these changes, you reconsider and decide to cancel the entire order because your needs have changed and you no longer require the items. After cancellation, you would like to browse the full range of available product types in the store to explore other options that might better suit your current lifestyle.\n\nUse yara.lee9368@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3320020', 'address1': '963 Madison Drive', 'address2': 'Unit 475', 'city': 'Nashville', 'state': 'TN', 'country': 'USA', 'zip': '34576'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W3320020', 'payment_method_id': 'credit_card_6450164'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W3320020', 'item_ids': ['6342039236'], 'new_item_ids': ['7706410293'], 'payment_method_id': 'credit_card_6450164'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W3320020', 'reason': 'no longer needed'}),
+            Action(name='list_all_product_types', kwargs={}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='emma.ito3790@example.com',
+        instruction='You are Emma Ito, and your email is emma.ito3790@example.com. You initially wanted to update the shipping address for your pending order containing a 1000ml stainless steel blue water bottle from Philadelphia to Denver, as you planned to receive it there. Later, you decided you no longer needed the item and would like to cancel the order instead. After the cancellation, you became interested in exploring the full range of products available, so you would like to see a list of all product types the store offers to browse other options.\n\nUse emma.ito3790@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W8664580', 'address1': '9364 Jackson Street', 'address2': 'Floor 370', 'city': 'Denver', 'state': 'CO', 'country': 'USA', 'zip': '92601'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W8664580', 'reason': 'no longer needed'}),
+            Action(name='list_all_product_types', kwargs={}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sofia.li5953@example.com',
+        instruction='You are assisting Sofia Li (sofia.li5953@example.com) with two order actions. First, you want to exchange the navy Fleece Jacket in size XL with a full zipper, received in her delivered order, for the same jacket but with a half zipper instead, because she prefers the half-zip style for easier layering. You prefer to use her Mastercard ending in 8609 for any price difference. Later, you will update the shipping address for her pending order to 1279 Cedar Road, Unit 851, Philadelphia, PA, USA 44260, and also update her default address to this new location. After that, you would like to cancel the pending order entirely because she no longer needs the items.\n\nUse sofia.li5953@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W6874763'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W6874763', 'item_ids': ['7528037711'], 'new_item_ids': ['8590708195'], 'payment_method_id': 'credit_card_4046723'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W1557241', 'address1': '9244 Adams Road', 'address2': 'Suite 688', 'city': 'Columbus', 'state': 'OH', 'country': 'USA', 'zip': '68973'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'sofia_li_3261', 'address1': '9244 Adams Road', 'address2': 'Suite 688', 'city': 'Columbus', 'state': 'OH', 'country': 'USA', 'zip': '68973'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W1557241', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='ava.lopez3569@example.com',
+        instruction='You are Ava Lopez, with email ava.lopez3569@example.com. You want to return the 750ml stainless steel blue water bottle from your delivered order (containing a Digital Camera and the water bottle, shipped to San Diego) because it does not meet your preference for material and color, and initially requested a refund to your gift card. Later, you decided to exchange that water bottle for a 750ml glass black one instead, because you prefer glass over stainless steel and black over blue for aesthetic and environmental reasons, and you prefer to pay any price difference using your Mastercard ending in 9677. Separately, you would like to update the shipping address for your pending order (containing a Skateboard, Headphones, Air Purifier, Laptop, and Sunglasses, originally going to Chicago) to 6930 Pine Avenue, Apt 80, Phoenix, AZ, USA 57490, because you will be traveling. After that, you would like to cancel the entire pending order because your plans changed and you no longer need the items. Additionally, you want to browse the full product catalog to explore available items, and you are particularly interested in the Digital Camera product, seeking detailed information about its features such as resolution, zoom, and storage.\n\nUse ava.lopez3569@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W2941275'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W2941275', 'item_ids': ['7843064651'], 'payment_method_id': 'gift_card_4855547'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W2941275', 'item_ids': ['7843064651'], 'new_item_ids': ['4579334072'], 'payment_method_id': 'credit_card_7772870'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W8327915', 'address1': '6930 Pine Avenue', 'address2': 'Apt 80', 'city': 'Phoenix', 'state': 'AZ', 'country': 'USA', 'zip': '57490'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W8327915', 'reason': 'no longer needed'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '8940227892'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='daiki.johnson2279@example.com',
+        instruction='You are Daiki Johnson, with email daiki.johnson2279@example.com. You want to exchange the canister vacuum cleaner from your delivered order (containing items like the air purifier and patio umbrella, shipped to Denver) for a robotic vacuum with HEPA filter, because you prefer automated cleaning with better air filtration. You prefer to use your PayPal account for any price adjustment. Later, you would like to update the shipping address for your pending order (which includes a glass tea kettle) to 1747 Maple Lane, Apt 279, Denver, CO, USA 75590, as you have moved to a new apartment. After that, you would like to browse all available product types in the store for future shopping reference, and specifically review the variants of vacuum cleaners to understand the options with features like HEPA filter, robotic operation, and pet hair removal.\n\nUse daiki.johnson2279@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W9502127'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W9502127', 'item_ids': ['2872451762'], 'payment_method_id': 'paypal_2433177'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W9502127', 'item_ids': ['2872451762'], 'new_item_ids': ['4725166838'], 'payment_method_id': 'paypal_2433177'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W1436802', 'address1': '1747 Maple Lane', 'address2': 'Apt 279', 'city': 'Denver', 'state': 'CO', 'country': 'USA', 'zip': '75590'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W1436802', 'reason': 'no longer needed'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '1762337868'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='james.martin9857@example.com',
+        instruction='You are james.martin9857@example.com and have a pending order containing a red cotton XXL crew neck T-shirt, a stainless steel smart thermostat compatible with Amazon Alexa, a white-dial silicone-strap wristwatch, a 100ft rubber black garden hose, and a small green polyester camera compartment backpack, originally shipping to 153 Cedar Street, Suite 769, San Diego, CA, USA 92112. You want to update the payment method to your Visa card ending in 1826 for better record-keeping and rewards. After that, you would like to change the shipping address to 7953 Elm Street, Unit 241, San Diego, CA, USA 97886, to align with your current location. Later, you intend to cancel the entire order because you no longer need the items.\n\nUse james.martin9857@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W3043531'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W3043531', 'payment_method_id': 'credit_card_7083997'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3043531', 'address1': '7953 Elm Street', 'address2': 'Unit 241', 'city': 'San Diego', 'state': 'CA', 'country': 'USA', 'zip': '97886'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W3043531', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='yusuf.garcia2909@example.com',
+        instruction='You are assisting Yusuf Garcia (yusuf.garcia2909@example.com) with a pending order originally shipped to Indianapolis. You want to update the payment method from a gift card to his Mastercard ending in 3762 because he prefers using his card for this transaction. Later, you would like to change the shipping address to 7477 Maple Lane, Unit 341, Denver, CO, USA 86198, as the delivery location has changed. After that, you would like to cancel the entire order because he no longer needs the items, which include a pair of size 11 leather hiking boots, a black 13-inch laptop with i7 processor and 32GB RAM, and a small-room air purifier with quiet operation.\n\nUse yusuf.garcia2909@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W2564042'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W2564042', 'payment_method_id': 'credit_card_8405687'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W2564042', 'address1': '7477 Maple Lane', 'address2': 'Unit 341', 'city': 'Denver', 'state': 'CO', 'country': 'USA', 'zip': '86198'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W2564042', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='liam.thomas9081@example.com',
+        instruction='You are a customer with the email liam.thomas9081@example.com who wants to modify a pending order containing an e-reader and an air purifier. You want to change the payment method for this order to PayPal because you prefer using it for better purchase protection. You would like to exchange the 7-inch, 8GB e-reader for the 8-inch, 32GB Wi-Fi model because you prefer a larger screen and more storage for reading comfort and holding more books. After that, you want to update the shipping address to 3087 Main Street, Suite 292, San Antonio, TX, USA 21404, as the items are now intended for a different location. Later, you would like to cancel your other pending order that includes a bamboo skateboard, a black 2-piece luggage set, and a blue 20,000mAh portable charger because you no longer need these items.\n\nUse liam.thomas9081@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W1654931'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W1654931', 'payment_method_id': 'paypal_3650980'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W1654931', 'item_ids': ['6268080249'], 'new_item_ids': ['7609274509'], 'payment_method_id': 'paypal_3650980'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W1654931', 'address1': '3087 Main Street', 'address2': 'Suite 292', 'city': 'San Antonio', 'state': 'TX', 'country': 'USA', 'zip': '21404'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W3295833', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='yusuf.garcia2909@example.com',
+        instruction='You are assisting Yusuf Garcia (email: yusuf.garcia2909@example.com). You want to update his pending order containing a black 13-inch i7 laptop, hiking boots, and an air purifier. First, you prefer to change the payment method from a gift card to his Mastercard ending in 3762 for better expense tracking. Then, you would like to exchange the current 13-inch black i7 laptop for the 15-inch black i9 model because you need more processing power and a larger screen. After that, you want to update the shipping address to 522 Jackson Street, Suite 967, Jacksonville, FL, USA 78220 for better delivery access. Later, you would like to cancel your other pending order for a grey medium polyester backpack because you no longer need it.\n\nUse yusuf.garcia2909@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W2564042'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W2564042', 'payment_method_id': 'credit_card_8405687'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W2564042', 'item_ids': ['1657832319'], 'new_item_ids': ['2913673670'], 'payment_method_id': 'credit_card_8405687'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W2564042', 'address1': '522 Jackson Street', 'address2': 'Suite 967', 'city': 'Jacksonville', 'state': 'FL', 'country': 'USA', 'zip': '78220'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W6885344', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='raj.lopez2997@example.com',
+        instruction='You are assisting a customer with email raj.lopez2997@example.com who has a pending order. You want to update the shipping address for this order to 592 Jefferson Avenue, Unit 299, Chicago, IL, USA 26327 because it needs to be redirected to a new location. Later, you would like to change the payment method for the same order to PayPal for easier transaction tracking and personal budgeting. You also want to get detailed information about the Action Camera, which offers 4K resolution, waterproofing, and comes in black or silver, to evaluate its suitability for outdoor use. After that, you would like to browse the full list of available product types in the store, including items like Backpacks, Bicycles, Smart Watches, and Water Bottles, to explore other potential purchases and discover new products of interest.\n\nUse raj.lopez2997@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3502364', 'address1': '592 Jefferson Avenue', 'address2': 'Unit 299', 'city': 'Chicago', 'state': 'IL', 'country': 'USA', 'zip': '26327'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W3502364', 'payment_method_id': 'paypal_7007375'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W3502364'}),
+            Action(name='get_product_details', kwargs={'product_id': '3377618313'}),
+            Action(name='list_all_product_types', kwargs={}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='ethan.santos9082@example.com',
+        instruction='You are assisting Ethan Santos (email: ethan.santos9082@example.com) with his pending order originally shipped to San Jose. You want to update the shipping address to 3573 Park Drive, Suite 662, Seattle, WA, USA 49869 because he has relocated temporarily for work. Later, you would like to change the payment method from PayPal to his Mastercard ending in 9443 for better rewards tracking. You are also interested in learning about the available variants for the Backpack product, particularly noting options in different colors, sizes, materials, and compartment types such as camera, hydration, or laptop, to consider a future purchase. After that, you would like a full overview of all product types currently offered in the catalog to explore potential new purchases across categories such as electronics, outdoor gear, and home goods.\n\nUse ethan.santos9082@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W5320242', 'address1': '3573 Park Drive', 'address2': 'Suite 662', 'city': 'Seattle', 'state': 'WA', 'country': 'USA', 'zip': '49869'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W5320242', 'payment_method_id': 'credit_card_9784468'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W5320242'}),
+            Action(name='get_product_details', kwargs={'product_id': '2524789262'}),
+            Action(name='list_all_product_types', kwargs={}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='yara.johansson3155@example.com',
+        instruction='You are Yara Johansson, authenticated with email yara.johansson3155@example.com. You want to explore the available product types, particularly interested in Cycling Helmets. You found one you liked but prefer the red color over the blue. For your pending order containing a wristwatch, office chair, and two jigsaw puzzles, you want to update the shipping address to 7676 Main Street, Floor 288, Houston, TX, USA 23764 because it is your current residence. Later, for your delivered order containing a blue Cycling Helmet in size S, you would like to exchange it for the red Cycling Helmet in the same size because you prefer the red color. You prefer any price difference to be processed using your Mastercard ending in 5736.\n\nUse yara.johansson3155@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '7765186836'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3372648', 'address1': '7676 Main Street', 'address2': 'Floor 288', 'city': 'Houston', 'state': 'TX', 'country': 'USA', 'zip': '23764'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W9994227'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W9994227', 'item_ids': ['5886093635'], 'payment_method_id': 'credit_card_4582364'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W9994227', 'item_ids': ['5886093635'], 'new_item_ids': ['3358616356'], 'payment_method_id': 'credit_card_4582364'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='ethan.lopez8943@example.com',
+        instruction='You are assisting ethan.lopez8943@example.com, who is exploring product options and managing two pending orders. You want to first review all available product types, with a focus on Coffee Maker variants, to inform a feature upgrade decision. Then, for a pending order containing a stainless steel 4-cup drip Coffee Maker with built-in grinder, you would like to change it to the same model but with auto shutoff instead, because you prefer safety and energy-saving features over the grinder. You prefer the price difference to be handled using your gift card, as it was the original payment method. Later, you will request to cancel another pending order that includes a skateboard, wristwatch, bookshelf, and smartphone, because you no longer need those items and wish to prevent unnecessary charges.\n\nUse ethan.lopez8943@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '7996920482'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W6779827'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W6779827', 'item_ids': ['1323134954'], 'new_item_ids': ['3039787582'], 'payment_method_id': 'gift_card_7219486'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W6426438', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='ethan.santos9082@example.com',
+        instruction='You are ethan.santos9082@example.com and you have two pending orders. For your order containing a red 2-piece softshell luggage set, a black silicone-band smart watch, a blue large cycling helmet, a 2K indoor security camera, and a 7-inch black tablet — originally shipping to San Jose — you want to update the shipping address to 7683 Jackson Street, Unit 280, Austin, TX, USA 90025 because you’ve relocated. You also prefer to change the payment method from PayPal to your Mastercard ending in 9443 for better rewards tracking. Later, you would like to cancel your other pending order that includes a grey medium polyester pet bed, a white wireless gaming mouse, and a red high-back leather office chair, as you no longer need these items.\n\nUse ethan.santos9082@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W5320242', 'address1': '7683 Jackson Street', 'address2': 'Unit 280', 'city': 'Austin', 'state': 'TX', 'country': 'USA', 'zip': '90025'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W5320242', 'payment_method_id': 'credit_card_9784468'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W4642822'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W4642822', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='liam.li2557@example.com',
+        instruction='You are assisting Liam Li (email: liam.li2557@example.com). You want to update the shipping address for a pending order containing a coffee maker, wireless earbuds, smart thermostat, and pet bed to 5702 Jackson Street, Floor 58, San Jose, CA, USA 77743, because it was mistakenly set to Dallas. You also want your default address updated to this new San Jose address for future orders. Later, you would like to exchange a 31 inch graphic-design maple skateboard from a delivered order for a 28 inch plain-design maple skateboard, because you prefer a smaller and more minimalist style. You also want to return the A5 soft-cover notebook from the same delivered order, as it is no longer needed. You prefer all transactions, including any price difference or refund, to be processed using your Visa card ending in 3867.\n\nUse liam.li2557@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W9653558', 'address1': '5702 Jackson Street', 'address2': 'Floor 58', 'city': 'San Jose', 'state': 'CA', 'country': 'USA', 'zip': '77743'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'liam_li_5260', 'address1': '5702 Jackson Street', 'address2': 'Floor 58', 'city': 'San Jose', 'state': 'CA', 'country': 'USA', 'zip': '77743'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W8512927', 'item_ids': ['5120532699'], 'new_item_ids': ['3232433601'], 'payment_method_id': 'credit_card_7933535'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W8512927', 'item_ids': ['9799386954'], 'payment_method_id': 'credit_card_7933535'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='olivia.smith9157@example.com',
+        instruction='You are Olivia Smith (olivia.smith9157@example.com). You want to update the shipping address for your pending order containing a bicycle, perfume, skateboard, and digital camera to 2374 Jackson Street, Floor 144, Fort Worth, TX, USA 27052, because you have relocated. You also want your default address updated to this new address for future orders. Later, you would like to exchange the cycling helmet from your delivered order—currently in size M and blue—for the same model in size S and red, because the original size is too large and you prefer the red color. You prefer the exchange to be processed using your PayPal account for any price difference. If the exchange is not possible, you would like to return the helmet and receive a refund back to your PayPal.\n\nUse olivia.smith9157@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W1348609', 'address1': '2374 Jackson Street', 'address2': 'Floor 144', 'city': 'Fort Worth', 'state': 'TX', 'country': 'USA', 'zip': '27052'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'olivia_smith_8953', 'address1': '2374 Jackson Street', 'address2': 'Floor 144', 'city': 'Fort Worth', 'state': 'TX', 'country': 'USA', 'zip': '27052'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W3794101', 'item_ids': ['3339188619'], 'new_item_ids': ['3358616356'], 'payment_method_id': 'paypal_2076152'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W3794101', 'item_ids': ['3339188619'], 'payment_method_id': 'paypal_2076152'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='mia.moore8091@example.com',
+        instruction="You are Mia Moore (mia.moore8091@example.com) and you want to first explore the available product types, particularly the Bookshelf options, to understand your choices. Then, for your pending order with a vacuum cleaner, smart watch, and two glass white bookshelves, you want to update the shipping address to 710 Sunset Drive, Suite 303, Philadelphia, PA, USA 19186, because you've moved, and you prefer to change the payment method to your Mastercard ending in 2992 for better rewards tracking. Later, after receiving your delivered order containing a metal brown 6 ft bookshelf, you would like to exchange it for the wood white 5 ft model because you prefer a lighter, more natural look for your living room, and you want to use your Mastercard ending in 2992 for any price difference.\n\nUse mia.moore8091@example.com for authentication.",
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '8600330539'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3130288', 'address1': '710 Sunset Drive', 'address2': 'Suite 303', 'city': 'Philadelphia', 'state': 'PA', 'country': 'USA', 'zip': '19186'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W3130288', 'payment_method_id': 'credit_card_2641784'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W5544629'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W5544629', 'item_ids': ['6735339143'], 'new_item_ids': ['8479046075'], 'payment_method_id': 'credit_card_2641784'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='emma.kovacs6621@example.com',
+        instruction='You are assisting Emma Kovacs, whose email is emma.kovacs6621@example.com. You want to update the shipping address for her pending order—which includes a soft cover A6 notebook and a 25ft blue vinyl garden hose—to 8343 Adams Road, Floor 645, Detroit, MI, USA 38412, because she needs the items delivered to a new location. After updating the address, you would like to browse the full catalog of available product types to explore what else the store offers, including items like air purifiers, backpacks, bicycles, smartwatches, and yoga mats, so she can consider future purchases.\n\nUse emma.kovacs6621@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W2307204', 'address1': '8343 Adams Road', 'address2': 'Floor 645', 'city': 'Detroit', 'state': 'MI', 'country': 'USA', 'zip': '38412'}),
+            Action(name='list_all_product_types', kwargs={}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='ava.lopez3569@example.com',
+        instruction='You are Ava Lopez (ava.lopez3569@example.com) and you want to update the shipping address for your pending order—which includes a bamboo 34-inch custom skateboard, white wired on-ear headphones, a medium-room HEPA air purifier with night mode, a black 17-inch laptop with 32GB RAM and 1TB SSD, and black-framed brown polarized sunglasses—from Chicago to 7779 Lincoln Street, Unit 473, Dallas, TX, USA 96272 because you will be traveling. After the address update is confirmed, you would like to browse all the product types available in the store to explore new purchases once your current order is settled.\n\nUse ava.lopez3569@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W8327915', 'address1': '3356 Oak Avenue', 'address2': 'Floor 935', 'city': 'Dallas', 'state': 'TX', 'country': 'USA', 'zip': '27186'}),
+            Action(name='list_all_product_types', kwargs={}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='harper.brown3965@example.com',
+        instruction="You are assisting Harper Brown (harper.brown3965@example.com). You want to return the Desk Lamp in white with medium brightness and USB power source from a delivered order originally shipped to Fort Worth, TX, and you prefer the refund be issued back to your PayPal account. Later, you would like to update the shipping address for a pending order containing a gold Smart Watch, a glass tea kettle, a men's woody-scented 100ml perfume, a black electric toothbrush, and hiking boots to 7499 Washington Boulevard, Unit 127, New York, NY, USA 44129. After that, you would like to cancel that entire order because you no longer need the items. After handling the returns and cancellations, you would like to browse the current product catalog, specifically viewing all product types, and then reviewing available Laptop options, particularly those with 15-inch or 17-inch screens, i7 or i9 processors, 32GB RAM, and 1TB SSD storage, to explore new purchase possibilities.\n\nUse harper.brown3965@example.com for authentication.",
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W1840144'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W1840144', 'item_ids': ['8384507844'], 'payment_method_id': 'paypal_2306935'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W2273069', 'address1': '7499 Washington Boulevard', 'address2': 'Unit 127', 'city': 'New York', 'state': 'NY', 'country': 'USA', 'zip': '44129'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W2273069', 'reason': 'no longer needed'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '4760268021'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='mei.gonzalez8775@example.com',
+        instruction='You are Mei Gonzalez, with email mei.gonzalez8775@example.com. You want to return the navy small nylon laptop-compartment backpack from your delivered order (which included a pet bed) because you no longer need it, and you prefer the refund to be issued back to your original payment method, which is your Visa ending in 3742. Later, you would like to update the shipping address for your pending order (which includes a soft cover A5 notebook, a portable gas grill with side burner, a white wireless laser gaming mouse, a black large fleece jacket, and a red mesh office chair) to a new address in Chicago, Illinois. After that, you would like to cancel the entire pending order because you placed it by mistake. After handling the order changes, you would like to browse the available product types in the catalog to see what items are currently offered. Finally, you want detailed information about the Notebook product to evaluate available sizes and cover types, particularly comparing A5 soft cover to A4 hard cover options, for future consideration.\n\nUse mei.gonzalez8775@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W7303089'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W7303089', 'item_ids': ['2492465580'], 'payment_method_id': 'credit_card_4387170'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W2052757', 'address1': '9147 Pine Avenue', 'address2': 'Unit 23', 'city': 'Chicago', 'state': 'IL', 'country': 'USA', 'zip': '14758'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W2052757', 'reason': 'ordered by mistake'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '2892623495'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='liam.thomas4271@example.com',
+        instruction='You are assisting Liam Thomas (email: liam.thomas4271@example.com) with a pending order containing multiple items, including two digital cameras. You want to update the shipping address to 5239 Park Drive, Apt 852, Seattle, WA, USA 89478 because the original Washington, DC address is no longer valid. After that, you would like to change the payment method from PayPal to the Visa card ending in 6994 for better expense tracking. You also want to modify one of the digital cameras—specifically the 30MP model with 5x zoom and CF card storage—by switching it to the 30MP, 3x zoom, CF card variant because you prefer a more compact zoom lens while keeping the same image quality and storage type. You prefer the price difference to be refunded to your Mastercard ending in 1208. Later, after considering your needs, you decide to cancel the entire order because you no longer require the items. After that, you would like to browse the available digital camera options to explore different zoom and storage configurations, particularly interested in how 3x and 5x zoom models compare with CF and SD card storage across various resolutions.\n\nUse liam.thomas4271@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3761872', 'address1': '5239 Park Drive', 'address2': 'Apt 852', 'city': 'Seattle', 'state': 'WA', 'country': 'USA', 'zip': '89478'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W3761872', 'payment_method_id': 'credit_card_7287775'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W3761872', 'item_ids': ['6384525445'], 'new_item_ids': ['7255224608'], 'payment_method_id': 'credit_card_5089597'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W3761872', 'reason': 'no longer needed'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '8940227892'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='mia.moore8091@example.com',
+        instruction='You are assisting Mia Moore (mia.moore8091@example.com) with two sequential requests. First, you want to exchange the metal, brown, 6 ft Bookshelf from her delivered order (shipped to Philadelphia) for the wood, white, 5 ft version, because she prefers a more natural material and a smaller size that better fits her space. You prefer the refund for this exchange to be processed back to her PayPal account. Later, you will update the shipping address of her pending order (currently in San Francisco) to 6529 Elm Street, Floor 328, Denver, CO, USA 41796, because she has relocated. After that, you would like to change the payment method for this pending order from the current gift card to her Mastercard ending in 2992, as she prefers to use her card for tracking and rewards.\n\nUse mia.moore8091@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W5544629'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W5544629', 'item_ids': ['6735339143'], 'new_item_ids': ['8479046075'], 'payment_method_id': 'paypal_5181300'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W5544629', 'item_ids': ['6735339143'], 'payment_method_id': 'paypal_5181300'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3130288', 'address1': '6529 Elm Street', 'address2': 'Floor 328', 'city': 'Denver', 'state': 'CO', 'country': 'USA', 'zip': '41796'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W3130288', 'payment_method_id': 'credit_card_2641784'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W3130288', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='harper.kovacs6946@example.com',
+        instruction='You are assisting Harper Kovacs (harper.kovacs6946@example.com). You want to update the shipping address for a pending order currently set to San Francisco to 943 Maple Drive, Suite 356, Chicago, IL, USA 60621, because the delivery location has changed. Later, for a delivered order, you would like to exchange the 1L black glass electric kettle for the 2L white glass model because you prefer a larger capacity and a lighter color that matches your kitchen decor. You also want to return the large electric grill with rotisserie feature as it is no longer needed. You prefer any price difference or refund to be processed back to your PayPal account.\n\nUse harper.kovacs6946@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W7775097', 'address1': '943 Maple Drive', 'address2': 'Suite 356', 'city': 'Chicago', 'state': 'IL', 'country': 'USA', 'zip': '60621'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W5955464'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W5955464', 'item_ids': ['2323972008'], 'new_item_ids': ['4064702754'], 'payment_method_id': 'paypal_3246095'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W5955464', 'item_ids': ['4404981319'], 'payment_method_id': 'paypal_3246095'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='yusuf.garcia2909@example.com',
+        instruction='You are assisting Yusuf Garcia (yusuf.garcia2909@example.com). You want to update the shipping address for a pending order containing Hiking Boots, a Laptop, and an Air Purifier to 1786 Park Drive, Apt 627, Las Vegas, NV, USA 62009, because the original address in Indianapolis is no longer valid. Later, you would like to exchange the black Electric Toothbrush with rechargeable battery from a delivered order for the white variant that uses AA batteries, because you prefer the battery type and color. After that, you would like to return the Action Camera from the same delivered order, as it is no longer needed. You prefer any refund or price difference from these changes to be processed back to your PayPal account, as that was the original payment method used.\n\nUse yusuf.garcia2909@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W2564042', 'address1': '1786 Park Drive', 'address2': 'Apt 627', 'city': 'Las Vegas', 'state': 'NV', 'country': 'USA', 'zip': '62009'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W2286012'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W2286012', 'item_ids': ['8098621301'], 'new_item_ids': ['2645006275'], 'payment_method_id': 'paypal_7503218'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W2286012', 'item_ids': ['7523669277'], 'payment_method_id': 'paypal_7503218'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='harper.garcia9090@example.com',
+        instruction='You are Harper Garcia, with email harper.garcia9090@example.com, and you want to first browse the full catalog of available product types to explore what is offered. You then want to update the shipping address for your pending order—containing a red 4-piece luggage set, wired red in-ear headphones, and a bagged canister vacuum cleaner for pet hair—to 9044 Jefferson Avenue, Apt 158, Dallas, TX, USA 38276, because you need it delivered to a different location. You also want your default address in the system updated to this new address for future orders. Later, you decide to cancel this pending order entirely because you no longer need the items. After cancellation, you would like confirmation that the order has been successfully canceled. You prefer any refund, if applicable, to be returned to the original payment method, which is the credit card ending in 2369458.\n\nUse harper.garcia9090@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '3377618313'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W8360923', 'address1': '9044 Jefferson Avenue', 'address2': 'Apt 158', 'city': 'Dallas', 'state': 'TX', 'country': 'USA', 'zip': '38276'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'harper_garcia_5438', 'address1': '9044 Jefferson Avenue', 'address2': 'Apt 158', 'city': 'Dallas', 'state': 'TX', 'country': 'USA', 'zip': '38276'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W8360923', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W8360923'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sofia.rossi2645@example.com',
+        instruction='You are assisting Sofia Rossi (sofia.rossi2645@example.com). You want to update the shipping address for a pending order containing a Perfume, Skateboard, and two Action Cameras to 9250 Madison Drive, Unit 619, San Antonio, TX, USA 27839, because it was initially set to Austin. You also want to update her default address to this new one for future orders. At the same time, you would like to initiate a return for a delivered Vacuum Cleaner from another order, preferring a refund back to her Mastercard ending in 3357, as she no longer needs it. Later, you want to look up details for the Action Camera product to explore its available variants, such as resolution, color, and waterproof features, to better understand the options. After that, you would like to cancel another pending order containing a Makeup Kit, Coffee Maker, Tablet, and Office Chair, because the items are no longer needed.\n\nUse sofia.rossi2645@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W5918442', 'address1': '9250 Madison Drive', 'address2': 'Unit 619', 'city': 'San Antonio', 'state': 'TX', 'country': 'USA', 'zip': '27839'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'sofia_rossi_8776', 'address1': '9250 Madison Drive', 'address2': 'Unit 619', 'city': 'San Antonio', 'state': 'TX', 'country': 'USA', 'zip': '27839'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W8535951', 'item_ids': ['1304426904'], 'payment_method_id': 'credit_card_5051208'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W5918442'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '3377618313'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W5500815', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='daiki.johnson2279@example.com',
+        instruction='You are Daiki Johnson (daiki.johnson2279@example.com) and you want to update the shipping address for your pending order (containing a glass 1-liter tea kettle) to 3267 Jefferson Avenue, Floor 188, Fort Worth, TX, USA 27542, because you need it delivered to a new location. You also want to update your default address to this same Fort Worth address for future orders. Additionally, you would like to return the bagged canister vacuum cleaner with pet hair removal from your delivered order, because it no longer fits your needs, and you prefer the refund to be issued back to your PayPal account. Later, after browsing the available product catalog to explore other options, you decide to cancel the pending tea kettle order entirely because you no longer need it.\n\nUse daiki.johnson2279@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W1436802', 'address1': '3267 Jefferson Avenue', 'address2': 'Floor 188', 'city': 'Fort Worth', 'state': 'TX', 'country': 'USA', 'zip': '27542'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'daiki_johnson_9523', 'address1': '3267 Jefferson Avenue', 'address2': 'Floor 188', 'city': 'Fort Worth', 'state': 'TX', 'country': 'USA', 'zip': '27542'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W9502127', 'item_ids': ['2872451762'], 'payment_method_id': 'paypal_2433177'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W1436802'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '1762337868'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W1436802', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='harper.khan1177@example.com',
+        instruction="You are assisting a customer with email harper.khan1177@example.com who has a pending electronics order and a delivered espresso machine. You want to update the shipping address for the pending order to 2694 Washington Boulevard, Unit 708, New York, NY, USA 29066, because the customer needs the items delivered to a new location. Later, you will update the customer's default address to the same, to ensure future orders are sent to this preferred location. After that, you would like to exchange the delivered 1L capsule espresso machine for a 1.5L capsule model, because the customer prefers a larger water capacity for more convenience during daily use. You prefer any price difference to be charged to the Mastercard ending in 7159, as this is their preferred payment method for adjustments.\n\nUse harper.khan1177@example.com for authentication.",
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W8073958', 'address1': '2694 Washington Boulevard', 'address2': 'Unit 708', 'city': 'New York', 'state': 'NY', 'country': 'USA', 'zip': '29066'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'harper_khan_9597', 'address1': '2694 Washington Boulevard', 'address2': 'Unit 708', 'city': 'New York', 'state': 'NY', 'country': 'USA', 'zip': '29066'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W3134391'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W3134391', 'item_ids': ['7806008610'], 'new_item_ids': ['3815173328'], 'payment_method_id': 'credit_card_1719121'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='chen.taylor8995@example.com',
+        instruction='You are assisting Chen Taylor (email: chen.taylor8995@example.com) with a pending order originally shipping to San Antonio, TX. You want to update the shipping address for this order to 1731 Washington Boulevard, Suite 548, Charlotte, NC, USA 28944, because the delivery location has changed. You would like to know what other products are available in the store, so you can explore additional purchase options beyond your current order. Later, you want to review the full details of your pending order, which includes a bamboo 28-inch plain-design skateboard, an adjustable 30-50 lbs rubber dumbbell set, a full-size linear-switch mechanical keyboard, and a 7-inch silver 64GB tablet, to confirm item accuracy. After that, you would like specific information about the skateboard product you ordered, particularly its material and design options, to understand its features and compare with other available variants such as graphic or custom designs and different lengths. You prefer the order to remain on the original payment method, which was a gift card.\n\nUse chen.taylor8995@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W4111999', 'address1': '1731 Washington Boulevard', 'address2': 'Suite 548', 'city': 'Charlotte', 'state': 'NC', 'country': 'USA', 'zip': '28944'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W4111999'}),
+            Action(name='get_product_details', kwargs={'product_id': '1968349452'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='olivia.ito5204@example.com',
+        instruction='You are Olivia Ito, and your email is olivia.ito5204@example.com. You want to exchange the black size 11 synthetic sneakers from your delivered order for gray size 10 leather ones because they were too big, and you prefer the fit and material of the smaller leather pair. You prefer the price difference to be handled using your PayPal account. Later, you want to update the shipping address for your pending order and your default address to 5351 Adams Road, Apt 993, Los Angeles, CA, USA 30708. After that, you would like to cancel that pending order entirely because you no longer need the gaming mouse, patio umbrella, and hiking boots.\n\nUse olivia.ito5204@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W5866402'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W5866402', 'item_ids': ['9727387530'], 'new_item_ids': ['2509076505'], 'payment_method_id': 'paypal_8049766'}),
+            Action(name='get_product_details', kwargs={'product_id': '7471004230'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W5442520', 'address1': '5351 Adams Road', 'address2': 'Apt 993', 'city': 'Los Angeles', 'state': 'CA', 'country': 'USA', 'zip': '30708'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'olivia_ito_3591', 'address1': '5351 Adams Road', 'address2': 'Apt 993', 'city': 'Los Angeles', 'state': 'CA', 'country': 'USA', 'zip': '30708'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W5442520', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='chen.lopez1681@example.com',
+        instruction='You are assisting Chen Lopez (email: chen.lopez1681@example.com), who wants to exchange the black large backpack with a camera compartment from his delivered order for a grey large backpack with a hydration compartment, because he prefers the hydration feature and the grey color over the current one. You prefer the price difference to be handled using his PayPal account, which was previously used for payment. Later, you intended to update the shipping address for your pending order — which includes a mechanical keyboard — to 5812 Pine Avenue, Floor 808, Dallas, TX, USA 38705, and also update your default address to this new one. However, after that, you decided to cancel the pending order entirely because you no longer need the item.\n\nUse chen.lopez1681@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W9360566'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W9360566', 'item_ids': ['3928046918'], 'new_item_ids': ['5726859009'], 'payment_method_id': 'paypal_2833385'}),
+            Action(name='get_product_details', kwargs={'product_id': '2524789262'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W1790752', 'address1': '5812 Pine Avenue', 'address2': 'Floor 808', 'city': 'Dallas', 'state': 'TX', 'country': 'USA', 'zip': '38705'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'chen_lopez_3345', 'address1': '5812 Pine Avenue', 'address2': 'Floor 808', 'city': 'Dallas', 'state': 'TX', 'country': 'USA', 'zip': '38705'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W1790752', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='mei.gonzalez8775@example.com',
+        instruction='You are Mei Gonzalez, with email mei.gonzalez8775@example.com. You want to update the shipping address for your pending order—which includes an A5 soft cover notebook, a portable gas grill with side burner, a white wireless laser gaming mouse, a black large fleece jacket with full zipper, and a red mesh office chair with standard backrest and no armrests—from San Jose, CA to 4962 Lincoln Street, Apt 242, Las Vegas, NV, USA 60461. You also want your default address updated to this new Las Vegas address because you’ve relocated. Later, after reviewing the order details, you would like to change the payment method from PayPal to your Visa card ending in 3742 for better rewards tracking. After that, you would like to cancel the entire order because you no longer need the items, including the grill and office chair, as your plans have changed.\n\nUse mei.gonzalez8775@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W2052757', 'address1': '4962 Lincoln Street', 'address2': 'Apt 242', 'city': 'Las Vegas', 'state': 'NV', 'country': 'USA', 'zip': '60461'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'mei_gonzalez_4785', 'address1': '4962 Lincoln Street', 'address2': 'Apt 242', 'city': 'Las Vegas', 'state': 'NV', 'country': 'USA', 'zip': '60461'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W2052757'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W2052757', 'payment_method_id': 'credit_card_4387170'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W2052757', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='yusuf.garcia2909@example.com',
+        instruction='You are assisting Yusuf Garcia (email: yusuf.garcia2909@example.com) with his pending order containing hiking boots in size 11, a black 13-inch laptop with i7 processor and 32GB RAM, and a small air purifier with ionic filter. You want to update the shipping address for this order to 5681 Lincoln Street, Floor 685, San Antonio, TX 18467, and also update your default address in your profile to the same location, to ensure future deliveries go to the correct place. After that, you would like to change the payment method from the gift card to your Mastercard ending in 3762, because you prefer using your card for this purchase. Later, you intend to cancel the entire order because it was placed by mistake and you no longer need the items.\n\nUse yusuf.garcia2909@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W2564042', 'address1': '5681 Lincoln Street', 'address2': 'Floor 685', 'city': 'San Antonio', 'state': 'TX', 'country': 'USA', 'zip': '18467'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'yusuf_garcia_3055', 'address1': '5681 Lincoln Street', 'address2': 'Floor 685', 'city': 'San Antonio', 'state': 'TX', 'country': 'USA', 'zip': '18467'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W2564042'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W2564042', 'payment_method_id': 'credit_card_8405687'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W2564042', 'reason': 'ordered by mistake'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='mei.gonzalez8775@example.com',
+        instruction="You are assisting Mei Gonzalez (mei.gonzalez8775@example.com) with two order requests in sequence. First, for her pending order containing a grill, gaming mouse, fleece jacket, office chair, and a notebook, you want to update the shipping address to 9799 Jefferson Avenue, Apt 913, Fort Worth, TX, USA 71259, and also update her default address to match, because she has relocated. You also want to upgrade the notebook from A5 soft cover to A4 hard cover, because she prefers a larger, more durable option, and you prefer to cover any price difference using her PayPal account. If any issues prevent these changes, you would like to cancel the entire order with the reason 'ordered by mistake'. Later, for her delivered order containing a navy small nylon backpack with a laptop compartment, you would like to exchange it for a black large nylon backpack with a camera compartment, because she needs more space and better organization for her gear, and you prefer to use her Visa card ending in 3742 for any price adjustment. You also want to confirm the order details and product variants for accuracy before proceeding with the exchange.\n\nUse mei.gonzalez8775@example.com for authentication.",
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W2052757', 'address1': '9799 Jefferson Avenue', 'address2': 'Apt 913', 'city': 'Fort Worth', 'state': 'TX', 'country': 'USA', 'zip': '71259'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'mei_gonzalez_4785', 'address1': '9799 Jefferson Avenue', 'address2': 'Apt 913', 'city': 'Fort Worth', 'state': 'TX', 'country': 'USA', 'zip': '71259'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W2052757', 'item_ids': ['9799386954'], 'new_item_ids': ['1199058591'], 'payment_method_id': 'paypal_2568958'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W2052757', 'reason': 'ordered by mistake'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W7303089'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W7303089', 'item_ids': ['2492465580'], 'payment_method_id': 'credit_card_4387170'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W7303089', 'item_ids': ['2492465580'], 'new_item_ids': ['3928046918'], 'payment_method_id': 'credit_card_4387170'}),
+            Action(name='get_product_details', kwargs={'product_id': '2524789262'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='harper.ito2682@example.com',
+        instruction="You are assisting Harper Ito (harper.ito2682@example.com). You want to update the shipping address for a pending order containing running shoes to 7151 Madison Drive, Apt 997, Seattle, WA, USA 38724, because the original Denver address is no longer valid. You also want to update your default address to this new Seattle address for future orders. Additionally, you would like to change the running shoes in the order from yellow to black (same size 9), as you prefer the black color for style reasons, and the black synthetic rubber-soled variant is available. If the item change cannot be processed, you would like the entire order canceled with the reason 'no longer needed'. Later, you would like to exchange the blue cycling helmet (size S) from a delivered order for the black one (size S), as you prefer a more neutral color that matches your gear, and the black size S variant is available. You prefer to use your PayPal account for any price difference in the exchange. You also want to verify the available variants of the cycling helmet to confirm future options, ensuring size S in black remains in stock.\n\nUse harper.ito2682@example.com for authentication.",
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W1941216', 'address1': '7151 Madison Drive', 'address2': 'Apt 997', 'city': 'Seattle', 'state': 'WA', 'country': 'USA', 'zip': '38724'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'harper_ito_4653', 'address1': '7151 Madison Drive', 'address2': 'Apt 997', 'city': 'Seattle', 'state': 'WA', 'country': 'USA', 'zip': '38724'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W1941216', 'item_ids': ['9791469541'], 'new_item_ids': ['4107812777'], 'payment_method_id': 'paypal_1053133'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W1941216', 'reason': 'no longer needed'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W5673917'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W5673917', 'item_ids': ['1676105083'], 'payment_method_id': 'paypal_1053133'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W5673917', 'item_ids': ['1676105083'], 'new_item_ids': ['5537798301'], 'payment_method_id': 'paypal_1053133'}),
+            Action(name='get_product_details', kwargs={'product_id': '7765186836'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='lei.wilson1253@example.com',
+        instruction='You are Lei Wilson, with email lei.wilson1253@example.com. You want to update the shipping address for your pending order, which includes items like an espresso machine and smartphone, to 8897 Park Drive, Unit 706, Phoenix, AZ, USA 81155, because you will be relocating temporarily. You also want this new address to become your default for all future orders. Later, you would like to exchange the 15-inch i5 Laptop (space grey, 16GB RAM, 512GB SSD) from your delivered order for the 17-inch i7 model (black, 32GB RAM, 1TB SSD), as you need more screen space and processing power for video editing. You prefer the price difference to be handled using your Mastercard ending in 1531.\n\nUse lei.wilson1253@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3826449', 'address1': '8897 Park Drive', 'address2': 'Unit 706', 'city': 'Phoenix', 'state': 'AZ', 'country': 'USA', 'zip': '81155'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'lei_wilson_4541', 'address1': '8897 Park Drive', 'address2': 'Unit 706', 'city': 'Phoenix', 'state': 'AZ', 'country': 'USA', 'zip': '81155'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W2905754', 'item_ids': ['3478699712'], 'new_item_ids': ['1684786391'], 'payment_method_id': 'credit_card_3677959'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W3826449'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='amelia.ito8974@example.com',
+        instruction='You are assisting Amelia Ito (email: amelia.ito8974@example.com). You want to exchange the Hiking Boots from her delivered order (which included a bicycle, coffee maker, and speaker) because the pair she received is not waterproof. You prefer a new pair in size 9 made of leather and fully waterproof, as this better suits her outdoor needs. You would like the exchange to be processed with PayPal used for any price difference, as she has already confirmed payment preference. Later, you will update the shipping address for her pending order (which includes a fleece jacket, cycling helmet, makeup kit, and digital camera) from Seattle to 9044 Lincoln Street, Suite 48, Oklahoma City, OK, USA 45887, as she has moved. After that, you would like her default address to be updated to this new Oklahoma City address to ensure all future deliveries are sent to the correct location.\n\nUse amelia.ito8974@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3883329', 'address1': '9044 Lincoln Street', 'address2': 'Suite 48', 'city': 'Oklahoma City', 'state': 'OK', 'country': 'USA', 'zip': '45887'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'amelia_ito_8772', 'address1': '9044 Lincoln Street', 'address2': 'Suite 48', 'city': 'Oklahoma City', 'state': 'OK', 'country': 'USA', 'zip': '45887'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W3733909', 'item_ids': ['6595128475'], 'new_item_ids': ['8106223139'], 'payment_method_id': 'paypal_2767694'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W3733909'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='yusuf.garcia2909@example.com',
+        instruction='You are assisting Yusuf Garcia (email: yusuf.garcia2909@example.com). You want to update the shipping address for a pending order containing a grey medium polyester backpack with a laptop compartment to 1539 Oak Avenue, Floor 650, Los Angeles, CA, USA 70438, because you initially planned to redirect delivery. Later, you decided to cancel this order entirely because you no longer need the backpack. You would like to explore the available backpack options in the catalog, particularly those in different sizes, colors, and materials such as nylon or leather, and with various compartment types like camera or hydration, to understand your future choices. After that, you want to check the status of another pending order that includes hiking boots in size 11, a 13-inch black laptop with i7 processor and 32GB RAM, and a small air purifier with ionic filter and quiet operation. You prefer to change the payment method for this order from the current gift card to your Mastercard ending in 3762 for better personal record-keeping and expense tracking.\n\nUse yusuf.garcia2909@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W6885344', 'address1': '1539 Oak Avenue', 'address2': 'Floor 650', 'city': 'Los Angeles', 'state': 'CA', 'country': 'USA', 'zip': '70438'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W6885344', 'reason': 'no longer needed'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '2524789262'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W2564042'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W2564042', 'payment_method_id': 'credit_card_8405687'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='ivan.kim1689@example.com',
+        instruction='You are assisting Ivan Kim, whose email is ivan.kim1689@example.com. You want to update his pending order to replace the custom-designed bamboo skateboard with the plain maple version because he prefers a simpler, non-custom design. You would like the shipping address changed from New York to 6688 Pine Avenue, Unit 118, Nashville, TN, USA 96624, as he has relocated. You prefer any price difference to be processed using the Visa card ending in 6545.\n\nUse ivan.kim1689@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W6443279'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W6443279', 'item_ids': ['6673921677'], 'new_item_ids': ['3232433601'], 'payment_method_id': 'credit_card_1920989'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W6443279', 'address1': '6688 Pine Avenue', 'address2': 'Unit 118', 'city': 'Nashville', 'state': 'TN', 'country': 'USA', 'zip': '96624'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='harper.johansson4006@example.com',
+        instruction='You are assisting a customer with email harper.johansson4006@example.com who has a pending order for a purple XL cotton crew neck T-shirt. You want to change the T-shirt to a blue M version because the customer prefers the smaller size and different color. You would like the shipping address updated from Denver to 4693 Main Street, Floor 596, Houston, TX, USA 89207. You prefer any price difference to be handled using the PayPal account already on file.\n\nUse harper.johansson4006@example.com for authentication.',
+        actions=[
+            Action(name='get_order_details', kwargs={'order_id': '#W3525030'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W3525030', 'item_ids': ['8124970213'], 'new_item_ids': ['9612497925'], 'payment_method_id': 'paypal_4820484'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3525030', 'address1': '4693 Main Street', 'address2': 'Floor 596', 'city': 'Houston', 'state': 'TX', 'country': 'USA', 'zip': '89207'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='harper.brown3965@example.com',
+        instruction="You are assisting Harper Brown (harper.brown3965@example.com). You want to update the shipping address for the pending order—containing a gold smart watch, glass tea kettle, woody men's perfume, black electric toothbrush, and size 10 hiking boots—to 1440 Park Drive, Apt 642, Philadelphia, PA, USA 45806, and also set this as the new default address, to ensure delivery to the correct location. Later, after reviewing the order, you would like to change the payment method from the Visa card ending in 3356 to PayPal for greater convenience, and you prefer the 100ml oriental men's perfume over the 100ml woody version because you favor a warmer, spicier scent profile. After that, you decide to cancel the entire pending order because you no longer need the items.\n\nUse harper.brown3965@example.com for authentication.",
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W2273069', 'address1': '1440 Park Drive', 'address2': 'Apt 642', 'city': 'Philadelphia', 'state': 'PA', 'country': 'USA', 'zip': '45806'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'harper_brown_7363', 'address1': '1440 Park Drive', 'address2': 'Apt 642', 'city': 'Philadelphia', 'state': 'PA', 'country': 'USA', 'zip': '45806'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_order_details', kwargs={'order_id': '#W2273069'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W2273069', 'payment_method_id': 'paypal_2306935'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W2273069', 'item_ids': ['3399869890'], 'new_item_ids': ['5421902839'], 'payment_method_id': 'paypal_2306935'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W2273069', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='james.martin9857@example.com',
+        instruction='You are assisting James Martin (james.martin9857@example.com) with his pending order originally shipped to San Diego. You want to first update the shipping address to 3887 Elm Street, Unit 128, Chicago, IL, USA 83648, and also set this as his default address for future orders because he has relocated within the city. After that, you would like to change the payment method from PayPal to his Visa card ending in 1826 for better purchase protection and rewards. You also prefer to replace the red XXL cotton crew neck T-shirt with the blue M cotton crew neck T-shirt, as the original size and color do not fit his current needs and he prefers a smaller, cooler-colored option. Later, after reconsidering his purchase, you would like to cancel the entire order because he no longer requires the items, including the smart thermostat, wristwatch, garden hose, and backpack, due to changed personal circumstances.\n\nUse james.martin9857@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W3043531', 'address1': '3887 Elm Street', 'address2': 'Unit 128', 'city': 'Chicago', 'state': 'IL', 'country': 'USA', 'zip': '83648'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'james_martin_1500', 'address1': '3887 Elm Street', 'address2': 'Unit 128', 'city': 'Chicago', 'state': 'IL', 'country': 'USA', 'zip': '83648'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_order_details', kwargs={'order_id': '#W3043531'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W3043531', 'payment_method_id': 'credit_card_7083997'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W3043531', 'item_ids': ['9354168549'], 'new_item_ids': ['9612497925'], 'payment_method_id': 'credit_card_7083997'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W3043531', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='omar.silva4147@example.com',
+        instruction='You are Omar Silva (email: omar.silva4147@example.com) and you have a pending order that includes a 2000-piece fantasy-themed beginner puzzle, a brown wooden 6 ft bookshelf, a silver 4K action camera without waterproofing, polarized black-framed green-lens sunglasses, and a 2000-piece animals-themed intermediate puzzle. You want to update the shipping address to 9088 Lincoln Street, Apt 500, Charlotte, NC, USA 12967 because you need the items delivered to a new location. You also prefer to change the payment method from your gift card to your Mastercard ending in 5859 for better expense tracking. Later, after reconsidering your needs, you decide you no longer require these items and would like to cancel the entire order.\n\nUse omar.silva4147@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W9728773', 'address1': '9088 Lincoln Street', 'address2': 'Apt 500', 'city': 'Charlotte', 'state': 'NC', 'country': 'USA', 'zip': '12967'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W9728773'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W9728773', 'payment_method_id': 'credit_card_5322562'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W9728773', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='omar.silva4147@example.com',
+        instruction='You are assisting Omar Silva (email: omar.silva4147@example.com) with his pending order. You want to first update the shipping address to 9445 Elm Street, Unit 497, San Jose, CA, USA 90133, because he needs the items delivered to a new location. You also want to change the payment method from a gift card to his Mastercard ending in 5859, as he prefers to use this card for the purchase. The order includes a 2000-piece fantasy-themed beginner jigsaw puzzle, a 2000-piece animals-themed intermediate puzzle, a brown wooden 6-foot bookshelf, a silver 4K action camera that is not waterproof, and polarized sunglasses with black frame and green lenses. Later, after making these changes, you would like to cancel the entire order because he no longer needs the items.\n\nUse omar.silva4147@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W9728773', 'address1': '9445 Elm Street', 'address2': 'Unit 497', 'city': 'San Jose', 'state': 'CA', 'country': 'USA', 'zip': '90133'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W9728773'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W9728773', 'payment_method_id': 'credit_card_5322562'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W9728773', 'reason': 'no longer needed'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='lei.anderson3132@example.com',
+        instruction='You are assisting Lei Anderson (email: lei.anderson3132@example.com). You want to update the shipping address for the pending order containing a Dumbbell Set, Cycling Helmet, Mechanical Keyboard, Bluetooth Speaker, and Water Bottle to 5916 Jefferson Avenue, Floor 113, Seattle, WA, USA 83684, because the original address in Fort Worth, TX is no longer valid. Later, you would like to exchange the 10-inch, 128GB, gold tablet from the delivered order for the 10-inch, 64GB, silver model, because you prefer reduced storage capacity and a silver finish over the current gold version. You prefer the price difference to be handled using your PayPal account, as that was your original payment method. Before proceeding, you want to verify the order details and confirm that the 10-inch, 64GB, silver tablet variant is available, which it is.\n\nUse lei.anderson3132@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W6002467', 'address1': '5916 Jefferson Avenue', 'address2': 'Floor 113', 'city': 'Seattle', 'state': 'WA', 'country': 'USA', 'zip': '83684'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'lei_anderson_8271', 'address1': '5916 Jefferson Avenue', 'address2': 'Floor 113', 'city': 'Seattle', 'state': 'WA', 'country': 'USA', 'zip': '83684'}),
+            Action(name='exchange_delivered_order_items', kwargs={'order_id': '#W7242815', 'item_ids': ['6948061616'], 'new_item_ids': ['2106335193'], 'payment_method_id': 'paypal_1808675'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W7242815'}),
+            Action(name='get_product_details', kwargs={'product_id': '8024098596'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='isabella.gonzalez1317@example.com',
+        instruction="You are Isabella Gonzalez, customer with email isabella.gonzalez1317@example.com, who has a pending order for a skateboard, notebook, and luggage set. You want to update the shipping address for this order to 4410 Adams Road, Floor 630, Philadelphia, PA, USA 20848 because you will be relocating and need the package delivered to your new residence. After that, you would like to change the payment method from your Visa ending in 4920 to your Mastercard ending in 9364 because you prefer to use that card for this purchase. Later, you would like to explore the store's product catalog, particularly the Action Camera, to learn more about its features and consider it for a future purchase.\n\nUse isabella.gonzalez1317@example.com for authentication.",
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W1258841', 'address1': '4410 Adams Road', 'address2': 'Floor 630', 'city': 'Philadelphia', 'state': 'PA', 'country': 'USA', 'zip': '20848'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W1258841'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W1258841', 'payment_method_id': 'credit_card_9878778'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '3377618313'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='harper.santos8390@example.com',
+        instruction='You are Harper Santos (harper.santos8390@example.com) and you want to update the shipping address for your pending order—currently set to an old address in Charlotte—to your current address: 7933 Elm Street, Apt 646, San Jose, CA, USA 22571, because you have moved and want to ensure delivery to the correct location. You also want to change the payment method from PayPal to your Visa card ending in 8643, because you prefer to use that card for this purchase. After handling these updates, you would like to browse the product catalog, starting with a list of all available product types, and then view details about the Action Camera, because you are considering it for a future purchase.\n\nUse harper.santos8390@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W6629830', 'address1': '7933 Elm Street', 'address2': 'Apt 646', 'city': 'San Jose', 'state': 'CA', 'country': 'USA', 'zip': '22571'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W6629830'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W6629830', 'payment_method_id': 'credit_card_7507679'}),
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '3377618313'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='ava.kovacs4827@example.com',
+        instruction='You are Ava Kovacs (ava.kovacs4827@example.com). You want to update the shipping address for your pending order—containing a plastic skateboard, headphones, a garden hose, and a tea kettle—to 1597 Main Street, Apt 896, Charlotte, NC, USA 33127, because you’ve relocated temporarily. You also want your default address updated to the same, to ensure future deliveries go to the correct location. Later, you would like to return the plain plastic skateboard from your delivered order in Phoenix, as it doesn’t meet your expectations for durability and style. After that, you would like to exchange the 31-inch plain plastic skateboard in your pending order for the 31-inch bamboo skateboard with a graphic design, because you prefer eco-friendly materials and a more expressive look. You prefer any price difference to be adjusted using your Mastercard ending in 3598.\n\nUse ava.kovacs4827@example.com for authentication.',
+        actions=[
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W4184032', 'address1': '1597 Main Street', 'address2': 'Apt 896', 'city': 'Charlotte', 'state': 'NC', 'country': 'USA', 'zip': '33127'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'ava_kovacs_3448', 'address1': '1597 Main Street', 'address2': 'Apt 896', 'city': 'Charlotte', 'state': 'NC', 'country': 'USA', 'zip': '33127'}),
+            Action(name='return_delivered_order_items', kwargs={'order_id': '#W6344370', 'item_ids': ['4545791457'], 'payment_method_id': 'credit_card_9699699'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W4184032'}),
+            Action(name='modify_pending_order_items', kwargs={'order_id': '#W4184032', 'item_ids': ['3877188862'], 'new_item_ids': ['5312063289'], 'payment_method_id': 'credit_card_9699699'}),
+            Action(name='get_product_details', kwargs={'product_id': '1968349452'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='mei.gonzalez8775@example.com',
+        instruction='You are Mei Gonzalez, with email mei.gonzalez8775@example.com, and you are interested in learning about Action Cameras available in the product catalog. You have a pending order containing a portable gas grill with a side burner, a black fleece jacket in size L, a white wireless gaming mouse with laser sensor, an A5 soft-cover notebook, and a red mesh office chair with standard backrest and no armrests. You initially wanted to update the payment method for this order to your Visa card ending in 3742, as it is your preferred payment method. You also wanted to update the shipping address to 858 Elm Street, Suite 912, San Jose, CA, and set this as your default address for future orders. Later, you decided to cancel the entire order because you no longer need the items.\n\nUse mei.gonzalez8775@example.com for authentication.',
+        actions=[
+            Action(name='list_all_product_types', kwargs={}),
+            Action(name='get_product_details', kwargs={'product_id': '3377618313'}),
+            Action(name='get_order_details', kwargs={'order_id': '#W2052757'}),
+            Action(name='modify_pending_order_payment', kwargs={'order_id': '#W2052757', 'payment_method_id': 'credit_card_4387170'}),
+            Action(name='modify_pending_order_address', kwargs={'order_id': '#W2052757', 'address1': '858 Elm Street', 'address2': 'Suite 912', 'city': 'San Jose', 'state': 'CA', 'country': 'USA', 'zip': '95170'}),
+            Action(name='modify_user_address', kwargs={'user_id': 'mei_gonzalez_4785', 'address1': '858 Elm Street', 'address2': 'Suite 912', 'city': 'San Jose', 'state': 'CA', 'country': 'USA', 'zip': '95170'}),
+            Action(name='cancel_pending_order', kwargs={'order_id': '#W2052757', 'reason': 'no longer needed'}),
         ],
         outputs=[],
     ),
