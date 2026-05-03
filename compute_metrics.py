@@ -4,6 +4,8 @@
 import json
 import re
 import math
+import sys
+import argparse
 from pathlib import Path
 from collections import defaultdict
 
@@ -83,7 +85,72 @@ def group_metrics(trials, k_range=None):
     return {"pass_at_k": pass_at, "pass_hat_k": pass_hat}
 
 
+def compute_single_file_metrics(file_path):
+    """Load single JSON and compute metrics grouped by task_id."""
+    print(f"Loading {file_path}...", flush=True)
+    with open(file_path) as fh:
+        data = json.load(fh)
+
+    # Group by task_id
+    tasks = defaultdict(list)
+    for item in data:
+        tasks[item["task_id"]].append(item)
+
+    # Compute metrics per task, then aggregate
+    all_ids = sorted(tasks.keys())
+    metrics_list = []
+
+    max_n = max((len(tasks[tid]) for tid in all_ids), default=0)
+    k_range = list(range(1, max_n + 1))
+
+    for tid in all_ids:
+        trials = sorted(tasks[tid], key=lambda x: x["trial"])
+        metrics_list.append(group_metrics(trials, k_range=k_range))
+
+    # Aggregate
+    def aggregate_metrics(mlist):
+        agg = {"pass_at_k": {}, "pass_hat_k": {}}
+        all_k = set()
+        for m in mlist:
+            all_k.update(m["pass_at_k"].keys())
+            all_k.update(m["pass_hat_k"].keys())
+
+        for k in sorted(all_k):
+            at_vals = [m["pass_at_k"][k] for m in mlist if k in m["pass_at_k"]]
+            hat_vals = [m["pass_hat_k"][k] for m in mlist if k in m["pass_hat_k"]]
+            if at_vals:
+                agg["pass_at_k"][k] = round(sum(at_vals) / len(at_vals), 4)
+            if hat_vals:
+                agg["pass_hat_k"][k] = round(sum(hat_vals) / len(hat_vals), 4)
+        return agg
+
+    result = aggregate_metrics(metrics_list)
+
+    # Print results
+    print(f"\n{Path(file_path).name}")
+    print("-" * 80)
+    print(f"  k  |  pass@k  |  pass^k")
+    print(f"  ---+----------+----------")
+
+    all_k = set()
+    all_k.update(result["pass_at_k"].keys())
+    all_k.update(result["pass_hat_k"].keys())
+
+    for k in sorted(all_k):
+        at = result["pass_at_k"].get(k, "-")
+        hat = result["pass_hat_k"].get(k, "-")
+        print(f"  {k:2} |  {at:7} |  {hat:7}")
+
+
 def main():
+    parser = argparse.ArgumentParser(description="Compute pass@k and pass^k metrics")
+    parser.add_argument("--file", type=str, help="Path to single JSON file to compute metrics for")
+    args = parser.parse_args()
+
+    if args.file:
+        compute_single_file_metrics(args.file)
+        return
+
     data_dir = Path(__file__).parent / "historical_trajectories"
 
     # Collect files keyed by (model, domain) -> {'with': path, 'without': path}
