@@ -1,4 +1,4 @@
-from tau_emotionbench.types import Task, Action
+from tau_emotion_bench.types import Task, Action
 
 
 TASKS = [
