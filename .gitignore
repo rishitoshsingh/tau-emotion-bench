@@ -7,8 +7,17 @@ __pycache__/
 *.egg-info/
 
 .env
+test.json
 
 benchmarking_outs/
 jobs/
 test_trajectories/
 trajs.zip
+train_traj/
+logs/
+
+error_analysis/
+error_analysis_old/
+
+run_ft_test_ep2.sh
+run_ft_test_ep3.sh

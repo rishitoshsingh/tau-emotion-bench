@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """Compute pass@k and pass^k metrics for all trials in historical_trajectories."""
 
-import json
-import re
-import math
-import sys
 import argparse
-from pathlib import Path
+import json
+import math
+import re
+import sys
 from collections import defaultdict
+from pathlib import Path
 
 
 def parse_filename(stem):
