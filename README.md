@@ -6,7 +6,8 @@ We propose τ-emotion-bench, a benchmark emulating dynamic conversations between
 
 ## Getting Started
 
-**To generate test/train datasets:** See [tracer documentation](https://anonymous.4open.science/anonymize/tracer-715D).
+**To generate test/train datasets:** Use tracer — generates synthetic tasks via tool graphs, traces, LLM-based task generation, and optional emotion enrichment across airline, retail, telecom, and telehealth domains. See [tracer documentation](https://anonymous.4open.science/anonymize/tracer-715D) for setup and pipeline.
+
 **To evaluate agents on the benchmark:** Follow the Setup below.
 
 ## Setup
@@ -206,7 +207,9 @@ few_shot_data/                  # few-shot demonstrations for the few-shot agent
 
 ## Data Generation (Optional)
 
-To generate test/train datasets, see [tracer documentation](https://anonymous.4open.science/anonymize/tracer-715D).
+**Tracer** generates test/train datasets for benchmarking. Pipeline: build tool graphs → sample traces → generate natural-language tasks via LLM → optional emotion enrichment → export to τ tasks. Supports all four domains (airline, retail, telecom, telehealth).
+
+For detailed setup, configuration, and step-by-step instructions, see [tracer documentation](https://anonymous.4open.science/anonymize/tracer-715D).
 
 ## License
 
