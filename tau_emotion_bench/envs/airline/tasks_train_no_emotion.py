@@ -8332,4 +8332,1609 @@ TASKS = [
         ],
         outputs=[],
     ),
+
+    Task(
+        user_id='isabella_lopez_2185',
+        instruction='You are Isabella Lopez (user_id: isabella_lopez_2185) managing reservation CW6P7R and planning a new trip. First, you want to update the passenger name on reservation CW6P7R: change Isabella Khan to Isabella Brown (DOB 1952-02-09) for the existing one-way itinerary from EWR to LGA via CLT on 2024-05-25, because the name was entered incorrectly. After that, you would like to upgrade both flights (HAT215 and HAT087) on the same reservation to business class, as you prefer a more comfortable travel experience for both legs of the journey. You prefer any fare difference to be charged to your credit card ending in 3244 (payment_id credit_card_3989253). Separately, you want to book a new one-way flight from EWR to DFW on 2024-05-20 for two passengers (Isabella Lopez and Isabella Brown, DOB 1952-02-09) in economy class on flight HAT231, as it is the only available flight on that date and route. You prefer to include 2 checked bags at no additional cost and decline travel insurance, as you do not require coverage. You would like this new booking also charged to your credit card ending in 3244.\n\nUse isabella_lopez_2185 for authentication.',
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'CW6P7R'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': 'CW6P7R', 'passengers': [{'first_name': 'Isabella', 'last_name': 'Lopez', 'dob': '1979-02-10'}, {'first_name': 'Isabella', 'last_name': 'Brown', 'dob': '1952-02-09'}]}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'CW6P7R', 'cabin': 'business', 'flights': [{'flight_number': 'HAT215', 'date': '2024-05-25'}, {'flight_number': 'HAT087', 'date': '2024-05-25'}], 'payment_id': 'credit_card_3989253'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'EWR', 'destination': 'DFW', 'date': '2024-05-20'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'EWR', 'destination': 'DFW', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'isabella_lopez_2185', 'origin': 'EWR', 'destination': 'DFW', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT231', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Isabella', 'last_name': 'Lopez', 'dob': '1979-02-10'}, {'first_name': 'Isabella', 'last_name': 'Khan', 'dob': '1952-02-09'}], 'payment_methods': [{'payment_id': 'credit_card_3989253', 'amount': 342}], 'total_baggages': 2, 'nonfree_baggages': 0, 'insurance': 'no'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='omar_patel_2218',
+        instruction='You are Omar Patel Jr., and you want to update your reservation 32ZS5N by correcting your name from Omar Patel to Omar Patel Jr. in the passenger details. After that, you would like to upgrade your SFO to PHX flight on 2024-05-17 from economy to business class, as the flight departs in the afternoon and you prefer a more comfortable cabin for the connection. You authorize the fare difference to be charged to your Visa card ending in 8811. Later, you want to book a one-way flight from SFO to PHX on 2024-05-20 for yourself in economy class, with one checked bag and no insurance. Since the only available flight departs overnight, you prefer the SFO to PHX flight on 2024-05-20 that leaves around 03:00. You would like this also charged to your Visa card ending in 8811.\n\nUse omar_patel_2218 for authentication.',
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': '32ZS5N'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': '32ZS5N', 'passengers': [{'first_name': 'Omar', 'last_name': 'Patel Jr.', 'dob': '1987-09-27'}]}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': '32ZS5N', 'cabin': 'business', 'flights': [{'flight_number': 'HAT134', 'date': '2024-05-17'}], 'payment_id': 'credit_card_5087987'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'SFO', 'destination': 'PHX', 'date': '2024-05-20'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'SFO', 'destination': 'PHX', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'omar_patel_2218', 'origin': 'SFO', 'destination': 'PHX', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT134', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Omar', 'last_name': 'Patel', 'dob': '1987-09-27'}], 'payment_methods': [{'payment_id': 'credit_card_5087987', 'amount': 192}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='lei_rossi_3206',
+        instruction='You are Lei Rossi (lei_rossi_3206) and you want to update your reservation VAAOXJ for the trip from CLT to MCO via BOS on 2024-05-24 in economy class by adding one additional checked bag (making a total of 2, with 1 paid) because you need extra luggage, and you want to change the passenger from James Smith to your saved passenger, Juan Muller (DOB 1991-02-11), because he is now traveling instead. You prefer the bag fee to be charged to your Mastercard ending in 1780. Later, you would like to book a new one-way flight for Juan Muller from CLT to PHL on 2024-05-20 in economy class on flight HAT205, departing in the afternoon, because he has a prior commitment, with 1 checked bag included at no cost, and you prefer to pay using your Mastercard ending in 1780. After that, you would like to request a compensation certificate for Anya Sanchez (anya_sanchez_5251) because her flight HAT124 from DFW to LAX was cancelled, and she qualifies for a $100 travel certificate as compensation.\n\nUse lei_rossi_3206 for authentication.',
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'VAAOXJ'}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': 'VAAOXJ', 'total_baggages': 2, 'nonfree_baggages': 1, 'payment_id': 'credit_card_1052991'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': 'VAAOXJ', 'passengers': [{'first_name': 'Juan', 'last_name': 'Muller', 'dob': '1991-02-11'}]}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'CLT', 'destination': 'PHL', 'date': '2024-05-20'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'CLT', 'destination': 'PHL', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'lei_rossi_3206', 'origin': 'CLT', 'destination': 'PHL', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT205', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Juan', 'last_name': 'Muller', 'dob': '1991-02-11'}], 'payment_methods': [{'payment_id': 'credit_card_1052991', 'amount': 123}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='send_certificate', kwargs={'user_id': 'anya_sanchez_5251', 'amount': 100}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='harper_smith_3981',
+        instruction='You are to first cancel the existing one-way business class reservation KT71XO for the flight from MCO to LAS on 2024-05-22 due to a scheduling conflict. After that, you would like to book a new one-way economy class flight from MCO to BOS on 2024-05-20 for two passengers, Harper Sanchez and Isabella Li, on flight HAT217 departing in the afternoon, because it aligns with their updated travel plans. You want to include one free checked bag per passenger, opt out of travel insurance, and prefer to pay using your Mastercard ending in 1680.\n\nUse harper_smith_3981 for authentication.',
+        actions=[
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'KT71XO'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'KT71XO'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'MCO', 'destination': 'BOS', 'date': '2024-05-20'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'MCO', 'destination': 'BOS', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'harper_smith_3981', 'origin': 'MCO', 'destination': 'BOS', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT217', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Harper', 'last_name': 'Sanchez', 'dob': '1997-08-18'}, {'first_name': 'Isabella', 'last_name': 'Li', 'dob': '1968-10-09'}], 'payment_methods': [{'payment_id': 'credit_card_9955122', 'amount': 320}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sophia_silva_7557',
+        instruction='You are to first cancel the existing round-trip basic economy reservation NM1VX1 for Yara Silva from MSP to EWR on 2024-05-25, as the travel plans have changed. Then, you would like to book a new one-way business class flight from MSP to MCO on 2024-05-20 in the late evening, specifically flight HAT071, for the same passenger, because it aligns with the updated schedule. You want to add one total baggage at no extra cost and prefer not to include insurance. You prefer to pay using your saved Visa card ending in 7238.\n\nUse sophia_silva_7557 for authentication.',
+        actions=[
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'NM1VX1'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'NM1VX1'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'MSP', 'destination': 'MCO', 'date': '2024-05-20'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'MSP', 'destination': 'MCO', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'sophia_silva_7557', 'origin': 'MSP', 'destination': 'MCO', 'flight_type': 'one_way', 'cabin': 'business', 'flights': [{'flight_number': 'HAT071', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Yara', 'last_name': 'Silva', 'dob': '1972-06-16'}], 'payment_methods': [{'payment_id': 'credit_card_4196779', 'amount': 223}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='mason_johnson_9566',
+        instruction='You are Mason Johnson (user_id: mason_johnson_9566) and you want to update your round-trip reservation YWZEQN from BOS to PHX on 2024-05-17 to a one-stop itinerary via MCO using flight HAT182 from BOS to MCO and connecting flight HAT214 from MCO to PHX, both on 2024-05-17, because you prefer an early morning departure from BOS and an overnight connection to PHX. You also want to upgrade to business class on this updated itinerary for added comfort. You prefer to pay for this change using your credit card ending in 3523 (payment_id credit_card_3562064). Later, you want to cancel your one-way reservation 1INNSN from MSP to LAS in business class due to a schedule conflict, and you request a refund to the same credit card. You also want a compensation certificate for the inconvenience caused by the cancellation. After that, you would like to book a new one-way flight from BOS to MIA on 2024-05-30 in economy class for 1 passenger (yourself), preferring the morning flight HAT247 departing BOS at 08:00, and you want to use the same credit card for this new booking.\n\nUse mason_johnson_9566 for authentication.',
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'YWZEQN'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'YWZEQN', 'cabin': 'business', 'flights': [{'flight_number': 'HAT182', 'date': '2024-05-17'}, {'flight_number': 'HAT214', 'date': '2024-05-18'}], 'payment_id': 'credit_card_3562064'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'BOS', 'destination': 'PHX', 'date': '2024-05-17'}),
+            Action(name='send_certificate', kwargs={'user_id': 'mason_johnson_9566', 'amount': 100}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': '1INNSN'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'BOS', 'destination': 'MIA', 'date': '2024-05-30'}),
+            Action(name='book_reservation', kwargs={'user_id': 'mason_johnson_9566', 'origin': 'BOS', 'destination': 'MIA', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT247', 'date': '2024-05-30'}], 'passengers': [{'first_name': 'Mason', 'last_name': 'Johnson', 'dob': '1986-01-10'}], 'payment_methods': [{'payment_id': 'credit_card_3562064', 'amount': 177}], 'total_baggages': 0, 'nonfree_baggages': 0, 'insurance': 'no'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='fatima_ahmed_2248',
+        instruction='You are Fatima Ahmed, a gold member, and you want to update your reservation GIVSHB for a one-way trip from CLT to IAH by changing the routing to a connecting flight from CLT to BOS on 2024-05-28 in the afternoon (flight HAT064), followed by a connecting flight from BOS to MCO on the same day in the evening (flight HAT013), both in economy class, because you prefer a different routing via BOS. You would like any fare difference charged to your Mastercard ending in 7228. Later, you would like to receive a compensation certificate for the delay on your flight HAT167 from CLT to DTW, as it was delayed and you are entitled to compensation. After that, you would like to cancel your existing round-trip reservation QC9UX1 from PHX to MCO and instead book a new one-way flight from PHX to DTW on 2024-05-20 in the morning (flight HAT073), for two passengers (yourself and Juan Smith) in economy class, because of an unexpected business meeting. You prefer to use your Mastercard ending in 9498 for this booking and would like to include 2 checked bags, with no insurance.\n\nUse fatima_ahmed_2248 for authentication.',
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'GIVSHB'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'GIVSHB', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT064', 'date': '2024-05-28'}, {'flight_number': 'HAT013', 'date': '2024-05-28'}], 'payment_id': 'credit_card_7752823'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'CLT', 'destination': 'IAH', 'date': '2024-05-28'}),
+            Action(name='send_certificate', kwargs={'user_id': 'fatima_ahmed_2248', 'amount': 50}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'QC9UX1'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'PHX', 'destination': 'DTW', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'fatima_ahmed_2248', 'origin': 'PHX', 'destination': 'DTW', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT073', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Fatima', 'last_name': 'Ahmed', 'dob': '1987-04-21'}, {'first_name': 'Juan', 'last_name': 'Smith', 'dob': '1973-06-16'}], 'payment_methods': [{'payment_id': 'credit_card_7489605', 'amount': 256}], 'total_baggages': 2, 'nonfree_baggages': 0, 'insurance': 'no'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='fatima_ahmed_2248',
+        instruction='You are assisting Fatima Ahmed, who experienced a flight delay on her current reservation and is seeking updated travel options. You want to first search for available direct and one-stop flights from BOS to DTW on 2024-05-18 to evaluate alternatives. After reviewing the options, you would like to update reservation LKCF2D to a new one-stop itinerary on 2024-05-18: a flight from BOS to CLT on HAT277 departing in the evening, followed by a connecting flight from CLT to DTW on HAT176 departing at midnight, both in economy class, because these flights best fit the revised travel plans after the delay. You prefer to use the credit card ending in 5667 for any fare difference, as it is the payment method on file. Later, you would like to receive a compensation certificate for the inconvenience caused by the original flight delay, as a goodwill gesture for the disruption.\n\nUse fatima_ahmed_2248 for authentication.',
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'BOS', 'destination': 'DTW', 'date': '2024-05-18'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'BOS', 'destination': 'DTW', 'date': '2024-05-18'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'LKCF2D'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'LKCF2D', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT277', 'date': '2024-05-18'}, {'flight_number': 'HAT176', 'date': '2024-05-18'}], 'payment_id': 'credit_card_2531738'}),
+            Action(name='send_certificate', kwargs={'user_id': 'fatima_ahmed_2248', 'amount': 50}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='isabella_khan_4151',
+        instruction='You are assisting Isabella Khan, who had a business class flight from CLT to LGA on 2024-05-09 that was cancelled. You want to search for both direct and one-stop flight options from CLT to LGA on 2024-05-20 to evaluate alternatives. After reviewing availability, you would like to update reservation 8POIJI to flight HAT087 from CLT to LGA on 2024-05-20 in the evening (departing at 17:00) in business class, as it aligns with the preferred timing and cabin. You prefer to pay using your Mastercard ending in 3445, which is on file. Since the original flight was cancelled, you also want to request a compensation certificate in accordance with airline policy.\n\nUse isabella_khan_4151 for authentication.',
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'CLT', 'destination': 'LGA', 'date': '2024-05-20'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'CLT', 'destination': 'LGA', 'date': '2024-05-20'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': '8POIJI'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': '8POIJI', 'cabin': 'business', 'flights': [{'flight_number': 'HAT087', 'date': '2024-05-20'}], 'payment_id': 'credit_card_4651498'}),
+            Action(name='send_certificate', kwargs={'user_id': 'isabella_khan_4151', 'amount': 300}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='isabella_khan_4151',
+        instruction='You are Isabella Khan (isabella_khan_4151) and you want to search for one-stop flights from MIA to PHX on 2024-05-27; however, since no such options are available, you would like to book a direct one-way business class flight from MIA to EWR on 2024-05-20, departing in the late evening (flight HAT192), for passenger Mei Brown, because it is the only viable alternative. You prefer to pay using your Mastercard ending in 3445. Later, you want to update your existing reservation RRMXPX (MIA-LAS-PHX) to new flights, even if the itinerary remains the same, and change the cabin to business class if not already set, using the same Mastercard for any fare difference, because you seek updated flight options. After reviewing available flights, you decide to cancel reservation RRMXPX entirely and receive a refund to the same Mastercard, as you no longer wish to travel on that route. Additionally, you request a compensation certificate for the cancelled reservation 8POIJI (CLT-LGA on 2024-05-09) for yourself and two other passengers, because the flight was cancelled by the airline.\n\nUse isabella_khan_4151 for authentication.',
+        actions=[
+            Action(name='search_onestop_flight', kwargs={'origin': 'MIA', 'destination': 'PHX', 'date': '2024-05-27'}),
+            Action(name='book_reservation', kwargs={'user_id': 'isabella_khan_4151', 'origin': 'MIA', 'destination': 'EWR', 'flight_type': 'one_way', 'cabin': 'business', 'flights': [{'flight_number': 'HAT192', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Mei', 'last_name': 'Brown', 'dob': '1959-02-14'}], 'payment_methods': [{'payment_id': 'credit_card_4651498', 'amount': 291}], 'total_baggages': 0, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'RRMXPX', 'cabin': 'business', 'flights': [{'flight_number': 'HAT062', 'date': '2024-05-27'}, {'flight_number': 'HAT095', 'date': '2024-05-28'}], 'payment_id': 'credit_card_4651498'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'RRMXPX'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'RRMXPX'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'MIA', 'destination': 'EWR', 'date': '2024-05-20'}),
+            Action(name='send_certificate', kwargs={'user_id': 'isabella_khan_4151', 'amount': 100}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='lei_rossi_4874',
+        instruction='You are assisting Lei Rossi, who had a flight from CLT to LGA on reservation 15EN70 cancelled and is entitled to a compensation certificate as a result. You want to first request the compensation certificate for this cancelled trip. Later, you would like to book a new one-way flight for two passengers, Lei Rossi and Isabella Jackson, from CLT to DTW on 2024-05-20. You prefer flight HAT167 departing in the evening at 18:00, as it aligns with your schedule and was specifically selected. You want to book in economy class, include 2 free checked bags, and decline travel insurance. You prefer to pay using your saved credit card ending in 7279.\n\nUse lei_rossi_4874 for authentication.',
+        actions=[
+            Action(name='send_certificate', kwargs={'user_id': 'lei_rossi_4874', 'amount': 200}),
+            Action(name='search_direct_flight', kwargs={'origin': 'CLT', 'destination': 'DTW', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'lei_rossi_4874', 'origin': 'CLT', 'destination': 'DTW', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT167', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Lei', 'last_name': 'Rossi', 'dob': '1986-11-21'}, {'first_name': 'Isabella', 'last_name': 'Jackson', 'dob': '2000-09-09'}], 'payment_methods': [{'payment_id': 'credit_card_9623492', 'amount': 332}], 'total_baggages': 2, 'nonfree_baggages': 0, 'insurance': 'no'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='noah_khan_8166',
+        instruction='You are assisting Noah Khan (user_id: noah_khan_8166) regarding his reservation LUA6DF for passenger Yusuf Ahmed. You want to request a compensation certificate for the cancelled business class one-way flight from LAS to IAH on 2024-05-13, due to the travel disruption caused by the cancellation. Later, you would like to rebook the trip by searching for available direct flights from LAS to IAH on 2024-05-20, in order to continue with the original travel plans on a new date. You prefer a business class option if available, as that was the original cabin class. However, no direct flights on the LAS to IAH route were found for that date, so alternative routing or dates may need to be considered.\n\nUse noah_khan_8166 for authentication.',
+        actions=[
+            Action(name='send_certificate', kwargs={'user_id': 'noah_khan_8166', 'amount': 100}),
+            Action(name='search_direct_flight', kwargs={'origin': 'LAS', 'destination': 'IAH', 'date': '2024-05-20'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='harper_li_1258',
+        instruction="You are Harper Li, a gold member, who wants to book a new economy flight from LGA to PHL on 2024-05-20 for yourself and Sofia Thomas, preferring an early morning departure because flight HAT029 departs at 03:00 AM and is the only available option in that time window. You prefer to pay using your Mastercard ending in 8455, as it is your selected payment method. After that, you want to update the passenger details in reservation TOVYFC by changing the first name from 'Sofia Thomas' to 'Sophia Thomas' while keeping the same date of birth, to ensure accurate identification. Later, you would like to explore one-stop flight options from LGA on 2024-05-21 for future travel planning purposes.\n\nUse harper_li_1258 for authentication.",
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'LGA', 'destination': 'PHL', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'harper_li_1258', 'origin': 'LGA', 'destination': 'PHL', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT029', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Harper', 'last_name': 'Li', 'dob': '1970-10-19'}, {'first_name': 'Sofia', 'last_name': 'Thomas', 'dob': '1953-03-01'}], 'payment_methods': [{'payment_id': 'credit_card_2007333', 'amount': 270}], 'total_baggages': 2, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': 'TOVYFC', 'passengers': [{'first_name': 'Harper', 'last_name': 'Li', 'dob': '1970-10-19'}, {'first_name': 'Sophia', 'last_name': 'Thomas', 'dob': '1953-03-01'}]}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'LGA', 'destination': 'PHL', 'date': '2024-05-21'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='emma_jackson_2190',
+        instruction='You are Emma Jackson, and you want to book a one-way, direct flight from Chicago (ORD) to Detroit (DTW) on 2024-05-20 for three passengers: Emma Jackson (DOB 1986-12-22), Amelia Lee (DOB 1976-03-24), and Ivan Johansson (DOB 1977-04-08). You prefer a late evening flight, specifically HAT020 departing at 10:00 PM, in economy class because it fits your schedule. You want to include three free checked bags and decline travel insurance, as these meet your travel needs. You prefer to pay using your Mastercard ending in 8086, which is your preferred payment method.\n\nUse emma_jackson_2190 for authentication.',
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'ORD', 'destination': 'DTW', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'emma_jackson_2190', 'origin': 'ORD', 'destination': 'DTW', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT020', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Emma', 'last_name': 'Jackson', 'dob': '1986-12-22'}, {'first_name': 'Amelia', 'last_name': 'Lee', 'dob': '1976-03-24'}, {'first_name': 'Ivan', 'last_name': 'Johansson', 'dob': '1977-04-08'}], 'payment_methods': [{'payment_id': 'credit_card_2599463', 'amount': 444}], 'total_baggages': 3, 'nonfree_baggages': 0, 'insurance': 'no'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='liam_wilson_9173',
+        instruction='You are Liam Wilson (DOB 1995-01-15) and you want to book a one-way business class flight from JFK to SFO on 2024-05-20 in the afternoon (flight HAT023) for one passenger, because you need to travel to San Francisco that day. You prefer to pay using your Mastercard ending in 5500, as it is your primary card on file. Later, you would like to update your existing reservation 238F2V for a one-way business class flight from JFK to ORD on 2024-05-23 to change the flight and passenger details, because your travel plans have changed.\n\nUse liam_wilson_9173 for authentication.',
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'JFK', 'destination': 'SFO', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'liam_wilson_9173', 'origin': 'JFK', 'destination': 'SFO', 'flight_type': 'one_way', 'cabin': 'business', 'flights': [{'flight_number': 'HAT023', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Liam', 'last_name': 'Wilson', 'dob': '1995-01-15'}], 'payment_methods': [{'payment_id': 'credit_card_2767730', 'amount': 473}], 'total_baggages': 0, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': '238F2V', 'cabin': 'business', 'flights': [{'flight_number': 'HAT079', 'date': '2024-05-23'}], 'payment_id': 'credit_card_2767730'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': '238F2V', 'passengers': [{'first_name': 'Liam', 'last_name': 'Wilson', 'dob': '1995-01-15'}]}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='lucas_thomas_9373',
+        instruction='You are Lucas Thomas (user_id: lucas_thomas_9373). You want compensation in the form of a certificate for the cancelled reservation MIC7D1, which was a one-way business class flight from MIA to JFK on 2024-05-10 for Amelia Nguyen. Later, you want to cancel that reservation. After that, you would like to book a new one-way business class flight from MIA to JFK on 2024-05-20 for Amelia Nguyen, with no baggage and no insurance, paying with your credit card ending in 284; you prefer an afternoon flight, as it is the only direct option available. Subsequently, you want to upgrade your existing reservation 5KCJWY from economy to business class for all three passengers (Lucas Thomas, Ethan Jackson, and Liam Thomas) on both legs of the journey: from CLT to EWR on 2024-05-27 and from EWR to DFW on 2024-05-28, using payment method credit card ending in 059. Finally, you would like to search for direct flights from MIA to JFK on 2024-05-20 to review available options, which has been completed with the identified afternoon flight.\n\nUse lucas_thomas_9373 for authentication.',
+        actions=[
+            Action(name='send_certificate', kwargs={'user_id': 'lucas_thomas_9373', 'amount': 100}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'MIC7D1'}),
+            Action(name='book_reservation', kwargs={'user_id': 'lucas_thomas_9373', 'origin': 'MIA', 'destination': 'JFK', 'flight_type': 'one_way', 'cabin': 'business', 'flights': [{'flight_number': 'HAT198', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Amelia', 'last_name': 'Nguyen', 'dob': '1966-08-07'}], 'payment_methods': [{'payment_id': 'credit_card_2926284', 'amount': 336}], 'total_baggages': 0, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': '5KCJWY', 'cabin': 'business', 'flights': [{'flight_number': 'HAT157', 'date': '2024-05-27'}, {'flight_number': 'HAT231', 'date': '2024-05-28'}], 'payment_id': 'credit_card_1382059'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'MIA', 'destination': 'JFK', 'date': '2024-05-20'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='amelia_nguyen_7778',
+        instruction='You are Amelia Nguyen, user amelia_nguyen_7778, and you want to cancel your round-trip basic economy reservation U7QTYY from LGA to MCO via PHX on 2024-05-22 for two passengers, because you no longer plan to travel on that itinerary. You also want to explore alternative travel options, so you would like to search for direct flights from LGA to MCO on 2024-05-22; however, since no direct flights are available, you prefer a one-stop option from LGA to MCO on that date, connecting through PHX or another hub, as a potential alternative. Later, you want to update your other reservation JC5T1E by changing the passenger name from Amelia Nguyen to Raj Smith and modifying the outbound journey to a one-stop flight from EWR to MCO via MSP on 2024-05-20, specifically using flight HAT208 from EWR to MSP and flight HAT054 from MSP to MCO, both in economy class, because you need to adjust the travel plans for a different trip. You prefer to use your credit card ending in 4056234 for any fare difference. After that, since your original flight was canceled, you would like to receive a compensation certificate, as you are entitled to travel credits for the inconvenience.\n\nUse amelia_nguyen_7778 for authentication.',
+        actions=[
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'U7QTYY'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'LGA', 'destination': 'MCO', 'date': '2024-05-22'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'LGA', 'destination': 'MCO', 'date': '2024-05-22'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'JC5T1E'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': 'JC5T1E', 'passengers': [{'first_name': 'Raj', 'last_name': 'Smith', 'dob': '1988-07-02'}]}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'JC5T1E', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT208', 'date': '2024-05-20'}, {'flight_number': 'HAT054', 'date': '2024-05-20'}], 'payment_id': 'credit_card_4056234'}),
+            Action(name='send_certificate', kwargs={'user_id': 'amelia_nguyen_7778', 'amount': 200}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='daiki_patel_1917',
+        instruction="You are assisting Daiki Patel (user_id: daiki_patel_1917) with a cancelled SFO to PHL business class flight (reservation 0W60LB). You want to first request a compensation certificate for the inconvenience caused by the cancellation. Later, you would like to rebook the same route (SFO to PHL) on 2024-05-20, specifically on flight HAT074, which departs early morning, because it is the only available business class option on the desired date. You also want to update the passenger's date of birth from 1968-04-24 to 1968-04-25 for accuracy. You prefer to use the saved Visa card ending in 1765 (payment_id: credit_card_4327297) for any fare difference or rebooking charges, as it is the user's preferred payment method on file.\n\nUse daiki_patel_1917 for authentication.",
+        actions=[
+            Action(name='send_certificate', kwargs={'user_id': 'daiki_patel_1917', 'amount': 100}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': '0W60LB'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': '0W60LB', 'passengers': [{'first_name': 'Daiki', 'last_name': 'Patel', 'dob': '1968-04-25'}]}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': '0W60LB', 'cabin': 'business', 'flights': [{'flight_number': 'HAT074', 'date': '2024-05-20'}], 'payment_id': 'credit_card_4327297'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='evelyn_garcia_6211',
+        instruction='You are assisting Evelyn Garcia (user_id: evelyn_garcia_6211) with two travel requests. First, you want to request a compensation certificate for the cancellation of her one-way flight from IAH to EWR on 2024-05-11 (reservation 5264D4), as it was unexpectedly cancelled and caused inconvenience. Later, you will update reservation I2GNN5, which is a one-way economy flight from MSP to PHX on 2024-05-19 with a stop in MCO. You would like to change the passenger name from Raj Rossi to Seb Smith (DOB 1997-03-01) and update the flight segments to include an overnight flight from MSP to MCO (HAT098) and an afternoon flight from MCO to PHX (HAT153), both on 2024-05-19. You prefer to use the credit card ending in 3459 on file for any fare difference associated with these changes.\n\nUse evelyn_garcia_6211 for authentication.',
+        actions=[
+            Action(name='send_certificate', kwargs={'user_id': 'evelyn_garcia_6211', 'amount': 200}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'I2GNN5'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': 'I2GNN5', 'passengers': [{'first_name': 'Seb', 'last_name': 'Smith', 'dob': '1997-03-01'}]}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'I2GNN5', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT098', 'date': '2024-05-19'}, {'flight_number': 'HAT153', 'date': '2024-05-19'}], 'payment_id': 'credit_card_4906704'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='mason_smith_9673',
+        instruction='You are Mason Smith (mason_smith_9673) and you want to first review your existing reservation 1ETKA7 for a one-way economy flight from DEN to SFO via PHL on 2024-05-24. Then, you would like to book a new direct economy flight from DEN to DFW on 2024-05-20, specifically flight HAT246 departing in the afternoon, for yourself, and you prefer to pay using your Mastercard ending in 9430. Later, you would like to receive a $100 compensation certificate due to inconvenience caused by changes in your travel plans. After that, you want to explore one-stop flight options from DEN to SFO on 2024-05-20 for potential future travel, such as connecting through LAS, MIA, or CLT, to have flexible routing choices.\n\nUse mason_smith_9673 for authentication.',
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': '1ETKA7'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'DEN', 'destination': 'DFW', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'mason_smith_9673', 'origin': 'DEN', 'destination': 'DFW', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT246', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Mason', 'last_name': 'Smith', 'dob': '1988-12-15'}], 'payment_methods': [{'payment_id': 'credit_card_3008313', 'amount': 107}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='send_certificate', kwargs={'user_id': 'mason_smith_9673', 'amount': 100}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'DEN', 'destination': 'SFO', 'date': '2024-05-20'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='yusuf_thomas_7802',
+        instruction='You are assisting Yusuf Thomas, a regular traveler, with a series of flight requests. First, you want to book a one-way economy flight from EWR to CLT on 2024-05-20 for Yusuf Thomas and his colleague Lucas Santos because they are planning a trip together. You prefer a morning flight, specifically around 11:00 AM, as that is the scheduled departure time of the available flight HAT215. You prefer to pay using the Visa card ending in 8264, which is his preferred payment method on file. Later, you would like to update the existing business class reservation L8BTE9 for a one-way flight from EWR to MIA on 2024-05-16, as Yusuf is considering a different flight time or option for this leg of his travel. You want to keep the cabin as business class and use the same Visa card ending in 8264 for any fare difference. After that, you would like to search for one-stop flight options from EWR to SFO on 2024-05-25 to evaluate alternative itineraries for a future trip, with a viable option being a morning departure from EWR at 05:00 AM connecting through IAH, arriving in SFO by early afternoon.\n\nUse yusuf_thomas_7802 for authentication.',
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'EWR', 'destination': 'CLT', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'yusuf_thomas_7802', 'origin': 'EWR', 'destination': 'CLT', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT215', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Yusuf', 'last_name': 'Thomas', 'dob': '1985-03-05'}, {'first_name': 'Lucas', 'last_name': 'Santos', 'dob': '1989-07-11'}], 'payment_methods': [{'payment_id': 'credit_card_6263035', 'amount': 338}], 'total_baggages': 0, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'L8BTE9'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'L8BTE9', 'cabin': 'business', 'flights': [{'flight_number': 'HAT202', 'date': '2024-05-16'}], 'payment_id': 'credit_card_6263035'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'EWR', 'destination': 'SFO', 'date': '2024-05-25'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='amelia_nguyen_8708',
+        instruction='You are Amelia Nguyen, planning travel for yourself and two companions. You want to book a one-way flight from JFK to MIA on 2024-05-20 in economy class for passengers Evelyn Rossi and Evelyn Muller because you are arranging a trip for two. You prefer the evening flight (HAT126) as it fits your schedule, and you want to include 2 total checked bags (all free) and pay using your credit card ending in 1195. Later, you want to update your existing business-class reservation (BANTW5) from ORD to PHL on 2024-05-21 to a later departure, switching to the evening flight HAT271 because it better suits your plans, and you prefer to use the same credit card ending in 1195 for any fare difference. After that, you would like to explore available one-stop flight options from JFK to MIA on 2024-05-22 for a potential future trip, though no connecting flights currently reach MIA on that date.\n\nUse amelia_nguyen_8708 for authentication.',
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'JFK', 'destination': 'MIA', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'amelia_nguyen_8708', 'origin': 'JFK', 'destination': 'MIA', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT126', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Evelyn', 'last_name': 'Rossi', 'dob': '1961-12-11'}, {'first_name': 'Evelyn', 'last_name': 'Muller', 'dob': '1992-09-03'}], 'payment_methods': [{'payment_id': 'credit_card_2427893', 'amount': 374}], 'total_baggages': 2, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'BANTW5'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'BANTW5', 'cabin': 'business', 'flights': [{'flight_number': 'HAT271', 'date': '2024-05-21'}], 'payment_id': 'credit_card_2427893'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'JFK', 'destination': 'MIA', 'date': '2024-05-22'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='evelyn_lee_2325',
+        instruction='You are Evelyn Lee, and you initially wanted to search for one-stop flight options from PHX to SFO on 2024-05-16 for your business trip. Later, you decided to proceed with a direct flight instead, so you want to cancel your existing reservation 4WEVK0 for a business class flight from PHX to SFO on 2024-05-22 and book a new one-way business class flight from PHX to SFO on 2024-05-16, specifically flight HAT032, departing in the late morning, for yourself and Daiki Anderson, because it better fits your updated travel schedule. You prefer to pay using your Visa card ending in 7370 and would like to include two checked bags with no additional insurance. After that, you would like to update the passenger information for reservation RH8JD7, changing the passenger list to Evelyn Lee, Lucas Rossi, and Daiki Anderson, replacing Lucas Silva, to ensure accurate traveler details for the trip from IAH to PHX.\n\nUse evelyn_lee_2325 for authentication.',
+        actions=[
+            Action(name='search_onestop_flight', kwargs={'origin': 'PHX', 'destination': 'SFO', 'date': '2024-05-16'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'PHX', 'destination': 'SFO', 'date': '2024-05-16'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': '4WEVK0'}),
+            Action(name='book_reservation', kwargs={'user_id': 'evelyn_lee_2325', 'origin': 'PHX', 'destination': 'SFO', 'flight_type': 'one_way', 'cabin': 'business', 'flights': [{'flight_number': 'HAT032', 'date': '2024-05-16'}], 'passengers': [{'first_name': 'Evelyn', 'last_name': 'Lee', 'dob': '1954-07-05'}, {'first_name': 'Daiki', 'last_name': 'Anderson', 'dob': '1975-06-15'}], 'payment_methods': [{'payment_id': 'credit_card_5787244', 'amount': 998}], 'total_baggages': 2, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'RH8JD7'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': 'RH8JD7', 'passengers': [{'first_name': 'Evelyn', 'last_name': 'Lee', 'dob': '1954-07-05'}, {'first_name': 'Lucas', 'last_name': 'Rossi', 'dob': '1987-10-14'}, {'first_name': 'Daiki', 'last_name': 'Anderson', 'dob': '1975-06-15'}]}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='aarav_martin_4744',
+        instruction='You are Aarav Martin (user_id: aarav_martin_4744) and you want to cancel your existing round-trip reservation RC7KVQ from DTW to LAS due to changed plans. Later, you would like to book a new one-way flight from DTW to CLT on 2024-05-20, specifically flight HAT168 departing in the evening (6:00 PM), in economy class, for three passengers: Noah Ito, Omar Jackson, and Isabella Wilson, because you now need to travel to CLT instead. You want to include 3 total bags with no paid baggage and no travel insurance, and you prefer to pay using your Visa card ending in 6967. After that, you would like to update the passenger list on reservation BTXA2X for the CLT to LGA trip: you want to remove yourself (Aarav Martin) and add Liam Brown as the passenger instead, because the reservation was intended for your colleague, while keeping Noah Ito as the second passenger.\n\nUse aarav_martin_4744 for authentication.',
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'DTW', 'destination': 'CLT', 'date': '2024-05-20'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'RC7KVQ'}),
+            Action(name='book_reservation', kwargs={'user_id': 'aarav_martin_4744', 'origin': 'DTW', 'destination': 'CLT', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT168', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Noah', 'last_name': 'Ito', 'dob': '1952-02-04'}, {'first_name': 'Omar', 'last_name': 'Jackson', 'dob': '1993-06-07'}, {'first_name': 'Isabella', 'last_name': 'Wilson', 'dob': '1980-11-14'}], 'payment_methods': [{'payment_id': 'credit_card_2700485', 'amount': 393}], 'total_baggages': 3, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'BTXA2X'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': 'BTXA2X', 'passengers': [{'first_name': 'Liam', 'last_name': 'Brown', 'dob': '1990-01-01'}, {'first_name': 'Noah', 'last_name': 'Ito', 'dob': '1952-02-04'}]}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='mei_wilson_7043',
+        instruction='You are Mei Wilson, and you want to book a direct flight from DTW to MSP on 2024-05-20 for yourself and Juan Patel in economy class, preferring an early morning departure because it aligns with your schedule. You prefer to use your Mastercard ending in 7039 for payment and want to include 1 total baggage with no non-free baggages and no insurance. Later, you want to update your existing reservation R0UGFS for travel from DTW to MCO on 2024-05-25 to a better one-stop option in economy class, if available, or retain the current routing if no superior option exists, because you seek improved timing or connection comfort. You also want to update the baggage allowance to 2 total baggages with 1 non-free baggage and authorize the airline to charge the fare and baggage difference to the same Mastercard ending in 7039.\n\nUse mei_wilson_7043 for authentication.',
+        actions=[
+            Action(name='search_onestop_flight', kwargs={'origin': 'DTW', 'destination': 'MSP', 'date': '2024-05-20'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'DTW', 'destination': 'MSP', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'mei_wilson_7043', 'origin': 'DTW', 'destination': 'MSP', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT210', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Mei', 'last_name': 'Wilson', 'dob': '1984-11-22'}, {'first_name': 'Juan', 'last_name': 'Patel', 'dob': '1964-03-14'}], 'payment_methods': [{'payment_id': 'credit_card_7535171', 'amount': 238}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'R0UGFS'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'R0UGFS', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT254', 'date': '2024-05-25'}, {'flight_number': 'HAT071', 'date': '2024-05-25'}], 'payment_id': 'credit_card_7535171'}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': 'R0UGFS', 'total_baggages': 2, 'nonfree_baggages': 1, 'payment_id': 'credit_card_7535171'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='ivan_taylor_6615',
+        instruction='You are Ivan Taylor, a gold member, and you want compensation in the form of a certificate for the cancelled reservation 06K2QN from ATL to LAS on 2024-05-08, which affected you and passenger Ivan Jackson, due to the inconvenience caused. Later, you would like to explore booking a new direct morning flight on 2024-05-20 from ATL to New York (LGA), as there are no direct flights to JFK available, and you prefer a basic economy option on that route. After that, you would like to cancel your existing round-trip reservation WGMKL8, which includes future flights for multiple passengers from MCO to LAS, LAS to MCO, MCO to MSP, and MSP to MCO, because you no longer need the travel plans. You prefer any refund or credit from cancellations to be applied to your Visa card ending in 1656 or as a travel certificate.\n\nUse ivan_taylor_6615 for authentication.',
+        actions=[
+            Action(name='send_certificate', kwargs={'user_id': 'ivan_taylor_6615', 'amount': 200}),
+            Action(name='search_direct_flight', kwargs={'origin': 'ATL', 'destination': 'JFK', 'date': '2024-05-20'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'WGMKL8'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='james_ahmed_4322',
+        instruction='You are James Ahmed, and you want to cancel your existing round-trip economy reservation JX6LB3 from DTW to CLT because your travel plans have changed, and you would like a full refund processed back to the original payment method, which was a gift card. After that, you would like to book a one-way economy flight from DTW to ORD on 2024-05-20 for two passengers: yourself (James Ahmed) and Emma Gonzalez. You prefer the direct flight departing in the evening, as it aligns with your schedule. Once booked, you would like to add one checked bag to the reservation and pay the bag fee using your Mastercard ending in 3379, as it is your preferred payment method for additional charges.\n\nUse james_ahmed_4322 for authentication.',
+        actions=[
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'JX6LB3'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'DTW', 'destination': 'ORD', 'date': '2024-05-20'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'DTW', 'destination': 'ORD', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'james_ahmed_4322', 'origin': 'DTW', 'destination': 'ORD', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT119', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'James', 'last_name': 'Ahmed', 'dob': '2000-10-12'}, {'first_name': 'Emma', 'last_name': 'Gonzalez', 'dob': '1985-12-05'}], 'payment_methods': [{'payment_id': 'credit_card_5747649', 'amount': 212}], 'total_baggages': 0, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': 'JX6LB3', 'total_baggages': 1, 'nonfree_baggages': 1, 'payment_id': 'credit_card_5747649'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'JX6LB3'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='mia_garcia_3833',
+        instruction='You are Mia Garcia, a regular customer, and you want to book a direct evening flight from Los Angeles (LAX) to San Francisco (SFO) on 2024-05-20. You prefer flight HAT249 because it fits your desired travel time and is available in economy class. You are booking for two passengers: yourself, Mia Garcia, and your travel companion, Aarav Lee. You want to include two checked bags at no extra charge, as this aligns with your preference for cost-effective travel, and you are declining travel insurance. You prefer to pay using your saved credit card ending in 2771 for convenience and security.\n\nUse mia_garcia_3833 for authentication.',
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'LAX', 'destination': 'SFO', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'mia_garcia_3833', 'origin': 'LAX', 'destination': 'SFO', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT249', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Mia', 'last_name': 'Garcia', 'dob': '1980-07-11'}, {'first_name': 'Aarav', 'last_name': 'Lee', 'dob': '1996-01-25'}], 'payment_methods': [{'payment_id': 'credit_card_3323151', 'amount': 250}], 'total_baggages': 2, 'nonfree_baggages': 0, 'insurance': 'no'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='anya_sanchez_5251',
+        instruction='You are assisting Anya Sanchez (user_id: anya_sanchez_5251) with three sequential requests. First, you want to claim a $100 compensation certificate for the cancelled one-way business class flight from DFW to LAX on 2024-05-12 (reservation KDNMCS), as it was disrupted through no fault of the passenger. Next, you would like to upgrade the one-way reservation DGLJTR from economy to business class for the connecting flights from PHX to DFW via SEA on 2024-05-19 for two passengers (Anya Sanchez and Liam Anderson), because a higher comfort cabin is preferred for this journey; you prefer to pay any fare difference using your credit card ending in 3097. After that, you would like to cancel the round-trip business class reservation LVNBYN from DEN to BOS and back on 2024-05-16 and 2024-05-21 for four passengers (Amelia Khan, Omar Santos, Yusuf Khan, Lucas Ito), as the travel plans have changed; you prefer the refund to be issued back to your credit card ending in 3097.\n\nUse anya_sanchez_5251 for authentication.',
+        actions=[
+            Action(name='send_certificate', kwargs={'user_id': 'anya_sanchez_5251', 'amount': 100}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'DGLJTR', 'cabin': 'business', 'flights': [{'flight_number': 'HAT156', 'date': '2024-05-19'}, {'flight_number': 'HAT055', 'date': '2024-05-19'}], 'payment_id': 'credit_card_2382743'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'LVNBYN'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='noah_khan_8166',
+        instruction='You are assisting Noah Khan (user_id: noah_khan_8166) regarding his cancelled reservation LUA6DF for a business-class flight from LAS to IAH on 2024-05-13. You want to request a compensation certificate for the cancellation, as the flight was disrupted and the passenger (Yusuf Ahmed) was affected. Later, you would like to book a new one-way economy flight from LAS to MCO on 2024-05-20 for one passenger (Yusuf Ahmed), preferring an early morning departure, as flight HAT137 is the only available option on that date and aligns with the requested timing. You prefer to pay using the credit card ending in 132, which is already on file. After that, you would like to cancel the original reservation LUA6DF and have any applicable refund or credit returned to the same credit card ending in 132, to finalize the change and avoid duplicate charges.\n\nUse noah_khan_8166 for authentication.',
+        actions=[
+            Action(name='send_certificate', kwargs={'user_id': 'noah_khan_8166', 'amount': 100}),
+            Action(name='search_direct_flight', kwargs={'origin': 'LAS', 'destination': 'MCO', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'noah_khan_8166', 'origin': 'LAS', 'destination': 'MCO', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT137', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Yusuf', 'last_name': 'Ahmed', 'dob': '1959-11-21'}], 'payment_methods': [{'payment_id': 'credit_card_5669132', 'amount': 196}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'LUA6DF'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'LUA6DF'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='harper_martin_8348',
+        instruction='You are Harper Martin, traveling with Mason Rossi, and you want to book a direct evening flight from SEA to SFO on 2024-05-20, specifically flight HAT258 in economy class, because it fits your preferred travel time and route. You prefer to pay using your credit card ending in 2492. Later, you want to cancel your existing business class reservation BW2PEH from SEA to LGA because it is no longer needed. After that, you would like to confirm the details of your reservation ER7A5P for a round-trip between ORD and IAH on 2024-05-26 and ORD and DEN on 2024-05-28, both in economy class, with no changes required. Since your flight on reservation BW2PEH was cancelled, you would like to receive a compensation certificate. You prefer the refund or compensation to be issued to the original payment method, your credit card ending in 2492.\n\nUse harper_martin_8348 for authentication.',
+        actions=[
+            Action(name='search_onestop_flight', kwargs={'origin': 'SEA', 'destination': 'SFO', 'date': '2024-05-20'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'SEA', 'destination': 'SFO', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'harper_martin_8348', 'origin': 'SEA', 'destination': 'SFO', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT258', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Harper', 'last_name': 'Martin', 'dob': '1954-04-09'}, {'first_name': 'Mason', 'last_name': 'Rossi', 'dob': '1973-07-25'}], 'payment_methods': [{'payment_id': 'credit_card_4852851', 'amount': 342}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'BW2PEH'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'ER7A5P'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'ER7A5P', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT165', 'date': '2024-05-26'}, {'flight_number': 'HAT044', 'date': '2024-05-26'}, {'flight_number': 'HAT238', 'date': '2024-05-28'}, {'flight_number': 'HAT105', 'date': '2024-05-28'}], 'payment_id': 'credit_card_4852851'}),
+            Action(name='send_certificate', kwargs={'user_id': 'harper_martin_8348', 'amount': 200}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='ethan_nguyen_6045',
+        instruction='You are Ethan Nguyen (DOB: 1970-04-28), and you want to book a one-way economy flight from LGA to PHX on 2024-05-20 for yourself, with a preference for a late evening departure around 9:00 PM, as flight HAT002 is available and aligns with your schedule. You also want to cancel your existing round-trip reservation L1QGWV from LGA to PHL due to changed travel plans, and you prefer the refund to be issued to your saved Visa card ending in 3303, which was used for the original purchase. Later, you would like to update the baggage allowance for reservation UDIGI7, a connecting flight from LGA to EWR for passenger Yusuf Smith, to include 2 total checked bags (1 free, 1 paid), with the additional bag charged to the same Visa card ending in 3303, to accommodate extra luggage needs.\n\nUse ethan_nguyen_6045 for authentication.',
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'LGA', 'destination': 'PHX', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'ethan_nguyen_6045', 'origin': 'LGA', 'destination': 'PHX', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT002', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Ethan', 'last_name': 'Nguyen', 'dob': '1970-04-28'}], 'payment_methods': [{'payment_id': 'credit_card_8005628', 'amount': 175}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'L1QGWV'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'UDIGI7'}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': 'UDIGI7', 'total_baggages': 2, 'nonfree_baggages': 1, 'payment_id': 'credit_card_8005628'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='daiki_lee_6144',
+        instruction='You are Daiki Lee (daiki_lee_6144) and you want to book a new one-way direct flight from Philadelphia (PHL) to San Francisco (SFO) on May 20, 2024, in economy class for three passengers: Raj Muller, Ivan Garcia, and Fatima Moore, because you decided to travel on that date. You prefer the early morning flight departing around 03:00 AM, as it aligns with the schedule of flight HAT291, and you want to pay using your Visa card ending in 9734. Later, you want to cancel your existing business-class reservation COVE6R from Orlando (MCO) to Boston (BOS) on May 27, 2024, due to a schedule conflict. After that, you would like to review the details of reservation IIHXDG, which originally had Raj Muller, Ivan Garcia, and Fatima Moore on flight HAT199 from PHL to SFO on May 18, 2024. You then want to update the passenger names on this reservation to Noah Brown, Emma Wilson, and Liam Martinez, and change the flight to the early morning HAT291 on May 18, 2024, in economy class, using the same Visa card ending in 9734, to better align with your updated travel plans. Subsequently, you would like to receive a $100 compensation certificate due to a previous flight cancellation. Finally, you want to see a list of direct flight options from PHL to SFO on May 18, 2024, to compare with your updated itinerary, particularly noting the early morning HAT291 and the afternoon HAT199 options.\n\nUse daiki_lee_6144 for authentication.',
+        actions=[
+            Action(name='search_onestop_flight', kwargs={'origin': 'PHL', 'destination': 'SFO', 'date': '2024-05-18'}),
+            Action(name='book_reservation', kwargs={'user_id': 'daiki_lee_6144', 'origin': 'PHL', 'destination': 'SFO', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT291', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Raj', 'last_name': 'Muller', 'dob': '1967-10-16'}, {'first_name': 'Ivan', 'last_name': 'Garcia', 'dob': '1964-11-26'}, {'first_name': 'Fatima', 'last_name': 'Moore', 'dob': '1993-03-01'}], 'payment_methods': [{'payment_id': 'credit_card_6198952', 'amount': 435}], 'total_baggages': 3, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'COVE6R'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'IIHXDG'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': 'IIHXDG', 'passengers': [{'first_name': 'Noah', 'last_name': 'Brown', 'dob': '1990-01-01'}, {'first_name': 'Emma', 'last_name': 'Wilson', 'dob': '1988-05-12'}, {'first_name': 'Liam', 'last_name': 'Martinez', 'dob': '1995-07-18'}]}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'IIHXDG', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT291', 'date': '2024-05-18'}], 'payment_id': 'credit_card_6198952'}),
+            Action(name='send_certificate', kwargs={'user_id': 'daiki_lee_6144', 'amount': 100}),
+            Action(name='search_direct_flight', kwargs={'origin': 'PHL', 'destination': 'SFO', 'date': '2024-05-18'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='evelyn_martin_3582',
+        instruction='You are Evelyn Martin, and you want to cancel your one-way reservation XOL9VY from ORD to JFK on 2024-05-18 in economy class because you no longer need the trip. Later, you would like to update your round-trip reservation 9V43HC to change the outbound flight from ORD to DTW on 2024-05-23 from the original 10:00 PM departure to an earlier flight, specifically HAT230 departing at 12:00 AM, to better fit your schedule, while keeping the return flight unchanged and remaining in business class. You prefer to use your Visa card ending in 2183 for any applicable charges. After that, you would like to receive a compensation certificate for the cancelled reservation XOL9VY, as the cancellation is eligible under policy.\n\nUse evelyn_martin_3582 for authentication.',
+        actions=[
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'XOL9VY'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'XOL9VY'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': '9V43HC', 'cabin': 'business', 'flights': [{'flight_number': 'HAT230', 'date': '2024-05-23'}, {'flight_number': 'HAT119', 'date': '2024-05-25'}], 'payment_id': 'credit_card_1351239'}),
+            Action(name='send_certificate', kwargs={'user_id': 'evelyn_martin_3582', 'amount': 100}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='juan_moore_4540',
+        instruction='You are Juan Moore (juan_moore_4540) and you want to cancel your reservation 2NULCR for the DFW to ATL one-way trip on 2024-05-22, as you have decided not to take this journey. Later, you would like to update your reservation QC0XRD to confirm the current flight segments for your DTW to DEN round-trip in business class: you prefer the outbound journey on 2024-05-19 with a morning flight from DTW to CLT (HAT191) followed by an afternoon flight from CLT to DEN (HAT262), and the return journey on 2024-05-26 with a morning flight from DEN to ORD (HAT105) followed by a late evening flight from ORD to DTW (HAT020), all in business class. You prefer to use your Visa card ending in 9993 (payment_id credit_card_6969856) for any applicable charges. After that, you would like to receive a compensation certificate for recent travel inconvenience experienced during your trips.\n\nUse juan_moore_4540 for authentication.',
+        actions=[
+            Action(name='cancel_reservation', kwargs={'reservation_id': '2NULCR'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'QC0XRD'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'QC0XRD', 'cabin': 'business', 'flights': [{'flight_number': 'HAT191', 'date': '2024-05-19'}, {'flight_number': 'HAT262', 'date': '2024-05-19'}, {'flight_number': 'HAT105', 'date': '2024-05-26'}, {'flight_number': 'HAT020', 'date': '2024-05-26'}], 'payment_id': 'credit_card_6969856'}),
+            Action(name='send_certificate', kwargs={'user_id': 'juan_moore_4540', 'amount': 100}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='mei_hernandez_9827',
+        instruction='You are Mei Hernandez (DOB 1960-04-13), and you want to book a new one-way flight from LAX to DFW on 2024-05-20 for yourself in economy class, specifically flight HAT022 departing in the afternoon, because it fits your schedule and has available seats. You prefer to pay using your Mastercard ending in 1382. Later, you want to update your existing reservation 672VDE from LAX to PHL via ORD on 2024-05-17 by changing the passenger name from Mei Hernandez to Isabella Johansson (DOB 1971-09-14), who is saved in your account, and upgrading both flights (HAT103 from LAX to ORD and HAT271 from ORD to PHL) to business class, as you value comfort for this early morning and evening journey. You prefer to use the same Mastercard ending in 1382 for any fare difference. After that, you would like to compare other one-stop flight options from LAX to PHL on 2024-05-17 to ensure your updated itinerary remains the best choice, even though no other available one-stop options currently reach PHL on that date.\n\nUse mei_hernandez_9827 for authentication.',
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'LAX', 'destination': 'DFW', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'mei_hernandez_9827', 'origin': 'LAX', 'destination': 'DFW', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT022', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Mei', 'last_name': 'Hernandez', 'dob': '1960-04-13'}], 'payment_methods': [{'payment_id': 'credit_card_9355028', 'amount': 103}], 'total_baggages': 0, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': '672VDE', 'passengers': [{'first_name': 'Isabella', 'last_name': 'Johansson', 'dob': '1971-09-14'}]}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': '672VDE', 'cabin': 'business', 'flights': [{'flight_number': 'HAT103', 'date': '2024-05-17'}, {'flight_number': 'HAT271', 'date': '2024-05-17'}], 'payment_id': 'credit_card_9355028'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'LAX', 'destination': 'PHL', 'date': '2024-05-17'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='raj_moore_3967',
+        instruction='You are Raj Moore (raj_moore_3967) and you want to update your existing reservation U21HRK for a one-way business class trip from LAX to CLT. You prefer to change your connecting itinerary to take flight HAT228 from LAX to EWR in the evening on 2024-05-19, followed by flight HAT043 from EWR to CLT in the afternoon on 2024-05-20, keeping the entire journey in business class for consistency with your original cabin preference. Later, you would like to book a new one-way business class flight from LAX to EWR on 2024-05-20 for your associate Liam Johnson, using his saved passenger details. You prefer flight HAT012 departing at noon, as it aligns with the requested flight number and timing. You also want to include 1 total baggage (with no paid baggage) and no travel insurance for this new booking. You prefer to use your saved Visa card ending in 9315 (payment_id credit_card_7019543) for any charges associated with the new reservation.\n\nUse raj_moore_3967 for authentication.',
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'U21HRK'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'LAX', 'destination': 'CLT', 'date': '2024-05-19'}),
+            Action(name='book_reservation', kwargs={'user_id': 'raj_moore_3967', 'origin': 'LAX', 'destination': 'EWR', 'flight_type': 'one_way', 'cabin': 'business', 'flights': [{'flight_number': 'HAT012', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Liam', 'last_name': 'Johnson', 'dob': '1969-06-10'}], 'payment_methods': [{'payment_id': 'credit_card_7019543', 'amount': 300}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'U21HRK', 'cabin': 'business', 'flights': [{'flight_number': 'HAT228', 'date': '2024-05-19'}, {'flight_number': 'HAT043', 'date': '2024-05-20'}], 'payment_id': 'credit_card_7019543'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='liam_smith_7283',
+        instruction='You are assisting Liam Smith (liam_smith_7283) with multiple travel requests. First, you want to book a one-way, one-stop business class flight from DTW to MIA on 2024-05-20 for one passenger (Liam Smith), consisting of flight HAT169 departing DTW in the early morning and connecting to flight HAT126 departing JFK in the evening, because this aligns with his preferred itinerary. You prefer to charge this booking to his credit card ending in 8081. After that, you would like to cancel his existing reservation PKQ6L7 for the DTW-MIA round-trip, as he no longer needs it, and request a refund to the same credit card. Later, you want to update reservation QETCEK (IAH-LAS) by increasing the total baggage to 3 with 1 non-free bag, because he requires additional luggage, and change the flights to HAT286 on 2024-05-26 (departing IAH in the late evening) and HAT266 on 2024-05-27 (departing LAS in the afternoon), both in business class, to match his updated travel plans. You prefer to use the same credit card ending in 8081 for any fare difference associated with these changes.\n\nUse liam_smith_7283 for authentication.',
+        actions=[
+            Action(name='search_onestop_flight', kwargs={'origin': 'DTW', 'destination': 'MIA', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'liam_smith_7283', 'origin': 'DTW', 'destination': 'MIA', 'flight_type': 'one_way', 'cabin': 'business', 'flights': [{'flight_number': 'HAT169', 'date': '2024-05-20'}, {'flight_number': 'HAT126', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Liam', 'last_name': 'Smith', 'dob': '1964-07-21'}], 'payment_methods': [{'payment_id': 'credit_card_1383118', 'amount': 588}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'PKQ6L7'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'QETCEK'}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': 'QETCEK', 'total_baggages': 3, 'nonfree_baggages': 1, 'payment_id': 'credit_card_1383118'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'QETCEK', 'cabin': 'business', 'flights': [{'flight_number': 'HAT286', 'date': '2024-05-26'}, {'flight_number': 'HAT266', 'date': '2024-05-27'}], 'payment_id': 'credit_card_1383118'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='mia_santos_2092',
+        instruction="You are Mia Santos (user_id mia_santos_2092) with reservation AHVHPP for a round-trip business class flight from LAS to PHX. You want to update the passenger list to remove Fatima Rossi and add Raj Rossi (a saved passenger) because of a scheduling conflict, and you would like to add one checked bag, increasing the total to four bags with one paid bag, to accommodate your colleague's luggage. You prefer this change to be charged to your Visa card ending in 2705, which is your primary payment method. Later, you would like to book a one-way economy flight from JFK to IAH on 2024-05-20 for two passengers (Mia Santos and Raj Rossi) on flight HAT279, which departs in the late morning, because you need to travel together for a separate business engagement. You prefer to use the same Visa card ending in 2705 for this booking and do not want travel insurance, with two total bags included at no extra cost.\n\nUse mia_santos_2092 for authentication.",
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'AHVHPP'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': 'AHVHPP', 'passengers': [{'first_name': 'Mia', 'last_name': 'Santos', 'dob': '1974-03-02'}, {'first_name': 'Raj', 'last_name': 'Rossi', 'dob': '1997-03-15'}]}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': 'AHVHPP', 'total_baggages': 4, 'nonfree_baggages': 1, 'payment_id': 'credit_card_5606648'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'JFK', 'destination': 'IAH', 'date': '2024-05-20'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'JFK', 'destination': 'IAH', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'mia_santos_2092', 'origin': 'JFK', 'destination': 'IAH', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT279', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Mia', 'last_name': 'Santos', 'dob': '1974-03-02'}, {'first_name': 'Raj', 'last_name': 'Rossi', 'dob': '1997-03-15'}], 'payment_methods': [{'payment_id': 'credit_card_5606648', 'amount': 330}], 'total_baggages': 2, 'nonfree_baggages': 0, 'insurance': 'no'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='mei_johansson_4039',
+        instruction="You are Mei Johansson (mei_johansson_4039) and you want to update the passenger details on reservation 7OVR4A by correcting Isabella Garcia's date of birth from 1994-06-15 to 1994-06-14, as it was entered incorrectly. You also want to add one checked bag to this reservation and prefer to pay the fee using your credit card ending in 6249. Later, you would like to book a new one-way business class flight from SFO to IAH on 2024-05-20 for yourself and Sophia Kovacs, specifically on flight HAT082 departing in the late evening, because you have chosen this flight. You want to include two free bags and no insurance, and prefer to charge the total to your credit card ending in 6249.\n\nUse mei_johansson_4039 for authentication.",
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': '7OVR4A'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': '7OVR4A', 'passengers': [{'first_name': 'Mei', 'last_name': 'Johansson', 'dob': '1986-06-15'}, {'first_name': 'Sophia', 'last_name': 'Kovacs', 'dob': '1960-06-18'}, {'first_name': 'Isabella', 'last_name': 'Garcia', 'dob': '1994-06-14'}]}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': '7OVR4A', 'total_baggages': 1, 'nonfree_baggages': 1, 'payment_id': 'credit_card_6181103'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'SFO', 'destination': 'IAH', 'date': '2024-05-20'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'SFO', 'destination': 'IAH', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'mei_johansson_4039', 'origin': 'SFO', 'destination': 'IAH', 'flight_type': 'one_way', 'cabin': 'business', 'flights': [{'flight_number': 'HAT082', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Mei', 'last_name': 'Johansson', 'dob': '1986-06-15'}, {'first_name': 'Sophia', 'last_name': 'Kovacs', 'dob': '1960-06-18'}], 'payment_methods': [{'payment_id': 'credit_card_6181103', 'amount': 880}], 'total_baggages': 2, 'nonfree_baggages': 0, 'insurance': 'no'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='mohamed_silva_4301',
+        instruction='You are assisting Mohamed Silva (DOB 1959-09-28) with his travel plans. First, you searched for one-stop flights from LGA to EWR on 2024-05-16, but found no direct connecting options between those airports. Then, you want to book a one-way flight from LGA to PHL on 2024-05-20 for Mohamed Silva in economy class, specifically flight HAT132 departing at 17:00, with 1 checked baggage, no insurance, and payment using his Mastercard ending in 7526. After that, you want to update existing reservation 72T71H to add 1 checked baggage (total_baggages=1, nonfree_baggages=1), with the charge applied to the same credit card. Finally, you want to change the outbound flights on the same reservation from LGA to EWR on 2024-05-16 to later flights: first HAT272 from LGA to CLT departing at 18:00, followed by HAT157 from CLT to EWR, both in economy class, with any fare difference charged to the same Mastercard ending in 7526.\n\nUse mohamed_silva_4301 for authentication.',
+        actions=[
+            Action(name='search_onestop_flight', kwargs={'origin': 'LGA', 'destination': 'EWR', 'date': '2024-05-16'}),
+            Action(name='book_reservation', kwargs={'user_id': 'mohamed_silva_4301', 'origin': 'LGA', 'destination': 'PHL', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT132', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Mohamed', 'last_name': 'Silva', 'dob': '1959-09-28'}], 'payment_methods': [{'payment_id': 'credit_card_5297893', 'amount': 166}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': '72T71H', 'total_baggages': 1, 'nonfree_baggages': 1, 'payment_id': 'credit_card_5297893'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': '72T71H', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT272', 'date': '2024-05-16'}, {'flight_number': 'HAT157', 'date': '2024-05-16'}, {'flight_number': 'HAT043', 'date': '2024-05-17'}, {'flight_number': 'HAT087', 'date': '2024-05-17'}], 'payment_id': 'credit_card_5297893'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='anya_sanchez_5251',
+        instruction='You are assisting Anya Sanchez (user_id: anya_sanchez_5251) with a series of requests related to her cancelled reservation KDNMCS. First, you want to issue a compensation certificate for the cancellation of her business class flight from DFW to LAX on 2024-05-12, as she was inconvenienced by the disruption. After that, you would like to update the same reservation KDNMCS to increase total_baggages to 2 and nonfree_baggages to 1, charging the fee to her Mastercard ending in 1642, as she plans to travel with an additional checked bag. Later, you are exploring rebooking options and would like to find a flight from DFW to LAX on 2024-05-20. Based on available data, you prefer the early morning flight departing DFW at 03:00 AM, as it is the only direct option available on that date.\n\nUse anya_sanchez_5251 for authentication.',
+        actions=[
+            Action(name='send_certificate', kwargs={'user_id': 'anya_sanchez_5251', 'amount': 100}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'KDNMCS'}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': 'KDNMCS', 'total_baggages': 2, 'nonfree_baggages': 1, 'payment_id': 'credit_card_1699800'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'DFW', 'destination': 'LAX', 'date': '2024-05-20'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'DFW', 'destination': 'LAX', 'date': '2024-05-20'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sophia_patel_6859',
+        instruction='You are Sophia Patel, user sophia_patel_6859, and you want compensation in the form of a certificate for the cancelled one-way flight HAT069 from JFK to SEA on 2024-05-11 under reservation IPG6ZS. Later, you would like to update your active round-trip business class reservation V7KTOK (DTW-MCO via MSP on 2024-05-26 and return on 2024-05-30) to add one checked bag for passenger Anya Moore, as bags are included in business class, and you prefer to use the credit card ending in 427 for any confirmation. After that, you would like to explore flight options from DTW to CLT on 2024-05-26, specifically preferring a direct flight in the afternoon, as there are two viable options: one departing around 16:00 and another around 18:00, and you are open to either of these time windows.\n\nUse sophia_patel_6859 for authentication.',
+        actions=[
+            Action(name='send_certificate', kwargs={'user_id': 'sophia_patel_6859', 'amount': 100}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'V7KTOK'}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': 'V7KTOK', 'total_baggages': 1, 'nonfree_baggages': 0, 'payment_id': 'credit_card_5278427'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'DTW', 'destination': 'CLT', 'date': '2024-05-26'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'DTW', 'destination': 'CLT', 'date': '2024-05-26'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='mia_li_8815',
+        instruction='You are Mia Li (DOB 1998-03-11), and you want to cancel your existing business class one-way reservation C07GF3 from PHX to BOS on 2024-05-28 via SEA because you have changed your travel plans. After cancellation, you would like to book a new one-way economy class trip from PHX to BOS on 2024-05-20 with a one-stop itinerary, connecting via SEA, because it fits your updated schedule and budget. You prefer flight HAT251 from PHX to SEA departing at 12:00 PM and flight HAT253 from SEA to BOS departing at 8:00 PM, as these were specifically requested and are available. You want to add one free checked bag and decline travel insurance, as per your preference for minimal baggage and no additional costs. You prefer to pay using your Mastercard ending in 3329, which is your saved payment method. Later, you would like the agent to check for any direct flights from PHX to BOS on 2024-05-20 for comparison, but since none are available, the connecting option remains your intended booking.\n\nUse mia_li_8815 for authentication.',
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'C07GF3'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'C07GF3'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'PHX', 'destination': 'BOS', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'mia_li_8815', 'origin': 'PHX', 'destination': 'BOS', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT251', 'date': '2024-05-20'}, {'flight_number': 'HAT253', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Mia', 'last_name': 'Li', 'dob': '1998-03-11'}], 'payment_methods': [{'payment_id': 'credit_card_6719194', 'amount': 336}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'PHX', 'destination': 'BOS', 'date': '2024-05-20'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='fatima_taylor_8297',
+        instruction='You are to assist Fatima Taylor (DOB 1983-02-04) with booking a direct flight from LAX to DFW on 2024-05-20 in economy class for one passenger, with no checked bags or insurance, because she needs to travel on that date. You want to book flight HAT022, which departs in the afternoon, because it matches her requested flight and is available. You prefer to pay using her Visa card ending in 1733, as it is her selected payment method. After completing the booking, you would like to issue a compensation certificate for a previous flight inconvenience, because she reported a recent delay and expects recognition for the disruption.\n\nUse fatima_taylor_8297 for authentication.',
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'LAX', 'destination': 'DFW', 'date': '2024-05-20'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'LAX', 'destination': 'DFW', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'fatima_taylor_8297', 'origin': 'LAX', 'destination': 'DFW', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT022', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Fatima', 'last_name': 'Taylor', 'dob': '1983-02-04'}], 'payment_methods': [{'payment_id': 'credit_card_1366921', 'amount': 103}], 'total_baggages': 0, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'RVEZA8'}),
+            Action(name='send_certificate', kwargs={'user_id': 'fatima_taylor_8297', 'amount': 50}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sophia_patel_6859',
+        instruction='You are assisting Sophia Patel (DOB 1981-12-25), user sophia_patel_6859, who wants to book a one-way flight from JFK to ATL on 2024-05-20. You want to book flight HAT268 in economy class for 1 passenger, with no checked bags, no insurance, and charge the credit card ending in 7741 on file, because she has specified this flight and payment method. Later, you would like to request a compensation certificate for the previous cancellation of her basic economy flight from JFK to SEA on 2024-05-11 under reservation IPG6ZS, because it was cancelled and she is eligible for a $100 travel certificate.\n\nUse sophia_patel_6859 for authentication.',
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'JFK', 'destination': 'ATL', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'sophia_patel_6859', 'origin': 'JFK', 'destination': 'ATL', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT268', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Sophia', 'last_name': 'Patel', 'dob': '1981-12-25'}], 'payment_methods': [{'payment_id': 'credit_card_5278427', 'amount': 101}], 'total_baggages': 0, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='send_certificate', kwargs={'user_id': 'sophia_patel_6859', 'amount': 100}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='raj_johnson_6495',
+        instruction='You are Raj Johnson, a regular customer, who wants to book a one-way flight from DTW to ORD on 2024-05-20 for yourself and Sofia Jackson in economy class, with one free checked bag, no insurance, and payment using your Mastercard ending in 2426, preferring the evening flight (HAT119) departing at 5:00 PM. Later, you want to update your existing reservation NA6PZ3 by replacing passenger Sofia Jackson with Seb Smith, keeping all other details including cabin, number of passengers, and baggage allowance unchanged.\n\nUse raj_johnson_6495 for authentication.',
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'DTW', 'destination': 'ORD', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'raj_johnson_6495', 'origin': 'DTW', 'destination': 'ORD', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT119', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Raj', 'last_name': 'Johnson', 'dob': '1991-06-17'}, {'first_name': 'Sofia', 'last_name': 'Jackson', 'dob': '1986-10-03'}], 'payment_methods': [{'payment_id': 'credit_card_4188609', 'amount': 212}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'NA6PZ3', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT275', 'date': '2024-05-27'}, {'flight_number': 'HAT106', 'date': '2024-05-27'}, {'flight_number': 'HAT053', 'date': '2024-05-29'}, {'flight_number': 'HAT167', 'date': '2024-05-29'}], 'payment_id': 'credit_card_4188609'}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': 'NA6PZ3', 'total_baggages': 2, 'nonfree_baggages': 1, 'payment_id': 'credit_card_4188609'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'NA6PZ3'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': 'NA6PZ3', 'passengers': [{'first_name': 'Raj', 'last_name': 'Johnson', 'dob': '1991-06-17'}, {'first_name': 'Seb', 'last_name': 'Smith', 'dob': '1997-03-01'}]}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='omar_davis_3817',
+        instruction='You are Omar Davis (omar_davis_3817), traveling with Fatima Patel, and you want to book a one-way business class flight from MCO to BOS on 2024-05-20, departing early morning, because you have changed your original travel plans. You prefer to use your Visa card ending in 7803 for payment and will bring 2 bags, with no travel insurance. After booking this new flight, you want to cancel your original reservation JG7FMM (from MCO to CLT via BOS on 2024-05-21 in business class) as it is no longer needed. Later, you would like to explore one-stop flight options from MCO to SEA on 2024-05-22 for potential future travel, with a preference for routes that connect through PHX and arrive late evening. After the cancellation of JG7FMM, you would like to receive a travel certificate as compensation for the inconvenience.\n\nUse omar_davis_3817 for authentication.',
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'MCO', 'destination': 'BOS', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'omar_davis_3817', 'origin': 'MCO', 'destination': 'BOS', 'flight_type': 'one_way', 'cabin': 'business', 'flights': [{'flight_number': 'HAT028', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Omar', 'last_name': 'Davis', 'dob': '1982-10-19'}, {'first_name': 'Fatima', 'last_name': 'Patel', 'dob': '1950-05-04'}], 'payment_methods': [{'payment_id': 'credit_card_2929732', 'amount': 762}], 'total_baggages': 2, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'JG7FMM'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'MCO', 'destination': 'SEA', 'date': '2024-05-22'}),
+            Action(name='send_certificate', kwargs={'user_id': 'omar_davis_3817', 'amount': 200}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='emma_johansson_6252',
+        instruction='You are Emma Johansson, and you want to book a direct evening flight from JFK to MIA on 2024-05-20 for yourself and Noah Khan in economy class, specifically flight HAT014, because it fits your travel plans and has availability. You prefer to pay using your Visa card ending in 4149. Later, you want to cancel your existing business class reservation WI1J36 from JFK to ATL on the same date, as it is no longer needed, and you would like the refund processed back to the same card. After that, you would like to explore available one-stop flight options from JFK to SFO on 2024-05-20, although no such connecting flights were found in the current schedule. Finally, you are requesting a compensation certificate due to a recent delay on your flight HAT014 on 2024-05-15, which caused inconvenience during your travel.\n\nUse emma_johansson_6252 for authentication.',
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'JFK', 'destination': 'MIA', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'emma_johansson_6252', 'origin': 'JFK', 'destination': 'MIA', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT014', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Emma', 'last_name': 'Johansson', 'dob': '1977-02-26'}, {'first_name': 'Noah', 'last_name': 'Khan', 'dob': '1985-07-14'}], 'payment_methods': [{'payment_id': 'credit_card_4255859', 'amount': 286}], 'total_baggages': 0, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'WI1J36'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'JFK', 'destination': 'SFO', 'date': '2024-05-20'}),
+            Action(name='send_certificate', kwargs={'user_id': 'emma_johansson_6252', 'amount': 100}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='raj_kovacs_8102',
+        instruction='You are to first cancel the existing reservation O8IHB3 for the business class one-way flight from Philadelphia (PHL) to San Francisco (SFO) on 2024-05-26, and process a full refund to the original payment method. Then, you would like to book a new one-way economy flight from Philadelphia (PHL) to New York (LGA) on 2024-05-20 for two passengers, specifically choosing flight HAT135 as it departs in the afternoon. You prefer to pay using your Mastercard ending in 5274. After that, you want to update the passenger information to change Mason Sanchez to Mason Smith, keeping the same date of birth (1976-05-16), as this reflects the correct name for the traveling companion.\n\nUse raj_kovacs_8102 for authentication.',
+        actions=[
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'O8IHB3'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'PHL', 'destination': 'LGA', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'raj_kovacs_8102', 'origin': 'PHL', 'destination': 'LGA', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT135', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Raj', 'last_name': 'Kovacs', 'dob': '1981-05-20'}, {'first_name': 'Mason', 'last_name': 'Sanchez', 'dob': '1976-05-16'}], 'payment_methods': [{'payment_id': 'credit_card_7320675', 'amount': 282}], 'total_baggages': 0, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'O8IHB3'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': 'O8IHB3', 'passengers': [{'first_name': 'Raj', 'last_name': 'Kovacs', 'dob': '1981-05-20'}, {'first_name': 'Mason', 'last_name': 'Smith', 'dob': '1976-05-16'}]}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='ivan_taylor_6615',
+        instruction='You are assisting Ivan Taylor, who had his original one-way flight from ATL to LAS on 2024-05-08 (reservation 06K2QN) cancelled, which caused inconvenience for him and passenger Ivan Jackson. You want to request a compensation certificate for this disruption. Later, you would like to book a new one-way flight from ATL to LAS on 2024-05-25, specifically flight HAT102, departing in the evening, for two passengers in economy class, because it is the selected available option on the desired date. You prefer to pay using the credit card ending in 85633, which is already on file. After that, you would like to cancel the original reservation 06K2QN to avoid duplicate charges and to receive a refund back to the same credit card.\n\nUse ivan_taylor_6615 for authentication.',
+        actions=[
+            Action(name='send_certificate', kwargs={'user_id': 'ivan_taylor_6615', 'amount': 200}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': '06K2QN'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'ATL', 'destination': 'LAS', 'date': '2024-05-25'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'ATL', 'destination': 'LAS', 'date': '2024-05-25'}),
+            Action(name='book_reservation', kwargs={'user_id': 'ivan_taylor_6615', 'origin': 'ATL', 'destination': 'LAS', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT102', 'date': '2024-05-25'}], 'passengers': [{'first_name': 'Ivan', 'last_name': 'Taylor', 'dob': '1970-02-21'}, {'first_name': 'Ivan', 'last_name': 'Jackson', 'dob': '1983-02-26'}], 'payment_methods': [{'payment_id': 'credit_card_1885633', 'amount': 344}], 'total_baggages': 0, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': '06K2QN'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='mei_wilson_7043',
+        instruction="You are Mei Wilson, a gold member, booking a one-way economy flight from DTW to MSP on 2024-05-20 for yourself and Juan Patel, because it fits your early morning travel preference and allows you to use your free checked bag benefit. You prefer to pay with your Mastercard ending in 7039, as it's your default payment method. Later, you want to review your existing reservation R0UGFS for a trip from DTW to MCO on 2024-05-25 with passenger Evelyn Santos, because you're considering changes to reduce travel time or cost. After reviewing, you would like to explore alternative one-stop flight options from DTW to MCO on 2024-05-25, possibly with different connecting hubs, to find a more convenient or affordable itinerary.\n\nUse mei_wilson_7043 for authentication.",
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'DTW', 'destination': 'MSP', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'mei_wilson_7043', 'origin': 'DTW', 'destination': 'MSP', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT210', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Mei', 'last_name': 'Wilson', 'dob': '1984-11-22'}, {'first_name': 'Juan', 'last_name': 'Patel', 'dob': '1964-03-14'}], 'payment_methods': [{'payment_id': 'credit_card_7535171', 'amount': 238}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': 'R0UGFS', 'total_baggages': 2, 'nonfree_baggages': 1, 'payment_id': 'credit_card_7535171'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'R0UGFS'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'R0UGFS', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT254', 'date': '2024-05-25'}, {'flight_number': 'HAT071', 'date': '2024-05-25'}], 'payment_id': 'credit_card_7535171'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'DTW', 'destination': 'MCO', 'date': '2024-05-25'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='harper_anderson_7659',
+        instruction='You are Harper Anderson (user_id: harper_anderson_7659) and you want to book a new one-way flight from Newark (EWR) to Houston (IAH) on May 20, 2024, for two passengers, Anya Khan and Lucas Garcia, in economy class, departing in the early morning (flight HAT056 at 06:00 EST), because it fits their travel plans. You prefer to pay using your Visa card ending in 3522, as it is your designated payment method. Later, you want to upgrade your existing reservation MNUA2Z for a one-way flight from Newark (EWR) to Dallas (DFW) on May 21, 2024, from economy to business class on flight HAT213 (departing at 12:00 EST), because you seek greater comfort. Since business class has limited availability, you also requested one-stop alternatives from EWR to DFW on May 21, 2024, in case the upgrade is not possible; however, no connecting flights serve the EWR-to-DFW route on that date, so no viable alternatives exist.\n\nUse harper_anderson_7659 for authentication.',
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'EWR', 'destination': 'IAH', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'harper_anderson_7659', 'origin': 'EWR', 'destination': 'IAH', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT056', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Anya', 'last_name': 'Khan', 'dob': '1998-07-20'}, {'first_name': 'Lucas', 'last_name': 'Garcia', 'dob': '1967-04-25'}], 'payment_methods': [{'payment_id': 'credit_card_9475634', 'amount': 264}], 'total_baggages': 0, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': 'MNUA2Z', 'total_baggages': 2, 'nonfree_baggages': 1, 'payment_id': 'credit_card_9475634'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'MNUA2Z'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'MNUA2Z', 'cabin': 'business', 'flights': [{'flight_number': 'HAT213', 'date': '2024-05-21'}], 'payment_id': 'credit_card_9475634'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'EWR', 'destination': 'DFW', 'date': '2024-05-21'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='lei_ito_5790',
+        instruction='You are assisting Lei Ito (user_id: lei_ito_5790), who wants to update his existing round-trip reservation X3RR7T (LAX-CLT) by adding one checked baggage, as it is allowed under policy and ensures his luggage is included. Later, he would like to cancel his business class one-way reservation 6ZQNOS from PHX to DTW on 2024-05-20, as he no longer needs the flight. After that, he intends to book a new one-way one-stop flight from LAX to PHX on 2024-05-25 for one passenger (himself) in economy class, with one total baggage (all free) and no insurance, using his Mastercard ending in 8047 for payment, as this aligns with his travel plans and preferred payment method.\n\nUse lei_ito_5790 for authentication.',
+        actions=[
+            Action(name='search_onestop_flight', kwargs={'origin': 'LAX', 'destination': 'PHX', 'date': '2024-05-25'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'LAX', 'destination': 'PHX', 'date': '2024-05-25'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'X3RR7T'}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': 'X3RR7T', 'total_baggages': 1, 'nonfree_baggages': 0, 'payment_id': 'credit_card_7725969'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': '6ZQNOS'}),
+            Action(name='book_reservation', kwargs={'user_id': 'lei_ito_5790', 'origin': 'LAX', 'destination': 'PHX', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT094', 'date': '2024-05-25'}, {'flight_number': 'HAT134', 'date': '2024-05-25'}], 'passengers': [{'first_name': 'Lei', 'last_name': 'Ito', 'dob': '1966-01-18'}], 'payment_methods': [{'payment_id': 'credit_card_7725969', 'amount': 326}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='omar_patel_2218',
+        instruction='You are Omar Patel, and you want to cancel your one-way business class reservation ETUGNL for the flight from LAS to MCO on 2024-05-22 because you no longer plan to travel on that flight. After that, you would like to explore one-stop flight options from LAS to MCO on the same date; however, no same-day one-stop itineraries are available, with the earliest arrival being on 2024-05-23 via LAS → ATL → MCO. Separately, you want to update your round-trip economy reservation 32ZS5N (SFO to MCO) to increase the total checked bags from 1 to 2, with 1 non-free bag, because you need extra luggage for your trip. You prefer to pay the bag fee using your Visa card ending in 8811, which is already on file.\n\nUse omar_patel_2218 for authentication.',
+        actions=[
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'ETUGNL'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'LAS', 'destination': 'MCO', 'date': '2024-05-22'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': '32ZS5N'}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': '32ZS5N', 'total_baggages': 2, 'nonfree_baggages': 1, 'payment_id': 'credit_card_5087987'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='fatima_khan_9974',
+        instruction='You are Fatima Khan, user ID fatima_khan_9974, and you want to cancel your round-trip business class reservation BV2RJH from MCO to IAH via LAS on 2024-05-17, which includes insurance and is for four passengers: Fatima Khan, Raj Li, Yara Brown, and Omar Anderson. After that, you would like to explore one-stop flight options from MCO to IAH on 2024-05-20, but no such connecting flights are available to IAH on that date. Separately, you would like to update your one-way economy reservation RBXOYT from IAH to LAX on 2024-05-18 to add one checked bag for yourself, as there are currently no bags on this reservation. You prefer to pay the baggage fee using your Visa card ending in 9785, which is already on file as payment method.\n\nUse fatima_khan_9974 for authentication.',
+        actions=[
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'BV2RJH'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'MCO', 'destination': 'IAH', 'date': '2024-05-20'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'RBXOYT'}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': 'RBXOYT', 'total_baggages': 1, 'nonfree_baggages': 1, 'payment_id': 'credit_card_5964268'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='james_ahmed_4322',
+        instruction='You are James Ahmed, and you want to book a direct afternoon flight from DTW to JFK on 2024-05-20 for yourself and Emma Gonzalez in economy class, specifically flight HAT240, because it fits your travel plans for that day. After completing this booking, you would like to cancel your previous round-trip reservation JX6LB3 from DTW to CLT, which was scheduled for 2024-05-19 to 2024-05-27, and you want to review its details for confirmation before cancellation.\n\nUse james_ahmed_4322 for authentication.',
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'DTW', 'destination': 'JFK', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'james_ahmed_4322', 'origin': 'DTW', 'destination': 'JFK', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT240', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'James', 'last_name': 'Ahmed', 'dob': '2000-10-12'}, {'first_name': 'Emma', 'last_name': 'Gonzalez', 'dob': '1985-12-05'}], 'payment_methods': [{'payment_id': 'credit_card_5747649', 'amount': 304}], 'total_baggages': 0, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'JX6LB3'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'JX6LB3'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='anya_sanchez_5251',
+        instruction='You are assisting Anya Sanchez (DOB 1987-03-13), user_id anya_sanchez_5251, who had her business-class one-way flight from DFW to LAX on 2024-05-12 (flight HAT124, reservation KDNMCS) cancelled, and as a result, you want to issue her a compensation certificate for the disrupted travel. Later, you would like to book a new one-way trip for her from DFW to MCO on 2024-05-20 with a stop in ATL, because she has chosen specific connecting flights; you prefer the first leg on HAT282 departing DFW in the early morning (around 06:00) and arriving in ATL, followed by HAT010 departing ATL in the evening (around 19:00) and arriving at MCO, both in economy class for 1 passenger, including 1 checked bag at no extra cost, with no travel insurance. You prefer to pay using her credit card ending in 1642 (payment_id credit_card_1699800). After that, you would like to retrieve the original reservation KDNMCS and cancel it for her record-keeping purposes.\n\nUse anya_sanchez_5251 for authentication.',
+        actions=[
+            Action(name='send_certificate', kwargs={'user_id': 'anya_sanchez_5251', 'amount': 100}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'DFW', 'destination': 'MCO', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'anya_sanchez_5251', 'origin': 'DFW', 'destination': 'MCO', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT282', 'date': '2024-05-20'}, {'flight_number': 'HAT010', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Anya', 'last_name': 'Sanchez', 'dob': '1987-03-13'}], 'payment_methods': [{'payment_id': 'credit_card_1699800', 'amount': 295}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'KDNMCS'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'KDNMCS'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='anya_sanchez_5251',
+        instruction='You are assisting Anya Sanchez (DOB 1987-03-13), user_id anya_sanchez_5251, who had her business-class one-way flight from DFW to LAX on 2024-05-12 (reservation KDNMCS) cancelled, and you want to issue her a compensation certificate as a result. Later, you would like to book a new one-way economy flight for her from DFW to ATL on 2024-05-20, with 1 checked bag included and no insurance, departing overnight, and you prefer to charge this to her Mastercard ending in 1642. After that, you would like to cancel her upcoming two-passenger one-way economy reservation DGLJTR from PHX to DFW on 2024-05-19 (passengers: Anya Sanchez and Liam Anderson) and issue a refund back to her Mastercard ending in 3097.\n\nUse anya_sanchez_5251 for authentication.',
+        actions=[
+            Action(name='send_certificate', kwargs={'user_id': 'anya_sanchez_5251', 'amount': 100}),
+            Action(name='book_reservation', kwargs={'user_id': 'anya_sanchez_5251', 'origin': 'DFW', 'destination': 'ATL', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT282', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Anya', 'last_name': 'Sanchez', 'dob': '1987-03-13'}], 'payment_methods': [{'payment_id': 'credit_card_1699800', 'amount': 119}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'DGLJTR'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='noah_khan_8166',
+        instruction='You are assisting Noah Khan regarding his cancelled business-class reservation LUA6DF for Yusuf Ahmed from LAS to IAH on 2024-05-13. You want to explore one-stop flight options from LAS to IAH on 2024-05-22, but no connecting flights to IAH are available on that date. You would like to receive a compensation certificate for the inconvenience caused by the cancellation of reservation LUA6DF. Later, you intend to cancel the upcoming round-trip business-class reservation Y1ZIDC from DEN to LAS, which was scheduled for 2024-05-25. After that, you would like to find direct flight alternatives from DEN to LAS on 2024-05-25, with a preference for morning or midday departures, such as between 04:00 and 11:00.\n\nUse noah_khan_8166 for authentication.',
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'LUA6DF'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'LAS', 'destination': 'IAH', 'date': '2024-05-22'}),
+            Action(name='send_certificate', kwargs={'user_id': 'noah_khan_8166', 'amount': 100}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'Y1ZIDC'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'DEN', 'destination': 'LAS', 'date': '2024-05-25'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='mei_lopez_9471',
+        instruction='You are Mei Lopez (mei_lopez_9471) and you want to review your cancelled business class one-way reservation J6IHJ0 from JFK to CLT via DTW on 2024-05-10 because it was cancelled and you are seeking compensation. You would like to receive a compensation certificate for the disruption. Later, you decided to formally cancel the reservation J6IHJ0. After that, you would like to explore alternative travel options, specifically direct flights from JFK to ATL on 2024-05-20. You prefer a morning flight on that date, as there is one available option departing at 07:00, which fits your updated travel plans.\n\nUse mei_lopez_9471 for authentication.',
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'J6IHJ0'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'JFK', 'destination': 'CLT', 'date': '2024-05-20'}),
+            Action(name='send_certificate', kwargs={'user_id': 'mei_lopez_9471', 'amount': 100}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'J6IHJ0'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'JFK', 'destination': 'ATL', 'date': '2024-05-20'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sophia_patel_6859',
+        instruction='You are Sophia Patel (sophia_patel_6859), and you want to book a one-way economy class flight from DTW to MSP on 2024-05-20 for your colleague Anya Moore, who is a saved passenger. You prefer the early morning flight (HAT111) departing DTW around 05:00, as it aligns with your requested date and flight number. You want to pay using your Mastercard ending in 7741, which is on file. Later, you would like to request a compensation certificate for your cancelled one-way flight from JFK to SEA on 2024-05-11 (reservation IPG6ZS), as it was unexpectedly cancelled. After that, you would like to cancel your existing round-trip business class reservation V7KTOK from DTW to MCO (via MSP) for Anya Moore on 2024-05-26 to 2024-05-30, as you no longer need it, and you prefer the refund to be issued back to your Mastercard ending in 7741.\n\nUse sophia_patel_6859 for authentication.',
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'DTW', 'destination': 'MSP', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'sophia_patel_6859', 'origin': 'DTW', 'destination': 'MSP', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT111', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Anya', 'last_name': 'Moore', 'dob': '1982-12-20'}], 'payment_methods': [{'payment_id': 'credit_card_5278427', 'amount': 144}], 'total_baggages': 0, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='send_certificate', kwargs={'user_id': 'sophia_patel_6859', 'amount': 100}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'V7KTOK'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'V7KTOK'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='ivan_kim_3844',
+        instruction='You are assisting Ivan Kim (DOB 1951-12-01), a gold member, with his travel requests. You want to book a one-way flight from PHX to LAS on 2024-05-20 in economy class, specifically flight HAT173, because it departs in the morning and aligns with his current travel plans. You prefer to include one total baggage (with no non-free baggage) and no insurance, and you want to pay using the credit card ending in 4808. Later, you will request a compensation certificate due to the cancellation of a prior round-trip reservation SGXUUZ (LAX-DEN), which was canceled due to personal reasons and caused inconvenience. After that, you would like to formally cancel reservation SGXUUZ and receive a refund to the original form of payment, and you also want to obtain the full details of reservation SGXUUZ for your personal records.\n\nUse ivan_kim_3844 for authentication.',
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'PHX', 'destination': 'LAS', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'ivan_kim_3844', 'origin': 'PHX', 'destination': 'LAS', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT173', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Ivan', 'last_name': 'Kim', 'dob': '1951-12-01'}], 'payment_methods': [{'payment_id': 'credit_card_1718968', 'amount': 174}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='send_certificate', kwargs={'user_id': 'ivan_kim_3844', 'amount': 100}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'SGXUUZ'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'SGXUUZ'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='evelyn_rossi_4078',
+        instruction='You are to first cancel the one-way business class flight from MIA to LAS on 2024-05-21 (reservation EZGELT) because the customer no longer needs it. Then, you are to search for direct flights from MIA to LAX on 2024-05-20, followed by booking flight HAT189 for passenger Evelyn Rossi in economy class with 1 total baggage (0 non-free) and no insurance, because it is a morning flight that fits her schedule, and she prefers to pay using her credit card ending in 7176. After that, you are to update the passenger on round-trip reservation 7SISHT from Evelyn Rossi to Lei Ahmed for the SFO to LAX journey on 2024-05-19, because the trip is now for her companion. Later, you are to retrieve the details of reservation 7SISHT for confirmation, and subsequently search for one-stop flight options from SFO to LAX on 2024-05-19 in case alternative routing is needed. Finally, you are to issue a compensation certificate for the canceled MIA to LAS flight on 2024-05-21, because the customer is entitled to a travel voucher following the cancellation.\n\nUse evelyn_rossi_4078 for authentication.',
+        actions=[
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'EZGELT'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'MIA', 'destination': 'LAX', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'evelyn_rossi_4078', 'origin': 'MIA', 'destination': 'LAX', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT189', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Evelyn', 'last_name': 'Rossi', 'dob': '1997-11-08'}], 'payment_methods': [{'payment_id': 'credit_card_7800202', 'amount': 179}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': '7SISHT', 'passengers': [{'first_name': 'Lei', 'last_name': 'Ahmed', 'dob': '1958-05-17'}]}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': '7SISHT'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'SFO', 'destination': 'LAX', 'date': '2024-05-19'}),
+            Action(name='send_certificate', kwargs={'user_id': 'evelyn_rossi_4078', 'amount': 100}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='evelyn_garcia_6211',
+        instruction='You are Evelyn Garcia, and you want to cancel your existing reservation I2GNN5 for a one-way trip from MSP to PHX via MCO on 2024-05-19 because you have changed your travel plans. You would like to book a new one-way flight from MSP to EWR on 2024-05-20 for passenger Raj Rossi in economy class, specifically flight HAT300 departing at 06:00, because it aligns with your preferred early morning departure. You prefer this flight to include one free checked bag and no insurance, and you want to pay using your Visa card ending in 3459. Later, you would like to explore other available flight options from MSP to EWR on the same date, including both direct flights (such as HAT196 at 11:00 and HAT141 at 14:00) and one-stop itineraries via MCO, to compare timing and convenience. After that, you would like to receive a compensation certificate due to the cancellation of your prior flight HAT195 (reservation 5264D4) on 2024-05-11, which affected you and another passenger.\n\nUse evelyn_garcia_6211 for authentication.',
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'I2GNN5'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'I2GNN5'}),
+            Action(name='book_reservation', kwargs={'user_id': 'evelyn_garcia_6211', 'origin': 'MSP', 'destination': 'EWR', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT300', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Raj', 'last_name': 'Rossi', 'dob': '1960-06-07'}], 'payment_methods': [{'payment_id': 'credit_card_4906704', 'amount': 174}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'MSP', 'destination': 'EWR', 'date': '2024-05-20'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'MSP', 'destination': 'EWR', 'date': '2024-05-20'}),
+            Action(name='send_certificate', kwargs={'user_id': 'evelyn_garcia_6211', 'amount': 100}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='isabella_lopez_2185',
+        instruction='You are Isabella Lopez (user_id: isabella_lopez_2185) and you want to cancel your existing round-trip business class reservation ADJD1W from LGA to PHX due to the delay of your outbound flight HAT150 on 2024-05-15. You would like to book a new one-way economy flight from LGA to PHL on 2024-05-16 for two passengers: Isabella Khan and Noah Ito, with a preference for a late evening departure, as there are direct flight options available at 23:00. You prefer to pay using your credit card ending in 1454 (payment_id credit_card_1015271). Later, you would like to request a compensation certificate for the delay of flight HAT150, which affected three passengers on the original reservation: Isabella Lopez, Isabella Khan, and Noah Ito.\n\nUse isabella_lopez_2185 for authentication.',
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'ADJD1W'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'ADJD1W'}),
+            Action(name='book_reservation', kwargs={'user_id': 'isabella_lopez_2185', 'origin': 'LGA', 'destination': 'PHL', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT132', 'date': '2024-05-16'}], 'passengers': [{'first_name': 'Isabella', 'last_name': 'Khan', 'dob': '1952-02-09'}, {'first_name': 'Noah', 'last_name': 'Ito', 'dob': '1967-03-04'}], 'payment_methods': [{'payment_id': 'credit_card_1015271', 'amount': 282}], 'total_baggages': 2, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'LGA', 'destination': 'PHL', 'date': '2024-05-16'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'LGA', 'destination': 'PHL', 'date': '2024-05-16'}),
+            Action(name='send_certificate', kwargs={'user_id': 'isabella_lopez_2185', 'amount': 150}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='lucas_wilson_8118',
+        instruction='You are Lucas Wilson, traveling with Raj Davis, and you want to cancel your current reservation I6XC2H for a business-class one-way flight from MCO to PHX on 2024-05-27 because you prefer to travel earlier. After that, you would like to search for alternative direct flight options from MCO to PHX on 2024-05-20. You prefer business class for the new booking. There are multiple direct flights available on that date, so you are considering a morning flight around 11:00 (such as HAT161), an afternoon flight around 13:00 (such as HAT153), or a late evening flight around 22:00 (such as HAT214). You also requested one-stop options on the same route and date, but no valid connecting itineraries were found that originate in MCO and connect to PHX on 2024-05-20.\n\nUse lucas_wilson_8118 for authentication.',
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'I6XC2H'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'I6XC2H'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'MCO', 'destination': 'PHX', 'date': '2024-05-20'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'MCO', 'destination': 'PHX', 'date': '2024-05-20'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='mason_davis_8274',
+        instruction='You are Mason Davis, user ID mason_davis_8274, and you want to cancel your existing one-way economy reservation 3UGXOP for passenger Chen Kovacs, which was scheduled from SFO to CLT via BOS on 2024-05-26, because you have decided to change your travel plans. After that, you would like to book a new one-way economy flight from SFO to CLT on 2024-05-27. Since no direct flights are available, you prefer a one-stop option via BOS on the same day, departing SFO in the morning and arriving in CLT in the afternoon, specifically taking flight HAT295 from SFO to BOS at 07:00 and connecting to flight HAT260 from BOS to CLT at 14:00, to maintain a same-day travel schedule.\n\nUse mason_davis_8274 for authentication.',
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': '3UGXOP'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': '3UGXOP'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'SFO', 'destination': 'CLT', 'date': '2024-05-27'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'SFO', 'destination': 'CLT', 'date': '2024-05-27'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='ivan_gonzalez_8223',
+        instruction='You are Ivan Gonzalez, user ivan_gonzalez_8223, and you want to confirm your reservation ZMHRG1 for a round-trip journey from PHX to JFK via SEA, with departure from PHX on 2024-05-26, continuation to JFK on 2024-05-27, return from JFK to DTW and DTW to PHX on 2024-05-29, all in business class, as you prefer the comfort and service of business class for this multi-leg trip. You would like any fare difference to be charged to your credit card ending in 6753. Later, you would like to cancel your other reservation 6VPLRH for a business class round-trip from SFO to MCO. After that, you would like to search for a one-stop flight option from SFO to MCO on 2024-05-22, with a preference for an itinerary that arrives in MCO in the evening, as this aligns with your schedule.\n\nUse ivan_gonzalez_8223 for authentication.',
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'ZMHRG1'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'ZMHRG1', 'cabin': 'business', 'flights': [{'flight_number': 'HAT045', 'date': '2024-05-26'}, {'flight_number': 'HAT100', 'date': '2024-05-27'}, {'flight_number': 'HAT092', 'date': '2024-05-29'}, {'flight_number': 'HAT097', 'date': '2024-05-29'}], 'payment_id': 'credit_card_8306515'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': '6VPLRH'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'SFO', 'destination': 'MCO', 'date': '2024-05-22'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='lucas_rossi_9280',
+        instruction='You are Lucas Rossi, user lucas_rossi_9280, who initially booked a round-trip economy reservation RF9ICL from EWR to SFO with connections through IAH for four passengers: Lucas Rossi, Yusuf Johnson, Isabella Hernandez, and Mohamed Garcia. You first want to upgrade the entire reservation to business class for greater comfort, specifically for flights HAT188 on 2024-05-18 (EWR to IAH), HAT072 on 2024-05-18 (IAH to SFO), HAT082 on 2024-05-20 (SFO to IAH), and HAT195 on 2024-05-21 (IAH to EWR), and you prefer to pay using your credit card ending in 7523. Later, after reconsidering, you decide to cancel the upgraded reservation and instead search for one-stop flight options from EWR to SFO on 2024-05-18 to find a better balance between cost and convenience.\n\nUse lucas_rossi_9280 for authentication.',
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'RF9ICL'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'RF9ICL', 'cabin': 'business', 'flights': [{'flight_number': 'HAT188', 'date': '2024-05-18'}, {'flight_number': 'HAT072', 'date': '2024-05-18'}, {'flight_number': 'HAT082', 'date': '2024-05-20'}, {'flight_number': 'HAT195', 'date': '2024-05-21'}], 'payment_id': 'credit_card_1106772'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'RF9ICL'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'EWR', 'destination': 'SFO', 'date': '2024-05-18'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='daiki_lee_7603',
+        instruction='You are assisting Daiki Lee (user daiki_lee_7603), who holds a gold membership and has a history of multiple reservations. You are to first process a request for a compensation certificate due to the cancellation of his business class one-way flight from LAS to PHX on 2024-05-11 (reservation PMZURQ), as this disruption caused inconvenience. After receiving the $100 certificate as compensation, you would like to formally cancel the reservation PMZURQ since the flight is no longer operating, ensuring the booking is fully closed out.\n\nUse daiki_lee_7603 for authentication.',
+        actions=[
+            Action(name='send_certificate', kwargs={'user_id': 'daiki_lee_7603', 'amount': 100}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'PMZURQ'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='ivan_taylor_6615',
+        instruction='You are assisting Ivan Taylor (user_id: ivan_taylor_6615) with a cancelled one-way basic economy flight from Atlanta (ATL) to Las Vegas (LAS) on May 8, 2024, under reservation 06K2QN for two passengers: Ivan Taylor and Ivan Jackson. You want to request a compensation certificate due to the cancellation of flight HAT052, as it caused inconvenience and disrupted travel plans. Later, you would like to formally cancel the reservation 06K2QN, even though the flight was already cancelled, to confirm closure and initiate any remaining refund or account resolution processes.\n\nUse ivan_taylor_6615 for authentication.',
+        actions=[
+            Action(name='send_certificate', kwargs={'user_id': 'ivan_taylor_6615', 'amount': 200}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': '06K2QN'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sophia_patel_6859',
+        instruction='You are assisting Sophia Patel, who had her basic economy flight from JFK to SEA on 2024-05-11 (reservation IPG6ZS) cancelled, and she would like to receive a compensation certificate for the disruption. You want to cancel the original reservation due to the cancellation. Later, you will search for one-stop flights from JFK to SEA on 2024-05-20, but since no suitable options are available, you would like to update the reservation instead. After that, you prefer to rebook Sophia Patel on a direct business class flight from JFK to SEA on 2024-05-20, specifically flight HAT083, which departs early morning, to ensure a reliable and comfortable travel experience. You prefer to use the credit card ending in 5278427 on file to cover any fare difference.\n\nUse sophia_patel_6859 for authentication.',
+        actions=[
+            Action(name='send_certificate', kwargs={'user_id': 'sophia_patel_6859', 'amount': 100}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'IPG6ZS'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'JFK', 'destination': 'SEA', 'date': '2024-05-20'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'IPG6ZS'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'IPG6ZS', 'cabin': 'business', 'flights': [{'flight_number': 'HAT083', 'date': '2024-05-20'}], 'payment_id': 'credit_card_5278427'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='noah_khan_8166',
+        instruction='You are Noah Khan, user noah_khan_8166, and you want to claim a compensation certificate for the cancelled business class one-way flight from LAS to IAH on 2024-05-13 under reservation LUA6DF, which was booked for passenger Yusuf Ahmed. You also want to cancel that reservation due to the cancellation. Later, you would like to explore alternative flight options from DEN to LAS on 2024-05-25, but after checking, there are no available one-stop flights on that date. Separately, you want to confirm and secure your existing round-trip reservation Y1ZIDC in business class for passenger Yusuf Ahmed, with flight HAT229 from DEN to LAS on 2024-05-25 and return flight HAT003 from LAS to DEN on 2024-05-26, and you prefer to use your Visa card ending in 9691 (credit_card_5669132) for the update to lock in the itinerary.\n\nUse noah_khan_8166 for authentication.',
+        actions=[
+            Action(name='send_certificate', kwargs={'user_id': 'noah_khan_8166', 'amount': 100}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'LUA6DF'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'DEN', 'destination': 'LAS', 'date': '2024-05-25'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'Y1ZIDC'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'Y1ZIDC', 'cabin': 'business', 'flights': [{'flight_number': 'HAT229', 'date': '2024-05-25'}, {'flight_number': 'HAT003', 'date': '2024-05-26'}], 'payment_id': 'credit_card_5669132'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='fatima_rossi_1941',
+        instruction='You are to cancel the existing reservation LWE3W4 for Fatima Rossi, which includes a business-class flight from PHX to MSP on 2024-05-21. After that, you would like to book a one-way economy flight from PHX to SFO on 2024-05-20 for passenger Sofia Davis, preferring a morning flight based on available options. You want to include one free checked bag and no travel insurance for this new booking. You prefer to pay using your credit card ending in 1988, which is on file.\n\nUse fatima_rossi_1941 for authentication.',
+        actions=[
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'LWE3W4'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'LWE3W4'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'PHX', 'destination': 'SFO', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'fatima_rossi_1941', 'origin': 'PHX', 'destination': 'SFO', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT032', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Sofia', 'last_name': 'Davis', 'dob': '1974-05-13'}], 'payment_methods': [{'payment_id': 'credit_card_1732101', 'amount': 167}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='aarav_martin_4744',
+        instruction='You are Aarav Martin, user aarav_martin_4744, and you want to cancel your existing round-trip reservation RC7KVQ from DTW to LAS via PHX for three passengers (Noah Ito, Omar Jackson, Isabella Wilson) in economy class with insurance, because your plans have changed. You want a refund issued to your credit card ending in 6967, which was used for the original payment. After that, you would like to book a new one-way direct flight from DTW to MSP on 2024-05-20 for the same three passengers in economy class, because you need to travel to Minneapolis. You prefer an early morning flight, specifically flight HAT111 departing at 05:00 AM, as it fits your schedule. You want to include 3 checked bags at no extra cost and opt out of insurance for this new booking. You prefer to charge this new reservation to the same saved credit card ending in 6967.\n\nUse aarav_martin_4744 for authentication.',
+        actions=[
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'RC7KVQ'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'RC7KVQ'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'DTW', 'destination': 'MSP', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'aarav_martin_4744', 'origin': 'DTW', 'destination': 'MSP', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT111', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Noah', 'last_name': 'Ito', 'dob': '1952-02-04'}, {'first_name': 'Omar', 'last_name': 'Jackson', 'dob': '1993-06-07'}, {'first_name': 'Isabella', 'last_name': 'Wilson', 'dob': '1980-11-14'}], 'payment_methods': [{'payment_id': 'credit_card_2700485', 'amount': 432}], 'total_baggages': 3, 'nonfree_baggages': 0, 'insurance': 'no'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='evelyn_garcia_6211',
+        instruction='You are Evelyn Garcia, and you want to book a one-way economy flight from MSP to EWR on 2024-05-20 for passenger Raj Rossi, preferring flight HAT141 which departs in the afternoon, because it matches the requested route, date, and time. You prefer to pay using your Visa card ending in 3459. Later, you want to update your existing reservation I2GNN5 for the same passenger Raj Rossi on 2024-05-19, upgrading both flights HAT054 (MSP to MCO) and HAT161 (MCO to PHX) from economy to business class, because you desire a more comfortable travel experience. You also want to add one additional checked bag to this reservation, making a total of 2 bags (1 paid), to accommodate more luggage. After that, you would like to receive a compensation certificate due to the cancellation of your previous reservation 5264D4 (IAH to EWR on 2024-05-11), because the flight was cancelled and you are entitled to compensation.\n\nUse evelyn_garcia_6211 for authentication.',
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'MSP', 'destination': 'EWR', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'evelyn_garcia_6211', 'origin': 'MSP', 'destination': 'EWR', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT141', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Raj', 'last_name': 'Rossi', 'dob': '1960-06-07'}], 'payment_methods': [{'payment_id': 'credit_card_4906704', 'amount': 161}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'I2GNN5', 'cabin': 'business', 'flights': [{'flight_number': 'HAT054', 'date': '2024-05-19'}, {'flight_number': 'HAT161', 'date': '2024-05-19'}], 'payment_id': 'credit_card_4906704'}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': 'I2GNN5', 'total_baggages': 2, 'nonfree_baggages': 1, 'payment_id': 'credit_card_4906704'}),
+            Action(name='send_certificate', kwargs={'user_id': 'evelyn_garcia_6211', 'amount': 200}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='evelyn_garcia_6211',
+        instruction='You are Evelyn Garcia, and you want to book a one-way business class flight from Atlanta (ATL) to Seattle (SEA) on 2024-05-20, departing in the early morning (flight HAT133), for one passenger, because you need to travel for work and prefer a quiet, early departure. You prefer to pay using your Visa card ending in 3459. After booking, you would like to update the same flight to confirm your seat preference and add one checked bag, to ensure your luggage is included. Later, you would like to request a compensation certificate due to the cancellation of your previous flight (reservation 5264D4) from Houston (IAH) to Newark (EWR) on 2024-05-11, which affected two passengers and caused travel disruption.\n\nUse evelyn_garcia_6211 for authentication.',
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'ATL', 'destination': 'SEA', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'evelyn_garcia_6211', 'origin': 'ATL', 'destination': 'SEA', 'flight_type': 'one_way', 'cabin': 'business', 'flights': [{'flight_number': 'HAT133', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Evelyn', 'last_name': 'Garcia', 'dob': '1967-04-08'}], 'payment_methods': [{'payment_id': 'credit_card_4906704', 'amount': 231}, {'payment_id': 'credit_card_4906704', 'amount': 50}], 'total_baggages': 2, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'HATHAT', 'cabin': 'business', 'flights': [{'flight_number': 'HAT133', 'date': '2024-05-20'}], 'payment_id': 'credit_card_4906704'}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': 'HATHAT', 'total_baggages': 3, 'nonfree_baggages': 1, 'payment_id': 'credit_card_4906704'}),
+            Action(name='send_certificate', kwargs={'user_id': 'evelyn_garcia_6211', 'amount': 200}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='chen_gonzalez_5516',
+        instruction='You are Chen Gonzalez, and you want to book a one-way flight from SFO to PHL on 2024-05-20 in economy class for yourself, preferring an early morning departure between 02:00 and 06:00, with no checked bags and no travel insurance, because you are traveling light and want a convenient morning arrival. You prefer to pay for this booking using your credit card ending in 1323. Later, you would like to receive a compensation certificate for the delay you experienced on your previous flight HAT163 from SFO to LAX on 2024-05-15, because it affected your travel plans. After that, you would like to update your existing reservation SNB279 for your trip from MIA to SEA on 2024-05-18 by adding one checked bag, even though the cabin is already business class so no change is needed there, and you prefer the bag fee to be charged to your credit card ending in 7388.\n\nUse chen_gonzalez_5516 for authentication.',
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'SFO', 'destination': 'PHL', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'chen_gonzalez_5516', 'origin': 'SFO', 'destination': 'PHL', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT280', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Chen', 'last_name': 'Gonzalez', 'dob': '1961-08-10'}], 'payment_methods': [{'payment_id': 'credit_card_2191342', 'amount': 102}], 'total_baggages': 0, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='send_certificate', kwargs={'user_id': 'chen_gonzalez_5516', 'amount': 50}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'SNB279'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'SNB279', 'cabin': 'business', 'flights': [{'flight_number': 'HAT198', 'date': '2024-05-18'}, {'flight_number': 'HAT069', 'date': '2024-05-18'}], 'payment_id': 'credit_card_2870431'}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': 'SNB279', 'total_baggages': 1, 'nonfree_baggages': 1, 'payment_id': 'credit_card_2870431'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='olivia_smith_8416',
+        instruction='You are Olivia Smith (olivia_smith_8416), traveling with Yara Rossi, and you want to book a direct evening flight from PHX to SFO on 2024-05-20 (flight HAT009) in economy class for two passengers, because you initially searched one-stop options but preferred the convenience of a direct flight. You prefer to pay using your Visa card ending in 5892. Later, you would like to receive a compensation certificate for your cancelled round-trip reservation 2SGJFH (PHX-DEN via LAS), because the flight was cancelled and compensation is due. After that, you want to cancel reservation 2SGJFH. Subsequently, you would like to update reservation EV5XBK (BOS-DEN round-trip) by increasing the total checked bags to two (with one paid bag) and upgrading all flights from economy to business class, keeping the same flight numbers and dates, because you prefer enhanced comfort and additional baggage for this trip. You prefer to use your Visa card ending in 5892 to cover the fare difference for the upgrade.\n\nUse olivia_smith_8416 for authentication.',
+        actions=[
+            Action(name='search_onestop_flight', kwargs={'origin': 'PHX', 'destination': 'SFO', 'date': '2024-05-20'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'PHX', 'destination': 'SFO', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'olivia_smith_8416', 'origin': 'PHX', 'destination': 'SFO', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT009', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Olivia', 'last_name': 'Smith', 'dob': '1985-05-14'}, {'first_name': 'Yara', 'last_name': 'Rossi', 'dob': '1986-08-25'}], 'payment_methods': [{'payment_id': 'credit_card_2199915', 'amount': 350}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': '2SGJFH', 'passengers': [{'first_name': 'Olivia', 'last_name': 'Smith', 'dob': '1985-05-14'}, {'first_name': 'Yara', 'last_name': 'Rossi', 'dob': '1986-08-25'}, {'first_name': 'Mei', 'last_name': 'Ahmed', 'dob': '1953-12-22'}, {'first_name': 'Mohamed', 'last_name': 'Khan', 'dob': '1963-09-06'}]}),
+            Action(name='send_certificate', kwargs={'user_id': 'olivia_smith_8416', 'amount': 400}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': '2SGJFH'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': '2SGJFH'}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': 'EV5XBK', 'total_baggages': 2, 'nonfree_baggages': 1, 'payment_id': 'credit_card_2199915'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'EV5XBK', 'cabin': 'business', 'flights': [{'flight_number': 'HAT086', 'date': '2024-05-16'}, {'flight_number': 'HAT193', 'date': '2024-05-16'}, {'flight_number': 'HAT160', 'date': '2024-05-30'}, {'flight_number': 'HAT064', 'date': '2024-05-30'}], 'payment_id': 'credit_card_2199915'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sophia_patel_6859',
+        instruction='You are assisting Sophia Patel, who had a basic economy flight from JFK to SEA on 2024-05-11 (reservation IPG6ZS) that was cancelled. You want to first check her reservation IPG6ZS and explore alternative one-stop flight options from JFK to SEA for 2024-05-20. After reviewing available options, you would like to cancel the original reservation IPG6ZS because it was cancelled and no longer valid. Subsequently, you want to book a new one-way flight for 1 passenger (Sophia Patel) in economy class on flight HAT083 from JFK to SEA on 2024-05-20, departing early morning, because it fits the desired route and date. You prefer to pay using the Mastercard ending in 7741 on file. Later, you would like to request a compensation certificate because the original flight was cancelled, and as a gesture of goodwill, a $100 travel certificate was issued.\n\nUse sophia_patel_6859 for authentication.',
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'IPG6ZS'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'JFK', 'destination': 'SEA', 'date': '2024-05-20'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'IPG6ZS'}),
+            Action(name='book_reservation', kwargs={'user_id': 'sophia_patel_6859', 'origin': 'JFK', 'destination': 'SEA', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT083', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Sophia', 'last_name': 'Patel', 'dob': '1981-12-25'}], 'payment_methods': [{'payment_id': 'credit_card_5278427', 'amount': 100}], 'total_baggages': 0, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='send_certificate', kwargs={'user_id': 'sophia_patel_6859', 'amount': 100}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='fatima_ahmed_2248',
+        instruction='You are Fatima Ahmed, and you want to book a new one-way flight from Charlotte (CLT) to Boston (BOS) on 2024-05-25 for two passengers: Mohamed Johansson and Lucas Kovacs, in economy class, with 2 checked bags included, using your credit card ending in 7228. You prefer the early morning flight HAT216, which departs around 05:00 AM and arrives around 07:00 AM, because it is the only available direct flight on that date in economy class with sufficient seats. Later, you want to update your existing reservation GIVSHB for the trip from CLT to IAH on 2024-05-28 by replacing passenger Lucas Kovacs with your saved passenger Juan Smith, because he is the intended traveler, and you would like to add one paid checked bag to this reservation, using the same credit card ending in 7228, to accommodate luggage needs for the updated passenger.\n\nUse fatima_ahmed_2248 for authentication.',
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'CLT', 'destination': 'BOS', 'date': '2024-05-25'}),
+            Action(name='book_reservation', kwargs={'user_id': 'fatima_ahmed_2248', 'origin': 'CLT', 'destination': 'BOS', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT216', 'date': '2024-05-25'}], 'passengers': [{'first_name': 'Mohamed', 'last_name': 'Johansson', 'dob': '1996-08-19'}, {'first_name': 'Lucas', 'last_name': 'Kovacs', 'dob': '1957-10-27'}], 'payment_methods': [{'payment_id': 'credit_card_7752823', 'amount': 226}], 'total_baggages': 2, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'GIVSHB'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': 'GIVSHB', 'passengers': [{'first_name': 'Mohamed', 'last_name': 'Johansson', 'dob': '1996-08-19'}, {'first_name': 'Juan', 'last_name': 'Smith', 'dob': '1973-06-16'}]}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': 'GIVSHB', 'total_baggages': 1, 'nonfree_baggages': 1, 'payment_id': 'credit_card_7752823'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='chen_rossi_8135',
+        instruction='You are Chen Rossi, and you want to cancel your current reservation GBCZYE, then rebook the same flights in business class: a morning flight from DEN to PHL on 2024-05-28 (HAT158), followed by an afternoon flight from PHL to LGA on the same day (HAT135), then a morning flight from LGA to CLT on 2024-05-29 (HAT065), and finally an afternoon flight from CLT to DEN later that day (HAT262). You want to increase your total checked baggage to 3 bags, with 1 paid bag, because your travel needs have changed. You prefer to pay for the additional baggage using your credit card ending in 8191674, as it is your preferred payment method on file.\n\nUse chen_rossi_8135 for authentication.',
+        actions=[
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'GBCZYE'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'GBCZYE'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'GBCZYE', 'cabin': 'business', 'flights': [{'flight_number': 'HAT158', 'date': '2024-05-28'}, {'flight_number': 'HAT135', 'date': '2024-05-28'}, {'flight_number': 'HAT065', 'date': '2024-05-29'}, {'flight_number': 'HAT262', 'date': '2024-05-29'}], 'payment_id': 'credit_card_8191674'}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': 'GBCZYE', 'total_baggages': 3, 'nonfree_baggages': 1, 'payment_id': 'credit_card_8191674'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='fatima_silva_7735',
+        instruction='You are Fatima Silva, user fatima_silva_7735, and you want to cancel your current round-trip reservation ASFFI5 due to changed plans. After that, you would like to rebook the flight from PHL to ORD on 2024-05-16, specifically flight HAT197 in business class, because it fits your revised travel schedule. You prefer this flight as it departs in the late afternoon, aligning with your timing needs. You also want to update your baggage allowance to two total bags, with one additional bag paid for, because you require more luggage for this trip. You prefer to use your saved credit card ending in 5147732 for the baggage charge, as it is your preferred payment method on file.\n\nUse fatima_silva_7735 for authentication.',
+        actions=[
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'ASFFI5'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'ASFFI5'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'ASFFI5', 'cabin': 'business', 'flights': [{'flight_number': 'HAT197', 'date': '2024-05-16'}], 'payment_id': 'credit_card_5147732'}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': 'ASFFI5', 'total_baggages': 2, 'nonfree_baggages': 1, 'payment_id': 'credit_card_5147732'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='lei_rossi_4874',
+        instruction='You are assisting Lei Rossi, who wants to book a new direct overnight flight from CLT to EWR on 2024-05-20 for two passengers, Lei Rossi and Liam Brown, in economy class on flight HAT015, which departs around 01:00 AM and has available seats. You prefer economy class with 2 checked bags at no extra cost and without insurance, using the credit card ending in 7279. Later, you would like to cancel your existing basic economy reservation H0HHXO for the one-way flight from IAH to EWR on 2024-05-28, which includes insurance, and request a refund to the original payment method (gift card). After resolving these travel changes, you would like to request a compensation certificate for the earlier cancellation of your flight 15EN70 from CLT to LGA, as it was cancelled and you are entitled to compensation.\n\nUse lei_rossi_4874 for authentication.',
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'CLT', 'destination': 'EWR', 'date': '2024-05-20'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'CLT', 'destination': 'EWR', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'lei_rossi_4874', 'origin': 'CLT', 'destination': 'EWR', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT015', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Lei', 'last_name': 'Rossi', 'dob': '1986-11-21'}, {'first_name': 'Liam', 'last_name': 'Brown', 'dob': '2000-01-10'}], 'payment_methods': [{'payment_id': 'credit_card_9623492', 'amount': 306}], 'total_baggages': 2, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'H0HHXO'}),
+            Action(name='send_certificate', kwargs={'user_id': 'lei_rossi_4874', 'amount': 200}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='lucas_thomas_9373',
+        instruction="You are to book a one-way direct afternoon flight from CLT to PHL on 2024-05-20 for Lucas Thomas, Daiki Ahmed, and Ethan Jackson in economy class, with 2 checked bags and no insurance, because the user has selected flight HAT205 for these passengers and route. You prefer to pay using the Mastercard ending in 9094, as it is the user's chosen payment method. Later, you want to cancel the existing reservation 5KCJWY for a trip from CLT to DFW with a connection via EWR on 2024-05-27 and 2024-05-28, because the user has decided to change travel plans. After that, you would like a compensation certificate issued for the canceled reservation, because three passengers were affected by the cancellation.\n\nUse lucas_thomas_9373 for authentication.",
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'CLT', 'destination': 'PHL', 'date': '2024-05-20'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'CLT', 'destination': 'PHL', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'lucas_thomas_9373', 'origin': 'CLT', 'destination': 'PHL', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT205', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Lucas', 'last_name': 'Thomas', 'dob': '1972-02-07'}, {'first_name': 'Daiki', 'last_name': 'Ahmed', 'dob': '1965-12-15'}, {'first_name': 'Ethan', 'last_name': 'Jackson', 'dob': '1986-08-06'}], 'payment_methods': [{'payment_id': 'credit_card_1382059', 'amount': 369}], 'total_baggages': 2, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': '5KCJWY'}),
+            Action(name='send_certificate', kwargs={'user_id': 'lucas_thomas_9373', 'amount': 300}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='omar_brown_9300',
+        instruction='You are Omar Brown, and you want to cancel your existing reservation X4ZXW5 for the one-way flight from SEA to LAS on 2024-05-16 because you no longer need it. After cancellation, you would like to receive a goodwill compensation certificate for the inconvenience. Later, you want to book a new one-way flight from SEA to JFK on 2024-05-20 for two passengers, Chen Moore and Daiki Kim, in economy class, preferring the early afternoon flight (HAT100) for its convenient timing. You prefer to include 2 free checked bags, no travel insurance, and to pay using your Visa card ending in 2094.\n\nUse omar_brown_9300 for authentication.',
+        actions=[
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'X4ZXW5'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'X4ZXW5'}),
+            Action(name='send_certificate', kwargs={'user_id': 'omar_brown_9300', 'amount': 200}),
+            Action(name='search_direct_flight', kwargs={'origin': 'SEA', 'destination': 'JFK', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'omar_brown_9300', 'origin': 'SEA', 'destination': 'JFK', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT100', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Chen', 'last_name': 'Moore', 'dob': '1991-12-11'}, {'first_name': 'Daiki', 'last_name': 'Kim', 'dob': '1952-05-25'}], 'payment_methods': [{'payment_id': 'credit_card_4120592', 'amount': 268}], 'total_baggages': 2, 'nonfree_baggages': 0, 'insurance': 'no'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='mason_smith_9673',
+        instruction='You are Mason Smith (mason_smith_9673), and you want to cancel your one-way reservation 1ETKA7 from Denver to San Francisco on 2024-05-24 in economy class because you are changing your travel plans. You would like the refund processed to your credit card ending in 9430. Later, you want to book a new one-way flight from Denver to Seattle on 2024-05-20 in economy class for one passenger, with a connection in Dallas/Fort Worth. You prefer the flight departing Denver at 15:00 (flight HAT246) and connecting with the flight departing Dallas at 23:00 (flight HAT067), as this schedule fits your updated itinerary. You prefer to use your credit card ending in 9430 for the new booking.\n\nUse mason_smith_9673 for authentication.',
+        actions=[
+            Action(name='cancel_reservation', kwargs={'reservation_id': '1ETKA7'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': '1ETKA7'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': '1ETKA7', 'passengers': [{'first_name': 'Mason', 'last_name': 'Smith', 'dob': '1988-12-15'}]}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': '1ETKA7', 'total_baggages': 2, 'nonfree_baggages': 1, 'payment_id': 'credit_card_3008313'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': '1ETKA7', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT080', 'date': '2024-05-24'}, {'flight_number': 'HAT199', 'date': '2024-05-24'}], 'payment_id': 'credit_card_3008313'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'DEN', 'destination': 'SEA', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'mason_smith_9673', 'origin': 'DEN', 'destination': 'SEA', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT246', 'date': '2024-05-20'}, {'flight_number': 'HAT067', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Mason', 'last_name': 'Smith', 'dob': '1988-12-15'}], 'payment_methods': [{'payment_id': 'credit_card_3008313', 'amount': 256}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='daiki_patel_1917',
+        instruction='You are Daiki Patel, a gold member, and you have a round-trip business class reservation (7WKBKD) from PHX to JFK on 2024-05-22 with a connection in DTW, traveling with passenger Ethan Taylor. You want to explore one-stop flight alternatives from PHX to JFK on 2024-05-22 because you are considering different routing options, but no viable one-stop connections to JFK were found on that date. You would like to add one checked baggage to this reservation, charged to your Visa ending in 1765, to accommodate your travel needs. Later, you want to cancel your one-way business class reservation (0W60LB) from SFO to PHL on 2024-05-14 due to changed plans. After cancellation, you would like to explore direct flight options from SFO to PHL on the same date for potential rebooking, but no direct flights were available on 2024-05-14. Because your flight on reservation 0W60LB was cancelled, you would like to receive a compensation certificate as a goodwill gesture for the disruption.\n\nUse daiki_patel_1917 for authentication.',
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': '7WKBKD'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'PHX', 'destination': 'JFK', 'date': '2024-05-22'}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': '7WKBKD', 'total_baggages': 1, 'nonfree_baggages': 1, 'payment_id': 'credit_card_4327297'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': '0W60LB'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'SFO', 'destination': 'PHL', 'date': '2024-05-14'}),
+            Action(name='send_certificate', kwargs={'user_id': 'daiki_patel_1917', 'amount': 100}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='fatima_taylor_8297',
+        instruction='You are assisting Fatima Taylor, who wants to book a new one-way direct economy flight from ORD to DTW on 2024-05-20 for herself and Emma Rossi, departing early morning (around 00:00), because they are planning a trip together. You prefer to use the credit card ending in 1733 for this booking. Later, you want to update your existing business-class round-trip reservation (NQD9KO) from ORD to ATL by changing the outbound flight to HAT093 on 2024-05-19, also an early morning flight, for continued travel convenience. You would like to add one checked bag to this updated reservation, increasing total baggages to 3 with 1 nonfree bag, and update the passenger names to Ava Davis and Daiki Johansson, while keeping the same number of travelers, to reflect corrected passenger details. After that, you need to cancel your one-way one-stop economy reservation RVEZA8 from LAX to DEN on 2024-05-23 due to a schedule conflict, and you would like to review its details before proceeding. Subsequently, you want to search for alternative one-stop flight options from LAX to DEN on 2024-05-23 to find a suitable replacement. Finally, since your flight under reservation RVEZA8 was canceled, you would like to receive a compensation certificate as per airline policy.\n\nUse fatima_taylor_8297 for authentication.',
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'ORD', 'destination': 'DTW', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'fatima_taylor_8297', 'origin': 'ORD', 'destination': 'DTW', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT230', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Fatima', 'last_name': 'Taylor', 'dob': '1983-02-04'}, {'first_name': 'Emma', 'last_name': 'Rossi', 'dob': '1971-10-26'}], 'payment_methods': [{'payment_id': 'credit_card_1366921', 'amount': 332}], 'total_baggages': 0, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'NQD9KO', 'cabin': 'business', 'flights': [{'flight_number': 'HAT093', 'date': '2024-05-19'}, {'flight_number': 'HAT227', 'date': '2024-05-20'}], 'payment_id': 'credit_card_1366921'}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': 'NQD9KO', 'total_baggages': 3, 'nonfree_baggages': 1, 'payment_id': 'credit_card_1366921'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': 'NQD9KO', 'passengers': [{'first_name': 'Ava', 'last_name': 'Davis', 'dob': '1966-05-06'}, {'first_name': 'Daiki', 'last_name': 'Johansson', 'dob': '1958-01-03'}]}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'RVEZA8'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'RVEZA8'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'LAX', 'destination': 'DEN', 'date': '2024-05-23'}),
+            Action(name='send_certificate', kwargs={'user_id': 'fatima_taylor_8297', 'amount': 100}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='lei_kim_3687',
+        instruction='You are Lei Kim, a gold member, and you want to book a one-way economy flight from SFO to LAX on 2024-05-16 for yourself and Mia Ahmed because you need to travel together. You prefer flight HAT273 departing at 22:00 (late evening) because it matches your requested flight. You want to add one total checked baggage, no travel insurance, and pay using your Visa card ending in 7161. Later, you want to cancel your round-trip business class reservation K4VIZA from SFO to LAS with connections via IAH and PHX, booked for May 28–29, because your plans changed. You would like the refund processed back to your Visa card ending in 8898. After that, you would like to receive a compensation certificate because the flight under reservation K4VIZA was cancelled by the airline.\n\nUse lei_kim_3687 for authentication.',
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'SFO', 'destination': 'LAX', 'date': '2024-05-16'}),
+            Action(name='book_reservation', kwargs={'user_id': 'lei_kim_3687', 'origin': 'SFO', 'destination': 'LAX', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT273', 'date': '2024-05-16'}], 'passengers': [{'first_name': 'Lei', 'last_name': 'Kim', 'dob': '1998-08-05'}, {'first_name': 'Mia', 'last_name': 'Ahmed', 'dob': '1978-11-28'}], 'payment_methods': [{'payment_id': 'credit_card_8926000', 'amount': 336}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'TOBZP5', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT269', 'date': '2024-05-19'}], 'payment_id': 'credit_card_8926000'}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': 'TOBZP5', 'total_baggages': 2, 'nonfree_baggages': 1, 'payment_id': 'credit_card_8926000'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': 'TOBZP5', 'passengers': [{'first_name': 'Lei', 'last_name': 'Kim', 'dob': '1998-08-05'}, {'first_name': 'Mia', 'last_name': 'Ahmed', 'dob': '1978-11-28'}, {'first_name': 'Evelyn', 'last_name': 'Kovacs', 'dob': '1988-11-26'}]}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'K4VIZA'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'K4VIZA'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'SFO', 'destination': 'LAS', 'date': '2024-05-28'}),
+            Action(name='send_certificate', kwargs={'user_id': 'lei_kim_3687', 'amount': 300}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='evelyn_garcia_6211',
+        instruction='You are Evelyn Garcia, and you want to formally cancel your existing basic economy reservation 5264D4 for the flight from IAH to EWR on 2024-05-11 due to its cancellation by the airline. Later, you would like to book a new one-way economy flight from MSP to MCO on 2024-05-20 for your friend Ethan Brown, preferring an early morning departure around 01:00 AM, as flight HAT171 is available at that time and fits the requested route and date. You prefer to pay using your credit card ending in 3459, which is on file. After that, you want to update reservation I2GNN5 by changing the passenger from Raj Rossi to Ethan Brown, and you prefer to keep the one-stop routing from MSP to PHX on 2024-05-19, specifically the connection via MCO (HAT036 and HAT048), as it is a viable and available option. Subsequently, you would like to receive a compensation certificate for the cancelled flight on reservation 5264D4, as it was disrupted through no fault of your own.\n\nUse evelyn_garcia_6211 for authentication.',
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': '5264D4'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': '5264D4'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'MSP', 'destination': 'MCO', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'evelyn_garcia_6211', 'origin': 'MSP', 'destination': 'MCO', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT171', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Ethan', 'last_name': 'Brown', 'dob': '1996-02-20'}], 'payment_methods': [{'payment_id': 'credit_card_4906704', 'amount': 163}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': 'I2GNN5', 'passengers': [{'first_name': 'Ethan', 'last_name': 'Brown', 'dob': '1996-02-20'}]}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'I2GNN5', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT054', 'date': '2024-05-19'}, {'flight_number': 'HAT161', 'date': '2024-05-19'}], 'payment_id': 'credit_card_4906704'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'MSP', 'destination': 'PHX', 'date': '2024-05-19'}),
+            Action(name='send_certificate', kwargs={'user_id': 'evelyn_garcia_6211', 'amount': 200}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='noah_khan_8166',
+        instruction='You are rebooking a one-stop flight from LAS to IAH on 2024-05-20 for passenger Yusuf Ahmed due to the cancellation of the original flight HAT175. You want to book flight HAT284 from LAS to PHX in the early morning, departing at 03:00 and arriving at 04:00, followed by flight HAT152 from PHX to IAH in the afternoon, departing at 15:00 and arriving at 18:00, both in business class, because this connection allows sufficient time in PHX and aligns with the requested itinerary. You prefer to pay using your credit card ending in 9691, as it is your on-file payment method. Later, you would like to receive a compensation certificate for the original cancellation of flight HAT175 on 2024-05-13, as it was a business class one-way flight that did not operate.\n\nUse noah_khan_8166 for authentication.',
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'LUA6DF'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'LAS', 'destination': 'IAH', 'date': '2024-05-20'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'LAS', 'destination': 'IAH', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'noah_khan_8166', 'origin': 'LAS', 'destination': 'IAH', 'flight_type': 'one_way', 'cabin': 'business', 'flights': [{'flight_number': 'HAT284', 'date': '2024-05-20'}, {'flight_number': 'HAT152', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Yusuf', 'last_name': 'Ahmed', 'dob': '1959-11-21'}], 'payment_methods': [{'payment_id': 'credit_card_5669132', 'amount': 856}], 'total_baggages': 0, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='send_certificate', kwargs={'user_id': 'noah_khan_8166', 'amount': 100}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='lucas_thomas_9373',
+        instruction='You are Lucas Thomas, and you want a $100 compensation certificate for the cancelled business class flight from MIA to JFK on 2024-05-10 (reservation MIC7D1) with one passenger, as per airline policy. Later, you would like to book a new one-way economy flight from MIA to LAX on 2024-05-20 for one passenger, specifically on flight HAT250 departing in the late evening, because you requested this exact flight. You prefer to include one free checked bag, no travel insurance, and to pay using your saved Mastercard ending in 9094.\n\nUse lucas_thomas_9373 for authentication.',
+        actions=[
+            Action(name='send_certificate', kwargs={'user_id': 'lucas_thomas_9373', 'amount': 100}),
+            Action(name='search_direct_flight', kwargs={'origin': 'MIA', 'destination': 'LAX', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'lucas_thomas_9373', 'origin': 'MIA', 'destination': 'LAX', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT250', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Daiki', 'last_name': 'Ahmed', 'dob': '1965-12-15'}], 'payment_methods': [{'payment_id': 'credit_card_1382059', 'amount': 132}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='daiki_patel_1917',
+        instruction='You are assisting Daiki Patel (DOB: 1968-04-24), user daiki_patel_1917, who had his one-way business class flight from SFO to PHL on 2024-05-14 (reservation 0W60LB, flight HAT074) cancelled, and you want to issue him a compensation certificate as a result of this disruption. Later, you would like to book a new one-way economy flight for him from SFO to BOS on 2024-05-20, specifically on flight HAT295 which departs in the early morning, because it matches his requested date and route. You prefer to include one checked bag at no additional cost, skip travel insurance, and process payment using his saved Visa card ending in 1765, as this is his preferred and previously used payment method.\n\nUse daiki_patel_1917 for authentication.',
+        actions=[
+            Action(name='send_certificate', kwargs={'user_id': 'daiki_patel_1917', 'amount': 100}),
+            Action(name='search_direct_flight', kwargs={'origin': 'SFO', 'destination': 'BOS', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'daiki_patel_1917', 'origin': 'SFO', 'destination': 'BOS', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT295', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Daiki', 'last_name': 'Patel', 'dob': '1968-04-24'}], 'payment_methods': [{'payment_id': 'credit_card_4327297', 'amount': 109}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='lucas_thomas_9373',
+        instruction='You are assisting Lucas Thomas (lucas_thomas_9373), who wants to book a direct flight from MIA to JFK on 2024-05-20 for himself and Daiki Ahmed in economy class, specifically flight HAT224 departing in the afternoon, because it is the only direct option available on that date and matches his search. You prefer to use the credit card ending in 9916 for this booking, as it is his designated payment method. Later, you want to upgrade the existing reservation 5KCJWY for travel from CLT to DFW to business class on both segments—HAT157 on 2024-05-27 and HAT231 on 2024-05-28—because Lucas prefers enhanced comfort for this trip, and you want to update the passenger list to remove Ethan Jackson and add Daiki Ahmed, who is already a saved passenger. After that, you would like to cancel the NYHIHA reservation for the MIA to DTW journey on 2024-05-23 because Lucas has changed his plans, and instead search for one-stop flight options from MIA to DTW on the same date, as he is now open to connecting routes for this leg of travel.\n\nUse lucas_thomas_9373 for authentication.',
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'MIA', 'destination': 'JFK', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'lucas_thomas_9373', 'origin': 'MIA', 'destination': 'JFK', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT224', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Lucas', 'last_name': 'Thomas', 'dob': '1972-02-07'}, {'first_name': 'Daiki', 'last_name': 'Ahmed', 'dob': '1965-12-15'}], 'payment_methods': [{'payment_id': 'credit_card_2926284', 'amount': 344}], 'total_baggages': 0, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': '5KCJWY', 'cabin': 'business', 'flights': [{'flight_number': 'HAT157', 'date': '2024-05-27'}, {'flight_number': 'HAT231', 'date': '2024-05-28'}], 'payment_id': 'credit_card_2926284'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': '5KCJWY'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': '5KCJWY', 'passengers': [{'first_name': 'Lucas', 'last_name': 'Thomas', 'dob': '1972-02-07'}, {'first_name': 'Daiki', 'last_name': 'Ahmed', 'dob': '1965-12-15'}, {'first_name': 'Liam', 'last_name': 'Thomas', 'dob': '2000-06-06'}]}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'NYHIHA'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'MIA', 'destination': 'DTW', 'date': '2024-05-23'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='lei_kim_3687',
+        instruction='You are Lei Kim, and you want to book flight HAT280 from SFO to PHL on 2024-05-20 in economy class for yourself and two companions, Emma Anderson and Mia Ahmed, because it is an overnight flight that fits your schedule, and you prefer to pay using your Visa card ending in 8898. Later, you want to update your existing reservation K4VIZA to change your itinerary to a business class journey from SFO to IAH on 2024-05-28 and then from IAH to JFK on 2024-05-29, updating the passenger details to include Lei Kim, Emma Anderson, and Mia Ahmed with their correct dates of birth, and use your Visa ending in 8898 for any fare difference. After reconsidering, you decide to cancel reservation K4VIZA and instead search for one-stop flight options from SFO to JFK on 2024-05-28, preferably with a late evening departure, such as on flight HAT082 from SFO to IAH, connecting to a flight to the New York area the next day.\n\nUse lei_kim_3687 for authentication.',
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'SFO', 'destination': 'PHL', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'lei_kim_3687', 'origin': 'SFO', 'destination': 'PHL', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT280', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Lei', 'last_name': 'Kim', 'dob': '1998-08-05'}, {'first_name': 'Emma', 'last_name': 'Anderson', 'dob': '1992-08-16'}, {'first_name': 'Mia', 'last_name': 'Ahmed', 'dob': '1978-11-28'}], 'payment_methods': [{'payment_id': 'credit_card_5844339', 'amount': 306}], 'total_baggages': 3, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'K4VIZA', 'cabin': 'business', 'flights': [{'flight_number': 'HAT278', 'date': '2024-05-28'}, {'flight_number': 'HAT068', 'date': '2024-05-29'}], 'payment_id': 'credit_card_5844339'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'K4VIZA'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': 'K4VIZA', 'passengers': [{'first_name': 'Lei', 'last_name': 'Kim', 'dob': '1998-08-05'}, {'first_name': 'Emma', 'last_name': 'Anderson', 'dob': '1992-08-16'}, {'first_name': 'Mia', 'last_name': 'Ahmed', 'dob': '1978-11-28'}]}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'K4VIZA'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'SFO', 'destination': 'JFK', 'date': '2024-05-28'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='lei_rossi_4874',
+        instruction='You are assisting Lei Rossi, who had a flight reservation 15EN70 from CLT to LGA on 2024-05-04 that was cancelled, and he is requesting a compensation certificate for the disruption. You want to cancel the existing reservation 15EN70, though it is already cancelled, to formally close it. Later, you would like to book a new one-way flight from CLT to LGA on 2024-05-20 for two passengers, Lei Rossi and Isabella Jackson, in economy class, with no checked bags, no non-free bags, and no insurance. You prefer an overnight flight, and the only direct option is on 2024-05-20 departing early in the morning around 02:00 AM. After that, you would like to explore both direct and one-stop flight options from CLT to LGA on the same date to compare availability. You prefer to pay using your Visa card ending in 7279, which is already on file.\n\nUse lei_rossi_4874 for authentication.',
+        actions=[
+            Action(name='send_certificate', kwargs={'user_id': 'lei_rossi_4874', 'amount': 200}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': '15EN70'}),
+            Action(name='book_reservation', kwargs={'user_id': 'lei_rossi_4874', 'origin': 'CLT', 'destination': 'LGA', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT087', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Lei', 'last_name': 'Rossi', 'dob': '1986-11-21'}, {'first_name': 'Isabella', 'last_name': 'Jackson', 'dob': '2000-09-09'}], 'payment_methods': [{'payment_id': 'credit_card_9623492', 'amount': 392}], 'total_baggages': 0, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'CLT', 'destination': 'LGA', 'date': '2024-05-20'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'CLT', 'destination': 'LGA', 'date': '2024-05-20'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='anya_johansson_1855',
+        instruction='You are assisting Anya Johansson (user_id: anya_johansson_1855) with modifying her travel plans. You first want to review her existing reservation YL0RHR, which is a business class round-trip from DTW to MSP, to confirm details. You also want to search for direct flight options from DTW to ORD on 2024-05-20 to evaluate alternatives. After reviewing, you decide to proceed with changes: you want to cancel the original reservation YL0RHR because you are changing your destination and travel plans. Subsequently, you would like to book a new one-way economy flight from DTW to ORD on 2024-05-20, specifically flight HAT119, which departs in the late afternoon, as it fits your preferred schedule. You prefer to use your credit card ending in 2974 for payment, as it is your primary card on file. You do not require checked baggage or travel insurance for this booking.\n\nUse anya_johansson_1855 for authentication.',
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'YL0RHR'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'DTW', 'destination': 'ORD', 'date': '2024-05-20'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'DTW', 'destination': 'ORD', 'date': '2024-05-20'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'YL0RHR'}),
+            Action(name='book_reservation', kwargs={'user_id': 'anya_johansson_1855', 'origin': 'DTW', 'destination': 'ORD', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT119', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Anya', 'last_name': 'Johansson', 'dob': '1981-02-08'}], 'payment_methods': [{'payment_id': 'credit_card_2114702', 'amount': 106}], 'total_baggages': 0, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': 'YL0RHR', 'passengers': [{'first_name': 'Anya', 'last_name': 'Johansson', 'dob': '1981-02-08'}]}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='emma_smith_9363',
+        instruction='You are to cancel the round-trip basic economy reservation E9TZTU from PHL to DTW with connections through CLT and ORD on 2024-05-23 and 2024-05-24, as the trip has been canceled due to a change in plans, and process a refund to the original payment method, the credit card ending in 4249. You would like to book a new one-way economy flight from PHL to SFO on 2024-05-20, specifically flight HAT291 departing in the early morning, for passenger Emma Smith, using the same credit card ending in 4249 for payment. You also want to update the passenger name on reservation FU2AQ5 for the one-way flight from PHX to LGA on 2024-05-17 from Emma Smith to Olivia Johnson (DOB 1995-03-12). Later, you would like to receive a compensation certificate due to the inconvenience caused by the cancellation of the original trip.\n\nUse emma_smith_9363 for authentication.',
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'E9TZTU'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'E9TZTU'}),
+            Action(name='book_reservation', kwargs={'user_id': 'emma_smith_9363', 'origin': 'PHL', 'destination': 'SFO', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT291', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Emma', 'last_name': 'Smith', 'dob': '2000-08-19'}], 'payment_methods': [{'payment_id': 'credit_card_4253816', 'amount': 145}], 'total_baggages': 0, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': 'FU2AQ5', 'passengers': [{'first_name': 'Olivia', 'last_name': 'Johnson', 'dob': '1995-03-12'}]}),
+            Action(name='send_certificate', kwargs={'user_id': 'emma_smith_9363', 'amount': 200}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='noah_wilson_9692',
+        instruction='You are to first cancel the existing business-class one-way reservation XZE9VN for Noah Wilson from MCO to MIA via LAS on 2024-05-25, as the trip has been abandoned. Then, you want to book a new one-way economy flight from SFO to BOS on 2024-05-20 for two passengers: Noah Wilson and Evelyn Anderson, using flight HAT295 since it is the only available direct option in the morning with confirmed availability, and include two free checked bags as part of the fare benefits. You prefer to pay using the credit card ending in 1175 on file. After that, you would like to update the passenger list on reservation OS7MU5 (SFO to IAH on 2024-05-26) by removing Mia Anderson and adding Ava Silva, while keeping Noah Wilson and Evelyn Anderson on the booking. Finally, you request a travel compensation certificate for the cancellation of reservation XZE9VN as a goodwill gesture for the change in plans.\n\nUse noah_wilson_9692 for authentication.',
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'XZE9VN'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'XZE9VN'}),
+            Action(name='book_reservation', kwargs={'user_id': 'noah_wilson_9692', 'origin': 'SFO', 'destination': 'BOS', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT295', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Noah', 'last_name': 'Wilson', 'dob': '1977-08-18'}, {'first_name': 'Evelyn', 'last_name': 'Anderson', 'dob': '1997-10-04'}], 'payment_methods': [{'payment_id': 'credit_card_5583417', 'amount': 218}], 'total_baggages': 2, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': 'OS7MU5', 'passengers': [{'first_name': 'Noah', 'last_name': 'Wilson', 'dob': '1977-08-18'}, {'first_name': 'Evelyn', 'last_name': 'Anderson', 'dob': '1997-10-04'}, {'first_name': 'Ava', 'last_name': 'Silva', 'dob': '1997-03-15'}]}),
+            Action(name='send_certificate', kwargs={'user_id': 'noah_wilson_9692', 'amount': 100}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='lucas_thomas_9373',
+        instruction='You are assisting Lucas Thomas (user_id: lucas_thomas_9373), who has two active requests stemming from a prior cancelled flight and upcoming travel changes. First, you want to cancel the existing reservation NYHIHA for a one-way trip from MIA to DTW on 2024-05-23 and 2024-05-24, as the journey is no longer needed. Second, you would like to book a new one-way flight from MIA to LAX on 2024-05-25 for two passengers—Lucas Thomas and Daiki Ahmed—in economy class, with 2 checked bags included, using the specific flight HAT120 departing at 23:00, because it fits the requested route and date and has available economy seating. You prefer to pay using your credit card ending in 9916, which is on file. Additionally, you are entitled to compensation due to the cancellation of your previous reservation MIC7D1 (MIA to JFK in business class), so you would like to request a compensation certificate for that disrupted journey. Later, you are interested in exploring available one-stop flight options from MIA to CLT on 2024-05-25 for future planning purposes, even though no such connecting flights were found in the current search.\n\nUse lucas_thomas_9373 for authentication.',
+        actions=[
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'NYHIHA'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'MIA', 'destination': 'LAX', 'date': '2024-05-25'}),
+            Action(name='book_reservation', kwargs={'user_id': 'lucas_thomas_9373', 'origin': 'MIA', 'destination': 'LAX', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT120', 'date': '2024-05-25'}], 'passengers': [{'first_name': 'Lucas', 'last_name': 'Thomas', 'dob': '1972-02-07'}, {'first_name': 'Daiki', 'last_name': 'Ahmed', 'dob': '1965-12-15'}], 'payment_methods': [{'payment_id': 'credit_card_2926284', 'amount': 234}], 'total_baggages': 2, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': 'NYHIHA', 'total_baggages': 3, 'nonfree_baggages': 1, 'payment_id': 'credit_card_2926284'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'NYHIHA'}),
+            Action(name='send_certificate', kwargs={'user_id': 'lucas_thomas_9373', 'amount': 100}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'MIA', 'destination': 'CLT', 'date': '2024-05-25'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='harper_johnson_9249',
+        instruction='You are Harper Johnson, and you want to cancel your original round-trip reservation EB17TJ from JFK to DFW (via SEA) and return (via ATL) due to schedule changes. After that, you would like to book a new one-way flight from JFK to ATL on 2024-05-20 for yourself and Chen Martin in economy class, using your Mastercard ending in 4851 for payment. You prefer the morning flight departing JFK around 07:00, which is flight HAT268, and after booking, you want to add two checked bags to the reservation, charged to the same card. Since the original trip was canceled through no fault of your own, you would like a $200 travel certificate as compensation for the inconvenience. Later, you also want to explore one-stop flight options from JFK to ORD on the same date, particularly the connection via ATL (HAT268 to HAT227), which arrives in ORD at 13:00, as a potential option for future travel consideration.\n\nUse harper_johnson_9249 for authentication.',
+        actions=[
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'EB17TJ'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'JFK', 'destination': 'ATL', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'harper_johnson_9249', 'origin': 'JFK', 'destination': 'ATL', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT268', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Harper', 'last_name': 'Johnson', 'dob': '1986-01-10'}, {'first_name': 'Chen', 'last_name': 'Martin', 'dob': '1967-03-24'}], 'payment_methods': [{'payment_id': 'credit_card_6678874', 'amount': 202}], 'total_baggages': 2, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': 'EB17TJ', 'total_baggages': 2, 'nonfree_baggages': 0, 'payment_id': 'credit_card_6678874'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'EB17TJ'}),
+            Action(name='send_certificate', kwargs={'user_id': 'harper_johnson_9249', 'amount': 200}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'JFK', 'destination': 'ORD', 'date': '2024-05-20'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='ivan_brown_5554',
+        instruction='You are assisting Ivan Brown (user_id: ivan_brown_5554, DOB: 1972-06-14) with his travel requests. You want to cancel his existing one-way economy reservation 8ZJN85 for the flight from DEN to DFW on 2024-05-13 due to a schedule conflict and to correct the passenger name, which is already accurate as Ivan Brown. Later, you would like to request a compensation certificate for the cancellation of this flight. After that, you want to book a new one-way economy flight from DEN to LAS on 2024-05-20, specifically flight HAT229, which departs in the late morning (around 11:00 AM), for one passenger (Ivan Brown). You prefer to use the credit card ending in 3198 on file for payment, include one free baggage allowance, and decline travel insurance.\n\nUse ivan_brown_5554 for authentication.',
+        actions=[
+            Action(name='cancel_reservation', kwargs={'reservation_id': '8ZJN85'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': '8ZJN85'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': '8ZJN85', 'passengers': [{'first_name': 'Ivan', 'last_name': 'Brown', 'dob': '1972-06-14'}]}),
+            Action(name='send_certificate', kwargs={'user_id': 'ivan_brown_5554', 'amount': 100}),
+            Action(name='search_direct_flight', kwargs={'origin': 'DEN', 'destination': 'LAS', 'date': '2024-05-20'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'DEN', 'destination': 'LAS', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'ivan_brown_5554', 'origin': 'DEN', 'destination': 'LAS', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT229', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Ivan', 'last_name': 'Brown', 'dob': '1972-06-14'}], 'payment_methods': [{'payment_id': 'credit_card_8269856', 'amount': 142}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='aarav_nguyen_8793',
+        instruction='You are Aarav Nguyen, and you want to cancel your round-trip basic economy reservation DIW7K4 from BOS to SFO on 2024-05-16 with a connection through SEA, because your plans have changed. You request a refund to your original payment method, which is the gift card used at booking. Later, you would like to receive a compensation certificate for the inconvenience caused by the cancellation. After that, you want to book a new one-way trip from BOS to JFK on 2024-05-16 with a connection in SEA, traveling with one passenger, Aarav Kim. You prefer the outbound flight from BOS to SEA in the early morning (flight HAT006, departing around 03:00) and the connecting flight from SEA to JFK in the afternoon (flight HAT100, departing around 13:00), both in economy class. You would like to add one checked baggage for the journey and prefer to pay using your Mastercard ending in 6797.\n\nUse aarav_nguyen_8793 for authentication.',
+        actions=[
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'DIW7K4'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'DIW7K4'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': 'E02WYJ', 'passengers': [{'first_name': 'Aarav', 'last_name': 'Nguyen', 'dob': '1985-07-20'}, {'first_name': 'Ethan', 'last_name': 'Brown', 'dob': '1974-06-05'}]}),
+            Action(name='send_certificate', kwargs={'user_id': 'aarav_nguyen_8793', 'amount': 100}),
+            Action(name='search_direct_flight', kwargs={'origin': 'BOS', 'destination': 'JFK', 'date': '2024-05-16'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'BOS', 'destination': 'JFK', 'date': '2024-05-16'}),
+            Action(name='book_reservation', kwargs={'user_id': 'aarav_nguyen_8793', 'origin': 'BOS', 'destination': 'JFK', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT006', 'date': '2024-05-16'}, {'flight_number': 'HAT100', 'date': '2024-05-16'}], 'passengers': [{'first_name': 'Aarav', 'last_name': 'Kim', 'dob': '1967-06-24'}], 'payment_methods': [{'payment_id': 'credit_card_3207323', 'amount': 285}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='ivan_taylor_6615',
+        instruction='You are Ivan Taylor, and you want to cancel your reservation 06K2QN for the ATL to LAS flight because it was cancelled and you no longer need it. Later, you would like to update your reservation PK9XO8 to fly from LAX to IAH on 2024-05-24 with a connecting flight via SFO, specifically using flight HAT034 from LAX to SFO and flight HAT082 from SFO to IAH, both in business class, because those are the flights you requested and they are available. You also want to change the passenger name on this reservation from Ivan Taylor to Aarav Kim, as Aarav Kim is a saved passenger in your account. You prefer to use your Visa card ending in 1656 for any fare difference associated with this change. After that, you would like to receive a compensation certificate for the cancelled flight on reservation 06K2QN, as it was disrupted and you are entitled to compensation.\n\nUse ivan_taylor_6615 for authentication.',
+        actions=[
+            Action(name='cancel_reservation', kwargs={'reservation_id': '06K2QN'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'LAX', 'destination': 'IAH', 'date': '2024-05-24'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'LAX', 'destination': 'IAH', 'date': '2024-05-24'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'PK9XO8'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'PK9XO8', 'cabin': 'business', 'flights': [{'flight_number': 'HAT034', 'date': '2024-05-24'}, {'flight_number': 'HAT082', 'date': '2024-05-24'}], 'payment_id': 'credit_card_1885633'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': 'PK9XO8', 'passengers': [{'first_name': 'Aarav', 'last_name': 'Kim', 'dob': '1962-10-28'}]}),
+            Action(name='send_certificate', kwargs={'user_id': 'ivan_taylor_6615', 'amount': 200}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='lei_kim_3687',
+        instruction='You are Lei Kim, and you want to cancel your round-trip business class reservation K4VIZA from SFO to LAS due to changed plans, with a refund processed to your credit card ending in 5844339. Later, you would like to update your one-way economy reservation TOBZP5 from PHL to CLT on 2024-05-19 by changing the flight to an earlier morning departure, flight HAT122, which departs at 6:00 AM, to better align with your schedule. You also want to update the passenger list for this flight by removing Evelyn Kovacs and adding Noah Brown. Any additional charges for this change should be billed to your credit card ending in 8926000. After that, you would like to receive a compensation certificate for the inconvenience caused by the cancellation of your SFO-LAS business trip.\n\nUse lei_kim_3687 for authentication.',
+        actions=[
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'K4VIZA'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'SFO', 'destination': 'LAS', 'date': '2024-05-28'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'SFO', 'destination': 'LAS', 'date': '2024-05-28'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'TOBZP5'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'TOBZP5', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT122', 'date': '2024-05-19'}], 'payment_id': 'credit_card_8926000'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': 'TOBZP5', 'passengers': [{'first_name': 'Lei', 'last_name': 'Kim', 'dob': '1998-08-05'}, {'first_name': 'Mia', 'last_name': 'Ahmed', 'dob': '1978-11-28'}, {'first_name': 'Noah', 'last_name': 'Brown', 'dob': '1990-01-01'}]}),
+            Action(name='send_certificate', kwargs={'user_id': 'lei_kim_3687', 'amount': 300}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sophia_patel_6859',
+        instruction="You are assisting Sophia Patel (DOB: 1981-12-25) with rebooking her cancelled flight from JFK to SEA on 2024-05-11. You want to book a one-stop flight from JFK to SEA on 2024-05-20 in economy class for one passenger, with a connection via ATL, departing JFK in the evening and arriving in SEA early the next morning, as this is the only viable routing option available. You prefer to use her saved credit card ending in 7741 for payment, as it is on file and was previously used. You also want to confirm that there are no direct flights from JFK to SEA on 2024-05-20, which aligns with the current flight availability. Later, you would like to request a compensation certificate for the original flight cancellation, as it was outside of the passenger's control and caused travel disruption.\n\nUse sophia_patel_6859 for authentication.",
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'IPG6ZS'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'JFK', 'destination': 'SEA', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'sophia_patel_6859', 'origin': 'JFK', 'destination': 'SEA', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT136', 'date': '2024-05-20'}, {'flight_number': 'HAT039', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Sophia', 'last_name': 'Patel', 'dob': '1981-12-25'}], 'payment_methods': [{'payment_id': 'credit_card_5278427', 'amount': 255}], 'total_baggages': 0, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'JFK', 'destination': 'SEA', 'date': '2024-05-20'}),
+            Action(name='send_certificate', kwargs={'user_id': 'sophia_patel_6859', 'amount': 100}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='ivan_li_1886',
+        instruction='You are Ivan Li, user ivan_li_1886, managing a round-trip business class reservation from PHL to EWR via CLT for two passengers, Amelia Lee and Sofia Santos, scheduled for May 19–21, 2024. You want to cancel the entire reservation 5MNVTG due to changed travel plans. After that, you would like to update the total baggage count to 4, including 1 paid bag, and you prefer to pay the additional baggage fee using your Visa card ending in 5704, even though the reservation has been canceled and the update cannot be applied. Later, you would like to receive a compensation certificate for the cancellation, as per airline policy for affected passengers.\n\nUse ivan_li_1886 for authentication.',
+        actions=[
+            Action(name='cancel_reservation', kwargs={'reservation_id': '5MNVTG'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': '5MNVTG'}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': '5MNVTG', 'total_baggages': 4, 'nonfree_baggages': 1, 'payment_id': 'credit_card_9074682'}),
+            Action(name='send_certificate', kwargs={'user_id': 'ivan_li_1886', 'amount': 200}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='isabella_khan_4151',
+        instruction="You are Isabella Khan, a gold member, and you want to cancel your upcoming reservation RRMXPX for Mei Brown's trip from MIA to PHX, involving a flight from MIA to LAS on 2024-05-27 and LAS to PHX on 2024-05-28, due to changed plans. Later, you would like to update the baggage allowance on reservation 9G6CN3 for the JFK-ATL round trip on 2024-05-16 and 2024-05-29 by increasing the total number of checked bags from 2 to 3, adding one paid checked bag for the passengers Raj Lopez and Mei Taylor, because you need extra baggage capacity. You prefer to pay for the additional bag using your Mastercard ending in 3445. After that, you would like to receive a compensation certificate worth $300 due to the cancellation of your flight HAT087 (CLT-LGA) on 2024-05-09 on reservation 8POIJI, which affected three passengers including yourself, Raj Lopez, and Ivan Nguyen, and is eligible under the airline's policy of $100 per passenger for cancelled flights.\n\nUse isabella_khan_4151 for authentication.",
+        actions=[
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'RRMXPX'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': '9G6CN3'}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': '9G6CN3', 'total_baggages': 3, 'nonfree_baggages': 1, 'payment_id': 'credit_card_4651498'}),
+            Action(name='send_certificate', kwargs={'user_id': 'isabella_khan_4151', 'amount': 300}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='aarav_silva_6452',
+        instruction='You are Aarav Silva (user_id aarav_silva_6452) and you want to cancel your round-trip business class reservation DKGIIH from EWR to LAS because your travel plans have changed. After that, you would like to book a one-way economy flight from EWR to MSP on 2024-05-20 for three passengers: yourself (Aarav Silva), Chen Khan, and Anya Khan, preferring flight HAT208 which departs around midnight, as it fits your schedule for an early departure. You want to include one free checked bag per passenger and no travel insurance. You prefer to pay using your credit card ending in 5471. Later, you would like to update the passenger on reservation YPTFZY from Aarav Silva to Chen Khan (DOB 1975-08-26) to reflect the correct traveler. Finally, you would like to receive a compensation certificate due to the inconvenience caused by the cancellation of your original business trip.\n\nUse aarav_silva_6452 for authentication.',
+        actions=[
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'DKGIIH'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'EWR', 'destination': 'MSP', 'date': '2024-05-20'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'EWR', 'destination': 'MSP', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'aarav_silva_6452', 'origin': 'EWR', 'destination': 'MSP', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT208', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Aarav', 'last_name': 'Silva', 'dob': '1966-01-20'}, {'first_name': 'Chen', 'last_name': 'Khan', 'dob': '1975-08-26'}, {'first_name': 'Anya', 'last_name': 'Khan', 'dob': '1981-06-13'}], 'payment_methods': [{'payment_id': 'credit_card_1049698', 'amount': 528}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'YPTFZY'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': 'YPTFZY', 'passengers': [{'first_name': 'Chen', 'last_name': 'Khan', 'dob': '1975-08-26'}]}),
+            Action(name='send_certificate', kwargs={'user_id': 'aarav_silva_6452', 'amount': 300}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='mason_lee_7450',
+        instruction='You are assisting Mason Lee (mason_lee_7450) with multiple travel requests. First, you want to book a one-way flight from Atlanta (ATL) to Seattle (SEA) on 2024-05-20 for two passengers in economy class, specifically flight HAT039, which departs at 22:00 (late evening) and arrives the next day at 03:00, because it matches his preferred timing and route. You prefer to pay using his Visa card ending in 2150 (payment method on file) and include 2 total checked bags with no non-free bags, and no travel insurance. Later, you would like to update the passenger names on existing reservation TBPDWP, changing Noah Johnson and Daiki Li to Lucas Kim and Chen Li, who are saved passengers in his account, to reflect accurate traveler information. You also want to review the details of reservation TBPDWP for confirmation, which includes a round-trip itinerary with connections through LAS and DFW. Additionally, you would like to see one-stop flight options from ATL to SEA on 2024-05-20 as alternatives, even though no direct connecting flight ends in SEA on the same day, to evaluate backup plans in case the direct flight is not suitable.\n\nUse mason_lee_7450 for authentication.',
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'ATL', 'destination': 'SEA', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'mason_lee_7450', 'origin': 'ATL', 'destination': 'SEA', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT039', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Noah', 'last_name': 'Johnson', 'dob': '2000-11-05'}, {'first_name': 'Daiki', 'last_name': 'Li', 'dob': '1990-01-23'}], 'payment_methods': [{'payment_id': 'credit_card_9861856', 'amount': 206}], 'total_baggages': 2, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': 'TBPDWP', 'passengers': [{'first_name': 'Lucas', 'last_name': 'Kim', 'dob': '1995-08-18'}, {'first_name': 'Chen', 'last_name': 'Li', 'dob': '1997-05-14'}]}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'TBPDWP'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'ATL', 'destination': 'SEA', 'date': '2024-05-20'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='isabella_khan_4151',
+        instruction='You are assisting Isabella Khan (user_id: isabella_khan_4151), who had her business class flight from CLT to LGA (HAT087) on 2024-05-20 cancelled, which caused travel disruption. You want to request a compensation certificate for this inconvenience. After receiving the certificate, you would like to book a new one-way business class flight from CLT to EWR on 2024-05-20 for three passengers: Isabella Khan, Ivan Nguyen, and Raj Lopez, using flight HAT108 departing in the early morning (03:00 AM) to ensure timely arrival, and you prefer to pay using the Mastercard ending in 3445 on file. Later, you would like to explore alternative one-stop flight options from CLT to EWR on the same date (2024-05-20) for future reference, particularly those connecting through DTW or LGA, to evaluate potential backup itineraries.\n\nUse isabella_khan_4151 for authentication.',
+        actions=[
+            Action(name='send_certificate', kwargs={'user_id': 'isabella_khan_4151', 'amount': 300}),
+            Action(name='search_direct_flight', kwargs={'origin': 'CLT', 'destination': 'EWR', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'isabella_khan_4151', 'origin': 'CLT', 'destination': 'EWR', 'flight_type': 'one_way', 'cabin': 'business', 'flights': [{'flight_number': 'HAT108', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Isabella', 'last_name': 'Khan', 'dob': '1954-07-18'}, {'first_name': 'Ivan', 'last_name': 'Nguyen', 'dob': '1952-05-06'}, {'first_name': 'Raj', 'last_name': 'Lopez', 'dob': '1953-05-18'}], 'payment_methods': [{'payment_id': 'credit_card_4651498', 'amount': 630}], 'total_baggages': 4, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'CLT', 'destination': 'EWR', 'date': '2024-05-20'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='noah_garcia_4365',
+        instruction='You are to assist Noah Garcia, who wants to first review his existing reservation 5JLTF1 for an ORD-IAH round trip, and then search for alternative direct flights from ORD to DEN on 2024-05-20. After that, you are to cancel reservation 5JLTF1 because he has decided to change his travel plans. Subsequently, you are to book a new one-way flight for Noah Garcia and his companion Ivan Johansson from ORD to DEN on 2024-05-20, specifically flight HAT238 departing early morning (02:00 AM), in economy class, because it matches his requested timing and route. You are to include one checked bag (which is free) and no insurance. You are to use his saved Visa card ending in 4667 for payment, as that is his preferred payment method.\n\nUse noah_garcia_4365 for authentication.',
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': '5JLTF1'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'ORD', 'destination': 'DEN', 'date': '2024-05-20'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': '5JLTF1'}),
+            Action(name='book_reservation', kwargs={'user_id': 'noah_garcia_4365', 'origin': 'ORD', 'destination': 'DEN', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT238', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Noah', 'last_name': 'Garcia', 'dob': '1955-10-16'}, {'first_name': 'Ivan', 'last_name': 'Johansson', 'dob': '1968-06-11'}], 'payment_methods': [{'payment_id': 'credit_card_5429291', 'amount': 212}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='mia_garcia_3833',
+        instruction='You are Mia Garcia, and you want to update your reservation V5XFMY by changing passenger Aarav Lee to Seb Smith (born 1997-03-01) because of a change in travel companions. You also want to add one paid checked baggage, making a total of two bags with one being paid, to accommodate additional luggage, and you prefer to use your Visa card ending in 2771 for the charge. You want to keep the same flights: a late evening flight from LAX to EWR on 2024-05-20 (HAT228) and a morning flight from EWR to CLT on 2024-05-21 (HAT215), both in business class, for yourself and Seb Smith. Later, you would like to book a new one-way business class flight from LAX to SFO on 2024-05-20 for the same two passengers, preferring the early morning flight HAT034 departing at 7:00 AM, and you want to pay $958 using the same Visa card ending in 2771. After that, you would like to cancel your original reservation V5XFMY due to a change in plans and request a refund to the same card.\n\nUse mia_garcia_3833 for authentication.',
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'V5XFMY'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': 'V5XFMY', 'passengers': [{'first_name': 'Mia', 'last_name': 'Garcia', 'dob': '1980-07-11'}, {'first_name': 'Seb', 'last_name': 'Smith', 'dob': '1997-03-01'}]}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': 'V5XFMY', 'total_baggages': 2, 'nonfree_baggages': 1, 'payment_id': 'credit_card_3323151'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'V5XFMY', 'cabin': 'business', 'flights': [{'flight_number': 'HAT228', 'date': '2024-05-20'}, {'flight_number': 'HAT215', 'date': '2024-05-21'}], 'payment_id': 'credit_card_3323151'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'LAX', 'destination': 'SFO', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'mia_garcia_3833', 'origin': 'LAX', 'destination': 'SFO', 'flight_type': 'one_way', 'cabin': 'business', 'flights': [{'flight_number': 'HAT034', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Mia', 'last_name': 'Garcia', 'dob': '1980-07-11'}, {'first_name': 'Seb', 'last_name': 'Smith', 'dob': '1997-03-01'}], 'payment_methods': [{'payment_id': 'credit_card_3323151', 'amount': 958}], 'total_baggages': 1, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'V5XFMY'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sophia_martin_4574',
+        instruction='You are to first cancel the existing round-trip business class reservation from MCO to LGA, as the customer no longer wishes to take this trip. Then, you are to book a new one-way economy class flight for one passenger (Sophia Martin) from MCO to MSP on 2024-05-20, preferring the early morning flight option (HAT298), as it aligns with the selected flight and timing. You prefer to use the saved Visa card ending in 8834 for payment, as it was specified for this booking. Later, you would like to update the passenger on reservation PUNERT from Sophia Martin to Ivan Brown (DOB 1979-12-22), one of the saved passengers, while keeping the passenger count unchanged, to reflect the correct traveler for that trip.\n\nUse sophia_martin_4574 for authentication.',
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'MFRB94'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'MFRB94'}),
+            Action(name='book_reservation', kwargs={'user_id': 'sophia_martin_4574', 'origin': 'MCO', 'destination': 'MSP', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT298', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Sophia', 'last_name': 'Martin', 'dob': '1990-10-25'}], 'payment_methods': [{'payment_id': 'credit_card_1402274', 'amount': 187}], 'total_baggages': 0, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': 'PUNERT', 'passengers': [{'first_name': 'Ivan', 'last_name': 'Brown', 'dob': '1979-12-22'}]}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='mia_ito_3194',
+        instruction='You are to first cancel the existing business class reservation from JFK to ATL on 2024-05-28 for Mia Ito and Mia Anderson, as the travel plans have changed. Then, you want to book a new one-way economy flight from JFK to MIA on 2024-05-20 for the same two passengers, preferring an evening departure around 20:00, as flight HAT126 fits that schedule and is available. You prefer to pay using your saved Mastercard ending in 3527 for the new booking to ensure convenience and speed. After the booking is confirmed, you would like to update the passenger name for Mia Anderson to Mia Andersen to correct a spelling error in the reservation.\n\nUse mia_ito_3194 for authentication.',
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': '54FLTG'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': '54FLTG'}),
+            Action(name='book_reservation', kwargs={'user_id': 'mia_ito_3194', 'origin': 'JFK', 'destination': 'MIA', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT126', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Mia', 'last_name': 'Ito', 'dob': '1977-09-10'}, {'first_name': 'Mia', 'last_name': 'Anderson', 'dob': '1976-04-10'}], 'payment_methods': [{'payment_id': 'credit_card_1611721', 'amount': 374}], 'total_baggages': 0, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': '54FLTG', 'passengers': [{'first_name': 'Mia', 'last_name': 'Ito', 'dob': '1977-09-10'}, {'first_name': 'Mia', 'last_name': 'Andersen', 'dob': '1976-04-10'}]}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='ivan_silva_9292',
+        instruction='You are assisting Ivan Silva, a gold member, who wants to book a direct business class flight from PHL to CLT on 2024-05-20 for one passenger, Ivan Silva, because he is adjusting his travel plans early. You want to book flight HAT122, which departs in the early morning, using his Mastercard ending in 9364. Later, you need to update the passenger name on existing reservation QATWRO from Ivan Silva to Ivan Davis (a saved passenger) because he is traveling under a different name. After that, you want to update the flights in reservation QATWRO to align with the new itinerary: a business class flight from PHL to CLT on 2024-05-21 (HAT122) and a connecting business class flight from CLT to DTW on the same day (HAT167), both in the evening, using the same payment method. Subsequently, you are instructed to cancel the original reservation QATWRO because the updated changes supersede the prior plan. After cancellation, you would like to search for one-stop flight options from PHL to DTW on 2024-05-21 for potential rebooking, as the direct routing may no longer suit his revised schedule.\n\nUse ivan_silva_9292 for authentication.',
+        actions=[
+            Action(name='search_direct_flight', kwargs={'origin': 'PHL', 'destination': 'CLT', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'ivan_silva_9292', 'origin': 'PHL', 'destination': 'CLT', 'flight_type': 'one_way', 'cabin': 'business', 'flights': [{'flight_number': 'HAT122', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Ivan', 'last_name': 'Silva', 'dob': '1984-12-23'}], 'payment_methods': [{'payment_id': 'credit_card_8803766', 'amount': 236}], 'total_baggages': 0, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': 'QATWRO', 'passengers': [{'first_name': 'Ivan', 'last_name': 'Davis', 'dob': '1977-03-08'}]}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'QATWRO', 'cabin': 'business', 'flights': [{'flight_number': 'HAT122', 'date': '2024-05-21'}, {'flight_number': 'HAT167', 'date': '2024-05-21'}], 'payment_id': 'credit_card_8803766'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'QATWRO'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'PHL', 'destination': 'DTW', 'date': '2024-05-21'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='evelyn_garcia_6211',
+        instruction='You are Evelyn Garcia, user evelyn_garcia_6211, and you want a $200 compensation certificate for the cancelled reservation 5264D4 from IAH to EWR on 2024-05-11 for two passengers, Evelyn Garcia and Mei Lee. Later, you would like to update reservation I2GNN5 for Raj Rossi to upgrade the existing flights HAT054 (MSP to MCO) and HAT161 (MCO to PHX) on 2024-05-19 from economy to business class, because you prefer a more comfortable travel experience. You also want to increase the total checked bags to two, with one paid bag, and prefer to pay the additional cost using your credit card ending in 3459. After that, you would like to search for alternative one-stop flights from MSP to PHX on 2024-05-19, even though your current itinerary already serves that route with a connection in MCO, to explore potential schedule changes.\n\nUse evelyn_garcia_6211 for authentication.',
+        actions=[
+            Action(name='send_certificate', kwargs={'user_id': 'evelyn_garcia_6211', 'amount': 200}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'I2GNN5'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'I2GNN5', 'cabin': 'business', 'flights': [{'flight_number': 'HAT054', 'date': '2024-05-19'}, {'flight_number': 'HAT161', 'date': '2024-05-19'}], 'payment_id': 'credit_card_4906704'}),
+            Action(name='update_reservation_baggages', kwargs={'reservation_id': 'I2GNN5', 'total_baggages': 2, 'nonfree_baggages': 1, 'payment_id': 'credit_card_4906704'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'MSP', 'destination': 'PHX', 'date': '2024-05-19'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='isabella_lopez_2185',
+        instruction='You are assisting Isabella Lopez, who holds reservation ADJD1W for a round-trip from LGA to PHX in business class for three passengers: Isabella Lopez, Isabella Khan, and Noah Ito. You want to request a compensation certificate for the delay of flight HAT150 on 2024-05-15, which departed late evening at 20:47 instead of the scheduled 19:00. Later, you would like to update the outbound flight from HAT150 on 2024-05-15 to HAT201 on 2024-05-16, keeping the cabin as business class, because the original flight was delayed. You prefer to use the credit card ending in 1015271 for any fare difference. After that, you would like to explore one-stop flight options from LGA to PHX on 2024-05-16 to compare alternatives, but no such connecting flights with PHX as final destination are available in the current flight data.\n\nUse isabella_lopez_2185 for authentication.',
+        actions=[
+            Action(name='send_certificate', kwargs={'user_id': 'isabella_lopez_2185', 'amount': 150}),
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'ADJD1W'}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'ADJD1W', 'cabin': 'business', 'flights': [{'flight_number': 'HAT201', 'date': '2024-05-16'}, {'flight_number': 'HAT066', 'date': '2024-05-17'}], 'payment_id': 'credit_card_1015271'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'LGA', 'destination': 'PHX', 'date': '2024-05-16'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='evelyn_lee_2325',
+        instruction='You are Evelyn Lee, and you want to book a one-way economy flight from PHX to JFK on 2024-05-20 for yourself and Daiki Anderson, with a connection in DTW, because your travel plans have changed. You prefer an early morning departure from PHX around 04:00 followed by an afternoon flight from DTW around 15:00 to arrive in JFK the same day, as these flights (HAT106 and HAT263) fit your revised schedule. You would like to include 2 checked bags at no extra cost and do not want travel insurance. You prefer to pay using your saved Visa card ending in 7370. Later, you would like to cancel your original reservation 4WEVK0 for a business class flight from PHX to SFO on 2024-05-22, because you no longer need it, and you would like the refund processed back to the same Visa card.\n\nUse evelyn_lee_2325 for authentication.',
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': '4WEVK0'}),
+            Action(name='search_onestop_flight', kwargs={'origin': 'PHX', 'destination': 'JFK', 'date': '2024-05-20'}),
+            Action(name='book_reservation', kwargs={'user_id': 'evelyn_lee_2325', 'origin': 'PHX', 'destination': 'JFK', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT106', 'date': '2024-05-20'}, {'flight_number': 'HAT263', 'date': '2024-05-20'}], 'passengers': [{'first_name': 'Evelyn', 'last_name': 'Lee', 'dob': '1954-07-05'}, {'first_name': 'Daiki', 'last_name': 'Anderson', 'dob': '1975-06-15'}], 'payment_methods': [{'payment_id': 'credit_card_5787244', 'amount': 452}], 'total_baggages': 2, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': '4WEVK0'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'PHX', 'destination': 'SFO', 'date': '2024-05-22'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='lucas_rossi_9280',
+        instruction='You are to first cancel the existing round-trip economy reservation from EWR to SFO due to changed travel plans. Then, you want to book a new one-way economy flight from SEA to ATL on 2024-05-27 for three passengers: Lucas Rossi, Aarav Muller, and Evelyn Santos, with 2 total checked bags (no paid bags) and no travel insurance, because the new trip is one-way and requires updated passenger details. You prefer to pay using your Visa card ending in 1842. After that, you would like to update your existing business class reservation to change the outbound journey to a flight from SEA to ATL on 2024-05-27 in the early morning, followed by a morning connection from ATL to MCO on the same day, to align with the new travel dates and route. You also want to update the passenger list to include Lucas Rossi, Aarav Muller, and Evelyn Santos, and you prefer to use the same Visa card ending in 1842 for any fare difference.\n\nUse lucas_rossi_9280 for authentication.',
+        actions=[
+            Action(name='get_reservation_details', kwargs={'reservation_id': 'RF9ICL'}),
+            Action(name='search_direct_flight', kwargs={'origin': 'SEA', 'destination': 'ATL', 'date': '2024-05-27'}),
+            Action(name='book_reservation', kwargs={'user_id': 'lucas_rossi_9280', 'origin': 'SEA', 'destination': 'ATL', 'flight_type': 'one_way', 'cabin': 'economy', 'flights': [{'flight_number': 'HAT220', 'date': '2024-05-27'}], 'passengers': [{'first_name': 'Lucas', 'last_name': 'Rossi', 'dob': '1981-10-17'}, {'first_name': 'Aarav', 'last_name': 'Muller', 'dob': '1987-02-20'}, {'first_name': 'Evelyn', 'last_name': 'Santos', 'dob': '1988-06-21'}], 'payment_methods': [{'payment_id': 'credit_card_7507634', 'amount': 456}], 'total_baggages': 2, 'nonfree_baggages': 0, 'insurance': 'no'}),
+            Action(name='update_reservation_passengers', kwargs={'reservation_id': 'L1S2JC', 'passengers': [{'first_name': 'Lucas', 'last_name': 'Rossi', 'dob': '1981-10-17'}, {'first_name': 'Aarav', 'last_name': 'Muller', 'dob': '1987-02-20'}, {'first_name': 'Evelyn', 'last_name': 'Santos', 'dob': '1988-06-21'}]}),
+            Action(name='update_reservation_flights', kwargs={'reservation_id': 'L1S2JC', 'cabin': 'business', 'flights': [{'flight_number': 'HAT220', 'date': '2024-05-27'}, {'flight_number': 'HAT293', 'date': '2024-05-27'}, {'origin': 'MCO', 'destination': 'PHX', 'flight_number': 'HAT161', 'date': '2024-05-30'}, {'origin': 'PHX', 'destination': 'SEA', 'flight_number': 'HAT045', 'date': '2024-05-30'}], 'payment_id': 'credit_card_7507634'}),
+            Action(name='cancel_reservation', kwargs={'reservation_id': 'RF9ICL'}),
+        ],
+        outputs=[],
+    ),
 ]
