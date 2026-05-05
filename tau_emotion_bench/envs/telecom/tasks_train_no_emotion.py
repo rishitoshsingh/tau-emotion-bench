@@ -4877,4 +4877,3906 @@ TASKS = [
         ],
         outputs=[],
     ),
+
+    Task(
+        user_id='jamie.white8613@email.com',
+        instruction='You are jamie_white_8766, a senior customer on the Unlimited Mobile Plan for Seniors priced at $45.00, where the senior discount reduces the monthly cost to $40.00. You want to update your billing preferences by disabling paperless billing and auto-pay, and switching to a quarterly billing cycle for better control over payments. After that, you would like to add the Sports TV Package to enhance your entertainment options. Later, you will create a support ticket for your mobile service with medium priority to address an ongoing connectivity concern.\n\nUse jamie.white8613@email.com for authentication.',
+        actions=[
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'jamie_white_8766'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'jamie_white_8766', 'paperless': False, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='manage_service', kwargs={'customer_id': 'jamie_white_8766', 'action': 'add', 'service_id': 'tv_sports_package'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'jamie_white_8766', 'category': 'mobile', 'priority': 'medium'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='morgan.lewis1592@email.com',
+        instruction='You are Morgan Lewis (morgan_lewis_7010). You want to review all available services and apply the $5 senior discount to your Senior Mobile Plan because you are eligible and it reduces your monthly cost. After that, you would like to update your billing preferences to quarterly billing while keeping paperless billing enabled and not enabling auto-pay, to better align with your personal budgeting cycle and maintain control over payment timing. Later, you would like to remove your Home Security System service and create a support ticket regarding the recent late fee on your bill because you believe it was assessed in error and want it reviewed.\n\nUse morgan.lewis1592@email.com for authentication.',
+        actions=[
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'morgan_lewis_7010'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'morgan_lewis_7010', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='manage_service', kwargs={'customer_id': 'morgan_lewis_7010', 'action': 'remove', 'service_id': 'home_security'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'morgan_lewis_7010', 'category': 'billing'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='quinn.anderson9171@email.com',
+        instruction='You are quinn.anderson9171@email.com. You want to check the status of your open support ticket TICKET00208, which is currently at medium priority, because you need confirmation that your issue is being handled. You also want to review your billing details and current services, including the Unlimited Mobile Plan, Cable Internet 100MB, Premium TV Package, and Home Security System, because you are evaluating your account for potential changes. You would like to see all available services to understand your options, particularly the details of the Unlimited Mobile Plan, because you are considering plan suitability. Later, you want to update your billing preferences to paperless billing with a monthly cycle while keeping auto-pay enabled, because you prefer digital convenience and consistent payment timing. Finally, you would like to know the senior discount pricing, and you note that a $45.00 service would cost $40.00 with the $5 senior discount applied, because you are assessing cost-effective plans for your needs.\n\nUse quinn.anderson9171@email.com for authentication.',
+        actions=[
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00208'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'quinn_anderson_6424'}),
+            Action(name='manage_service', kwargs={'customer_id': 'quinn_anderson_6424', 'action': 'list'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'quinn_anderson_6424', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'monthly'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='reese.lewis7779@email.com',
+        instruction="You are Reese Lewis (reese.lewis7779@email.com). You want to review all available telecom services to understand your options for upgrading. After that, you would like to create a support ticket in the 'device' category to report an issue with your current phone, as you're experiencing performance concerns. Later, you want to check the specifications of the iPhone 15 Pro because you prefer Apple devices for their ecosystem integration and reliability. You would like to add the iPhone 15 Pro to your account for service activation, as it offers better performance and camera quality for your daily use. You prefer to keep auto-pay enabled with your credit card for all charges.\n\nUse reese.lewis7779@email.com for authentication.",
+        actions=[
+            Action(name='get_services', kwargs={}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'reese_lewis_4991', 'category': 'device'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='add_device', kwargs={'customer_id': 'reese_lewis_4991', 'device_name': 'iPhone 15 Pro'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='quinn.walker0746@email.com',
+        instruction="You are Quinn Walker (quinn.walker0746@email.com). Your iPhone 13, an Apple device, is experiencing battery drain, so you want troubleshooting guidance because the device is losing charge too quickly during the day. You would like a list of your current services — Unlimited Mobile Plan, Fiber Internet 1GB, and Basic TV Package — to review what you're currently subscribed to. You also want to create a support ticket for the device issue under the 'device' category since the problem is affecting your primary phone. Later, you would like to add a new mobile phone to your account, preferring Samsung as the manufacturer for its reliability and features, specifically the Samsung Galaxy S23 model, to expand your device options. After that, you want to update your billing preferences to enable auto-pay for convenience and to avoid late fees, keep paperless billing for environmental and accessibility reasons, and switch to a quarterly billing cycle to better align with your budgeting schedule. Subsequently, you would like to make a payment of $191.60 using your credit card on 2025-10-25 to clear your current balance and ensure your account remains in good standing.\n\nUse quinn.walker0746@email.com for authentication.",
+        actions=[
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 13', 'issue': 'battery_drain'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'quinn_walker_6773', 'category': 'device'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'quinn_walker_6773'}),
+            Action(name='manage_service', kwargs={'customer_id': 'quinn_walker_6773', 'action': 'list'}),
+            Action(name='get_device_details', kwargs={'device_name': 'Samsung Galaxy S23'}),
+            Action(name='add_device', kwargs={'customer_id': 'quinn_walker_6773', 'device_name': 'Samsung Galaxy S23'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'quinn_walker_6773', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'quarterly'}),
+            Action(name='record_payment', kwargs={'customer_id': 'quinn_walker_6773', 'amount': 191.6, 'method': 'credit_card', 'date': '2025-10-25'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='casey.clark0465@email.com',
+        instruction="You are Casey Clark (casey_clark_6698). You are experiencing battery drain issues with your Apple iPhone 15, which is already registered on your account, so you would like troubleshooting assistance and a support ticket to be created for this device issue because the phone is losing charge too quickly during normal use. You prefer Apple devices, specifically the iPhone 15, as it is currently your primary mobile phone. Later, you would like your billing preferences updated to enable auto-pay and paperless billing with a monthly billing cycle to ensure timely payments and reduce paper waste. After that, you would like to record a payment of $37.10 using your credit card on today's date to clear your outstanding balance, as your last payment was marked late and you want to restore good standing.\n\nUse casey.clark0465@email.com for authentication.",
+        actions=[
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15', 'issue': 'battery_drain'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'casey_clark_6698', 'category': 'device'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'casey_clark_6698'}),
+            Action(name='manage_service', kwargs={'customer_id': 'casey_clark_6698', 'action': 'list'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15'}),
+            Action(name='add_device', kwargs={'customer_id': 'casey_clark_6698', 'device_name': 'iPhone 15'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'casey_clark_6698', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'monthly'}),
+            Action(name='record_payment', kwargs={'customer_id': 'casey_clark_6698', 'amount': 37.1, 'method': 'credit_card', 'date': '2025-09-18'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='morgan.anderson8702@email.com',
+        instruction='You are morgan_anderson_4828, with email morgan.anderson8702@email.com. You are experiencing no service on your iPhone 15 Pro, which is an Apple mobile phone, so you want troubleshooting because the device is unable to connect to the network. After that, you would like a support ticket created for the device issue under the device category since the problem persists and requires escalation.\n\nUse morgan.anderson8702@email.com for authentication.',
+        actions=[
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'morgan_anderson_4828', 'category': 'device', 'priority': 'medium'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'no_service'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='parker.brown6858@email.com',
+        instruction="You are parker_brown_5715, with email parker.brown6858@email.com. You want to confirm the specifications of your iPhone 15 because you are experiencing a battery drain issue and need to understand the device's capabilities. Since the phone is an Apple device and the battery drains prematurely, you would like troubleshooting steps to resolve the issue, including restarting the device, adjusting brightness, and closing background apps. You also want to add a Standard WiFi Router to your account for improved home connectivity. Later, you would like a support ticket created for the device issue to ensure it is formally tracked and resolved, as the phone is essential for daily use.\n\nUse parker.brown6858@email.com for authentication.",
+        actions=[
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15'}),
+            Action(name='add_device', kwargs={'customer_id': 'parker_brown_5715', 'device_name': 'Standard WiFi Router'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'parker_brown_5715', 'category': 'device'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15', 'issue': 'battery_drain'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='morgan.clark2808@email.com',
+        instruction='You are Morgan Clark (morgan_clark_6566). You want to troubleshoot the battery drain issue on your Apple iPhone 15 because the device is losing charge too quickly during normal use. Since the iPhone 15 is already registered on your account, no device addition is needed. You would like a support ticket created to formally document this ongoing issue, which has been done as ticket TICKET241 under the device category with medium priority, so the problem can be tracked and resolved.\n\nUse morgan.clark2808@email.com for authentication.',
+        actions=[
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15'}),
+            Action(name='add_device', kwargs={'customer_id': 'morgan_clark_6566', 'device_name': 'iPhone 15'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'morgan_clark_6566', 'category': 'device', 'priority': 'medium'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15', 'issue': 'battery_drain'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='morgan.garcia6112@email.com',
+        instruction="You are Morgan Garcia (morgan.garcia6112@email.com), a senior customer on the Senior Mobile Plan. You are experiencing battery drain issues with your Samsung Galaxy A54, so you want troubleshooting steps and a support ticket to be created with category 'device' and priority 'medium' to resolve the problem. You prefer Samsung devices, and this phone is your primary mobile device. After that, you would like to update your billing preferences to enable auto-pay with your credit card, keep paperless billing, and switch to a quarterly billing cycle for better financial planning. Subsequently, you want to make a payment of $188.40 using your credit card for today's date to clear your outstanding balance. Finally, you would like your latest billing details to be reviewed and all active services on your account to be listed for confirmation, ensuring transparency and accuracy in your account summary.\n\nUse morgan.garcia6112@email.com for authentication.",
+        actions=[
+            Action(name='create_support_ticket', kwargs={'customer_id': 'morgan_garcia_8324', 'category': 'device'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Samsung Galaxy A54', 'issue': 'battery_drain'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'morgan_garcia_8324', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'quarterly'}),
+            Action(name='record_payment', kwargs={'customer_id': 'morgan_garcia_8324', 'amount': 188.4, 'method': 'credit_card', 'date': '2025-09-18'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'morgan_garcia_8324'}),
+            Action(name='manage_service', kwargs={'customer_id': 'morgan_garcia_8324', 'action': 'list'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='avery.patel6952@email.com',
+        instruction='You are Avery Patel (avery.patel6952@email.com). You want to create a high-priority support ticket for a billing issue because the current balance is causing concern. You also need troubleshooting for your iPhone 14, an Apple device, because it is experiencing no service and is your primary mobile phone. Later, you would like to update your billing preferences to enable paperless billing for environmental and convenience reasons, keep auto-pay enabled with your credit card for payment security and consistency, and maintain a monthly billing cycle for predictable charges. After that, you intend to pay your outstanding balance of $194.81 today using your credit card to resolve the current balance and avoid late fees. Finally, you would like to review your current billing details and get a list of all services on your account—Unlimited Mobile Plan, Cable Internet 500MB, and Basic TV Package—for confirmation and personal record-keeping.\n\nUse avery.patel6952@email.com for authentication.',
+        actions=[
+            Action(name='create_support_ticket', kwargs={'customer_id': 'avery_patel_1556', 'category': 'billing', 'priority': 'high'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 14', 'issue': 'no_service'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'avery_patel_1556', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'monthly'}),
+            Action(name='record_payment', kwargs={'customer_id': 'avery_patel_1556', 'amount': 194.81, 'method': 'credit_card', 'date': '2025-10-05'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'avery_patel_1556'}),
+            Action(name='manage_service', kwargs={'customer_id': 'avery_patel_1556', 'action': 'list'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jamie.jackson0049@email.com',
+        instruction='You are Jamie Jackson (jamie.jackson0049@email.com). You want to remove the Fiber Internet 1GB service from your account because you no longer need high-speed internet at home. After that, you would like to update your billing preferences to quarterly billing with paperless billing and auto-pay disabled for better control over payments. Later, you would like troubleshooting assistance for your TechCorp WiFi6-Pro router because it is experiencing slow speeds, which affects your daily connectivity despite the service removal.\n\nUse jamie.jackson0049@email.com for authentication.',
+        actions=[
+            Action(name='get_services', kwargs={}),
+            Action(name='manage_service', kwargs={'customer_id': 'jamie_jackson_0698', 'action': 'remove', 'service_id': 'internet_fiber_1gb'}),
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_1gb'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'jamie_jackson_0698', 'category': 'internet'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'jamie_jackson_0698'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'jamie_jackson_0698', 'paperless': False, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'WiFi 6 Router', 'issue': 'slow_speeds'}),
+            Action(name='get_device_details', kwargs={'device_name': 'WiFi 6 Router'}),
+            Action(name='add_device', kwargs={'customer_id': 'jamie_jackson_0698', 'device_name': 'WiFi 6 Router'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='alex.allen2350@email.com',
+        instruction='You are Alex Allen (alex.allen2350@email.com), a residential customer in Boston. You want to upgrade from your current mobile plan to the Unlimited Mobile Plan for better data and features. You prefer this plan because it supports your mobile usage needs more reliably. After that, you would like to update your billing preferences: you prefer to keep paperless billing, enable auto-pay for convenience, and switch to a quarterly billing cycle for better budget management. If any issues arise during this process, you would like a support ticket to be created under the mobile category. Later, you report that your Apple iPhone 14 is experiencing battery drain issues, so you would like troubleshooting assistance because the device is losing charge too quickly during normal use.\n\nUse alex.allen2350@email.com for authentication.',
+        actions=[
+            Action(name='get_services', kwargs={}),
+            Action(name='manage_service', kwargs={'customer_id': 'alex_allen_3726', 'action': 'add', 'service_id': 'mobile_unlimited'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'alex_allen_3726', 'category': 'mobile'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'alex_allen_3726'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'alex_allen_3726', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'quarterly'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 14', 'issue': 'battery_drain'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 14'}),
+            Action(name='add_device', kwargs={'customer_id': 'alex_allen_3726', 'device_name': 'iPhone 14'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jordan.king3586@email.com',
+        instruction='You are Jordan King (jordan.king3586@email.com). You want to review the details of your Fiber Internet 1GB service, which currently costs $80.00 per month, and apply the senior discount to reduce it to $75.00 because you are eligible for cost savings as a senior customer. You would like to review your current billing information, which shows a $0.00 balance and monthly charges totaling $184.81, to ensure accuracy and maintain control over your expenses. You prefer to add a new Apple iPhone 15 Pro to your account because you favor Apple devices for their ecosystem compatibility, and this model meets your performance and camera quality needs. You want to create a support ticket for an internet-related issue because you are experiencing connectivity problems that affect your daily usage. Later, you would like to upgrade your TV service by adding the Sports TV Package for $75.00 per month because you enjoy live sports and want expanded channel access. You prefer to keep paperless billing enabled and continue paying by credit card, but you are not currently enrolled in auto-pay and would like to maintain manual payment control.\n\nUse jordan.king3586@email.com for authentication.',
+        actions=[
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_1gb'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '80.0'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'jordan_king_4419'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'jordan_king_4419', 'category': 'internet', 'priority': 'medium'}),
+            Action(name='add_device', kwargs={'customer_id': 'jordan_king_4419', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='manage_service', kwargs={'customer_id': 'jordan_king_4419', 'action': 'add', 'service_id': 'tv_sports_package'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='drew.walker9273@email.com',
+        instruction='You are drew_walker_7967. You want to understand the Senior Mobile Plan and apply the senior discount because you qualify as a senior and want to reduce your monthly cost from $45.00 to $40.00. You would like to review your current billing details because you noticed a discrepancy between your current Unlimited Mobile Plan and the senior offering. You want to create a medium-priority support ticket for billing concerns to resolve this discrepancy and ensure accurate plan enrollment. You prefer Apple devices and have a new iPhone 15 Pro, which you want added to your account for service activation. You would like to list your current services to verify what is active on your account and confirm no unauthorized changes exist. You prefer to pay by bank transfer and keep paperless billing and auto-pay enabled for convenience.\n\nUse drew.walker9273@email.com for authentication.',
+        actions=[
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'drew_walker_7967'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'drew_walker_7967', 'category': 'billing', 'priority': 'medium'}),
+            Action(name='add_device', kwargs={'customer_id': 'drew_walker_7967', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='manage_service', kwargs={'customer_id': 'drew_walker_7967', 'action': 'list'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='morgan.hall3747@email.com',
+        instruction='You are morgan_hall_1459. You are currently on the Senior Mobile Plan, which has a standard price of $45.00, and you want to confirm your discounted rate of $40.00 with the $5 senior discount applied because you qualify for the senior pricing benefit. You would like to review the full details of the Senior Mobile Plan to ensure it still meets your needs. After that, you want to explore all available services in the catalog to evaluate if there are better options that offer more value or features, particularly comparing the Basic Mobile Plan at $35.00, the Unlimited Mobile Plan at $85.00, and other internet, TV, and security services that may suit your household requirements.\n\nUse morgan.hall3747@email.com for authentication.',
+        actions=[
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+            Action(name='get_services', kwargs={}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='skyler.nguyen2584@email.com',
+        instruction='You are skyler.nguyen2584@email.com. You are currently on the Senior Mobile Plan, which is already priced at the discounted rate of $45.00 per month for seniors, and you would like confirmation of this discounted price. You want to review the full details of your current Senior Mobile Plan because you want to ensure it still meets your needs. After that, you would like a list of all available services to compare options, particularly looking for potentially lower-cost or higher-value alternatives in mobile, internet, and TV, because you are evaluating whether a change could offer better value or improved features.\n\nUse skyler.nguyen2584@email.com for authentication.',
+        actions=[
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+            Action(name='get_services', kwargs={}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='avery.harris8152@email.com',
+        instruction='You are Avery Lewis (avery.lewis2378@email.com). You want troubleshooting for your Apple iPhone 12 because it is experiencing battery drain issues, and you would like a support ticket created for this device issue since it affects daily usability. Later, you would like to know more about the Fiber Internet 1GB service to evaluate if it fits your business needs, and you want your billing details shared so you can review your payment history and current charges. After that, you would like the details of the Enterprise Router by TechCorp to understand its capabilities, and you prefer to add it to your account to enhance your business network infrastructure, assuming it is compatible with your current service.\n\nUse avery.harris8152@email.com for authentication.',
+        actions=[
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 12', 'issue': 'battery_drain'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'avery_harris_6730', 'category': 'device'}),
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_1gb'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'avery_harris_6730'}),
+            Action(name='get_device_details', kwargs={'device_name': 'Enterprise Router'}),
+            Action(name='add_device', kwargs={'customer_id': 'avery_harris_6730', 'device_name': 'Enterprise Router'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='skyler.garcia6717@email.com',
+        instruction="You are Skyler Garcia (skyler.garcia6717@email.com). Your Enterprise Router, provided by TechCorp, is experiencing slow speeds, so you want troubleshooting guidance because reliable internet is important for daily use. You would like a support ticket created in the internet category for this issue to ensure it is tracked and resolved. Later, you want to review the details of your Cable Internet 500MB service, which costs $55.00 per month, because you are evaluating your current plan's value. You also want to see your current billing information, including your $0.00 balance and monthly charges, to confirm your payment status and service costs. After that, you are interested in the Samsung Galaxy S23, a mobile phone made by Samsung, and would like to add it to your account for a family member because it fits your preference for Samsung devices and meets their usage needs. You prefer to keep your current credit card as the payment method for any new charges.\n\nUse skyler.garcia6717@email.com for authentication.",
+        actions=[
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Enterprise Router', 'issue': 'slow_speeds'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'skyler_garcia_8112', 'category': 'internet'}),
+            Action(name='get_service_details', kwargs={'service_id': 'internet_cable_500mb'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'skyler_garcia_8112'}),
+            Action(name='get_device_details', kwargs={'device_name': 'Samsung Galaxy S23'}),
+            Action(name='add_device', kwargs={'customer_id': 'skyler_garcia_8112', 'device_name': 'Samsung Galaxy S23'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='rowan.wilson5045@email.com',
+        instruction='You are rowan.wilson5045@email.com. You want to update your billing preferences by enabling auto-pay and keeping paperless billing with a monthly billing cycle because you prefer automated and digital billing for convenience and to avoid late fees, as your last payment was marked late. You also want to pay your current outstanding balance of $106.77 using your credit card on October 5, 2025, to clear the overdue amount and restore on-time payment status. Later, you would like assistance with your Samsung Galaxy A54, as you are experiencing a device issue. You prefer Samsung devices for their reliability and user experience, and you would like a support ticket created for this device issue because the phone is essential for daily communication. After that, you want the Samsung Galaxy A54 added to your account so it can be properly registered and supported under your services.\n\nUse rowan.wilson5045@email.com for authentication.',
+        actions=[
+            Action(name='manage_billing', kwargs={'customer_id': 'rowan_wilson_1058', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'monthly'}),
+            Action(name='record_payment', kwargs={'customer_id': 'rowan_wilson_1058', 'amount': 106.77, 'method': 'credit_card', 'date': '2025-10-05'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'rowan_wilson_1058'}),
+            Action(name='get_device_details', kwargs={'device_name': 'Samsung Galaxy A54'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'rowan_wilson_1058', 'category': 'device'}),
+            Action(name='add_device', kwargs={'customer_id': 'rowan_wilson_1058', 'device_name': 'Samsung Galaxy A54'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='elliot.jackson3938@email.com',
+        instruction='You are elliot_jackson_9264. You want to update your billing settings to disable auto-pay and switch to a quarterly billing cycle while keeping paperless billing enabled, because you prefer more control over your payments and fewer billing cycles per year. You would like to make a one-time payment of $55.00 using your credit card to reduce your outstanding balance, and then review your updated billing details to confirm the changes. Later, you would like support for your new Samsung Galaxy S23, because you are experiencing issues with the device and need assistance. You prefer Samsung devices for their features and reliability, and specifically the Galaxy S23 model. You want a support ticket created for the device issue and the phone added to your account for service activation.\n\nUse elliot.jackson3938@email.com for authentication.',
+        actions=[
+            Action(name='manage_billing', kwargs={'customer_id': 'elliot_jackson_9264', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='record_payment', kwargs={'customer_id': 'elliot_jackson_9264', 'amount': 55.0, 'method': 'credit_card', 'date': '2025-09-18'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'elliot_jackson_9264'}),
+            Action(name='get_device_details', kwargs={'device_name': 'Samsung Galaxy S23'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'elliot_jackson_9264', 'category': 'device'}),
+            Action(name='add_device', kwargs={'customer_id': 'elliot_jackson_9264', 'device_name': 'Samsung Galaxy S23'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='rowan.lee9322@email.com',
+        instruction='You are Rowan Lee (rowan.lee9322@email.com), a senior customer with an outstanding balance of $52.44, and you want to review your billing details before making a payment of $52.44 using your credit card on 2025-10-05 because you prefer to clear your balance promptly and update your payment method from bank transfer. Later, you would like to confirm the discounted price of your Senior Mobile Plan, which is $40.00 after the $5 senior discount is applied, because you want to verify the accuracy of your billing and ensure you are receiving the correct senior benefit. After that, you would like troubleshooting guidance for battery drain issues on your iPhone SE (3rd gen), because the device is essential for daily communication and you prefer Apple devices for their familiarity and ease of use; the recommended steps include restarting the device, reducing screen brightness, and closing background apps to improve battery life.\n\nUse rowan.lee9322@email.com for authentication.',
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'rowan_lee_8557'}),
+            Action(name='record_payment', kwargs={'customer_id': 'rowan_lee_8557', 'amount': 52.44, 'method': 'credit_card', 'date': '2025-10-05'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'rowan_lee_8557', 'category': 'billing'}),
+            Action(name='add_device', kwargs={'customer_id': 'rowan_lee_8557', 'device_name': 'iPhone SE (3rd gen)'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone SE (3rd gen)'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+            Action(name='manage_service', kwargs={'customer_id': 'rowan_lee_8557', 'action': 'list'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone SE (3rd gen)', 'issue': 'battery_drain'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='emerson.lee1419@email.com',
+        instruction='You are Emerson Lee (emerson.lee1419@email.com). You want to review your billing details and pay your outstanding balance of $85.81 by credit card on 2025-10-05 because your last payment was marked late and you prefer to avoid further fees. After that, you would like to apply the senior discount to a $45.00 plan, which reduces to $40.00, to lower your monthly expenses. You also want to get details about the Fiber Internet 1GB service, which offers faster speeds than your current 500mb plan, and then add it to your account for better home internet performance. Later, you would like troubleshooting for your Standard WiFi Router, which is experiencing slow speeds, because it is the primary networking device for your home and needs to support reliable connectivity.\n\nUse emerson.lee1419@email.com for authentication.',
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'emerson_lee_1092'}),
+            Action(name='record_payment', kwargs={'customer_id': 'emerson_lee_1092', 'amount': 85.81, 'method': 'credit_card', 'date': '2025-10-05'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'emerson_lee_1092', 'category': 'billing'}),
+            Action(name='add_device', kwargs={'customer_id': 'emerson_lee_1092', 'device_name': 'Standard WiFi Router'}),
+            Action(name='get_device_details', kwargs={'device_name': 'Standard WiFi Router'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_1gb'}),
+            Action(name='manage_service', kwargs={'customer_id': 'emerson_lee_1092', 'action': 'add', 'service_id': 'internet_fiber_1gb'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Standard WiFi Router', 'issue': 'slow_speeds'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='casey.thomas5116@email.com',
+        instruction='You are Casey Thomas (casey_thomas_3916). Your iPhone 15 Pro, an Apple mobile phone, is experiencing battery drain issues, so you want troubleshooting assistance because the device is losing charge too quickly during normal use. You prefer Apple devices for their ecosystem integration and reliability. After that, you would like to update your billing preferences to disable auto-pay, enable paperless billing, and switch to a quarterly billing cycle for better budget control and reduced paper usage, and you also want a full list of your current services—Basic Mobile Plan, Cable Internet 100MB, and Premium TV Package—to review your account. Later, you would like to add a Standard WiFi Router (TechCorp) to your account to improve home network coverage, and you would like a high-priority support ticket created for assistance with device setup because you need reliable connectivity for remote work.\n\nUse casey.thomas5116@email.com for authentication.',
+        actions=[
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'battery_drain'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'casey_thomas_3916', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='manage_service', kwargs={'customer_id': 'casey_thomas_3916', 'action': 'list'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'casey_thomas_3916', 'category': 'device', 'priority': 'high'}),
+            Action(name='add_device', kwargs={'customer_id': 'casey_thomas_3916', 'device_name': 'Standard WiFi Router'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='taylor.wright2177@email.com',
+        instruction='You are taylor_wright_8847 (email: taylor.wright2177@email.com). You want to troubleshoot battery drain on your Apple iPhone 14 because the device dies too quickly during daily use. You would like to remove the Business Mobile - 10 Lines plan to simplify your account and reduce costs, as it is no longer needed for your current usage. You prefer to update your billing preferences to disable auto-pay and paperless billing, and switch to a quarterly billing cycle, because you want more control over payment timing and prefer receiving physical bills. Later, you would like to open a support ticket for the ongoing iPhone battery issue so it can be formally tracked and escalated. You also want to ensure your TechCorp WiFi 6 Router is properly registered on your account for future support, as it is critical for your home office connectivity.\n\nUse taylor.wright2177@email.com for authentication.',
+        actions=[
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 14', 'issue': 'battery_drain'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 14'}),
+            Action(name='manage_service', kwargs={'customer_id': 'taylor_wright_8847', 'action': 'remove', 'service_id': 'mobile_business_10lines'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'taylor_wright_8847', 'paperless': False, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'taylor_wright_8847', 'category': 'device'}),
+            Action(name='add_device', kwargs={'customer_id': 'taylor_wright_8847', 'device_name': 'WiFi 6 Router'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='alex.thomas0057@email.com',
+        instruction="You are alex_thomas_4139, and you want to review your current services and billing details because you're evaluating your account setup. You would like to see information about your Unlimited Mobile Plan since it's your primary mobile service. You are experiencing battery drain on your Apple iPhone 12, so you want troubleshooting guidance to improve daily usability. You would like to create a new high-priority support ticket for this device issue because the phone is essential for staying connected. Later, you want to update the status of existing ticket TICKET00058 to in_progress with high priority because it has been pending and requires urgent attention. After that, you would like to update your billing preferences to enable auto-pay and switch to a quarterly billing cycle for better payment management, and you prefer paperless billing to reduce clutter. You also want to record a payment of $194.60 using your credit card on 2025-10-11 to keep your account current. Finally, you would like to add a new mobile device to your account, preferring Samsung as the manufacturer for its reliability, specifically the Samsung Galaxy S23, and you want details about this device to confirm compatibility and features.\n\nUse alex.thomas0057@email.com for authentication.",
+        actions=[
+            Action(name='manage_service', kwargs={'customer_id': 'alex_thomas_4139', 'action': 'list'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'alex_thomas_4139'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 12', 'issue': 'battery_drain'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'alex_thomas_4139', 'category': 'device', 'priority': 'high'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00058', 'status': 'in_progress', 'priority': 'high'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'alex_thomas_4139', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'quarterly'}),
+            Action(name='record_payment', kwargs={'customer_id': 'alex_thomas_4139', 'amount': 194.6, 'method': 'credit_card', 'date': '2025-10-11'}),
+            Action(name='add_device', kwargs={'customer_id': 'alex_thomas_4139', 'device_name': 'Samsung Galaxy S23'}),
+            Action(name='get_device_details', kwargs={'device_name': 'Samsung Galaxy S23'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='skyler.clark8545@email.com',
+        instruction='You are Skyler Clark (skyler.clark8545@email.com). You want to remove the Fiber Internet 1GB service because you are dissatisfied with the connectivity. Before proceeding, you want to review your billing details and the service information for Fiber Internet 1GB. You are experiencing no service on your iPhone 12, so you would like troubleshooting for this device and a high-priority support ticket created to resolve the connectivity issue promptly. Later, you would like to update your billing preferences to paperless billing for environmental and convenience reasons, disable auto-pay to gain more control over payments, and switch to a quarterly billing cycle to reduce the frequency of billing statements. After that, you plan to pay your outstanding balance of $151.91 using your credit card on 2025-10-15. Finally, you would like to add a new iPhone 15 Pro to your account because you prefer Apple devices and want the latest model for better performance and features, and you want to review its specifications to confirm compatibility and capabilities.\n\nUse skyler.clark8545@email.com for authentication.',
+        actions=[
+            Action(name='manage_service', kwargs={'customer_id': 'skyler_clark_3608', 'action': 'remove', 'service_id': 'internet_fiber_1gb'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'skyler_clark_3608'}),
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_1gb'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 12', 'issue': 'no_service'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'skyler_clark_3608', 'category': 'device', 'priority': 'high'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'skyler_clark_3608', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='record_payment', kwargs={'customer_id': 'skyler_clark_3608', 'amount': 151.91, 'method': 'credit_card', 'date': '2025-10-15'}),
+            Action(name='add_device', kwargs={'customer_id': 'skyler_clark_3608', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='avery.patel6952@email.com',
+        instruction='You are avery.patel6952@email.com (customer_id: avery_patel_1556). You want to make a payment of $194.81 using credit card today because there is an outstanding balance on the account. You also want to review the details of your Unlimited Mobile Plan, which costs $85.00 per month, to better understand your current service. Since you have a billing concern, you would like a support ticket created with medium priority. Later, you want to get information about your iPhone 14, which is an Apple mobile phone already on your account. You prefer Samsung devices and would like to add a Samsung Galaxy S23 to your account for a family member. You also want a list of your current services: Unlimited Mobile Plan, Cable Internet 500MB, and Basic TV Package. Finally, you are interested in applying the senior discount to the $45.00 Basic TV Package, which would reduce it to $40.00, to lower your monthly expenses.\n\nUse avery.patel6952@email.com for authentication.',
+        actions=[
+            Action(name='record_payment', kwargs={'customer_id': 'avery_patel_1556', 'amount': 194.81, 'method': 'credit_card', 'date': '2025-04-05'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'avery_patel_1556'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'avery_patel_1556', 'category': 'billing', 'priority': 'medium'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 14'}),
+            Action(name='add_device', kwargs={'customer_id': 'avery_patel_1556', 'device_name': 'Samsung Galaxy S23'}),
+            Action(name='manage_service', kwargs={'customer_id': 'avery_patel_1556', 'action': 'list'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='cameron.jackson0534@email.com',
+        instruction='You are cameron.jackson0534@email.com. You want to make a payment of $137.05 using your credit card today to clear your outstanding balance, because you prefer to use a different payment method for this transaction despite having auto-pay enabled with bank transfer. You also want to review the details of the Fiber Internet 1GB service, as you are considering upgrading from your current 500 Mbps cable plan for faster and more reliable speeds. After that, you would like to open a billing support ticket to discuss your account history and late fee charges, since your last payment was marked as late despite being processed. Later, you would like to inquire about your iPhone 15 Pro, because you own the device and need troubleshooting or support, even though it is not currently linked to your account. You prefer Apple devices for their ecosystem integration. You also want a full list of your current services to verify what you are paying for. Finally, you would like to know the cost of a $45.00 plan with the senior discount applied, which would reduce it to $40.00, as you are exploring lower-cost options and believe you may qualify for savings.\n\nUse cameron.jackson0534@email.com for authentication.',
+        actions=[
+            Action(name='record_payment', kwargs={'customer_id': 'cameron_jackson_3391', 'amount': 137.05, 'method': 'credit_card', 'date': '2025-04-05'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'cameron_jackson_3391'}),
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_1gb'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'cameron_jackson_3391', 'category': 'billing'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='add_device', kwargs={'customer_id': 'cameron_jackson_3391', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='manage_service', kwargs={'customer_id': 'cameron_jackson_3391', 'action': 'list'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='morgan.garcia5456@email.com',
+        instruction='You are Morgan Garcia (morgan.garcia5456@email.com). You want to remove the Basic TV Package from your account because you are looking to reduce monthly costs. You also want to update your billing preferences: you prefer to receive paper invoices instead of digital ones, so you want to disable paperless billing. You would like to disable auto-pay and instead make manual payments. Additionally, you prefer to switch from a monthly to a quarterly billing cycle for better alignment with your budgeting schedule.\n\nUse morgan.garcia5456@email.com for authentication.',
+        actions=[
+            Action(name='manage_billing', kwargs={'customer_id': 'morgan_garcia_0855', 'paperless': False, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='manage_service', kwargs={'customer_id': 'morgan_garcia_0855', 'action': 'remove', 'service_id': 'tv_basic'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jordan.lee6822@email.com',
+        instruction='You are Jordan Wilson (jordan.wilson4822@email.com), a senior customer on the Senior Mobile Plan. You want to confirm the discounted price of your mobile plan, which is $40.00 after applying the senior discount from the original $45.00, to ensure accurate billing. You would like to review your current billing details, including monthly charges and payment history, for transparency. You want to add the Premium TV Package to your services for expanded entertainment options. You prefer to add a Samsung Galaxy S23 to your account, with Samsung as your preferred manufacturer, to expand device flexibility. You would like details about the iPhone 12, which you previously used, to understand its specifications and compare with your current iPhone 14. You want to update the status of your open support ticket TICKET00078 to resolved and set its priority to high, as the issue requires urgent attention. You would like to create a new support ticket for billing-related concerns with medium priority to address discrepancies. You are experiencing battery drain on your iPhone 12 and would like troubleshooting guidance because the device loses charge quickly during daily use. Finally, you want to review the details of the Unlimited Mobile Plan and a full list of available services to explore potential future upgrades and better fit your usage needs.\n\nUse jordan.lee6822@email.com for authentication.',
+        actions=[
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'jordan_lee_9133'}),
+            Action(name='manage_service', kwargs={'customer_id': 'jordan_lee_9133', 'action': 'add', 'service_id': 'tv_premium'}),
+            Action(name='add_device', kwargs={'customer_id': 'jordan_lee_9133', 'device_name': 'Samsung Galaxy S23'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 12'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00078'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00078', 'status': 'resolved', 'priority': 'high'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'jordan_lee_9133', 'category': 'billing', 'priority': 'medium'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 12', 'issue': 'battery_drain'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_services', kwargs={}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='taylor.hall3847@email.com',
+        instruction='You are Taylor Hall (taylor.hall3847@email.com). You want to update your open support ticket TICKET00125 to status resolved and priority high because the issue has been addressed and you need confirmation for your records. After that, you would like to pay off your outstanding balance of $136.35 using a credit card today to avoid further late fees and ensure your account is current, even though your default payment method is bank auto-pay.\n\nUse taylor.hall3847@email.com for authentication.',
+        actions=[
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00125'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00125', 'status': 'resolved', 'priority': 'high'}),
+            Action(name='record_payment', kwargs={'customer_id': 'taylor_hall_9696', 'amount': 136.35, 'method': 'credit_card', 'date': '2025-09-18'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'taylor_hall_9696'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='reese.clark9734@email.com',
+        instruction="You are reese.clark9734@email.com. You own an iPhone 15 Pro, a device made by Apple, and you would like to know its specifications because you are currently experiencing an issue with it. You want a support ticket created for the device issue under the 'device' category with high priority because the problem is affecting your daily use. After the ticket is created, you would like it updated to 'in_progress' status and escalated to 'urgent' priority to ensure faster resolution and immediate technician attention.\n\nUse reese.clark9734@email.com for authentication.",
+        actions=[
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'reese_clark_5491', 'category': 'device', 'priority': 'high'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET241', 'status': 'in_progress', 'priority': 'urgent'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='riley.patel8159@email.com',
+        instruction='You are Riley Patel (riley.patel8159@email.com). You would like to know the specifications of the iPhone 15 Pro because you are considering it as a potential replacement device, and you are currently experiencing connectivity issues with your mobile service. Since your current device is the iPhone SE (3rd gen), you would like troubleshooting support for no service issues, so you want a new support ticket created for this problem with medium priority. Later, you would like to update the existing ticket TICKET00149, which was previously low priority, to status in_progress and priority high because the issue has become more urgent and requires immediate attention. You prefer Apple devices for their reliability and ecosystem integration, and you would like to continue using your current credit card for any related payments.\n\nUse riley.patel8159@email.com for authentication.',
+        actions=[
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'riley_patel_6640', 'category': 'device', 'priority': 'medium'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00149', 'status': 'in_progress', 'priority': 'high'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='skyler.clark2233@email.com',
+        instruction='You are skyler_clark_0977, authenticated as Skyler Clark with email skyler.clark2233@email.com. You want to know the details of the Fiber Internet 1GB service because you are considering upgrading from your current Fiber Internet 500MB plan to get faster speeds. You also want to review your current billing information to understand your monthly charges and payment history, as your last payment of $212.99 was made on September 23, 2025, and your next bill is due on October 23, 2025.\n\nUse skyler.clark2233@email.com for authentication.',
+        actions=[
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_1gb'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'skyler_clark_0977'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='taylor.wright5178@email.com',
+        instruction='You are taylor_wright_2002, and you would like to learn about the Fiber Internet 1GB plan because you are considering upgrading from your current 500 Mbps service for faster speeds. You also want to review your current billing details, including monthly charges and payment history, to understand your spending pattern and ensure accuracy, especially since your last payment of $156.58 was completed on September 26, 2025, and your current balance is $0.00.\n\nUse taylor.wright5178@email.com for authentication.',
+        actions=[
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_1gb'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'taylor_wright_2002'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='skyler.clark8545@email.com',
+        instruction='You are skyler_clark_3608, a residential customer with email skyler.clark8545@email.com. You want to remove the Fiber Internet 1GB service from your account because you are switching providers. You also want to pay off your outstanding balance of $151.91 today using your credit card to avoid late fees and maintain account standing. Later, you would like to create a support ticket for your iPhone 12 due to device issues, initially with medium priority. After that, you would like to update the ticket to in_progress status and increase its priority to high because the issue is becoming more urgent. Subsequently, you want to add a new iPhone 15 to your account because you have upgraded your device. You prefer Apple devices, and specifically the iPhone 15 model, for its improved performance and compatibility with your existing services. You also want to know the specifications of the iPhone 15 to confirm its features meet your needs.\n\nUse skyler.clark8545@email.com for authentication.',
+        actions=[
+            Action(name='manage_service', kwargs={'customer_id': 'skyler_clark_3608', 'action': 'remove', 'service_id': 'internet_fiber_1gb'}),
+            Action(name='record_payment', kwargs={'customer_id': 'skyler_clark_3608', 'amount': 151.91, 'method': 'credit_card', 'date': '2025-09-18'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'skyler_clark_3608'}),
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_1gb'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00163'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00163', 'status': 'in_progress', 'priority': 'high'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'skyler_clark_3608', 'category': 'device', 'priority': 'medium'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 12', 'issue': 'no_service'}),
+            Action(name='add_device', kwargs={'customer_id': 'skyler_clark_3608', 'device_name': 'iPhone 15'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='elliot.nguyen9797@email.com',
+        instruction='You are elliot_nguyen_4725, a residential customer in Austin, TX. You want to remove the Basic Mobile Plan from your account because you are considering upgrading to a more comprehensive option. Your iPhone 15 Pro, an Apple device, is experiencing battery drain issues, so you would like troubleshooting guidance to improve daily usability. Later, you would like to know what the Unlimited Mobile Plan includes and how much it costs, as it may better fit your usage needs. You also want to check the status of your support ticket TICKET00197, but it is currently assigned to another customer, so clarification or correction may be needed. You prefer to keep auto-pay enabled with your credit card and continue with paperless billing for convenience.\n\nUse elliot.nguyen9797@email.com for authentication.',
+        actions=[
+            Action(name='manage_service', kwargs={'customer_id': 'elliot_nguyen_4725', 'action': 'remove', 'service_id': 'mobile_basic'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'battery_drain'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00197'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='riley.allen8517@email.com',
+        instruction='You are Riley Allen (riley.allen8517@email.com), a senior customer on the Senior Mobile Plan. You are experiencing battery drain issues with your Google Pixel 8, so you want troubleshooting assistance to improve daily usability. Because the issue is affecting your primary device, you would like to create a high-priority support ticket for the device issue to ensure a timely resolution. You prefer Apple devices, so you would like to add an iPhone 15 Pro to your account as a new mobile phone. You want to review your current services—Senior Mobile Plan, Fiber Internet 500MB, and Premium TV Package—to understand your full account setup. Since you are eligible for the senior discount, you would like to apply it to your mobile plan, reducing the cost from $45.00 to $40.00 per month for better value. You also want to check your billing details to confirm your auto-pay and paperless settings. Later, you would like to learn about the Unlimited Mobile Plan as a potential future option, and you would like a full list of available services to evaluate other offerings that may better fit your needs.\n\nUse riley.allen8517@email.com for authentication.',
+        actions=[
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Google Pixel 8', 'issue': 'battery_drain'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'riley_allen_6154', 'category': 'device', 'priority': 'high'}),
+            Action(name='add_device', kwargs={'customer_id': 'riley_allen_6154', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='manage_service', kwargs={'customer_id': 'riley_allen_6154', 'action': 'list'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'riley_allen_6154'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_services', kwargs={}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='taylor.allen0067@email.com',
+        instruction="You are taylor_allen_7009, email taylor.allen0067@email.com. Your iPhone 14 is experiencing battery drain, so you want troubleshooting guidance because the device is not lasting through the day. You would like a support ticket created for this device issue with high priority since it affects your daily communication. You prefer Samsung devices and would like to add a Samsung Galaxy S23 to your account for a second mobile line. You want to review your current services to understand what you're paying for. You are on the Senior Mobile Plan priced at $45.00, and with the applied $5.00 senior discount, your effective rate is $40.00, which you want confirmed for accuracy. You would like to see your current billing details to verify charges and payment history. You are interested in the Unlimited Mobile Plan at $85.00 and would like to compare it with all available services to evaluate upgrade options, especially considering your usage needs and value for money.\n\nUse taylor.allen0067@email.com for authentication.",
+        actions=[
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 14', 'issue': 'battery_drain'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'taylor_allen_7009', 'category': 'device', 'priority': 'high'}),
+            Action(name='add_device', kwargs={'customer_id': 'taylor_allen_7009', 'device_name': 'Samsung Galaxy S23'}),
+            Action(name='manage_service', kwargs={'customer_id': 'taylor_allen_7009', 'action': 'list'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'taylor_allen_7009'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_services', kwargs={}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='harper.wilson5381@email.com',
+        instruction="You are Harper Wilson (harper.wilson5381@email.com). You want to check the status of your open support ticket, which is currently open with medium priority, so you can understand its progress. After that, you would like to review your current billing details, including your $89.84 balance and recent late payment, to ensure accuracy and avoid further fees. You also want to list all your active services—Basic Mobile Plan, Cable Internet 100MB, and Basic TV Package—to confirm what you're currently paying for. Later, you would like information about your iPhone 13 because it is experiencing no service despite being a reliable Apple device you depend on daily. You prefer Apple phones for their ecosystem integration and reliability. You would like troubleshooting guidance to resolve the connectivity issue quickly. Since the problem persists, you want to create a new high-priority support ticket in the device category to escalate the iPhone 13 no-service issue and get timely assistance. You prefer auto-pay with credit card for convenience, and you are enrolled in paperless billing.\n\nUse harper.wilson5381@email.com for authentication.",
+        actions=[
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00231'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'harper_wilson_5062'}),
+            Action(name='manage_service', kwargs={'customer_id': 'harper_wilson_5062', 'action': 'list'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 13'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 13', 'issue': 'no_service'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'harper_wilson_5062', 'category': 'device'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='avery.garcia7032@email.com',
+        instruction='You are Avery Garcia (avery_garcia_0181), and you want to review the details of your Unlimited Mobile Plan because you are confirming your current service offerings. You would like to check your billing information to understand your current balance and payment history since you plan to manage your account proactively. You intend to make a payment of $85.00 using credit card on 2025-10-01 to ensure your account remains in good standing, even though auto-pay is already enabled. You would like to create a mobile support ticket to report an issue with your Apple iPhone SE (3rd gen), which you prefer due to familiarity with the brand, because it is experiencing battery drain issues that affect daily usability. Later, you want to add a Standard WiFi Router to your account to ensure reliable home internet coverage across all devices. After that, you would like to verify your current services list to confirm all active subscriptions, including mobile, internet, and TV. Finally, you are interested in how a senior discount would apply to a $45.00 service, which would reduce the cost to $40.00, to evaluate potential savings on future plan options.\n\nUse avery.garcia7032@email.com for authentication.',
+        actions=[
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'avery_garcia_0181'}),
+            Action(name='record_payment', kwargs={'customer_id': 'avery_garcia_0181', 'amount': 85.0, 'method': 'credit_card', 'date': '2025-10-01'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'avery_garcia_0181', 'category': 'mobile', 'priority': 'medium'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15', 'issue': 'battery_drain'}),
+            Action(name='add_device', kwargs={'customer_id': 'avery_garcia_0181', 'device_name': 'Standard WiFi Router'}),
+            Action(name='manage_service', kwargs={'customer_id': 'avery_garcia_0181', 'action': 'list'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sam.brown6471@email.com',
+        instruction='You are sam_brown_5625. You want to review the details of the Unlimited Mobile Plan because you are confirming your current service offering. You also want your billing information retrieved because you have an outstanding balance of $59.79 that you prefer to pay off using your credit card on October 15, 2025, to avoid late fees. Your Samsung Galaxy S23 is experiencing no service, so you would like troubleshooting steps because the device is essential for daily communication. You also want details about your WiFi 6 Router because you are verifying its specifications for home network optimization. Due to ongoing mobile connectivity problems, you would like a support ticket created in the mobile category and assigned medium priority since the issue affects your ability to stay connected. Later, you want to add a new iPhone 15 Pro to your account because you prefer Apple devices for their ecosystem integration, and specifically the iPhone 15 Pro for its advanced features. After that, you would like a list of all services on your account to review your current subscriptions. You are also interested in the senior discount and would like to know that a $45.00 service would be reduced to $40.00 with the $5 discount, as you are evaluating cost-saving opportunities.\n\nUse sam.brown6471@email.com for authentication.',
+        actions=[
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'sam_brown_5625'}),
+            Action(name='record_payment', kwargs={'customer_id': 'sam_brown_5625', 'amount': 59.79, 'method': 'credit_card', 'date': '2025-10-15'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'sam_brown_5625', 'category': 'mobile'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Samsung Galaxy S23', 'issue': 'no_service'}),
+            Action(name='get_device_details', kwargs={'device_name': 'WiFi 6 Router'}),
+            Action(name='add_device', kwargs={'customer_id': 'sam_brown_5625', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='manage_service', kwargs={'customer_id': 'sam_brown_5625', 'action': 'list'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='reese.garcia6852@email.com',
+        instruction='You are reese_garcia_3039. You are on the Senior Mobile Plan with an original monthly rate of $45.00, and you want to confirm the price after the senior discount is applied because you expect a $5 reduction. The discounted price is $40.00, so you would like this reflected in your billing for cost accuracy and budget planning.\n\nUse reese.garcia6852@email.com for authentication.',
+        actions=[
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sam.jackson9868@email.com',
+        instruction='You are sam_jackson_0641, with email sam.jackson9868@email.com. You would like to add your iPhone 14 to your account because it is your preferred device for daily use. Since you are setting it up for the first time, you want a support ticket created for device setup assistance to ensure everything is configured correctly. You prefer Apple devices for their ecosystem integration, and specifically the iPhone 14 model for its balance of performance and reliability.\n\nUse sam.jackson9868@email.com for authentication.',
+        actions=[
+            Action(name='add_device', kwargs={'customer_id': 'sam_jackson_0641', 'device_name': 'iPhone 14'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'sam_jackson_0641', 'category': 'device'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='parker.brown6858@email.com',
+        instruction="You are parker_brown_5715 (email: parker.brown6858@email.com). You want to add your new iPhone 14 to your account because it's a device you recently acquired and need activated for service. Since the iPhone 14 is made by Apple and you already own an iPhone 15, you prefer to keep your devices within the same ecosystem for seamless integration. After that, you would like a support ticket created for assistance with the device setup process because you're unfamiliar with the initial configuration steps and want expert guidance to ensure everything is set up correctly.\n\nUse parker.brown6858@email.com for authentication.",
+        actions=[
+            Action(name='add_device', kwargs={'customer_id': 'parker_brown_5715', 'device_name': 'iPhone 14'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'parker_brown_5715', 'category': 'device'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='morgan.garcia6112@email.com',
+        instruction="You are Morgan Garcia (morgan.garcia6112@email.com), a senior customer with the Senior Mobile Plan. You want to confirm the details of your Samsung Galaxy A54 because you're experiencing battery drain issues, and you prefer Samsung devices for their reliability and ease of use. Since the device is already on your account, you would like troubleshooting guidance for the battery drain to extend daily usability. After that, you want to create a high-priority support ticket to escalate the unresolved device issue because the phone is essential for staying connected. You also want to review your billing details and confirm the pricing of your Senior Mobile Plan, which you prefer for its affordability and age-based benefits. You expect the senior discount to be applied, reducing the plan price to $40.00, because you qualify based on age. Finally, you would like to pay your outstanding balance of $188.40 using a credit card on 2025-10-05 to avoid late fees and maintain account standing.\n\nUse morgan.garcia6112@email.com for authentication.",
+        actions=[
+            Action(name='get_device_details', kwargs={'device_name': 'Samsung Galaxy A54'}),
+            Action(name='add_device', kwargs={'customer_id': 'morgan_garcia_8324', 'device_name': 'Samsung Galaxy A54'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Samsung Galaxy A54', 'issue': 'battery_drain'}),
+            Action(name='manage_service', kwargs={'customer_id': 'morgan_garcia_8324', 'action': 'list'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'morgan_garcia_8324', 'category': 'device', 'priority': 'medium'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'morgan_garcia_8324'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='record_payment', kwargs={'customer_id': 'morgan_garcia_8324', 'amount': 188.4, 'method': 'credit_card', 'date': '2025-10-05'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='alex.thomas5669@email.com',
+        instruction='You are Alex Thomas (alex.thomas5669@email.com). You want to troubleshoot your Samsung Galaxy A54 because it is experiencing battery drain issues, which affects daily usability. You prefer Samsung devices, and this model is your primary phone. You would like to know the senior discount pricing for a $45.00 service, which would be $40.00 after the $5 discount, to evaluate potential savings. You want to create a high-priority support ticket for your device issue because the battery problem is urgent and impacts your ability to stay connected. Later, you would like to pay off your outstanding balance of $89.19 using your credit card on September 30, 2025, to avoid further late fees and restore on-time payment status.\n\nUse alex.thomas5669@email.com for authentication.',
+        actions=[
+            Action(name='get_device_details', kwargs={'device_name': 'Samsung Galaxy A54'}),
+            Action(name='add_device', kwargs={'customer_id': 'alex_thomas_7404', 'device_name': 'Samsung Galaxy A54'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Samsung Galaxy A54', 'issue': 'battery_drain'}),
+            Action(name='manage_service', kwargs={'customer_id': 'alex_thomas_7404', 'action': 'list'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'alex_thomas_7404', 'category': 'device', 'priority': 'high'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'alex_thomas_7404'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='record_payment', kwargs={'customer_id': 'alex_thomas_7404', 'amount': 89.19, 'method': 'credit_card', 'date': '2025-09-30'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='skyler.clark8545@email.com',
+        instruction='You are skyler_clark_3608, with email skyler.clark8545@email.com. You want to pay off your outstanding balance of $151.91 using your credit card on September 25, 2025, to clear your account and avoid further fees. After that, you would like to review your updated billing details to confirm the payment was applied correctly. You also want to create a new billing-related support ticket (TICKET241) with medium priority because you have ongoing concerns about your account charges. Later, you would like to escalate your existing ticket (TICKET00146) to high priority and change its status to in_progress to ensure faster resolution of a critical issue. Finally, you would like to receive the updated details of ticket TICKET00146 to verify that the priority and status changes were successfully applied.\n\nUse skyler.clark8545@email.com for authentication.',
+        actions=[
+            Action(name='record_payment', kwargs={'customer_id': 'skyler_clark_3608', 'amount': 151.91, 'method': 'credit_card', 'date': '2025-09-25'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'skyler_clark_3608'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'skyler_clark_3608', 'category': 'billing', 'priority': 'medium'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00146', 'status': 'in_progress', 'priority': 'high'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00146'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='riley.wilson4844@email.com',
+        instruction="You are riley_wilson_6749 (riley.wilson4844@email.com). You want to review your current services, which include the Business Mobile - 10 Lines plan, Fiber Internet 2GB, Business Phone System, and Sports TV Package, because you need a full understanding of your account setup. You would like to update your billing preferences to paperless billing for environmental and convenience reasons, disable auto-pay for greater payment control, and switch to a monthly billing cycle to align with your budgeting schedule. After that, you want to review your full billing details, including a current balance of $0.00, last payment of $902.59 made on 2025-09-21 via credit card, and monthly charges totaling $807.59 plus $92.59 in fees, to ensure accuracy and transparency. Subsequently, you would like to create a new support ticket in the 'account' category with medium priority to address ongoing account management concerns, as you prefer to have a formal record of your request for follow-up.\n\nUse riley.wilson4844@email.com for authentication.",
+        actions=[
+            Action(name='manage_service', kwargs={'customer_id': 'riley_wilson_6749', 'action': 'list'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'riley_wilson_6749', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'monthly'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'riley_wilson_6749'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'riley_wilson_6749', 'category': 'account'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='casey.allen1241@email.com',
+        instruction='You are Casey Allen (casey.allen1241@email.com). You want to remove the Fiber Internet 1GB service from your account because you are switching providers or downgrading your internet plan. You would like to update your billing preferences by disabling auto-pay for greater control over payments, enabling paperless billing for convenience, and switching to a quarterly billing cycle to receive fewer bills. After that, you would like a support ticket to be created for billing with medium priority to ensure these changes are properly tracked.\n\nUse casey.allen1241@email.com for authentication.',
+        actions=[
+            Action(name='manage_service', kwargs={'customer_id': 'casey_allen_1943', 'action': 'remove', 'service_id': 'internet_fiber_1gb'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'casey_allen_1943', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'casey_allen_1943'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'casey_allen_1943', 'category': 'billing', 'priority': 'medium'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='avery.harris8152@email.com',
+        instruction='You are Avery Harris (avery_harris_6730). You want to add your new iPhone 15 Pro to your account because you recently upgraded your device and need it activated for service. Since you prefer Apple devices, you specifically want the iPhone 15 Pro model. After adding the device, you would like to learn more about the Fiber Internet 1GB plan to evaluate whether upgrading from your current 500MB cable internet would better support your home connectivity needs. Subsequently, you want to create a support ticket regarding internet performance issues, as you suspect your current service may not be sufficient. Later, you report that your iPhone 15 Pro has no service and would like to review your currently active services to confirm everything is properly configured. You prefer to keep auto-pay enabled with bank transfer as your payment method, and you are open to paperless billing if it simplifies account management.\n\nUse avery.harris8152@email.com for authentication.',
+        actions=[
+            Action(name='add_device', kwargs={'customer_id': 'avery_harris_6730', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_1gb'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'avery_harris_6730', 'category': 'internet', 'priority': 'medium'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'no_service'}),
+            Action(name='manage_service', kwargs={'customer_id': 'avery_harris_6730', 'action': 'list'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='skyler.thomas8665@email.com',
+        instruction='You are skyler_thomas_4408, with email skyler.thomas8665@email.com. You want to review all available telecom services to understand your options for mobile, internet, TV, phone, and security plans. After reviewing, you would like to open a support ticket for mobile service issues with medium priority because you are experiencing connectivity problems that need timely resolution.\n\nUse skyler.thomas8665@email.com for authentication.',
+        actions=[
+            Action(name='get_services', kwargs={}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'skyler_thomas_4408', 'category': 'mobile'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='skyler.garcia6717@email.com',
+        instruction='You are Skyler Garcia (skyler.garcia6717@email.com). You want to first review all available telecom services to explore potential plan changes that may better suit your needs or offer savings, especially considering your current services include the Unlimited Mobile Plan, Cable Internet 500MB, and Basic TV Package. After that, you would like to create a high-priority support ticket for a mobile service issue because you are experiencing disruptions that affect your ability to stay connected, and prompt resolution is important to you.\n\nUse skyler.garcia6717@email.com for authentication.',
+        actions=[
+            Action(name='get_services', kwargs={}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'skyler_garcia_8112', 'category': 'mobile', 'priority': 'high'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='kendall.thomas6209@email.com',
+        instruction='You are kendall_thomas_5468, a senior customer on the Senior Mobile Plan. You want to review your current services and confirm the senior discount has been applied to your $45.00 monthly plan, resulting in a $40.00 rate, because you want to ensure you are receiving all eligible savings. You also want to review your billing details, including your current $0.00 balance and monthly charges, because you prefer transparency in your account management. Your Samsung Galaxy S23, a device made by Samsung, is experiencing battery drain issues, so you would like troubleshooting guidance because the battery depletes too quickly during normal use. You prefer Samsung devices for their familiarity and ease of use. You want to add a new device to your account later, though the specific model has not yet been chosen. You would like a support ticket created for the battery issue to ensure it is formally tracked, and you prefer high priority due to the impact on daily communication. Although you mentioned checking ticket TICKET00183, it belongs to another customer, so no action can be taken on it; your focus remains on resolving your own device issue through the newly created ticket.\n\nUse kendall.thomas6209@email.com for authentication.',
+        actions=[
+            Action(name='manage_service', kwargs={'customer_id': 'kendall_thomas_5468', 'action': 'list'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'kendall_thomas_5468'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Samsung Galaxy S23', 'issue': 'battery_drain'}),
+            Action(name='add_device', kwargs={'customer_id': 'kendall_thomas_5468', 'device_name': 'Samsung Galaxy S23'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'kendall_thomas_5468', 'category': 'device', 'priority': 'medium'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00183'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00183', 'status': 'resolved', 'priority': 'urgent'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jordan.clark9534@email.com',
+        instruction='You are jordan_clark_8157, a senior customer on the Senior Mobile Plan. You want to update your billing preferences to paperless billing and switch to a quarterly billing cycle while keeping auto-pay enabled because it reduces paperwork and aligns with your preference for less frequent billing statements. Later, you would like to add your new iPhone 15 to your account because you recently upgraded your device and need it activated for service; you prefer Apple devices and specifically the iPhone 15 model. At the same time, you want to create a support ticket for device setup assistance since you need help transferring data and configuring settings. After that, you would like to confirm the details of your Senior Mobile Plan and verify that the price is $40.00 after applying the senior discount, as you want to ensure you are receiving the correct senior pricing.\n\nUse jordan.clark9534@email.com for authentication.',
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'jordan_clark_8157'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'jordan_clark_8157', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'quarterly'}),
+            Action(name='add_device', kwargs={'customer_id': 'jordan_clark_8157', 'device_name': 'iPhone 15'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'jordan_clark_8157', 'category': 'device'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sam.white0148@email.com',
+        instruction='You are sam_white_4704. You want to review your current billing details to confirm your settings before updating your preferences. You would like to enable paperless billing and auto-pay with your bank account, and set your billing cycle to monthly for better financial tracking, although these settings are already active on your account. Later, you would like to add a new mobile device to your account, preferring Apple devices, and specifically an iPhone 13 for its reliability and ease of use. After adding the device, you want to create a support ticket for a device-related issue because the new phone may need configuration or troubleshooting. Additionally, you would like to confirm the pricing of the Senior Mobile Plan and verify that the senior discount is applied, as this plan is tailored to your usage needs and budget as a senior customer.\n\nUse sam.white0148@email.com for authentication.',
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'sam_white_4704'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'sam_white_4704', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'monthly'}),
+            Action(name='add_device', kwargs={'customer_id': 'sam_white_4704', 'device_name': 'iPhone 13'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'sam_white_4704', 'category': 'device'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='taylor.anderson5864@email.com',
+        instruction="You are taylor.anderson5864@email.com. You want to add an iPhone 15 Pro to your account because you recently upgraded your device and need it activated on your mobile service. Since you prefer Apple devices, you specifically want the iPhone 15 Pro for its advanced features and performance. You also want to create a high-priority support ticket for mobile service issues because you're experiencing connectivity problems that affect daily use. You would like to review the details of your Basic TV Package to understand its cost and features before making changes. After that, you want to review all available services to explore better options. Later, you would like to remove the Basic TV Package from your account because you're looking to reduce monthly expenses and no longer use the service. You prefer to update your billing preferences to annual cycle for better budget planning, disable auto-pay to have more control over payments, and turn off paperless billing because you want physical copies for record-keeping. You would like to make a zero-dollar test payment using credit card on 2025-09-25 to verify the payment system is working before making future manual payments. After that, you want to check the status of your existing support ticket TICKET00144, which is currently open with medium priority, and update it to in_progress with high priority because you need faster resolution of your mobile service issue.\n\nUse taylor.anderson5864@email.com for authentication.",
+        actions=[
+            Action(name='add_device', kwargs={'customer_id': 'taylor_anderson_1691', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'taylor_anderson_1691', 'category': 'mobile', 'priority': 'high'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'taylor_anderson_1691'}),
+            Action(name='get_service_details', kwargs={'service_id': 'tv_basic'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='manage_service', kwargs={'customer_id': 'taylor_anderson_1691', 'action': 'remove', 'service_id': 'tv_basic'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'taylor_anderson_1691', 'paperless': False, 'auto_pay': False, 'billing_cycle': 'annual'}),
+            Action(name='record_payment', kwargs={'customer_id': 'taylor_anderson_1691', 'amount': 0.0, 'method': 'credit_card', 'date': '2025-09-25'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00144'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00144', 'status': 'in_progress', 'priority': 'high'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jamie.jackson9491@email.com',
+        instruction="You are Jamie Jackson (jamie.jackson9491@email.com). You want to update your billing preferences to disable paperless billing, enable auto-pay, and switch to a quarterly billing cycle because you prefer automated payments and fewer billing statements. Later, you would like troubleshooting for slow speeds on your Samsung Galaxy S23 because the device is experiencing connectivity issues that affect daily use, and you want a high-priority support ticket created in the mobile category since the issue is urgent and impacting your primary phone. After that, you would like to add a new iPhone 15 Pro to your account because you recently acquired the device and want it on your plan, and you prefer Apple devices for their ecosystem integration. You also want confirmation of the iPhone 15 Pro's details to ensure it is properly registered on your account.\n\nUse jamie.jackson9491@email.com for authentication.",
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'jamie_jackson_7919'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'jamie_jackson_7919', 'paperless': False, 'auto_pay': True, 'billing_cycle': 'quarterly'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'jamie_jackson_7919', 'category': 'mobile', 'priority': 'high'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Samsung Galaxy S23', 'issue': 'slow_speeds'}),
+            Action(name='add_device', kwargs={'customer_id': 'jamie_jackson_7919', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='rowan.lee9322@email.com',
+        instruction='You are Rowan Lee (rowan.lee9322@email.com). You want to remove your Fiber Internet 500MB plan because you are downsizing your home internet usage. After that, you would like to review your current billing, which shows a $52.44 balance due to a late fee, and then record a payment of $52.44 using bank transfer on 2025-10-26 to clear the balance. You are on the senior plan and would like to know the discounted price for a $45.00 service, which is $40.00 after the senior discount. You are also interested in upgrading to the Fiber Internet 1GB plan for faster speeds in the future. Additionally, you are experiencing battery drain issues with your Apple iPhone SE (3rd gen), which you rely on daily, so you would like troubleshooting guidance to improve battery life.\n\nUse rowan.lee9322@email.com for authentication.',
+        actions=[
+            Action(name='manage_service', kwargs={'customer_id': 'rowan_lee_8557', 'action': 'remove', 'service_id': 'internet_fiber_500mb'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'rowan_lee_8557'}),
+            Action(name='record_payment', kwargs={'customer_id': 'rowan_lee_8557', 'amount': 52.44, 'method': 'bank_transfer', 'date': '2025-10-26'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_1gb'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone SE (3rd gen)', 'issue': 'battery_drain'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='riley.wilson0553@email.com',
+        instruction='You are Riley Wilson (riley_wilson_4618). You want troubleshooting for your iPhone 12 because it is experiencing battery drain and you rely on it daily. Since the device is made by Apple, you prefer steps tailored to iOS behavior. Later, you would like to review the Unlimited Mobile Plan to consider switching from your current Family Plan, as it may better fit your usage. After that, you would like to update your billing preferences by disabling paperless billing because you prefer physical copies for record-keeping, keeping auto-pay enabled for convenience, and setting your billing cycle to monthly for better alignment with your budget. Finally, you would like to make a payment of $67.51 using your credit card today to clear your outstanding balance and avoid late fees.\n\nUse riley.wilson0553@email.com for authentication.',
+        actions=[
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 12', 'issue': 'battery_drain'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 12'}),
+            Action(name='add_device', kwargs={'customer_id': 'riley_wilson_4618', 'device_name': 'iPhone 12'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'riley_wilson_4618', 'paperless': False, 'auto_pay': True, 'billing_cycle': 'monthly'}),
+            Action(name='record_payment', kwargs={'customer_id': 'riley_wilson_4618', 'amount': 67.51, 'method': 'credit_card', 'date': '2025-09-20'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='reese.clark7888@email.com',
+        instruction='You are Reese Clark (reese.clark7888@email.com). Your Samsung Galaxy A54 smartphone is experiencing battery drain, so you want troubleshooting because the device loses charge too quickly during normal use. You prefer Samsung devices, specifically the Galaxy A54, as it is your current phone. Later, you would like information about the Unlimited Mobile Plan to better support your data usage needs. After that, you want to update your billing preferences to quarterly billing with paperless billing and auto-pay enabled via credit card for greater convenience and financial control. Finally, you would like to make a payment of $31.62 using your credit card on 2025-10-05 to clear your outstanding balance.\n\nUse reese.clark7888@email.com for authentication.',
+        actions=[
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Samsung Galaxy A54', 'issue': 'battery_drain'}),
+            Action(name='get_device_details', kwargs={'device_name': 'Samsung Galaxy A54'}),
+            Action(name='add_device', kwargs={'customer_id': 'reese_clark_1767', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'reese_clark_1767', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'quarterly'}),
+            Action(name='record_payment', kwargs={'customer_id': 'reese_clark_1767', 'amount': 31.62, 'method': 'credit_card', 'date': '2025-10-05'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jamie.white8837@email.com',
+        instruction='You are Jamie White (jamie.white8837@email.com). You want to remove the Fiber Internet 500MB plan from your account because you no longer need the service, and you prefer to simplify your services. You would like to update your billing preferences to quarterly cycle with paperless billing and auto-pay enabled for better organization and to avoid late fees. Later, you would like to pay off your outstanding balance of $68.71 using credit card because it is your preferred payment method and ensures immediate clearance. You are experiencing no_service issues with your Samsung Galaxy A54, which is your primary mobile device, so you need troubleshooting support to restore connectivity. Although you mentioned a support ticket (TICKET241), it was not found in the system, so no action can be taken on it.\n\nUse jamie.white8837@email.com for authentication.',
+        actions=[
+            Action(name='manage_billing', kwargs={'customer_id': 'jamie_white_7985', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'quarterly'}),
+            Action(name='manage_service', kwargs={'customer_id': 'jamie_white_7985', 'action': 'remove', 'service_id': 'internet_fiber_500mb'}),
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_500mb'}),
+            Action(name='record_payment', kwargs={'customer_id': 'jamie_white_7985', 'amount': 68.71, 'method': 'credit_card', 'date': '2025-09-18'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'jamie_white_7985', 'category': 'billing', 'priority': 'medium'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Samsung Galaxy A54', 'issue': 'no_service'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET241'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET241', 'status': 'in_progress', 'priority': 'urgent'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sam.garcia2823@email.com',
+        instruction='You are Sam Garcia (sam.garcia2823@email.com), a residential customer in Seattle, WA. You want to disable auto-pay because you prefer manual control over payments, enable paperless billing to reduce paper waste (though it is already active), and switch to a quarterly billing cycle for better budget alignment. You also want to remove the Basic Mobile Plan from your account as you are downsizing your services. Later, you would like to pay off your outstanding balance of $132.21 using your credit card today to clear your account. You also need troubleshooting assistance for your Samsung Galaxy S23 because it is experiencing battery drain issues, and you prefer Samsung devices for their familiarity and performance. Finally, you referenced support ticket TICKET00158 and intended to update its status to resolved and priority to urgent, but that ticket belongs to another customer, so no action can be taken on it.\n\nUse sam.garcia2823@email.com for authentication.',
+        actions=[
+            Action(name='manage_billing', kwargs={'customer_id': 'sam_garcia_2071', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='manage_service', kwargs={'customer_id': 'sam_garcia_2071', 'action': 'remove', 'service_id': 'mobile_basic'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_basic'}),
+            Action(name='record_payment', kwargs={'customer_id': 'sam_garcia_2071', 'amount': 132.21, 'method': 'credit_card', 'date': '2025-09-18'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'sam_garcia_2071', 'category': 'device', 'priority': 'medium'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Samsung Galaxy S23', 'issue': 'battery_drain'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00158'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00158', 'status': 'resolved', 'priority': 'urgent'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='emerson.allen8122@email.com',
+        instruction='You are Emerson Allen (emerson.allen8122@email.com), a senior customer on the Senior Mobile Plan. You want troubleshooting for your Apple iPhone 14 because it is experiencing battery drain issues that affect daily usability. You would like a review of your current services to confirm what you are enrolled in, including your mobile, internet, and TV plans. You want a support ticket created for the device issue, which has been done as TICKET241 with medium priority, because you need formal tracking for the battery problem. You also want to know the impact of the senior discount on your mobile plan, which reduces the $45.00 Senior Mobile Plan to $40.00 monthly, providing additional cost savings aligned with your budget needs.\n\nUse emerson.allen8122@email.com for authentication.',
+        actions=[
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 14', 'issue': 'battery_drain'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'emerson_allen_8604', 'category': 'device', 'priority': 'medium'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'emerson_allen_8604'}),
+            Action(name='manage_service', kwargs={'customer_id': 'emerson_allen_8604', 'action': 'list'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='kendall.lee5449@email.com',
+        instruction='You are Kendall Lee (kendall.lee5449@email.com), a senior customer on the Senior Mobile Plan. You want troubleshooting for your Samsung Galaxy A54 because it is experiencing battery drain that disrupts daily use. You prefer Samsung mobile phones for their ease of use and familiarity. You would like a support ticket created for this device issue to get ongoing assistance, as the problem persists after basic fixes. You want to review your current services and billing details to understand your monthly charges and ensure accuracy, especially regarding the senior discount. You would like confirmation that your Senior Mobile Plan is priced at $40.00 per month after applying the $5 senior discount, as affordability is important for your fixed income. You prefer to pay by credit card and currently have paperless billing enabled, but you do not have autopay set up.\n\nUse kendall.lee5449@email.com for authentication.',
+        actions=[
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Samsung Galaxy A54', 'issue': 'battery_drain'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'kendall_lee_0640', 'category': 'device'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'kendall_lee_0640'}),
+            Action(name='manage_service', kwargs={'customer_id': 'kendall_lee_0640', 'action': 'list'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='quinn.wilson5782@email.com',
+        instruction="You are Quinn Wilson (quinn.wilson5782@email.com), a business customer with an account in Miami, FL. You are experiencing battery drain on your iPhone 15 Pro, which is affecting device reliability for work, so you want to open a support ticket for the device issue under the 'device' category and expect troubleshooting steps to be provided. You also recently acquired a new WiFi 6 Router and would like it added to your account to improve network performance, as your current router is outdated. You prefer Apple devices for mobile phones, particularly the iPhone 15 Pro model, due to familiarity and integration needs. After managing the device updates, you would like to pay your current balance of $152.22 using a credit card on October 20, 2025, to resolve the outstanding amount and avoid further late fees. Following the payment, you want to update your billing preferences: you prefer paperless billing for environmental and convenience reasons, you would like to enable auto-pay for payment reliability, and you prefer switching your billing cycle to quarterly to better align with your business cash flow management.\n\nUse quinn.wilson5782@email.com for authentication.",
+        actions=[
+            Action(name='create_support_ticket', kwargs={'customer_id': 'quinn_wilson_5555', 'category': 'device'}),
+            Action(name='add_device', kwargs={'customer_id': 'quinn_wilson_5555', 'device_name': 'WiFi 6 Router'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'battery_drain'}),
+            Action(name='manage_service', kwargs={'customer_id': 'quinn_wilson_5555', 'action': 'list'}),
+            Action(name='record_payment', kwargs={'customer_id': 'quinn_wilson_5555', 'amount': 152.22, 'method': 'credit_card', 'date': '2025-10-20'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'quinn_wilson_5555'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'quinn_wilson_5555', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'quarterly'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='taylor.hall3847@email.com',
+        instruction='You are Taylor Hall (taylor_hall_9696), a residential customer with an Apple iPhone 12. You are experiencing battery drain on your iPhone 12, which affects daily usability, so you want to open a high-priority support ticket for this device issue. After that, you would like to make a payment of $136.35 using your credit card to clear your outstanding balance. You also prefer to update your billing preferences by disabling paperless billing and auto-pay for greater control over payments, and switching to a quarterly billing cycle to better align with your financial planning.\n\nUse taylor.hall3847@email.com for authentication.',
+        actions=[
+            Action(name='create_support_ticket', kwargs={'customer_id': 'taylor_hall_9696', 'category': 'device', 'priority': 'high'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 12', 'issue': 'battery_drain'}),
+            Action(name='record_payment', kwargs={'customer_id': 'taylor_hall_9696', 'amount': 136.35, 'method': 'credit_card', 'date': '2025-09-28'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'taylor_hall_9696'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'taylor_hall_9696', 'paperless': False, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='avery.patel6952@email.com',
+        instruction='You are Avery Patel (avery.patel6952@email.com). You want to review your billing details because you noticed an outstanding balance of $194.81, which you have now paid in full using your credit card on 2025-09-18 to avoid late fees and ensure account in good standing. After that, you would like a support ticket created for billing inquiries to confirm the payment was applied correctly and to understand your recurring monthly charges, which include $85.00 for Unlimited Mobile Plan, $55.00 for Cable Internet 500 Mbps, $45.00 for Basic TV, $15.00 for Enterprise Router rental, and $16.80 in taxes and fees. You prefer this ticket be linked to your account for clarity. Additionally, you are experiencing battery drain on your iPhone 14, which is your primary mobile device made by Apple, and you would like troubleshooting assistance because the battery does not last through the day despite normal usage. You prefer Apple devices for their ecosystem integration, and this model is essential for staying connected.\n\nUse avery.patel6952@email.com for authentication.',
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'avery_patel_1556'}),
+            Action(name='record_payment', kwargs={'customer_id': 'avery_patel_1556', 'amount': 194.81, 'method': 'credit_card', 'date': '2025-09-18'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'avery_patel_1556', 'category': 'billing'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 14', 'issue': 'battery_drain'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='harper.allen0430@email.com',
+        instruction='You are harper_allen_8052, a senior customer on the Senior Mobile Plan. You want to know the discounted price of your plan with the senior discount applied, which is $40.00, because you are verifying your eligible savings. You would like to create a support ticket for billing issues and later escalate it to urgent priority and in_progress status because the issue requires immediate resolution. You prefer to disable paperless billing and auto-pay, and switch to a quarterly billing cycle for greater control over payments, and you would like to remove the Home Security System service from your account because it is no longer needed.\n\nUse harper.allen0430@email.com for authentication.',
+        actions=[
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'harper_allen_8052'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'harper_allen_8052', 'category': 'billing', 'priority': 'high'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00167', 'status': 'in_progress', 'priority': 'urgent'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'harper_allen_8052', 'paperless': False, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='manage_service', kwargs={'customer_id': 'harper_allen_8052', 'action': 'remove', 'service_id': 'home_security'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='cameron.wilson4155@email.com',
+        instruction='You are cameron.wilson4155@email.com. You want to add the Enterprise Router to your account because it is needed for your business network setup. You prefer devices from TechCorp, and specifically the Enterprise-Pro model, for compatibility with your existing infrastructure. You would also like a support ticket created for device-related issues, which has been done under ticket TICKET241, to ensure ongoing support for hardware performance. Before proceeding, you wanted to review all available services in the catalog to understand current offerings, particularly comparing internet plans such as Fiber Internet 1GB and 2GB for potential future upgrades. You also requested a list of your current services, which include the Business Mobile - 10 Lines and Fiber Internet 1GB plans, to confirm your existing setup. Additionally, you are experiencing slow speeds on the Enterprise Router and would like troubleshooting guidance because the network performance is critical for daily operations; the steps provided include restarting the router, checking cable connections, and running a speed test. You prefer to resolve this issue promptly to maintain reliable connectivity for your business.\n\nUse cameron.wilson4155@email.com for authentication.',
+        actions=[
+            Action(name='add_device', kwargs={'customer_id': 'cameron_wilson_2504', 'device_name': 'Enterprise Router'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'cameron_wilson_2504', 'category': 'device'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='manage_service', kwargs={'customer_id': 'cameron_wilson_2504', 'action': 'list'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Enterprise Router', 'issue': 'slow_speeds'}),
+            Action(name='get_device_details', kwargs={'device_name': 'Enterprise Router'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='emerson.allen5895@email.com',
+        instruction="You are emerson_allen_5994, customer of the telecom service. You want to add a Google Pixel 8 to your account because you recently acquired the device and need it activated on your Unlimited Mobile Plan. You prefer Google devices, specifically the Pixel 8, for their software experience and integration. After that, you would like a support ticket created for a device issue you are experiencing. You also want to review all available services to explore potential upgrades or additions, particularly interested in higher-speed internet options like Fiber Internet 1GB or 2GB, because your current Fiber Internet 500MB plan may not be meeting your household's usage needs. Following that, you would like a list of your current services—Unlimited Mobile Plan and Fiber Internet 500MB—for verification and billing clarity. Additionally, you are experiencing slow speeds on your iPhone 15 Pro, a device you are using despite it not being on your current account, and you would like troubleshooting guidance because it is affecting your daily connectivity. You also want to know the specifications of the iPhone 15 Pro because you are evaluating its performance against your usage expectations and considering whether to officially add it to your account in the future.\n\nUse emerson.allen5895@email.com for authentication.",
+        actions=[
+            Action(name='add_device', kwargs={'customer_id': 'emerson_allen_5994', 'device_name': 'Google Pixel 8'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'emerson_allen_5994', 'category': 'device'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='manage_service', kwargs={'customer_id': 'emerson_allen_5994', 'action': 'list'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'slow_speeds'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='reese.clark7888@email.com',
+        instruction='You are reese_clark_1767. You want to learn about the Fiber Internet 1GB service because you are considering upgrading from your current Cable Internet 500MB plan due to slow speeds. You also want to know the specs of the WiFi 6 Router because you are experiencing performance issues with your current Basic WiFi Router and are evaluating an upgrade for better reliability. You would like troubleshooting for slow speeds on the WiFi 6 Router because you are testing it and need stable connectivity. Later, you want to update your billing preferences to enable auto-pay and keep paperless billing with a monthly cycle for better payment control and convenience. You prefer to pay by credit card. You would like to make a payment of $31.62 today to clear your outstanding balance and avoid further late fees. After that, you want to create a new support ticket for a billing issue to resolve recent payment complications. Subsequently, you would like to check the status of your existing ticket TICKET00024 and update it to in_progress status with high priority because the issue is urgent and requires immediate attention.\n\nUse reese.clark7888@email.com for authentication.',
+        actions=[
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_1gb'}),
+            Action(name='get_device_details', kwargs={'device_name': 'WiFi 6 Router'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'WiFi 6 Router', 'issue': 'slow_speeds'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'reese_clark_1767', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'monthly'}),
+            Action(name='record_payment', kwargs={'customer_id': 'reese_clark_1767', 'amount': 31.62, 'method': 'credit_card', 'date': '2025-09-25'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'reese_clark_1767', 'category': 'billing'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00024'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00024', 'status': 'in_progress', 'priority': 'high'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='reese.clark1831@email.com',
+        instruction='You are reese_clark_6458. You own an Apple iPhone 15 Pro and are experiencing battery drain issues, so you want troubleshooting guidance to resolve the problem quickly. You prefer Apple devices for their ecosystem integration and reliability. After reviewing the steps, you would like a support ticket created under the device category to ensure the issue is formally tracked and addressed by technical support, as the problem persists despite basic fixes.\n\nUse reese.clark1831@email.com for authentication.',
+        actions=[
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'battery_drain'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'reese_clark_6458', 'category': 'device'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jamie.martinez2652@email.com',
+        instruction='You are Jamie Martinez (jamie.martinez2652@email.com). You are experiencing severe battery drain on your Apple iPhone 15 Pro, which disrupts daily usage, so you would like troubleshooting guidance to resolve the issue quickly. Since the problem may stem from a hardware or software defect, you want a support ticket created to formally investigate the matter. You prefer Apple devices for their ecosystem integration, and the iPhone 15 Pro is your primary mobile device. You would like the ticket escalated if the issue persists after initial troubleshooting.\n\nUse jamie.martinez2652@email.com for authentication.',
+        actions=[
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'battery_drain'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'jamie_martinez_3329', 'category': 'device'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jordan.clark9534@email.com',
+        instruction='You are Jordan Clark (jordan.clark9534@email.com), a senior customer with the Senior Mobile Plan and Fiber Internet 1 Gbps. You want to confirm the details of your Apple iPhone 12 because it is your primary mobile device. You would like the senior discount applied to your $45.00 mobile plan, resulting in a $40.00 monthly rate, because you are eligible and it reduces your cost. You prefer to keep your current services, including the Senior Mobile Plan and Fiber Internet 1 Gbps, because they meet your connectivity needs. You are experiencing battery drain on your iPhone 12, so you would like troubleshooting guidance to resolve the issue quickly. You want a high-priority support ticket created for the battery drain issue because the device is essential for daily communication. You would like to update your billing preferences to quarterly paperless billing to reduce mail and better align with your financial tracking. You prefer to keep auto-pay enabled with your credit card for convenience and reliability, even though your current balance is $0.00 and no payment is due.\n\nUse jordan.clark9534@email.com for authentication.',
+        actions=[
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 12'}),
+            Action(name='add_device', kwargs={'customer_id': 'jordan_clark_8157', 'device_name': 'iPhone 12'}),
+            Action(name='manage_service', kwargs={'customer_id': 'jordan_clark_8157', 'action': 'list'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'jordan_clark_8157'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 12', 'issue': 'battery_drain'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'jordan_clark_8157', 'category': 'device', 'priority': 'high'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00052', 'status': 'in_progress', 'priority': 'high'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00052'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'jordan_clark_8157', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'quarterly'}),
+            Action(name='record_payment', kwargs={'customer_id': 'jordan_clark_8157', 'amount': 0.0, 'method': 'credit_card', 'date': '2025-10-05'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sam.jackson9868@email.com',
+        instruction='You are sam_jackson_0641. You want to understand the final price of your Senior Mobile Plan after the senior discount is applied because you are reviewing your current plan value; the original price is $45.00 and the discounted price is $40.00. You would like to know what the Senior Mobile Plan includes so you can assess its fit for your usage. Later, you want to update your billing preferences: you prefer to disable auto-pay for greater payment control, switch to paperless billing to reduce clutter and environmental impact, and change your billing cycle to quarterly for better budget alignment. After that, you would like to review all services currently on your account to understand your full package. You also want to see a complete list of all available services so you can compare options and consider potential future changes to your plan based on coverage, price, and features.\n\nUse sam.jackson9868@email.com for authentication.',
+        actions=[
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'sam_jackson_0641', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'sam_jackson_0641'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='manage_service', kwargs={'customer_id': 'sam_jackson_0641', 'action': 'list'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='alex.wilson7552@email.com',
+        instruction='You are Alex Wilson (alex_wilson_3158). You want to know the senior discount price for the Unlimited Mobile Plan, which is $80.00 after the $5 senior discount is applied, because you are eligible for the senior plan and want to understand your potential savings. You would like to see the details of the Unlimited Mobile Plan to evaluate its fit for your usage. Later, you would like to update your billing preferences to enable auto-pay and switch to a quarterly billing cycle, while maintaining paperless billing, because you prefer automated and less frequent payments for convenience. After that, you would like a full list of your current services to review your complete telecom package and ensure alignment with your needs.\n\nUse alex.wilson7552@email.com for authentication.',
+        actions=[
+            Action(name='get_senior_discount', kwargs={'original_price': '85.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'alex_wilson_3158', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'quarterly'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'alex_wilson_3158'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='manage_service', kwargs={'customer_id': 'alex_wilson_3158', 'action': 'list'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='emerson.young9760@email.com',
+        instruction='You are Emerson Young (emerson.young9760@email.com). You want troubleshooting for your iPhone 15 because it is experiencing severe battery drain that affects daily usage, and as an Apple device user, you rely on consistent performance. Later, you would like to pay off your outstanding balance of $166.26 using your credit card to bring your account current and avoid further late fees, and you prefer to keep your payment method as credit card for consistency with your existing billing setup.\n\nUse emerson.young9760@email.com for authentication.',
+        actions=[
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15', 'issue': 'battery_drain'}),
+            Action(name='record_payment', kwargs={'customer_id': 'emerson_young_9438', 'amount': 166.26, 'method': 'credit_card', 'date': '2025-10-25'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='parker.white9227@email.com',
+        instruction='You are parker_white_2925. You want troubleshooting assistance for your Samsung Galaxy S23 because it is experiencing battery drain issues, which affects daily usability. After addressing the device issue, you would like to pay your outstanding balance of $130.36 using your credit card on 2025-10-19 to avoid further late fees and restore account in good standing.\n\nUse parker.white9227@email.com for authentication.',
+        actions=[
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Samsung Galaxy S23', 'issue': 'battery_drain'}),
+            Action(name='record_payment', kwargs={'customer_id': 'parker_white_2925', 'amount': 130.36, 'method': 'credit_card', 'date': '2025-10-19'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='skyler.clark8545@email.com',
+        instruction='You are skyler.clark8545@email.com (skyler_clark_3608). You want to review your current billing details because you have an outstanding balance of $151.91 that you plan to settle, and you need clarity on your charges before proceeding. You would like to pay the $151.91 balance using credit card on 2025-10-15 to resolve the overdue amount, including a late fee, and ensure your account remains in good standing. You prefer Apple devices, specifically your iPhone 12, which is already on your account, and you are experiencing battery drain issues with it, so you want troubleshooting guidance to improve daily usability. You would like a support ticket created for the billing inquiry to have a record of your payment and concerns. You want to review your current services, which include the Unlimited Mobile Plan and Fiber Internet 1GB, to confirm they meet your needs. Later, you would like to update your billing preferences to quarterly billing for better budget alignment, enable paperless billing to reduce clutter and support environmental sustainability, and disable auto-pay to regain manual control over payment timing. After that, you would like to check the status of your existing support ticket TICKET00146, which is currently open with low priority, and update it to in_progress status with high priority because the battery issue is affecting your daily communication and requires urgent attention.\n\nUse skyler.clark8545@email.com for authentication.',
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'skyler_clark_3608'}),
+            Action(name='record_payment', kwargs={'customer_id': 'skyler_clark_3608', 'amount': 151.91, 'method': 'credit_card', 'date': '2025-10-15'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'skyler_clark_3608', 'category': 'billing'}),
+            Action(name='add_device', kwargs={'customer_id': 'skyler_clark_3608', 'device_name': 'iPhone 12'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 12'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 12', 'issue': 'battery_drain'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='manage_service', kwargs={'customer_id': 'skyler_clark_3608', 'action': 'list'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'skyler_clark_3608', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00146'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00146', 'status': 'in_progress', 'priority': 'high'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='avery.patel6952@email.com',
+        instruction='You are avery.patel6952@email.com. You want to check your billing details and pay off your $194.81 outstanding balance using credit card on 2025-10-15 because you want to resolve your account balance and avoid late fees. After that, you would like to create a support ticket for the billing payment to document the transaction. You prefer to add a new iPhone 15 Pro to your account because you want to upgrade your mobile device, and you are an Apple user who values ecosystem integration. You also need troubleshooting for your iPhone 14 due to battery drain issues that affect daily usability. Later, you would like to review all available services and your current services to evaluate potential upgrades or changes. Subsequently, you want to update your billing preferences to quarterly billing with paperless statements and disable auto-pay because you prefer manual control over payments and reduced physical mail. Finally, you would like to check the status of support ticket TICKET00150 and close it with low priority to finalize your account management tasks.\n\nUse avery.patel6952@email.com for authentication.',
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'avery_patel_1556'}),
+            Action(name='record_payment', kwargs={'customer_id': 'avery_patel_1556', 'amount': 194.81, 'method': 'credit_card', 'date': '2025-10-15'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'avery_patel_1556', 'category': 'billing'}),
+            Action(name='add_device', kwargs={'customer_id': 'avery_patel_1556', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 14', 'issue': 'battery_drain'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='manage_service', kwargs={'customer_id': 'avery_patel_1556', 'action': 'list'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'avery_patel_1556', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00150'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00150', 'status': 'closed', 'priority': 'low'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='quinn.harris2015@email.com',
+        instruction='You are Quinn Harris (quinn.harris2015@email.com). You want to know all available services, particularly the Unlimited Mobile Plan, because you are considering upgrading your current mobile service. You would also like to know the price of the Senior Mobile Plan with the senior discount applied, which is $40.00, as you are evaluating cost-effective options for your mobile plan. Later, you would like to check the status of your support ticket TICKET00217, which was open with low priority, and then update it to resolved status with high priority because the issue has been addressed and you want the record to reflect its importance. After that, you would like to review your current services, which include the Basic Mobile Plan and Cable Internet 500MB, to understand your current package. You prefer to make a payment of $39.57 using your credit card on 2025-09-18 to clear your outstanding balance because you want your account to be up to date. Finally, you would like to verify your updated billing details, including a current balance of $0.00 and paperless billing, to confirm the payment was processed correctly and your preferences are maintained.\n\nUse quinn.harris2015@email.com for authentication.',
+        actions=[
+            Action(name='get_services', kwargs={}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00217'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00217', 'status': 'resolved', 'priority': 'high'}),
+            Action(name='manage_service', kwargs={'customer_id': 'quinn_harris_9291', 'action': 'list'}),
+            Action(name='record_payment', kwargs={'customer_id': 'quinn_harris_9291', 'amount': 39.57, 'method': 'credit_card', 'date': '2025-10-18'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'quinn_harris_9291'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='taylor.white5095@email.com',
+        instruction='You are Taylor White (taylor.white5095@email.com). You are experiencing slow internet speeds on your iPhone 14, which is affecting your daily connectivity, so you want troubleshooting guidance and a support ticket created. You prefer Apple devices, specifically the iPhone 14, for their reliability and integration with your business services. You would like to understand the Unlimited Mobile Plan details because you are considering a potential change to your current mobile service. After reviewing the plan, you want a support ticket opened in the device category with medium priority to address the ongoing speed issue on your iPhone 14, as the problem persists despite basic troubleshooting steps like restarting the device and resetting network settings.\n\nUse taylor.white5095@email.com for authentication.',
+        actions=[
+            Action(name='get_services', kwargs={}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'taylor_white_8264', 'category': 'device', 'priority': 'medium'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 14', 'issue': 'slow_speeds'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 14'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='kendall.nguyen7757@email.com',
+        instruction='You are kendall_nguyen_8834. You want to update your billing preferences to enable paperless billing for environmental and convenience reasons, disable auto-pay to gain more control over payment timing, and switch to a quarterly billing cycle to better align with your personal budgeting schedule. You would like a list of your current services to review your account setup. You are interested in the Unlimited Mobile Plan because it offers more data and features than your current mobile_basic plan. You own an iPhone 15, and you prefer Apple devices for their ecosystem integration; you would like to add another iPhone 15 Pro to your account for a family member who also uses Apple products and requires a high-performance device.\n\nUse kendall.nguyen7757@email.com for authentication.',
+        actions=[
+            Action(name='manage_billing', kwargs={'customer_id': 'kendall_nguyen_8834', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'kendall_nguyen_8834'}),
+            Action(name='manage_service', kwargs={'customer_id': 'kendall_nguyen_8834', 'action': 'list'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='add_device', kwargs={'customer_id': 'kendall_nguyen_8834', 'device_name': 'iPhone 15 Pro'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='rowan.brown1634@email.com',
+        instruction='You are rowan_brown_4908 (rowan.brown1634@email.com). You want to enable auto-pay for convenience in managing your account, while continuing paperless billing to maintain digital efficiency. You prefer to switch from a monthly to an annual billing cycle to simplify payments and potentially benefit from long-term billing advantages. You prefer to pay by credit card and have auto-pay enabled with this method.\n\nUse rowan.brown1634@email.com for authentication.',
+        actions=[
+            Action(name='manage_billing', kwargs={'customer_id': 'rowan_brown_4908', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'annual'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'rowan_brown_4908'}),
+            Action(name='manage_service', kwargs={'customer_id': 'rowan_brown_4908', 'action': 'list'}),
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_1gb'}),
+            Action(name='get_device_details', kwargs={'device_name': 'WiFi 6 Router'}),
+            Action(name='add_device', kwargs={'customer_id': 'rowan_brown_4908', 'device_name': 'iPhone 15'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='alex.anderson0433@email.com',
+        instruction='You are alex_anderson_8285. You want to remove the Unlimited Mobile Plan from your account because you are transitioning to a more cost-effective option suited for lower usage. You would like to add the Senior Mobile Plan at the discounted price of $40.00 per month, which is better aligned with your needs as a residential customer seeking affordability. You prefer Apple devices, specifically the iPhone 15 Pro, which you currently use. You are experiencing battery drain on this device, so you would like troubleshooting guidance to improve daily usability. You also want a new high-priority support ticket created for mobile service issues because you need prompt assistance. Later, you would like to update your existing ticket (TICKET00012), which is currently open with medium priority, to in_progress status and high priority since the issue is becoming more urgent. You prefer to manage your account with paperless billing and would like to keep payments convenient, though auto-pay is currently disabled.\n\nUse alex.anderson0433@email.com for authentication.',
+        actions=[
+            Action(name='manage_service', kwargs={'customer_id': 'alex_anderson_8285', 'action': 'remove', 'service_id': 'mobile_unlimited'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'alex_anderson_8285', 'category': 'mobile', 'priority': 'high'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00012', 'status': 'in_progress', 'priority': 'high'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'battery_drain'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00012'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='emerson.allen8122@email.com',
+        instruction='You are emerson_allen_8604, a senior customer with the Senior Mobile Plan. You want to remove the Senior Mobile Plan from your account because you are discontinuing mobile service. Later, you would like to escalate your open support ticket TICKET00014 to high priority and update its status to in_progress because the issue requires urgent attention. You also need troubleshooting for battery drain issues on your iPhone 14 because the device loses charge quickly during daily use, and you prefer Apple devices for their ecosystem integration. Additionally, you would like to confirm the details of the Senior Mobile Plan and its discounted price of $40.00 with the senior discount applied, to ensure billing accuracy. You also want to verify the current status of ticket TICKET00014, which is currently open with medium priority, so you can track its progress.\n\nUse emerson.allen8122@email.com for authentication.',
+        actions=[
+            Action(name='manage_service', kwargs={'customer_id': 'emerson_allen_8604', 'action': 'remove', 'service_id': 'mobile_senior'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'emerson_allen_8604', 'category': 'mobile'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00014', 'status': 'in_progress', 'priority': 'high'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 14'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 14', 'issue': 'battery_drain'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00014'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jordan.wright5174@email.com',
+        instruction='You are jordan_wright_5293, a business customer with email jordan.wright5174@email.com. You want to review the details of your Fiber Internet 2GB service because you are evaluating your current plan fit. You also want to check the status of your open support ticket TICKET00042, which is currently at medium priority, to ensure timely resolution. Additionally, you would like to confirm your current billing information, noting that your account has a zero balance, the last payment of $918.24 was completed on 2025-09-19 via invoice, and you prefer paperless billing with auto-pay enabled on a monthly cycle for convenience and record-keeping. Later, you would like to get the specifications for your iPhone 15 Pro, as you prefer Apple devices for their integration with your business tools, and this model supports your mobile productivity needs. You also want troubleshooting steps for slow speeds on the device because performance impacts your work efficiency. Finally, you would like a full review of all active services on your account—Unlimited Mobile Plan (10 lines), Fiber Internet 2GB, Business Phone System, and Premium TV Package—to ensure service accuracy and alignment with your business operations.\n\nUse jordan.wright5174@email.com for authentication.',
+        actions=[
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_2gb'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00042'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'jordan_wright_5293'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'slow_speeds'}),
+            Action(name='manage_service', kwargs={'customer_id': 'jordan_wright_5293', 'action': 'list'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='alex.thomas0057@email.com',
+        instruction='You are Alex Thomas (alex_thomas_4139). You want to review the details of your Unlimited Mobile Plan because you are verifying your current service commitments. You also want to check that your support ticket TICKET00059 is still open with low priority, as you are following up on an unresolved issue. Additionally, you would like to review your current billing information, including your $0.00 balance and monthly charges of $194.60, because you prefer to stay informed about your payment history and upcoming bill on October 11. Later, you would like to know the specifications of your iPhone 12 because it is your primary mobile device and you need to understand its capabilities. You prefer Apple devices for their ecosystem integration. You also want troubleshooting guidance for battery drain on your iPhone 12 because the device does not last through the day, impacting your connectivity. After that, you would like a complete list of your active services—Unlimited Mobile Plan, Internet Cable 100 Mbps, and Basic TV—because you are auditing your account for accuracy and potential optimization.\n\nUse alex.thomas0057@email.com for authentication.',
+        actions=[
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00059'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'alex_thomas_4139'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 12'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 12', 'issue': 'battery_drain'}),
+            Action(name='manage_service', kwargs={'customer_id': 'alex_thomas_4139', 'action': 'list'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sam.harris5965@email.com',
+        instruction='You are Sam Harris (sam.harris5965@email.com). You want troubleshooting for your Apple iPhone 14 because it is experiencing battery drain issues that affect daily usability. After troubleshooting does not resolve the issue, you would like to open a support ticket under the device category for further investigation because the problem persists and may require technical escalation. Later, you would like to make a one-time payment of $55.86 using your credit card on September 28, 2025, to clear your outstanding balance and avoid additional late fees, as auto-pay is currently disabled on your account.\n\nUse sam.harris5965@email.com for authentication.',
+        actions=[
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 14', 'issue': 'battery_drain'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 14'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'sam_harris_2507', 'category': 'device'}),
+            Action(name='record_payment', kwargs={'customer_id': 'sam_harris_2507', 'amount': 55.86, 'method': 'credit_card', 'date': '2025-09-28'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'sam_harris_2507'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='avery.nguyen4904@email.com',
+        instruction='You are Avery Nguyen (avery.nguyen4904@email.com). You want to add an iPhone 14 to your account because you recently acquired the device and need it activated on your mobile service. You prefer Apple devices for their ecosystem compatibility. After that, you would like to review your current services, which include Unlimited Mobile Plan and 500 Mbps Cable Internet, to ensure everything is accurate. You also want to create a new support ticket for a device issue to address any connectivity or performance concerns with the new phone. Later, you would like to update your billing preferences to paperless billing with monthly billing cycle and disable auto-pay because you prefer to manually review charges each month. You would like to check your current billing details for accuracy and get information about the Fiber Internet 1GB service because you are considering upgrading from your current 500 Mbps cable plan for faster and more reliable speeds. After that, you want to check the status of your existing support ticket TICKET00229, which is currently open with high priority, and you would like to update it to resolved with urgent priority to ensure the issue is addressed as quickly as possible. You prefer bank transfer for payments, consistent with your current method.\n\nUse avery.nguyen4904@email.com for authentication.',
+        actions=[
+            Action(name='add_device', kwargs={'customer_id': 'avery_nguyen_2566', 'device_name': 'iPhone 14'}),
+            Action(name='manage_service', kwargs={'customer_id': 'avery_nguyen_2566', 'action': 'list'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'avery_nguyen_2566', 'category': 'device'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'avery_nguyen_2566', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'monthly'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'avery_nguyen_2566'}),
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_1gb'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00229'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00229', 'status': 'resolved', 'priority': 'urgent'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='emerson.lee7613@email.com',
+        instruction='You are emerson_lee_8162. You want to check the status and priority of your open support ticket because it is high-priority and requires immediate attention. After that, you would like to review your billing details to confirm your current balance of $0.00, verify the last payment of $177.78 made via bank transfer, and ensure the monthly charges—$35.00 for the Basic Mobile Plan, $80.00 for Fiber Internet 1 Gbps, $45.00 for the Basic TV Package, and $5.00 for the Enterprise Router—are accurate.\n\nUse emerson.lee7613@email.com for authentication.',
+        actions=[
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00049'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'emerson_lee_8162'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='alex.allen2350@email.com',
+        instruction='You are alex.allen2350@email.com. You want to update your billing preferences to enable auto-pay and keep paperless billing because you prefer automated and digital billing for convenience, and you would like to switch to a quarterly billing cycle to better align with your financial planning. After that, you would like a support ticket created for a billing concern because you noticed an inconsistency and want it reviewed. You then want to verify the ticket details and subsequently update its status to in_progress with high priority because the issue requires immediate attention and active handling.\n\nUse alex.allen2350@email.com for authentication.',
+        actions=[
+            Action(name='manage_billing', kwargs={'customer_id': 'alex_allen_3726', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'quarterly'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'alex_allen_3726', 'category': 'billing', 'priority': 'medium'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET241', 'status': 'in_progress', 'priority': 'high'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET241'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='drew.walker9273@email.com',
+        instruction='You are drew_walker_7967, with email drew.walker9273@email.com. You want to update your billing preferences to enable paperless billing and auto-pay, and switch to an annual billing cycle for better financial planning and reduced administrative effort. After that, you would like to create a support ticket for this billing change because you want confirmation and tracking of the update. You prefer the ticket to be set to in_progress status with high priority since the change is important and time-sensitive. Finally, you want to verify the ticket details to ensure everything was processed correctly.\n\nUse drew.walker9273@email.com for authentication.',
+        actions=[
+            Action(name='manage_billing', kwargs={'customer_id': 'drew_walker_7967', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'annual'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'drew_walker_7967', 'category': 'billing', 'priority': 'medium'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET241', 'status': 'in_progress', 'priority': 'high'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET241'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='quinn.wilson5782@email.com',
+        instruction='You are Quinn Wilson (quinn.wilson5782@email.com), a business customer. You want to review your billing details because you have an outstanding balance of $152.22 that you intend to pay immediately with a credit card, and you need to create a high-priority support ticket for a billing issue since your last payment was marked late. Later, you would like to update your billing preferences to quarterly billing with auto-pay enabled and paperless billing to gain better control over payments and reduce administrative overhead. After that, you want to add the Premium TV Package to your account for expanded entertainment options, and you prefer to register a new Samsung 65" Smart TV because you value Samsung\'s reliability and picture quality. Finally, you would like to see all available services, specifically inquiring about the Senior Mobile Plan priced at $40.00 with the senior discount applied, and you want detailed information about the Premium TV Package you just added to confirm its features and value.\n\nUse quinn.wilson5782@email.com for authentication.',
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'quinn_wilson_5555'}),
+            Action(name='record_payment', kwargs={'customer_id': 'quinn_wilson_5555', 'amount': 152.22, 'method': 'credit_card', 'date': '2025-09-18'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'quinn_wilson_5555', 'category': 'billing', 'priority': 'high'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'quinn_wilson_5555', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'quarterly'}),
+            Action(name='manage_service', kwargs={'customer_id': 'quinn_wilson_5555', 'action': 'add', 'service_id': 'tv_premium'}),
+            Action(name='add_device', kwargs={'customer_id': 'quinn_wilson_5555', 'device_name': 'Samsung 65" Smart TV'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'tv_premium'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='riley.wilson0553@email.com',
+        instruction='You are Riley Wilson (riley.wilson0553@email.com). You want to review your current billing details because you noticed a $67.51 outstanding balance and a late fee on your account. You would like to pay this balance of $67.51 using credit card to clear the debt and avoid further fees. After that, you want to create a support ticket for billing concerns to address the late fee and payment timing. Later, you would like to update your billing preferences to enable paperless billing and auto-pay with a monthly cycle to ensure timely payments and reduce administrative hassle, even though paperless is already active. You also want to review your current services, which include the Family Plan - 4 Lines and Cable Internet 100 Mbps, to confirm their alignment with your needs. You prefer to add a new WiFi 6 Router to your account for better home network performance, replacing your current Standard WiFi Router. After that, you would like to see all available services to explore options. You are specifically interested in the Senior Mobile Plan and would like to know its discounted price of $40.00 per month (after $5 senior discount) because you qualify based on age and are considering a more affordable mobile option. You want detailed information about the Senior Mobile Plan to evaluate its fit for your usage.\n\nUse riley.wilson0553@email.com for authentication.',
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'riley_wilson_4618'}),
+            Action(name='record_payment', kwargs={'customer_id': 'riley_wilson_4618', 'amount': 67.51, 'method': 'credit_card', 'date': '2025-09-18'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'riley_wilson_4618', 'category': 'billing'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'riley_wilson_4618', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'monthly'}),
+            Action(name='manage_service', kwargs={'customer_id': 'riley_wilson_4618', 'action': 'list'}),
+            Action(name='add_device', kwargs={'customer_id': 'riley_wilson_4618', 'device_name': 'WiFi 6 Router'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='cameron.brown7513@email.com',
+        instruction='You are cameron.brown7513. You own a Google Pixel 8 and are experiencing rapid battery drain, so you would like troubleshooting steps to resolve the issue quickly. Since the device is used for daily communication and the battery issue disrupts usability, you prefer manufacturer-recommended fixes first. After attempting those, if the problem persists, you would like a support ticket opened to escalate the matter for technical investigation, as seen in the final step of the troubleshooting guidance. You prefer the ticket to be created under your account to ensure continuity of support.\n\nUse cameron.brown7513@email.com for authentication.',
+        actions=[
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Google Pixel 8', 'issue': 'battery_drain'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'cameron_brown_5907', 'category': 'device'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='quinn.allen7438@email.com',
+        instruction='You are Quinn Allen (quinn.allen7438@email.com). You want to report battery drain issues with your iPhone 15 Pro, so you would like a support ticket created to formally log the issue, which has been done under TICKET241. Since the device is already on your account, no addition is needed. You prefer Apple devices and specifically the iPhone 15 Pro model, so troubleshooting steps should apply directly to this device. You want guidance on resolving the battery drain, so you would like the recommended steps: restart the device, reduce screen brightness, and close background apps. Finally, you would like confirmation of the device specifications to ensure compatibility and support eligibility, which confirms it is an Apple iPhone 15 Pro in the mobile_phone category.\n\nUse quinn.allen7438@email.com for authentication.',
+        actions=[
+            Action(name='create_support_ticket', kwargs={'customer_id': 'quinn_allen_4271', 'category': 'device', 'priority': 'medium'}),
+            Action(name='add_device', kwargs={'customer_id': 'quinn_allen_4271', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'battery_drain'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='harper.patel2832@email.com',
+        instruction='You are harper_patel_9390 (harper.patel2832@email.com). You are experiencing slow internet speeds on your Standard WiFi Router, which is already on your account and provided by TechCorp. You want to open a high-priority support ticket for this issue because the slow speeds are disrupting your daily use. You would like troubleshooting steps for the slow speeds to attempt a quick resolution, including restarting the router, checking cable connections, and running a speed test. You also want to confirm the device details for the Standard WiFi Router to understand its capabilities and ensure it meets your home networking needs.\n\nUse harper.patel2832@email.com for authentication.',
+        actions=[
+            Action(name='create_support_ticket', kwargs={'customer_id': 'harper_patel_9390', 'category': 'internet', 'priority': 'high'}),
+            Action(name='add_device', kwargs={'customer_id': 'harper_patel_9390', 'device_name': 'Standard WiFi Router'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Standard WiFi Router', 'issue': 'slow_speeds'}),
+            Action(name='get_device_details', kwargs={'device_name': 'Standard WiFi Router'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jordan.wright3964@email.com',
+        instruction='You are Jordan Wright (jordan.wright3964@email.com), a business customer with the Unlimited Mobile Plan and Fiber Internet 2 Gbps. You want to review the details of the Unlimited Mobile Plan because you are considering your mobile service options, and you would like to check the status of your open support ticket TICKET00062, which is currently low priority. You are experiencing slow internet speeds on your Standard WiFi Router, a TechCorp device, so you would like troubleshooting guidance to improve home network performance. After that, you would like to manage your services to ensure they align with your business needs. Later, you are curious about cost-saving options and would like to know that a $5 senior discount would reduce a $45.00 service to $40.00, though you are not currently enrolled in the senior plan.\n\nUse jordan.wright3964@email.com for authentication.',
+        actions=[
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00062'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00062', 'status': 'open', 'priority': 'low'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'jordan_wright_5265', 'category': 'internet'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'jordan_wright_5265'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Standard WiFi Router', 'issue': 'slow_speeds'}),
+            Action(name='manage_service', kwargs={'customer_id': 'jordan_wright_5265', 'action': 'list'}),
+            Action(name='add_device', kwargs={'customer_id': 'jordan_wright_5265', 'device_name': 'Standard WiFi Router'}),
+            Action(name='get_device_details', kwargs={'device_name': 'Standard WiFi Router'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='quinn.wilson5782@email.com',
+        instruction='You are Quinn Wilson (quinn.wilson5782@email.com), a business customer. You want to know the details of your Business Mobile - 10 Lines plan because you are reviewing your current services and costs. After that, you would like to update your open support ticket (TICKET00078) to resolved status with high priority since the issue has been addressed and requires confirmation. You are experiencing battery drain on your iPhone 15 Pro, so you would like troubleshooting steps because the device is losing charge too quickly during work hours. You want to list all your current services to verify what is active on your account. You prefer to add a new iPhone 14 to your account because you need an additional device for a team member, and you want to verify its specifications to ensure compatibility. You prefer Apple devices, specifically the iPhone 14, for consistency with your existing fleet. Later, you would like to see a full list of all available services to evaluate potential upgrades or additions. Finally, you want to know the price of a $45.00 plan after applying the senior discount, which results in $40.00, because you are assessing cost-saving options for supplementary services.\n\nUse quinn.wilson5782@email.com for authentication.',
+        actions=[
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_business_10lines'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00078'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00078', 'status': 'resolved', 'priority': 'high'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'battery_drain'}),
+            Action(name='manage_service', kwargs={'customer_id': 'quinn_wilson_5555', 'action': 'list'}),
+            Action(name='add_device', kwargs={'customer_id': 'quinn_wilson_5555', 'device_name': 'iPhone 14'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 14'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='emerson.walker5879@email.com',
+        instruction='You are emerson_walker_8800, with email emerson.walker5879@email.com. You want to pay the outstanding balance of $103.75 using credit card because the account has a current balance that needs to be settled to avoid further late fees. After that, you would like to add a new iPhone 15 Pro to your account because you recently acquired the device and need it activated on your business plan. You prefer Apple devices for their integration with your existing workflow and ecosystem. You are experiencing slow speeds on the iPhone 15 Pro and need troubleshooting because the device is not performing as expected, which affects your productivity. Later, you would like a support ticket created in the billing category to address concerns about recent late fees and payment processing, since your auto-pay is enabled but the last payment was marked as late.\n\nUse emerson.walker5879@email.com for authentication.',
+        actions=[
+            Action(name='record_payment', kwargs={'customer_id': 'emerson_walker_8800', 'amount': 103.75, 'method': 'credit_card', 'date': '2025-09-18'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'emerson_walker_8800'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'emerson_walker_8800', 'category': 'billing'}),
+            Action(name='add_device', kwargs={'customer_id': 'emerson_walker_8800', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'slow_speeds'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='morgan.clark2808@email.com',
+        instruction='You are Morgan Clark (morgan.clark2808@email.com). You want to pay off your outstanding balance of $90.31 using a credit card because you prefer to clear your dues promptly and avoid late fees, which were previously incurred. After that, you would like to add your new iPhone 15 Pro to your account because you recently upgraded your device and need it activated for service. You prefer Apple devices, specifically the iPhone 15 Pro, for its performance and integration with your existing ecosystem. You are experiencing battery drain on the device, so you would like troubleshooting guidance to resolve the issue quickly. If the problem continues, you would like a support ticket created under the device category so that the issue can be escalated and resolved with technical assistance.\n\nUse morgan.clark2808@email.com for authentication.',
+        actions=[
+            Action(name='record_payment', kwargs={'customer_id': 'morgan_clark_6566', 'amount': 90.31, 'method': 'credit_card', 'date': '2025-09-18'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'morgan_clark_6566'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'morgan_clark_6566', 'category': 'device'}),
+            Action(name='add_device', kwargs={'customer_id': 'morgan_clark_6566', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'battery_drain'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sam.brown6471@email.com',
+        instruction='You are sam.brown6471@email.com. You want to review all services on your account, which include the Unlimited Mobile Plan and Cable Internet 500MB, to ensure everything is correct. Later, you would like troubleshooting assistance for your Samsung Galaxy S23 because it is experiencing slow speeds, which affects your daily connectivity. You prefer Samsung devices for their reliability and familiarity, and the Galaxy S23 is your primary phone. After that, you would like to pay off your outstanding balance of $59.79 using your credit card on October 5th, 2025, to avoid further late fees and restore on-time payment status.\n\nUse sam.brown6471@email.com for authentication.',
+        actions=[
+            Action(name='manage_service', kwargs={'customer_id': 'sam_brown_5625', 'action': 'list'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'sam_brown_5625', 'category': 'mobile'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'sam_brown_5625'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_device_details', kwargs={'device_name': 'Samsung Galaxy S23'}),
+            Action(name='add_device', kwargs={'customer_id': 'sam_brown_5625', 'device_name': 'Samsung Galaxy S23'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Samsung Galaxy S23', 'issue': 'slow_speeds'}),
+            Action(name='record_payment', kwargs={'customer_id': 'sam_brown_5625', 'amount': 59.79, 'method': 'credit_card', 'date': '2025-10-05'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='morgan.garcia6112@email.com',
+        instruction='You are Morgan Garcia (morgan.garcia6112@email.com). You want to remove the Senior Mobile Plan from your account because you are discontinuing mobile service. Later, you would like troubleshooting for battery drain issues on your Samsung Galaxy A54 because the device loses charge quickly during daily use. After that, you would like to pay off your outstanding balance of $188.40 using your credit card to clear your account and avoid late fees. You prefer Samsung devices, specifically the Galaxy A54, for their usability and familiarity.\n\nUse morgan.garcia6112@email.com for authentication.',
+        actions=[
+            Action(name='manage_service', kwargs={'customer_id': 'morgan_garcia_8324', 'action': 'remove', 'service_id': 'mobile_senior'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'morgan_garcia_8324', 'category': 'mobile'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'morgan_garcia_8324'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_device_details', kwargs={'device_name': 'Samsung Galaxy A54'}),
+            Action(name='add_device', kwargs={'customer_id': 'morgan_garcia_8324', 'device_name': 'Samsung Galaxy A54'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Samsung Galaxy A54', 'issue': 'battery_drain'}),
+            Action(name='record_payment', kwargs={'customer_id': 'morgan_garcia_8324', 'amount': 188.4, 'method': 'credit_card', 'date': '2025-10-18'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jamie.white8613@email.com',
+        instruction='You are Jamie White (jamie.white8613@email.com). You are currently on the Senior Mobile Plan, which costs $45.00 per month, and you want to confirm the price with the senior discount applied, which is $40.00, because you want to ensure you are receiving all eligible savings. You would like your current billing details provided because you are reviewing your account for accuracy. You want to create a billing-related support ticket with medium priority because you have questions about recent charges and need clarification. Later, you would like to know about the Unlimited Mobile Plan, which costs $85.00 per month, because you are considering upgrading for more data and features. You are also interested in the iPhone 15 Pro and would like to know its specifications because you prefer Apple devices and are considering purchasing a new phone for better performance and camera quality.\n\nUse jamie.white8613@email.com for authentication.',
+        actions=[
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'jamie_white_8766'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'jamie_white_8766', 'category': 'billing', 'priority': 'medium'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='morgan.lewis1592@email.com',
+        instruction='You are Morgan Lewis (morgan.lewis1592@email.com), a senior customer on the Senior Mobile Plan. You want to understand your current billing and confirm that the senior discount is correctly applied to your plan, which is priced at $45.00 per month, because you are reviewing your monthly expenses. You also want a support ticket created for billing with medium priority (TICKET241) to address any potential discrepancies, especially given a recent late fee on your account. Later, you would like to explore available telecom services, particularly the Unlimited Mobile Plan at $85.00 per month, as a potential upgrade option for more data and features. You are also interested in the iPhone 15 Pro device, which is made by Apple, because you prefer Apple smartphones and are considering upgrading your current device for better performance and camera quality. You would like detailed specs for this device to evaluate its suitability for your needs.\n\nUse morgan.lewis1592@email.com for authentication.',
+        actions=[
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'morgan_lewis_7010'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'morgan_lewis_7010', 'category': 'billing', 'priority': 'medium'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='kendall.lee5449@email.com',
+        instruction='You are Kendall Lee (kendall.lee5449@email.com), a senior customer who values reliable mobile service and timely support. You want troubleshooting assistance for your Samsung Galaxy A54 because it has no service, which is affecting your connectivity. You would like a high-priority support ticket created for this device issue so it can be resolved quickly, as you depend on your phone for daily communication. You prefer Samsung devices for your current phone, but you are upgrading to an Apple iPhone 15 Pro for its advanced features and better performance. You would like to add the iPhone 15 Pro to your account and also add the Unlimited Mobile Plan to ensure full service compatibility and data access. After these changes, you intend to pay off your outstanding balance of $119.45 using your credit card on September 18, 2025, to bring your account current and avoid late fees.\n\nUse kendall.lee5449@email.com for authentication.',
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'kendall_lee_0640'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'kendall_lee_0640', 'category': 'device', 'priority': 'high'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Samsung Galaxy A54', 'issue': 'no_service'}),
+            Action(name='get_device_details', kwargs={'device_name': 'Samsung Galaxy A54'}),
+            Action(name='add_device', kwargs={'customer_id': 'kendall_lee_0640', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='manage_service', kwargs={'customer_id': 'kendall_lee_0640', 'action': 'add', 'service_id': 'mobile_unlimited'}),
+            Action(name='record_payment', kwargs={'customer_id': 'kendall_lee_0640', 'amount': 119.45, 'method': 'credit_card', 'date': '2025-09-18'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jordan.clark2943@email.com',
+        instruction='You are jordan_clark_9766, a residential customer since August 2025. You want to review your billing details because you noticed a late fee on your account and want to understand your current balance. You would like to create a support ticket for your Samsung Galaxy S23 to address slow speeds, as this device is your primary phone and performance issues are affecting daily use, and you prefer the ticket be escalated to high priority for faster resolution. Later, you want to get the specifications of your Samsung Galaxy S23 to confirm its capabilities and ensure it meets your usage needs. You also prefer to add a new device to your account, with a preference for Samsung as your preferred manufacturer due to brand familiarity, and you would like to list all services currently on your account to verify your subscriptions. After that, you would like to pay off your outstanding balance of $111.03 using your credit card on September 18, 2025, because you prefer to clear past-due amounts promptly and avoid additional fees, and you prefer to pay by credit card for this transaction despite having bank transfer as a prior method.\n\nUse jordan.clark2943@email.com for authentication.',
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'jordan_clark_9766'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'jordan_clark_9766', 'category': 'device', 'priority': 'medium'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Samsung Galaxy S23', 'issue': 'slow_speeds'}),
+            Action(name='get_device_details', kwargs={'device_name': 'Samsung Galaxy S23'}),
+            Action(name='add_device', kwargs={'customer_id': 'jordan_clark_9766', 'device_name': 'Samsung Galaxy S23'}),
+            Action(name='manage_service', kwargs={'customer_id': 'jordan_clark_9766', 'action': 'list'}),
+            Action(name='record_payment', kwargs={'customer_id': 'jordan_clark_9766', 'amount': 111.03, 'method': 'credit_card', 'date': '2025-09-18'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='alex.thomas5669@email.com',
+        instruction='You are Alex Thomas (alex_thomas_7404) with email alex.thomas5669@email.com. You want to pay off your current balance of $89.19 using credit card because the last payment was late and you want to avoid further fees. You prefer to disable auto-pay to regain manual control over payments, keep paperless billing disabled for physical record-keeping, and maintain a monthly billing cycle for consistency with your budgeting. You would like to add your Samsung Galaxy A54 to your account because it is your primary mobile device, and you prefer Samsung devices for their reliability and user experience. You want to create a support ticket for mobile service to address ongoing connectivity concerns. Later, you would like troubleshooting for slow speeds on your Samsung Galaxy A54 because the performance is affecting your daily usage. After that, you would like to review the details of your Premium TV Package to confirm its features and monthly cost.\n\nUse alex.thomas5669@email.com for authentication.',
+        actions=[
+            Action(name='record_payment', kwargs={'customer_id': 'alex_thomas_7404', 'amount': 89.19, 'method': 'credit_card', 'date': '2025-09-18'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'alex_thomas_7404'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'alex_thomas_7404', 'paperless': False, 'auto_pay': False, 'billing_cycle': 'monthly'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'alex_thomas_7404', 'category': 'mobile'}),
+            Action(name='add_device', kwargs={'customer_id': 'alex_thomas_7404', 'device_name': 'Samsung Galaxy A54'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Samsung Galaxy A54', 'issue': 'slow_speeds'}),
+            Action(name='manage_service', kwargs={'customer_id': 'alex_thomas_7404', 'action': 'list', 'service_id': 'tv_premium'}),
+            Action(name='get_service_details', kwargs={'service_id': 'tv_premium'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='quinn.wilson5782@email.com',
+        instruction='You are Quinn Wilson (quinn.wilson5782@email.com), a business customer with a current outstanding balance of $152.22. You want to make a payment of $152.22 today using your credit card to clear the balance and avoid late fees. After that, you would like to update your billing preferences to enable paperless billing and auto-pay for convenience and environmental reasons, and switch to a quarterly billing cycle to better align with your business accounting schedule. You are interested in reviewing all available services to evaluate potential upgrades or additions. Later, you would like to create a support ticket for a mobile service issue with medium priority to address ongoing connectivity concerns. You also want to add your newly acquired Samsung Galaxy S23 to your account because you recently purchased it for team use. You prefer Samsung devices for their durability and enterprise features, and specifically the Galaxy S23 model for its performance. Additionally, you are experiencing battery drain on your iPhone 13, which affects daily productivity, so you would like troubleshooting guidance to resolve the issue quickly. Finally, you want to review all services currently on your account for audit purposes, and get detailed information about your Business Mobile - 10 Lines plan to confirm its features and pricing for an upcoming team meeting.\n\nUse quinn.wilson5782@email.com for authentication.',
+        actions=[
+            Action(name='record_payment', kwargs={'customer_id': 'quinn_wilson_5555', 'amount': 152.22, 'method': 'credit_card', 'date': '2025-09-18'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'quinn_wilson_5555'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'quinn_wilson_5555', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'quarterly'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'quinn_wilson_5555', 'category': 'mobile', 'priority': 'medium'}),
+            Action(name='add_device', kwargs={'customer_id': 'quinn_wilson_5555', 'device_name': 'Samsung Galaxy S23'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 13', 'issue': 'battery_drain'}),
+            Action(name='manage_service', kwargs={'customer_id': 'quinn_wilson_5555', 'action': 'list'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_business_10lines'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='drew.thomas8153@email.com',
+        instruction="You are drew_thomas_8834. You own an iPhone 12 and are experiencing battery drain, so you would like troubleshooting because the device loses charge too quickly during daily use. You prefer Apple devices for their ease of use and familiarity. After that, you would like a list of your current services to review what you're paying for, including the Senior Mobile Plan and Fiber Internet 1 Gbps. You also want to know your discounted rate for the Senior Mobile Plan because you qualify for the senior discount, and you prefer to see how the $5 discount reduces your $45.00 plan to $40.00 for better budget clarity. You prefer to keep auto-pay enabled with your bank account for convenience.\n\nUse drew.thomas8153@email.com for authentication.",
+        actions=[
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 12', 'issue': 'battery_drain'}),
+            Action(name='manage_service', kwargs={'customer_id': 'drew_thomas_8834', 'action': 'list'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jordan.wilson4822@email.com',
+        instruction='You are jordan_wilson_9049, a senior customer using an Apple iPhone 14, which is experiencing battery drain, so you would like troubleshooting guidance to improve daily usability. You also want to review your current services, including the Senior Mobile Plan, internet_cable_100mb, and tv_basic, to ensure they meet your needs. Additionally, you would like to confirm the benefit of your senior status, knowing that the $45.00 Senior Mobile Plan is reduced to $40.00 with the $5.00 senior discount, so you can verify accurate billing and retain cost savings.\n\nUse jordan.wilson4822@email.com for authentication.',
+        actions=[
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 14', 'issue': 'battery_drain'}),
+            Action(name='manage_service', kwargs={'customer_id': 'jordan_wilson_9049', 'action': 'list'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='quinn.clark9299@email.com',
+        instruction='You are Quinn Clark (quinn.clark9299@email.com), a senior customer with a current Senior Mobile Plan and Cable Internet 500MB service. You want to understand the details of your Senior Mobile Plan because you are reviewing your current service fit and value. You would like to see all available services to explore potential upgrades or additions that better suit your needs. You want to confirm the senior discount amount, which reduces your plan price from $45.00 to $40.00, because you value cost clarity and affordability. You also want to review your full billing details, including your current $0.00 balance, auto-pay setup, and monthly charges, to ensure accuracy and maintain control over your household budget.\n\nUse quinn.clark9299@email.com for authentication.',
+        actions=[
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'quinn_clark_3458'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jordan.king3586@email.com',
+        instruction='You are jordan_king_4419. You want to understand the Unlimited Mobile Plan because you are evaluating whether to switch from your current Senior Mobile Plan. You would like to see all available services to assess potential options across mobile, internet, and TV. You prefer to keep your current Senior Mobile Plan at the discounted rate of $40.00 because it aligns with your budget and needs as a senior customer. You also want to review your full billing history and current charges, including the $14.37 senior discount applied monthly, to ensure accuracy and transparency. You prefer to pay by credit card and currently have paperless billing enabled.\n\nUse jordan.king3586@email.com for authentication.',
+        actions=[
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'jordan_king_4419'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='taylor.hall3847@email.com',
+        instruction='You are taylor.hall3847@email.com. You want to understand all available services, particularly the Senior Mobile Plan priced at $45.00, and apply a $5 senior discount to reduce it to $40.00 because you are eligible and want to confirm your savings. You would like to review the Unlimited Mobile Plan details because you are considering your mobile service options. You prefer to update your billing preferences to quarterly billing with paperless enabled and auto-pay disabled because you want more control over payment timing and prefer digital statements. After that, you would like to make a full payment of $136.35 using your credit card today because your account has an outstanding balance and you want to clear it promptly. You also want to check the status of your support ticket TICKET00125, which is currently open with medium priority, because you are awaiting resolution and want to stay informed.\n\nUse taylor.hall3847@email.com for authentication.',
+        actions=[
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'taylor_hall_9696', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='record_payment', kwargs={'customer_id': 'taylor_hall_9696', 'amount': 136.35, 'method': 'credit_card', 'date': '2025-09-18'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00125'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='rowan.lee9322@email.com',
+        instruction='You are Rowan Lee (rowan_lee_8557), a senior customer who wants to review all available services and confirm eligibility for the senior discount. You would like the $5 senior discount applied to your Senior Mobile Plan because you qualify based on age and are already enrolled in the mobile_senior plan. After that, you want to update your billing preferences to paperless and auto-pay with a monthly billing cycle for better account management and environmental efficiency, and then make a payment of $52.44 using your credit card on 2025-10-05 to clear your outstanding balance. You prefer auto-pay with credit card going forward to avoid future late fees. Later, you would like to know the details of the Unlimited Mobile Plan to evaluate it for a family member who needs a reliable mobile service with high data capacity. Finally, you want to check the status of support ticket TICKET00156, which is currently open with high priority and was filed by another customer (morgan_hall_4954), to stay informed about a related service issue.\n\nUse rowan.lee9322@email.com for authentication.',
+        actions=[
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'rowan_lee_8557', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'monthly'}),
+            Action(name='record_payment', kwargs={'customer_id': 'rowan_lee_8557', 'amount': 52.44, 'method': 'credit_card', 'date': '2025-10-05'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00156'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jordan.jackson2540@email.com',
+        instruction='You are jordan.jackson2540@email.com. You want to get details about your iPhone 15 because it is experiencing no service, and you need troubleshooting steps to resolve connectivity issues. Since the device is an Apple iPhone 15 used for your Unlimited Mobile Plan, you would like a support ticket created for the device issue to ensure professional assistance if self-troubleshooting fails. After that, you would like to review your current services and billing details to understand your account fully. Later, you want to update your billing preferences to enable paperless billing and auto-pay with your credit card, and change your billing cycle to quarterly for better financial planning and convenience.\n\nUse jordan.jackson2540@email.com for authentication.',
+        actions=[
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'jordan_jackson_5473', 'category': 'device'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15', 'issue': 'no_service'}),
+            Action(name='manage_service', kwargs={'customer_id': 'jordan_jackson_5473', 'action': 'list'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'jordan_jackson_5473'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'jordan_jackson_5473', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'quarterly'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='drew.thomas8153@email.com',
+        instruction='You are drew.harris0288@email.com. You want to troubleshoot your iPhone 12 because it is experiencing no service, which affects your business communications. You prefer Apple devices, specifically the iPhone 12, for their reliability and integration with your work environment. You would like to review your current services, including the Business Mobile - 10 Lines plan, to ensure they meet your needs. You want to open a high-priority support ticket for the mobile service issue because uninterrupted connectivity is critical for your operations. Later, you would like to update your billing preferences: you prefer to disable paperless billing to receive physical copies for record-keeping, keep auto-pay enabled with bank transfer for convenience, and switch to a quarterly billing cycle to better align with your business accounting schedule.\n\nUse drew.thomas8153@email.com for authentication.',
+        actions=[
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 12'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'drew_thomas_8834', 'category': 'mobile'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 12', 'issue': 'no_service'}),
+            Action(name='manage_service', kwargs={'customer_id': 'drew_thomas_8834', 'action': 'list'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'drew_thomas_8834'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'drew_thomas_8834', 'paperless': False, 'auto_pay': True, 'billing_cycle': 'quarterly'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='elliot.martinez0453@email.com',
+        instruction='You are elliot_martinez_1210, a senior customer with the Senior Mobile Plan and Fiber Internet 500MB service. You want to know the cost of your Fiber Internet 500MB service because you are reviewing your current usage and expenses. You would like the $5 senior discount applied to your Senior Mobile Plan, reducing it to $40.00 per month, to ensure you are receiving all eligible savings. You prefer to review your current balance and payment history to verify your account status and recent transactions. You want to update your billing preferences to disable paperless billing and disable auto-pay because you prefer receiving physical bills and making manual payments, and you would like to switch to a quarterly billing cycle for better alignment with your budgeting schedule. You would like a list of all services on your account to confirm what you are currently subscribed to. You are experiencing battery drain on your iPhone 14, so you need troubleshooting guidance because the device is not lasting through the day, and you rely on it for communication. You prefer Apple devices, and specifically the iPhone 14, for their ecosystem and usability.\n\nUse elliot.martinez0453@email.com for authentication.',
+        actions=[
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_500mb'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'elliot_martinez_1210'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'elliot_martinez_1210', 'paperless': False, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='manage_service', kwargs={'customer_id': 'elliot_martinez_1210', 'action': 'list'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 14', 'issue': 'battery_drain'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jordan.lee6822@email.com',
+        instruction='You are jordan_lee_9133 (email: jordan.lee6822@email.com). You are on the Senior Mobile Plan and want to apply the $5 senior discount because it is a benefit you are eligible for as a senior customer, reducing the monthly cost from $45.00 to $40.00. You would like to review your current billing details because you want to ensure accuracy before making changes. You prefer to update your billing preferences to paperless billing for environmental and convenience reasons, disable auto-pay to regain manual control over payments, and switch to a quarterly billing cycle to better align with your financial planning. You want a full list of services on your account to confirm what you are currently paying for, which includes the Senior Mobile Plan and Fiber Internet 500MB. You are experiencing battery drain on your iPhone 12, an Apple device you rely on daily, so you would like troubleshooting guidance to extend battery life and avoid disruption.\n\nUse jordan.lee6822@email.com for authentication.',
+        actions=[
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'jordan_lee_9133'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'jordan_lee_9133', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='manage_service', kwargs={'customer_id': 'jordan_lee_9133', 'action': 'list'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 12', 'issue': 'battery_drain'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='avery.nguyen8363@email.com',
+        instruction='You are avery_nguyen_2530, with email avery.nguyen8363@email.com. You want to review your current billing details to understand your charges. You would like to update your billing preferences to paperless billing and a quarterly billing cycle because it reduces clutter and aligns with your personal finance tracking, and you prefer to disable auto-pay so you can manually review each bill before payment. After that, you would like to create a support ticket for billing with medium priority to address concerns about recent charges, ensuring your account remains accurate and transparent.\n\nUse avery.nguyen8363@email.com for authentication.',
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'avery_nguyen_2530'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'avery_nguyen_2530', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'avery_nguyen_2530', 'category': 'billing'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jamie.king2135@email.com',
+        instruction='You are jamie.king2135@email.com. You want to disable paperless billing because you prefer receiving physical statements for record-keeping, enable auto-pay with your credit card to ensure timely payments and avoid late fees, and switch to a quarterly billing cycle for better alignment with your personal budgeting schedule. Later, you would like a billing support ticket created with medium priority as a precaution in case any issues arise during the billing update process.\n\nUse jamie.king2135@email.com for authentication.',
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'jamie_king_7002'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'jamie_king_7002', 'paperless': False, 'auto_pay': True, 'billing_cycle': 'quarterly'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'jamie_king_7002', 'category': 'billing', 'priority': 'medium'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='morgan.garcia5456@email.com',
+        instruction='You are morgan_garcia_0855. You want to review your current billing details because you have a concern about your bill. You prefer paperless billing and auto-pay with a credit card, as reflected in your current settings. After reviewing, you would like a support ticket to be created for the billing issue with medium priority, which has been done under ticket TICKET241, so the matter can be formally addressed.\n\nUse morgan.garcia5456@email.com for authentication.',
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'morgan_garcia_0855'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'morgan_garcia_0855', 'category': 'billing', 'priority': 'medium'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='avery.wilson8581@email.com',
+        instruction='You are avery_wilson_0002, with email avery.wilson8581@email.com. You want to review your current billing details because you noticed a discrepancy on your bill. After reviewing, you would like to create a high-priority support ticket in the billing category to escalate the issue for immediate resolution, as timely resolution is important to avoid future billing errors.\n\nUse avery.wilson8581@email.com for authentication.',
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'avery_wilson_0002'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'avery_wilson_0002', 'category': 'billing', 'priority': 'high'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='harper.wilson0064@email.com',
+        instruction='You are Harper Wilson (harper_wilson_1300). You want to update your billing preferences to paperless billing with a quarterly billing cycle and prefer to disable auto-pay because you want greater control over payment timing. You also want to create a support ticket in the account category to document this change. Later, you would like to add your new iPhone 15 to your account, preferring Apple devices for compatibility with your existing ecosystem, and then review all active services on your account to ensure everything is correctly listed.\n\nUse harper.wilson0064@email.com for authentication.',
+        actions=[
+            Action(name='manage_billing', kwargs={'customer_id': 'harper_wilson_1300', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'harper_wilson_1300', 'category': 'account'}),
+            Action(name='add_device', kwargs={'customer_id': 'harper_wilson_1300', 'device_name': 'iPhone 15'}),
+            Action(name='manage_service', kwargs={'customer_id': 'harper_wilson_1300', 'action': 'list'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='skyler.clark2233@email.com',
+        instruction='You are skyler_clark_0977, with email skyler.clark2233@email.com. You want to update your billing preferences to enable paperless billing for environmental and convenience reasons, disable auto-pay because you prefer manual control over payments, and switch to a quarterly billing cycle for better budget alignment. You would like to create a support ticket for an account-related issue with medium priority to ensure it is reviewed without urgency. Later, you want to add your new Google Pixel 8 to your account because you recently upgraded your device, and you prefer Google phones for their clean software experience. After that, you would like a list of all active services on your account—currently the Basic Mobile Plan, Fiber Internet 500MB, and Premium TV Package—to review your current plan and ensure everything is accurate.\n\nUse skyler.clark2233@email.com for authentication.',
+        actions=[
+            Action(name='manage_billing', kwargs={'customer_id': 'skyler_clark_0977', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'skyler_clark_0977', 'category': 'account', 'priority': 'medium'}),
+            Action(name='add_device', kwargs={'customer_id': 'skyler_clark_0977', 'device_name': 'Google Pixel 8'}),
+            Action(name='manage_service', kwargs={'customer_id': 'skyler_clark_0977', 'action': 'list'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jamie.harris4268@email.com',
+        instruction='You are Jamie Harris (jamie.harris4268@email.com), a residential customer since 2019. You want to review your current services—Basic Mobile Plan, Cable Internet 500 Mbps, and Basic TV Package—because you are evaluating your usage and costs. You would like to update your billing preferences to disable paperless billing because you prefer receiving physical statements, enable auto-pay for convenience and to avoid late fees, and switch to a quarterly billing cycle to better align with your budgeting schedule. Later, you would like troubleshooting for your Samsung Galaxy A54 because it is experiencing rapid battery drain, which disrupts your daily use. You prefer Samsung devices for their familiarity and ease of use. After that, you want to review the details of your Basic Mobile Plan to confirm its features and pricing. Subsequently, you would like to check the status of your open support ticket (TICKET00168), which is currently open with medium priority, and you would like it resolved with low priority since the issue is no longer urgent. You prefer to pay by bank transfer, as it is your established payment method.\n\nUse jamie.harris4268@email.com for authentication.',
+        actions=[
+            Action(name='manage_service', kwargs={'customer_id': 'jamie_harris_3456', 'action': 'list'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'jamie_harris_3456', 'paperless': False, 'auto_pay': True, 'billing_cycle': 'quarterly'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'jamie_harris_3456'}),
+            Action(name='add_device', kwargs={'customer_id': 'jamie_harris_3456', 'device_name': 'Samsung Galaxy A54'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Samsung Galaxy A54', 'issue': 'battery_drain'}),
+            Action(name='get_device_details', kwargs={'device_name': 'Samsung Galaxy A54'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_basic'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00168'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00168', 'status': 'resolved', 'priority': 'low'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='riley.allen8517@email.com',
+        instruction='You are Riley Allen (riley.allen8517@email.com). You want to review all available services because you are considering potential upgrades or additions to your current plan. You would like the $5 senior discount applied to your Senior Mobile Plan, which reduces the monthly cost from $45.00 to $40.00, because you qualify as a senior customer and expect this benefit. You also want detailed information about your Fiber Internet 500MB service because you are assessing your current internet performance and value. Later, you would like troubleshooting for your Google Pixel 8 due to battery drain issues that disrupt daily use, so you can extend battery life and avoid frequent charging. After that, you want to add a new iPhone 15 Pro to your account because you prefer Apple devices for their ecosystem integration and user experience, and this model meets your performance and feature expectations. You would like to list all your current services to verify what is active on your account and ensure accuracy. Finally, you want to review your billing details, including charges, payment history, and auto-pay status, because you prefer to maintain full visibility and control over your account, and you use auto-pay via bank transfer for convenience and reliability.\n\nUse riley.allen8517@email.com for authentication.',
+        actions=[
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_500mb'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Google Pixel 8', 'issue': 'battery_drain'}),
+            Action(name='add_device', kwargs={'customer_id': 'riley_allen_6154', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='manage_service', kwargs={'customer_id': 'riley_allen_6154', 'action': 'list'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'riley_allen_6154'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='cameron.martinez9115@email.com',
+        instruction='You are cameron_martinez_2452. You want to review the status of your open support ticket TICKET00197, which is currently at medium priority, because you need visibility into ongoing service issues. You also want to access your billing information, where your current balance is $0.00 and your next bill is due on 2025-10-20, to verify recent payments and ensure accuracy. After that, you would like to create a new support ticket for a billing-related concern, which has been assigned ticket ID TICKET241, because you noticed a discrepancy in your monthly charges. Later, you want to explore available service options, particularly the Senior Mobile Plan, because you are interested in more cost-effective plans. You prefer the Senior Mobile Plan at the discounted price of $40.00 per month after applying the senior discount, as it better fits your usage and budget needs compared to your current Family Plan - 4 Lines.\n\nUse cameron.martinez9115@email.com for authentication.',
+        actions=[
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00197'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'cameron_martinez_2452'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'cameron_martinez_2452', 'category': 'billing'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='quinn.wilson4865@email.com',
+        instruction='You are quinn_wilson_4735. You want to check the status of your open support ticket TICKET00214 because you are following up on an existing issue. You also want to review your current billing details to understand your monthly charges and payment history, as you prefer to stay informed about your account. After that, you would like to create a new support ticket for billing-related concerns since you noticed a discrepancy in your recent charges. Later, you want to explore all available services to evaluate potential plan changes. You are specifically interested in the Senior Mobile Plan and would like to see its discounted price of $40.00 after applying the senior discount, as you are eligible and looking to reduce your monthly expenses. You also want detailed information about the Senior Mobile Plan to confirm its features and suitability for your usage needs.\n\nUse quinn.wilson4865@email.com for authentication.',
+        actions=[
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00214'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'quinn_wilson_4735'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'quinn_wilson_4735', 'category': 'billing'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='elliot.anderson8510@email.com',
+        instruction='You are elliot.anderson8510@email.com. You want to update your billing preferences to enable paperless billing, disable auto-pay, and switch to a quarterly billing cycle because you prefer more control over payment timing and want to reduce paper usage. Later, you would like to create a high-priority support ticket in the billing category to address a billing concern, as timely resolution is important. You are interested in reviewing all available services to understand your options. You would like confirmation that your current Senior Mobile Plan, priced at $45.00 monthly, is discounted to $40.00 with the senior discount, ensuring you are receiving the correct benefit. You also want details about the Unlimited Mobile Plan for comparison, as you are evaluating potential future options. Finally, you would like an update on your support ticket, but it has been determined that ticket TICKET00013 is not associated with your account.\n\nUse elliot.anderson8510@email.com for authentication.',
+        actions=[
+            Action(name='manage_billing', kwargs={'customer_id': 'elliot_anderson_6407', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'elliot_anderson_6407', 'category': 'billing', 'priority': 'high'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00013'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='emerson.jackson1632@email.com',
+        instruction='You are Emerson Jackson (emerson.jackson1632@email.com). You want to update your billing preferences to enable paperless billing because you prefer digital records, disable auto-pay because you want manual control over payments, and switch to a quarterly billing cycle for better budget alignment. You also want to create a support ticket in the billing category because you are experiencing a billing issue. You would like to see all available services to explore options. You are interested in the Senior Mobile Plan and want to know its price with the senior discount applied, which is $40.00 per month, making it a cost-effective choice for your needs. You also want details about the Unlimited Mobile Plan to compare it with your current mobile service. Finally, you would like to check the status of support ticket TICKET00029, but it belongs to a different customer, so it cannot be accessed or resolved for you.\n\nUse emerson.jackson1632@email.com for authentication.',
+        actions=[
+            Action(name='manage_billing', kwargs={'customer_id': 'emerson_jackson_0280', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'emerson_jackson_0280', 'category': 'billing'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00029'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='drew.garcia0654@email.com',
+        instruction='You are drew_garcia_1193, with email drew.garcia0654@email.com. You want to make a payment of $151.53 using your credit card on 2025-09-18 to clear your outstanding balance, because your last payment was marked late and you want to restore good standing. You would like confirmation that your current mobile service is the Senior Mobile Plan, which includes a senior discount and is tailored to your usage needs. Later, you would like to troubleshoot slow speeds on your iPhone 15 Pro, as it is your primary device and you rely on it daily for communication and internet access. After that, you would like to officially add the iPhone 15 Pro to your account, because it is not currently associated with your service and you prefer to have it linked for full support and billing clarity. You prefer Apple devices, specifically the iPhone 15 Pro, for their performance and ecosystem compatibility.\n\nUse drew.garcia0654@email.com for authentication.',
+        actions=[
+            Action(name='record_payment', kwargs={'customer_id': 'drew_garcia_1193', 'amount': 151.53, 'method': 'credit_card', 'date': '2025-09-18'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'drew_garcia_1193'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'slow_speeds'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='add_device', kwargs={'customer_id': 'drew_garcia_1193', 'device_name': 'iPhone 15 Pro'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='skyler.lee3644@email.com',
+        instruction='You are Skyler Lee (skyler.lee3644@email.com), a business customer currently subscribed to the Fiber Internet 2GB plan. You want to review the details of the Fiber Internet 1GB plan, which costs $80/month, because you are considering a potential downgrade for cost efficiency despite your current higher-speed service. You also want to see all available services to evaluate potential alternatives or additions to your current bundle. Later, you would like to open a high-priority internet support ticket (TICKET241) because your iPhone 15 is experiencing connectivity issues that may be related to your home network, and reliable internet is critical for your business operations.\n\nUse skyler.lee3644@email.com for authentication.',
+        actions=[
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_1gb'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'skyler_lee_0701', 'category': 'internet', 'priority': 'high'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sam.harris5965@email.com',
+        instruction='You are sam_harris_2507. You want to review your current billing details because your statement shows a balance of $55.86 due to a late payment. You would like to update your billing preferences to disable paperless billing and auto-pay, and switch to a quarterly billing cycle for better control over payment timing. After that, you want to pay off the outstanding balance of $55.86 using your credit card on October 18, 2025, to clear the account. Later, you would like a support ticket created under the billing category with medium priority because you have ongoing concerns about late fees and billing accuracy.\n\nUse sam.harris5965@email.com for authentication.',
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'sam_harris_2507'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'sam_harris_2507', 'paperless': False, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='record_payment', kwargs={'customer_id': 'sam_harris_2507', 'amount': 55.86, 'method': 'credit_card', 'date': '2025-10-18'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'sam_harris_2507', 'category': 'billing', 'priority': 'medium'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jordan.clark2943@email.com',
+        instruction='You are jordan_clark_9766. You want to review your billing details because your statement shows a current balance of $111.03 due to a late payment. You would like to enable auto-pay to avoid future late fees and maintain paperless billing for convenience and environmental reasons. You prefer to pay your current balance of $111.03 by credit card on 2025-10-05 to clear the outstanding amount promptly. After that, you want a billing support ticket created with medium priority to confirm all changes were processed correctly and have a record for your account.\n\nUse jordan.clark2943@email.com for authentication.',
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'jordan_clark_9766'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'jordan_clark_9766', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'monthly'}),
+            Action(name='record_payment', kwargs={'customer_id': 'jordan_clark_9766', 'amount': 111.03, 'method': 'credit_card', 'date': '2025-10-05'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'jordan_clark_9766', 'category': 'billing'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='reese.garcia6852@email.com',
+        instruction='You are Reese Garcia (reese.garcia6852@email.com). You want to remove the Cable Internet 500MB plan because you are switching to a different internet provider. You would like to add a new iPhone 15 Pro to your account because you prefer Apple devices for their ecosystem integration, and the iPhone 15 Pro offers advanced features and performance. You are experiencing battery drain issues on your Samsung Galaxy A54, which is your current mobile device, so you want troubleshooting guidance and a support ticket created for this issue. You would like to know the details of your Senior Mobile Plan, including that it costs $45.00 monthly and includes a $5.00 senior discount, bringing the effective rate to $40.00. You also want to review your current billing information, including your monthly charges and payment history, to ensure accuracy. You prefer to keep paperless billing enabled but are not currently enrolled in auto-pay, and you would like to maintain a monthly billing cycle.\n\nUse reese.garcia6852@email.com for authentication.',
+        actions=[
+            Action(name='get_services', kwargs={}),
+            Action(name='manage_service', kwargs={'customer_id': 'reese_garcia_3039', 'action': 'remove', 'service_id': 'internet_cable_500mb'}),
+            Action(name='add_device', kwargs={'customer_id': 'reese_garcia_3039', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Samsung Galaxy A54', 'issue': 'battery_drain'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+            Action(name='get_device_details', kwargs={'device_name': 'Samsung Galaxy A54'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'reese_garcia_3039', 'category': 'device'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'reese_garcia_3039'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='taylor.walker6369@email.com',
+        instruction='You are Taylor Walker (taylor.walker6369@email.com), a senior customer. You want to remove the Cable Internet 500MB plan from your account because you are simplifying your services. You would like to add a new iPhone 15 Pro to your account because you prefer Apple devices and want an upgraded phone. You also want troubleshooting for your iPhone 14 due to battery drain issues affecting daily use. After that, you requested a support ticket for internet-related concerns with medium priority to ensure ongoing connectivity is reviewed. Later, you inquired about the senior discount on your mobile service, confirming that the $45.00 mobile plan should be discounted to $40.00, which aligns with your preference for cost-effective senior pricing. You prefer to pay by bank transfer as your current payment method.\n\nUse taylor.walker6369@email.com for authentication.',
+        actions=[
+            Action(name='get_services', kwargs={}),
+            Action(name='manage_service', kwargs={'customer_id': 'taylor_walker_0047', 'action': 'remove', 'service_id': 'internet_cable_500mb'}),
+            Action(name='add_device', kwargs={'customer_id': 'taylor_walker_0047', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 14', 'issue': 'battery_drain'}),
+            Action(name='get_service_details', kwargs={'service_id': 'internet_cable_500mb'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'taylor_walker_0047', 'category': 'internet', 'priority': 'medium'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'taylor_walker_0047'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='taylor.hall3847@email.com',
+        instruction='You are Taylor Hall (taylor.hall3847@email.com). You want to check the status of your open support ticket TICKET00125 because you need confirmation that it is still being processed. You also want to review your current billing information since you are aware of an outstanding balance and want to verify the amount before taking action. Later, you would like to pay off your $136.35 balance using bank transfer because you prefer to manage large payments manually for tracking purposes. After that, you would like to create a new support ticket for a billing-related issue with medium priority because you want to address concerns about recent late fees. Subsequently, you want to review the details of your Home Security System service before removing it, as you are evaluating whether the $40 monthly cost aligns with your current needs. Finally, you would like to remove the Home Security System service from your account because you no longer require professional monitoring and wish to reduce monthly expenses.\n\nUse taylor.hall3847@email.com for authentication.',
+        actions=[
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00125'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'taylor_hall_9696'}),
+            Action(name='record_payment', kwargs={'customer_id': 'taylor_hall_9696', 'amount': 136.35, 'method': 'bank_transfer', 'date': '2025-10-23'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'taylor_hall_9696', 'category': 'billing', 'priority': 'medium'}),
+            Action(name='manage_service', kwargs={'customer_id': 'taylor_hall_9696', 'action': 'remove', 'service_id': 'home_security'}),
+            Action(name='get_service_details', kwargs={'service_id': 'home_security'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='morgan.garcia6112@email.com',
+        instruction="You are Morgan Garcia (morgan.garcia6112@email.com). You want troubleshooting for your Samsung Galaxy A54 because the device is experiencing battery drain issues. After that, you would like to confirm your discounted rate on the Senior Mobile Plan, which is $40.00 per month after the $5 senior discount is applied, and you want to review your current billing details to understand your charges and payment status. Later, you would like to see a list of your active services for account clarity. Subsequently, you want to add a new mobile device to your account for a family member, preferring Apple devices, specifically the iPhone 15, because it meets your family's usage needs and ecosystem preferences. You prefer to keep paperless billing enabled but are not currently using auto-pay and prefer to manage payments manually.\n\nUse morgan.garcia6112@email.com for authentication.",
+        actions=[
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Samsung Galaxy A54', 'issue': 'battery_drain'}),
+            Action(name='get_device_details', kwargs={'device_name': 'Samsung Galaxy A54'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'morgan_garcia_8324', 'category': 'device'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'morgan_garcia_8324'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='manage_service', kwargs={'customer_id': 'morgan_garcia_8324', 'action': 'list'}),
+            Action(name='add_device', kwargs={'customer_id': 'morgan_garcia_8324', 'device_name': 'iPhone 15'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='emerson.clark0162@email.com',
+        instruction='You are emerson_clark_1026, a senior customer on the Senior Mobile Plan. You would like troubleshooting for your Google Pixel 8 because it is experiencing battery drain, which affects daily usability. You prefer devices from Google, and the Pixel 8 is your current mobile phone. After troubleshooting, you want a support ticket created for ongoing device issues to ensure long-term resolution. You would like to confirm the discounted price of your Senior Mobile Plan, which is $40.00 per month after the $5 senior discount, to verify billing accuracy. You also want to review your current billing details, including your zero balance and auto-pay setup, because you value financial clarity and control. Later, you would like to see all available services to explore potential upgrades. You want to list your current services—Senior Mobile Plan, 500 Mbps Cable Internet, and Premium TV—to understand your account composition. Finally, you would like to add a new WiFi 6 Router to improve home Wi-Fi performance and reliability, as your current Basic WiFi Router is outdated. You prefer networking equipment from TechCorp, and the WiFi6-Pro model meets your speed and coverage needs. You prefer to pay by bank transfer with auto-pay and paperless billing for convenience and environmental reasons.\n\nUse emerson.clark0162@email.com for authentication.',
+        actions=[
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Google Pixel 8', 'issue': 'battery_drain'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'emerson_clark_1026', 'category': 'device'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'emerson_clark_1026'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='manage_service', kwargs={'customer_id': 'emerson_clark_1026', 'action': 'list'}),
+            Action(name='add_device', kwargs={'customer_id': 'emerson_clark_1026', 'device_name': 'WiFi 6 Router'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='morgan.clark2808@email.com',
+        instruction='You are Morgan Clark (morgan.clark2808@email.com). You want troubleshooting for your Apple iPhone 15 because it is experiencing battery drain issues that disrupt daily use. You would like a high-priority support ticket created for this device issue since the phone is essential for communication and you need a timely resolution. Later, you would like to pay off your outstanding balance of $90.31 using your credit card on September 18, 2025, to avoid further late fees and restore on-time payment status. You also want detailed information about your Unlimited Mobile Plan to better understand your current mobile service subscription and ensure it meets your usage needs.\n\nUse morgan.clark2808@email.com for authentication.',
+        actions=[
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15', 'issue': 'battery_drain'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'morgan_clark_6566', 'category': 'device', 'priority': 'high'}),
+            Action(name='record_payment', kwargs={'customer_id': 'morgan_clark_6566', 'amount': 90.31, 'method': 'credit_card', 'date': '2025-09-18'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'morgan_clark_6566'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='riley.wilson0553@email.com',
+        instruction='You are Riley Wilson (riley.wilson0553@email.com). You want troubleshooting for your iPhone 12 because it is not getting any service, and you would like a support ticket opened for this mobile issue to ensure it is tracked. Later, you would like to pay your outstanding balance of $67.51 using a credit card to clear the account and avoid late fees. You also want to learn more about the Unlimited Mobile Plan priced at $85.00 per month because you are considering switching from your current mobile plan for better value and simplicity.\n\nUse riley.wilson0553@email.com for authentication.',
+        actions=[
+            Action(name='create_support_ticket', kwargs={'customer_id': 'riley_wilson_4618', 'category': 'mobile'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 12', 'issue': 'no_service'}),
+            Action(name='manage_service', kwargs={'customer_id': 'riley_wilson_4618', 'action': 'list'}),
+            Action(name='record_payment', kwargs={'customer_id': 'riley_wilson_4618', 'amount': 67.51, 'method': 'credit_card', 'date': '2025-10-28'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'riley_wilson_4618'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='parker.martinez7432@email.com',
+        instruction='You are Parker Martinez (parker.martinez7432@email.com). You want to open a support ticket for no service on an iPhone 15 Pro because the device is not connecting to the network, and you need assistance to restore connectivity. You prefer Apple devices, specifically the iPhone 15 Pro, for its features and performance. Later, you would like to review your current services, which include the Senior Mobile Plan, Cable Internet 500 Mbps, and Premium TV Package, to ensure everything is accurate. You also want to make a $45.00 payment using your credit card today to proactively manage your account balance. After that, you would like to confirm the details of your Senior Mobile Plan and apply the senior discount, which reduces the monthly cost from $45.00 to $40.00, to better understand your eligible savings. Finally, you prefer to update your billing preferences to enable paperless billing and auto-pay with your credit card, and maintain a monthly billing cycle for consistent and convenient account management.\n\nUse parker.martinez7432@email.com for authentication.',
+        actions=[
+            Action(name='create_support_ticket', kwargs={'customer_id': 'parker_martinez_9318', 'category': 'mobile', 'priority': 'medium'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'no_service'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='add_device', kwargs={'customer_id': 'parker_martinez_9318', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='record_payment', kwargs={'customer_id': 'parker_martinez_9318', 'amount': 45.0, 'method': 'credit_card', 'date': '2025-09-18'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'parker_martinez_9318'}),
+            Action(name='manage_service', kwargs={'customer_id': 'parker_martinez_9318', 'action': 'list'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'parker_martinez_9318', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'monthly'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='emerson.nguyen0038@email.com',
+        instruction='You are Emerson Nguyen (emerson.nguyen0038@email.com), a senior customer. You are experiencing no service on your WiFi 6 Router, so you want troubleshooting assistance for connectivity issues because reliable internet is essential for daily use. After that, you would like a support ticket created for this device issue to ensure it is tracked and resolved. You also want to add your Conference Room TV to your account because it is already registered to your services and should be fully integrated. Later, you intend to pay your $158.60 outstanding balance using a credit card, and before doing so, you want to review your current billing details and active services to verify charges. You also want to know what services are available for potential future upgrades. You are on the Senior Mobile Plan, which normally costs $45.00 per month, and with the $5 senior discount, your rate is $40.00, so you would like confirmation of this discounted rate. You also want detailed information about the Senior Mobile Plan to understand its benefits. Finally, you prefer to update your billing preferences to a quarterly cycle for better budget management, enable paperless billing to reduce clutter, and disable auto-pay because you want manual control over payments.\n\nUse emerson.nguyen0038@email.com for authentication.',
+        actions=[
+            Action(name='create_support_ticket', kwargs={'customer_id': 'emerson_nguyen_6383', 'category': 'device'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'WiFi 6 Router', 'issue': 'no_service'}),
+            Action(name='get_device_details', kwargs={'device_name': 'Conference Room TV'}),
+            Action(name='add_device', kwargs={'customer_id': 'emerson_nguyen_6383', 'device_name': 'Conference Room TV'}),
+            Action(name='record_payment', kwargs={'customer_id': 'emerson_nguyen_6383', 'amount': 158.6, 'method': 'credit_card', 'date': '2025-09-18'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'emerson_nguyen_6383'}),
+            Action(name='manage_service', kwargs={'customer_id': 'emerson_nguyen_6383', 'action': 'list'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'emerson_nguyen_6383', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='skyler.clark8545@email.com',
+        instruction="You are Skyler Clark (skyler.clark8545@email.com), a residential customer in New York. You want to review your current billing details because you noticed an outstanding balance and want to ensure everything is accurate. You would like a support ticket created for your internet service due to ongoing connectivity concerns. Because your iPhone 12 is experiencing slow speeds and impacts your daily usage, you prefer troubleshooting guidance to resolve performance issues quickly. You want to know more about your iPhone 12 device, which is an Apple model, to better understand its capabilities and limitations. You are considering adding a new device to your account for expanded connectivity. You would like to list your current services to evaluate what you're using. Later, you want to update your billing preferences to paperless billing and switch to a quarterly billing cycle for better financial planning and reduced paper waste. After that, you intend to record a payment of $151.91 using your credit card on 2025-10-19 to clear your outstanding balance. You would like to see the full list of available services to explore potential upgrades or changes. You are interested in learning more about the Unlimited Mobile Plan to assess if it still fits your needs. You want to check the status of your existing support ticket TICKET00146, which is currently open with low priority, and then resolve it by updating the status to resolved and priority to high to ensure the issue is formally closed with proper attention.\n\nUse skyler.clark8545@email.com for authentication.",
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'skyler_clark_3608'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'skyler_clark_3608', 'category': 'internet'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 12', 'issue': 'slow_speeds'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 12'}),
+            Action(name='add_device', kwargs={'customer_id': 'skyler_clark_3608', 'device_name': 'WiFi 6 Router'}),
+            Action(name='manage_service', kwargs={'customer_id': 'skyler_clark_3608', 'action': 'list'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'skyler_clark_3608', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'quarterly'}),
+            Action(name='record_payment', kwargs={'customer_id': 'skyler_clark_3608', 'amount': 151.91, 'method': 'credit_card', 'date': '2025-10-19'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00146'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00146', 'status': 'resolved', 'priority': 'high'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='morgan.clark2808@email.com',
+        instruction='You are morgan.clark2808@email.com. You want to review your billing details because you have an outstanding balance of $90.31, which includes a late fee, and your last payment was marked as late. You would like to create a support ticket for the billing issue to resolve the late payment status. You are experiencing no service on your iPhone 15, so you want troubleshooting for this device because it is your primary mobile phone and essential for daily communication. You prefer Apple devices, and specifically the iPhone 15, so maintaining its functionality is important. You would like to add a new WiFi 6 Router to your account to improve home network performance, as your current Enterprise Router may not support modern speed requirements. After that, you want to update your billing preferences to enable auto-pay and switch to a quarterly billing cycle for better payment management and to avoid future late fees. You prefer to pay by credit card and would like to make a payment of $90.31 on 2025-09-18 to clear your current balance. Later, you would like to explore all available services to evaluate potential upgrades. You want to confirm the details of your Unlimited Mobile Plan to ensure it still meets your usage needs. Finally, you would like to check the status of support ticket TICKET00167 and resolve it with high priority, as you believe it is related to your service and billing concerns.\n\nUse morgan.clark2808@email.com for authentication.',
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'morgan_clark_6566'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'morgan_clark_6566', 'category': 'billing', 'priority': 'medium'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15', 'issue': 'no_service'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15'}),
+            Action(name='add_device', kwargs={'customer_id': 'morgan_clark_6566', 'device_name': 'WiFi 6 Router'}),
+            Action(name='manage_service', kwargs={'customer_id': 'morgan_clark_6566', 'action': 'list'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'morgan_clark_6566', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'quarterly'}),
+            Action(name='record_payment', kwargs={'customer_id': 'morgan_clark_6566', 'amount': 90.31, 'method': 'credit_card', 'date': '2025-09-18'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00167'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00167', 'status': 'resolved', 'priority': 'high'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='kendall.garcia9053@email.com',
+        instruction='You are kendall.garcia9053@email.com. You want to pay off your current balance of $33.09 using credit card today, September 25, 2025, to clear the outstanding amount and avoid further fees. You would like to update your billing preferences by disabling auto-pay to regain manual control over payments, keeping paperless billing enabled for convenience, and switching to a quarterly billing cycle to better align with your personal budgeting schedule. You are experiencing battery drain on your Apple iPhone 12, which affects daily usability, so you need troubleshooting guidance. Later, you would like to open a support ticket in the mobile category to address ongoing service concerns, ensuring your Basic Mobile Plan performs reliably.\n\nUse kendall.garcia9053@email.com for authentication.',
+        actions=[
+            Action(name='record_payment', kwargs={'customer_id': 'kendall_garcia_2616', 'amount': 33.09, 'method': 'credit_card', 'date': '2025-09-25'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'kendall_garcia_2616'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'kendall_garcia_2616', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'kendall_garcia_2616', 'category': 'mobile'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 12', 'issue': 'battery_drain'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='reese.clark7888@email.com',
+        instruction='You are Reese Clark (reese.clark7888@email.com). You want to pay off your outstanding balance of $31.62 using your credit card because you prefer to keep your account in good standing. After that, you would like to update your billing preferences by disabling paperless billing to receive physical statements, enabling auto-pay for convenience, and switching to a quarterly billing cycle to better align with your budgeting schedule. Since you are concerned about potential billing issues, you would like a support ticket to be created with medium priority as a precaution. Additionally, you are experiencing slow speeds on your Samsung Galaxy A54 and would like troubleshooting assistance because the device is essential for daily communication and internet use.\n\nUse reese.clark7888@email.com for authentication.',
+        actions=[
+            Action(name='record_payment', kwargs={'customer_id': 'reese_clark_1767', 'amount': 31.62, 'method': 'credit_card', 'date': '2025-10-20'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'reese_clark_1767'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'reese_clark_1767', 'paperless': False, 'auto_pay': True, 'billing_cycle': 'quarterly'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'reese_clark_1767', 'category': 'billing', 'priority': 'medium'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Samsung Galaxy A54', 'issue': 'slow_speeds'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='skyler.thomas8665@email.com',
+        instruction="You are Skyler Thomas (skyler.thomas8665@email.com). You want to verify the specifications of the iPhone 15 Pro because you are considering upgrading your current iPhone 13 and need to confirm its capabilities. Since you prefer Apple devices for their ecosystem integration, you would like to add the iPhone 15 Pro to your account as your primary mobile device. After that, you would like to review your current services—Unlimited Mobile Plan, Fiber Internet 500MB, and Premium TV Package—and explore other available plans to assess if a better fit exists for your usage, such as higher-speed internet or a more cost-effective mobile option. Later, you would like to report ongoing performance issues with your device by creating a support ticket under the 'device' category with medium priority, as the problem is affecting your daily use but not critical. Finally, you would like to check your current billing details to confirm your balance, payment method, and preferences, ensuring everything is accurate and up to date, especially since you prefer paperless billing and have auto-pay disabled for manual control over payments.\n\nUse skyler.thomas8665@email.com for authentication.",
+        actions=[
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='add_device', kwargs={'customer_id': 'skyler_thomas_4408', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='manage_service', kwargs={'customer_id': 'skyler_thomas_4408', 'action': 'list'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'skyler_thomas_4408', 'category': 'device'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'skyler_thomas_4408'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='skyler.garcia6717@email.com',
+        instruction="You are Skyler Garcia (skyler_garcia_8112). You want to verify the details of your new iPhone 15 Pro, which is made by Apple, before adding it to your account because you want to ensure compatibility and correct setup. After confirmation, you would like to add the iPhone 15 Pro to your account for seamless service integration. You also want to review your current services—Unlimited Mobile Plan, Cable Internet 500MB, and Basic TV Package—to understand your existing setup, and you are interested in exploring other available plans such as Fiber Internet 1GB or Premium TV Package for potential upgrades. You are experiencing an issue with your device, so you would like a support ticket to be created in the 'device' category to get assistance, and you prefer this ticket to be tracked for resolution. Additionally, you want to review your billing details, including your current $0.00 balance and recent payment history, to confirm your account is up to date before making any changes. You prefer to pay by credit card and currently have auto-pay and paperless billing disabled, which gives you manual control over payments.\n\nUse skyler.garcia6717@email.com for authentication.",
+        actions=[
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='add_device', kwargs={'customer_id': 'skyler_garcia_8112', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='manage_service', kwargs={'customer_id': 'skyler_garcia_8112', 'action': 'list'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'skyler_garcia_8112', 'category': 'device'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'skyler_garcia_8112'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='skyler.wilson8265@email.com',
+        instruction='You are skyler_wilson_5820, with email skyler.wilson8265@email.com. You want to disable paperless billing and auto-pay and switch to a quarterly billing cycle because you prefer receiving physical bills and managing payments manually. You would like to remove the Premium TV Package to reduce monthly expenses. You want to add a new Apple iPhone 13 to your account for a family member, as Apple devices are already in use and preferred for compatibility. You also need troubleshooting for your Apple iPhone 15 due to battery drain issues that affect daily usability.\n\nUse skyler.wilson8265@email.com for authentication.',
+        actions=[
+            Action(name='manage_billing', kwargs={'customer_id': 'skyler_wilson_5820', 'paperless': False, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='manage_service', kwargs={'customer_id': 'skyler_wilson_5820', 'action': 'remove', 'service_id': 'tv_premium'}),
+            Action(name='add_device', kwargs={'customer_id': 'skyler_wilson_5820', 'device_name': 'iPhone 13'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15', 'issue': 'battery_drain'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='casey.clark0465@email.com',
+        instruction='You are Casey Clark (casey.clark0465@email.com), a residential customer since 2017. You want to update your billing preferences to enable auto-pay, keep paperless billing, and switch to an annual billing cycle because it aligns with your preference for automated, predictable payments and reduces administrative effort. You would like to remove the Basic TV Package from your services to reduce monthly costs, as you no longer use it regularly. You prefer to add a new mobile phone from Samsung, specifically the Galaxy S23, to your Unlimited Mobile Plan to use alongside your existing devices. You also want troubleshooting assistance for your iPhone 15 because it has been experiencing rapid battery drain, which affects your daily usage and reliability needs.\n\nUse casey.clark0465@email.com for authentication.',
+        actions=[
+            Action(name='manage_billing', kwargs={'customer_id': 'casey_clark_6698', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'annual'}),
+            Action(name='manage_service', kwargs={'customer_id': 'casey_clark_6698', 'action': 'remove', 'service_id': 'tv_basic'}),
+            Action(name='add_device', kwargs={'customer_id': 'casey_clark_6698', 'device_name': 'Samsung Galaxy S23'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15', 'issue': 'battery_drain'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jordan.clark2943@email.com',
+        instruction='You are jordan_clark_9766. You want to open a high-priority support ticket for battery drain issues with your iPhone 15 Pro because the device is experiencing premature battery depletion. You prefer Apple devices, specifically the iPhone 15 Pro, for their performance and ecosystem integration. After that, you would like to update your billing preferences to paperless and quarterly billing cycle while keeping auto-pay disabled for greater control over payment timing. Subsequently, you want to pay your outstanding balance of $111.03 using credit card to clear the account and avoid late fees. Finally, you are interested in learning about all available services, and you would like to know the discounted price of the Senior Mobile Plan, which is $40.00 per month with the senior discount applied, as you qualify based on age and seek a cost-effective mobile option.\n\nUse jordan.clark2943@email.com for authentication.',
+        actions=[
+            Action(name='create_support_ticket', kwargs={'customer_id': 'jordan_clark_9766', 'category': 'device', 'priority': 'high'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'battery_drain'}),
+            Action(name='manage_service', kwargs={'customer_id': 'jordan_clark_9766', 'action': 'list'}),
+            Action(name='add_device', kwargs={'customer_id': 'jordan_clark_9766', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'jordan_clark_9766', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='record_payment', kwargs={'customer_id': 'jordan_clark_9766', 'amount': 111.03, 'method': 'credit_card', 'date': '2025-10-25'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'jordan_clark_9766'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00014'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00014', 'status': 'in_progress', 'priority': 'urgent'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jordan.wright5174@email.com',
+        instruction='You are jordan_wright_5293. You want to create a new support ticket for your iPhone 15 Pro because it is experiencing battery drain, which affects daily productivity. You also want to list your current services to review your business plan usage. You would like to add a new WiFi 6 Router to improve network performance, and you prefer devices from TechCorp as the manufacturer. After that, you want to update your billing preferences to disable auto-pay and switch to a quarterly billing cycle for better financial control, despite having no outstanding balance, and you prefer to make manual payments by credit card. You also want to confirm your current billing details for accuracy. You need to update the status of your existing ticket TICKET00042 to in_progress with high priority because the issue requires immediate attention. Later, you would like to see all available services in the catalog to explore potential upgrades. Finally, you want to understand how the senior discount applies to your Business Mobile - 10 Lines plan, and you have confirmed that the $5 discount reduces the $450.00 monthly cost to $445.00, which supports your goal of cost optimization.\n\nUse jordan.wright5174@email.com for authentication.',
+        actions=[
+            Action(name='create_support_ticket', kwargs={'customer_id': 'jordan_wright_5293', 'category': 'device', 'priority': 'medium'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'battery_drain'}),
+            Action(name='manage_service', kwargs={'customer_id': 'jordan_wright_5293', 'action': 'list'}),
+            Action(name='add_device', kwargs={'customer_id': 'jordan_wright_5293', 'device_name': 'WiFi 6 Router'}),
+            Action(name='get_device_details', kwargs={'device_name': 'WiFi 6 Router'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'jordan_wright_5293', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='record_payment', kwargs={'customer_id': 'jordan_wright_5293', 'amount': 0.0, 'method': 'credit_card', 'date': '2025-10-18'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'jordan_wright_5293'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_business_10lines'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00042'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00042', 'status': 'in_progress', 'priority': 'high'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '450.00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='casey.wilson6089@email.com',
+        instruction='You are Casey Wilson (casey.wilson6089@email.com), a residential customer in Phoenix. You want to add an Apple smartphone, specifically the iPhone 15 Pro, to your account because you prefer Apple devices and are transitioning from your current Samsung Galaxy S23. After that, you would like to subscribe to the Premium TV Package to expand your entertainment options at home. You want to review your current billing details to understand your charges before making changes. Subsequently, you prefer to update your billing settings to disable paperless billing and turn off auto-pay, choosing manual payments via bank transfer with a quarterly billing cycle for better control over your expenses. If any issues arise during this process, you want a support ticket created in the device category to ensure proper tracking. Finally, you need troubleshooting assistance for battery drain on your iPhone 15 Pro because it is not lasting through the day, and you plan to have this issue documented in a support ticket for follow-up.\n\nUse casey.wilson6089@email.com for authentication.',
+        actions=[
+            Action(name='add_device', kwargs={'customer_id': 'casey_wilson_7250', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='manage_service', kwargs={'customer_id': 'casey_wilson_7250', 'action': 'add', 'service_id': 'tv_premium'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'casey_wilson_7250'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'casey_wilson_7250', 'paperless': False, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'casey_wilson_7250', 'category': 'device'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'battery_drain'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='kendall.anderson3199@email.com',
+        instruction="You are kendall_anderson_8211, with email kendall.anderson3199@email.com. You want to add your iPhone 15 Pro to your account because it is your primary mobile device and you need it properly registered for service and support. You would like a full list of your current services, which include Unlimited Mobile Plan and Fiber Internet 500MB, to verify your account setup. You also want to review your billing details to ensure accuracy before making changes. You prefer to update your billing preferences to enable paperless billing for environmental and convenience reasons, disable auto-pay to maintain manual control over payments, and keep your billing cycle set to monthly for consistency with your budgeting. You are experiencing battery drain on your iPhone 15 Pro, a known issue with this Apple model, and you would like troubleshooting guidance to resolve the performance issue. After troubleshooting, you want to create a support ticket (TICKET241) for the device issue with category 'device' and medium priority so the problem can be tracked and resolved by the support team.\n\nUse kendall.anderson3199@email.com for authentication.",
+        actions=[
+            Action(name='add_device', kwargs={'customer_id': 'kendall_anderson_8211', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='manage_service', kwargs={'customer_id': 'kendall_anderson_8211', 'action': 'list'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'kendall_anderson_8211'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'kendall_anderson_8211', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'monthly'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'kendall_anderson_8211', 'category': 'device'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'battery_drain'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='alex.thomas0057@email.com',
+        instruction='You are alex_thomas_4139, a residential customer in Austin, TX. You are experiencing battery drain on your iPhone 12, which is affecting daily usability, so you want troubleshooting assistance for the device issue. Later, you would like to update your existing support ticket TICKET00058 to reflect that the issue has been resolved and change its priority from medium to low, since the problem no longer requires urgent attention.\n\nUse alex.thomas0057@email.com for authentication.',
+        actions=[
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 12'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 12', 'issue': 'battery_drain'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00058'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00058', 'status': 'resolved', 'priority': 'low'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='alex.thomas0057@email.com',
+        instruction='You are Alex Thomas (alex_thomas_4139). You want to check the details of your iPhone 12 because it is experiencing battery drain issues, and you would like troubleshooting guidance since the device is essential for daily communication. You prefer Apple devices, specifically the iPhone 12 model. Later, you would like to update your open support ticket TICKET00060 to status resolved and priority high, because you believe the issue has been fixed and want confirmation from support as a final step.\n\nUse alex.thomas0057@email.com for authentication.',
+        actions=[
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 12'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 12', 'issue': 'battery_drain'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00060'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00060', 'status': 'resolved', 'priority': 'high'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='harper.hall8871@email.com',
+        instruction='You are harper_hall_9239, with email harper.hall8871@email.com. You want to check the status of your open support ticket TICKET00105, which is currently at medium priority, because you need visibility into ongoing support issues. You would like to review your billing details because you want to understand your current charges and payment setup, noting that your account is on auto-pay with paperless billing and has a $0.00 balance. You are interested in the Fiber Internet 1GB service, priced at $80.00 per month, because you are considering upgrading from your current cable internet plan. You want details about the iPhone 15 Pro, an Apple-manufactured device, because you recently acquired it and need to understand its specifications. You would like to add the iPhone 15 Pro to your account because it is now your primary device and needs to be officially registered. After that, you want to create a new internet support ticket because you are experiencing connectivity issues that may be related to your service or device.\n\nUse harper.hall8871@email.com for authentication.',
+        actions=[
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00105'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'harper_hall_9239'}),
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_1gb'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'harper_hall_9239', 'category': 'internet'}),
+            Action(name='add_device', kwargs={'customer_id': 'harper_hall_9239', 'device_name': 'iPhone 15 Pro'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='drew.garcia5615@email.com',
+        instruction='You are drew_garcia_1137, with email drew.garcia5615@email.com. You want to check the status of your open support ticket TICKET00163 because you are experiencing issues with your iPhone 13 and need to know if it is being handled; the ticket is currently open with medium priority. You would like to review your billing details to ensure everything is up to date, especially since your last payment of $88.60 was completed on 2025-09-26 and your next bill is due on 2025-10-26; you currently have a zero balance and are enrolled in paperless billing, but auto-pay is not enabled. You are interested in learning about the Unlimited Mobile Plan, which costs $85.00 per month, because it offers more data and better value compared to your current mobile_basic plan at $35.00. You also want information about your iPhone 13 because you are considering troubleshooting or upgrading it; it is an Apple device, which you prefer for its ecosystem integration. Later, you may create a new support ticket for your device if the current one does not resolve your connectivity or performance issues. After that, you would like to add another device to your account, possibly another Apple product, to expand your connected setup.\n\nUse drew.garcia5615@email.com for authentication.',
+        actions=[
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00163'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'drew_garcia_1137'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 13'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'drew_garcia_1137', 'category': 'device'}),
+            Action(name='add_device', kwargs={'customer_id': 'drew_garcia_1137', 'device_name': 'iPhone 13'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='quinn.anderson9171@email.com',
+        instruction="You are Quinn Anderson (quinn.anderson9171@email.com). You want to confirm the details of your Samsung Galaxy A54 because you're experiencing service issues and need to ensure it's properly managed on your account. Since the device is already associated with your Unlimited Mobile Plan, you next want to verify and escalate your existing support ticket TICKET00208 to urgent priority due to the ongoing connectivity problem, which you rely on for daily communication. After that, you would like a new high-priority device support ticket created (TICKET241) to specifically address the no-service issue on your Samsung Galaxy A54, as the problem persists and requires immediate attention. You prefer Samsung devices for their reliability and familiarity, and you are using the Galaxy A54 as your primary phone. You would like troubleshooting guidance for the no-service issue because the device shows no signal even in areas with strong coverage, and you need it resolved quickly to maintain connectivity. You prefer to pay by credit card and have autopay enabled for convenience.\n\nUse quinn.anderson9171@email.com for authentication.",
+        actions=[
+            Action(name='get_device_details', kwargs={'device_name': 'Samsung Galaxy A54'}),
+            Action(name='add_device', kwargs={'customer_id': 'quinn_anderson_6424', 'device_name': 'Samsung Galaxy A54'}),
+            Action(name='manage_service', kwargs={'customer_id': 'quinn_anderson_6424', 'action': 'list'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00208'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00208', 'status': 'open', 'priority': 'urgent'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'quinn_anderson_6424', 'category': 'device', 'priority': 'high'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Samsung Galaxy A54', 'issue': 'no_service'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='alex.thomas5669@email.com',
+        instruction='You are alex.thomas5669@email.com. You want to update your billing preferences to enable paperless billing for environmental and convenience reasons, disable auto-pay to gain more control over payment timing, and switch to a quarterly billing cycle to better align with your financial planning. You have an outstanding balance of $89.19 and would like to make a payment of that amount today using credit card for immediate resolution. You prefer to add a Samsung Galaxy S23 to your account because Samsung is your preferred mobile device brand and the S23 offers the performance and reliability you need. You also want to remove your current Premium TV Package service since you are transitioning away from traditional TV services. After that, you would like to create a high-priority support ticket for billing issues because of recent late fee concerns and past payment delays. You also requested information confirming that the Premium TV Package costs $95.00 per month and that the senior discount reduces a $45.00 service to $40.00, which helps you evaluate potential savings on future plan changes.\n\nUse alex.thomas5669@email.com for authentication.',
+        actions=[
+            Action(name='manage_billing', kwargs={'customer_id': 'alex_thomas_7404', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='record_payment', kwargs={'customer_id': 'alex_thomas_7404', 'amount': 89.19, 'method': 'credit_card', 'date': '2025-09-18'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'alex_thomas_7404', 'category': 'billing', 'priority': 'high'}),
+            Action(name='add_device', kwargs={'customer_id': 'alex_thomas_7404', 'device_name': 'Samsung Galaxy S23'}),
+            Action(name='manage_service', kwargs={'customer_id': 'alex_thomas_7404', 'action': 'remove', 'service_id': 'tv_premium'}),
+            Action(name='get_service_details', kwargs={'service_id': 'tv_premium'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'alex_thomas_7404'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='rowan.lee9322@email.com',
+        instruction='You are Rowan Lee (rowan.lee9322@email.com). You want to add the Sports TV Package to your account because you are interested in sports programming. You would like to update your billing preferences to paperless and enable auto-pay with a quarterly billing cycle for better organization and convenience. You prefer to pay your outstanding balance of $52.44 using credit card to clear the late fee and avoid future penalties. You want to create a billing support ticket with medium priority to document the payment and billing changes. You would like to add a Samsung 65" Smart TV to your account because you recently purchased it and want to use it with your new TV service. Later, you would like to confirm the details of the Sports TV Package, including its $75.00 monthly cost. You also want to verify that your mobile plan, the Senior Mobile Plan, is correctly discounted to $40.00 per month with your senior benefit. After that, you would like to review your current billing details to ensure all charges and payments are accurate.\n\nUse rowan.lee9322@email.com for authentication.',
+        actions=[
+            Action(name='manage_service', kwargs={'customer_id': 'rowan_lee_8557', 'action': 'add', 'service_id': 'tv_sports_package'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'rowan_lee_8557', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'quarterly'}),
+            Action(name='record_payment', kwargs={'customer_id': 'rowan_lee_8557', 'amount': 52.44, 'method': 'credit_card', 'date': '2025-10-01'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'rowan_lee_8557', 'category': 'billing', 'priority': 'medium'}),
+            Action(name='add_device', kwargs={'customer_id': 'rowan_lee_8557', 'device_name': 'Samsung 65" Smart TV'}),
+            Action(name='get_service_details', kwargs={'service_id': 'tv_sports_package'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'rowan_lee_8557'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='taylor.hall3847@email.com',
+        instruction='You are taylor_hall_9696 (email: taylor.hall3847@email.com). You want to make a one-time payment of $136.35 using your credit card on October 26, 2025, because your account had an overdue balance including a late fee. After that, you would like to confirm your updated billing details to ensure the balance is cleared, which it is, with current balance now $0.00. You also want to learn about the Fiber Internet 1GB service because you are considering upgrading from your current internet_cable_500mb plan for faster and more reliable speeds, and the service costs $80.00 per month.\n\nUse taylor.hall3847@email.com for authentication.',
+        actions=[
+            Action(name='record_payment', kwargs={'customer_id': 'taylor_hall_9696', 'amount': 136.35, 'method': 'credit_card', 'date': '2025-10-26'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'taylor_hall_9696'}),
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_1gb'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='skyler.patel6110@email.com',
+        instruction='You are skyler_patel_6435 with email skyler.patel6110@email.com. You want to make a payment of $100.42 using your credit card on 2025-10-20 to reduce your outstanding balance, which includes a late fee, and bring your account current. You prefer to pay by credit card and have autopay enabled for convenience. After that, you would like information about the Unlimited Mobile Plan (mobile_unlimited) because you are considering upgrading from your current mobile_basic plan to get unlimited data and better value, even though you are not currently subscribed to it.\n\nUse skyler.patel6110@email.com for authentication.',
+        actions=[
+            Action(name='record_payment', kwargs={'customer_id': 'skyler_patel_6435', 'amount': 100.42, 'method': 'credit_card', 'date': '2025-10-20'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'skyler_patel_6435'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='casey.jackson6091@email.com',
+        instruction="You are casey_jackson_4145, with email casey.jackson6091@email.com. You want to update your billing preferences to switch from monthly to an annual billing cycle, while maintaining paperless billing and auto-pay, because you prefer consolidated annual payments for easier financial tracking. Your iPhone 15 Pro, an Apple device, is experiencing battery drain issues, so you would like troubleshooting guidance to resolve the problem quickly since it's a primary work device. If troubleshooting does not resolve the issue, you will request a high-priority support ticket for the device to ensure timely resolution. Additionally, you would like to confirm the addition of your WiFi 6 Router to the account, which is already associated with your fiber internet service, and verify the specifications of your iPhone 15 Pro, which is confirmed as an Apple-manufactured mobile phone.\n\nUse casey.jackson6091@email.com for authentication.",
+        actions=[
+            Action(name='manage_billing', kwargs={'customer_id': 'casey_jackson_4145', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'annual'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'casey_jackson_4145', 'category': 'device', 'priority': 'high'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'battery_drain'}),
+            Action(name='add_device', kwargs={'customer_id': 'casey_jackson_4145', 'device_name': 'WiFi 6 Router'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='rowan.garcia2286@email.com',
+        instruction='You are rowan_garcia_8718. You want to troubleshoot battery drain issues with your Samsung Galaxy A54 because the device is losing power too quickly during daily use, and you rely on it for communication and work tasks. You would like a high-priority support ticket created for this issue to ensure a fast resolution, which has been done under ticket TICKET241. You prefer to update your billing preferences to enable auto-pay with your bank transfer method and switch to an annual billing cycle for better payment management, while maintaining paperless billing to reduce clutter and environmental impact. Later, you would like to add a new WiFi 6 Router to your account for improved home network performance, and you want to verify its specifications in the system to ensure compatibility and optimal speeds. You prefer Samsung devices for your mobile phones, and the Galaxy A54 is your current primary phone. You prefer the WiFi 6 Router by TechCorp for your networking equipment to replace your older Basic WiFi Router and support faster internet speeds.\n\nUse rowan.garcia2286@email.com for authentication.',
+        actions=[
+            Action(name='manage_billing', kwargs={'customer_id': 'rowan_garcia_8718', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'annual'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'rowan_garcia_8718', 'category': 'device', 'priority': 'high'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Samsung Galaxy A54', 'issue': 'battery_drain'}),
+            Action(name='add_device', kwargs={'customer_id': 'rowan_garcia_8718', 'device_name': 'WiFi 6 Router'}),
+            Action(name='get_device_details', kwargs={'device_name': 'WiFi 6 Router'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='alex.anderson0433@email.com',
+        instruction='You are Alex Anderson. You want to update your billing preferences to enable paperless billing and auto-pay, and switch to a monthly billing cycle for better control and convenience. You also want to check the status of your open support ticket, which is currently open with medium priority, and review your billing information for accuracy. Additionally, you would like to know more about your Fiber Internet 1GB service because you are evaluating your current plan fit. Later, you would like troubleshooting assistance for slow speeds on your iPhone 15 Pro because it affects your daily connectivity, and you prefer Apple devices, specifically the iPhone 15 Pro model, for their performance and ecosystem integration.\n\nUse alex.anderson0433@email.com for authentication.',
+        actions=[
+            Action(name='manage_billing', kwargs={'customer_id': 'alex_anderson_8285', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'monthly'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'alex_anderson_8285', 'category': 'billing'}),
+            Action(name='add_device', kwargs={'customer_id': 'alex_anderson_8285', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00012'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'alex_anderson_8285'}),
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_1gb'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'slow_speeds'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='quinn.white6161@email.com',
+        instruction='You are Quinn White (quinn_white_9478). You want to update your billing preferences to paperless billing and a quarterly cycle while disabling auto-pay because you prefer to manually review and control your business account payments each quarter. You would like to create a support ticket for a device issue with medium priority since you are experiencing problems with a new device. Later, you want to check the status of support ticket TICKET00025, which has been escalated to high priority, to ensure it is being addressed promptly. You also want to review your current billing details to verify your payment history and charges, especially after the recent changes. You are interested in learning more about the Unlimited Mobile Plan because you are considering adding it to your business account for additional flexibility. You prefer Apple devices, and specifically the iPhone 15, because it aligns with your current device ecosystem. You would like troubleshooting steps for battery drain on your iPhone 15 because the battery does not last through your workday, and you need reliable performance. You also want the full device specifications for the iPhone 15 to confirm its compatibility and features for your usage needs.\n\nUse quinn.white6161@email.com for authentication.',
+        actions=[
+            Action(name='manage_billing', kwargs={'customer_id': 'quinn_white_9478', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'quinn_white_9478', 'category': 'device', 'priority': 'medium'}),
+            Action(name='add_device', kwargs={'customer_id': 'quinn_white_9478', 'device_name': 'iPhone 15'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00025'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'quinn_white_9478'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15', 'issue': 'battery_drain'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='alex.lewis4618@email.com',
+        instruction='You are alex_lewis_6880, with email alex.lewis4618@email.com. You want to create a new support ticket for an internet outage with high priority because you are currently experiencing a service disruption that is affecting your home connectivity. After that, you would like to update your existing support ticket TICKET00052 by escalating its priority to urgent and setting its status to in_progress, as the issue requires immediate attention and active resolution. Later, you want to review the details of ticket TICKET00052 to stay informed about its progress. Finally, you would like to check your current billing information to confirm that all charges are accurate and that your account is in good standing, especially since you have autopay enabled and prefer to keep your financial records up to date.\n\nUse alex.lewis4618@email.com for authentication.',
+        actions=[
+            Action(name='create_support_ticket', kwargs={'customer_id': 'alex_lewis_6880', 'category': 'internet', 'priority': 'high'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00052', 'status': 'in_progress', 'priority': 'urgent'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00052'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'alex_lewis_6880'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='quinn.walker0746@email.com',
+        instruction='You are Quinn Walker (quinn.walker0746@email.com). You want to review your current bill and learn more about your Fiber Internet 1GB plan because you are assessing your service value and usage. After that, you would like to add a new WiFi 6 Router to your account, preferring TechCorp as the manufacturer for reliability, specifically the WiFi6-Pro model, to improve your home network performance. Later, you want to update your billing preferences by enabling auto-pay and switching to a quarterly billing cycle for better financial planning and reduced billing frequency. After those changes, you intend to pay off your entire outstanding balance of $191.60 using bank transfer, your preferred payment method, to bring your account current and avoid late fees.\n\nUse quinn.walker0746@email.com for authentication.',
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'quinn_walker_6773'}),
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_1gb'}),
+            Action(name='add_device', kwargs={'customer_id': 'quinn_walker_6773', 'device_name': 'WiFi 6 Router'}),
+            Action(name='get_device_details', kwargs={'device_name': 'WiFi 6 Router'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'quinn_walker_6773', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'quarterly'}),
+            Action(name='record_payment', kwargs={'customer_id': 'quinn_walker_6773', 'amount': 191.6, 'method': 'bank_transfer', 'date': '2025-10-18'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='casey.clark0465@email.com',
+        instruction="You are casey_clark_6698. You want to review your current billing details and learn more about your Unlimited Mobile Plan because you are verifying your service and charges. You prefer Apple devices and specifically want to add your iPhone 15 to your account to ensure it is properly registered and covered under your plan. Later, you would like to update your billing preferences to switch to an annual billing cycle for better budgeting, enable paperless billing to reduce clutter, and disable auto-pay for greater payment control. After that, you intend to make a one-time payment of $37.10 using your credit card on today's date to clear your outstanding balance and avoid late fees.\n\nUse casey.clark0465@email.com for authentication.",
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'casey_clark_6698'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='add_device', kwargs={'customer_id': 'casey_clark_6698', 'device_name': 'iPhone 15'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'casey_clark_6698', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'annual'}),
+            Action(name='record_payment', kwargs={'customer_id': 'casey_clark_6698', 'amount': 37.1, 'method': 'credit_card', 'date': '2025-09-18'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='harper.lewis5722@email.com',
+        instruction='You are Harper Lewis (harper_lewis_1417), a residential customer in Phoenix, AZ. You want to remove the Fiber Internet 1GB internet plan from your account because you are moving to a new location and no longer need the service. Later, you would like troubleshooting assistance for battery drain issues on your Apple iPhone SE (3rd gen), as the device has been experiencing faster-than-normal battery depletion, likely due to unstable network connectivity during the service transition.\n\nUse harper.lewis5722@email.com for authentication.',
+        actions=[
+            Action(name='manage_service', kwargs={'customer_id': 'harper_lewis_1417', 'action': 'remove', 'service_id': 'internet_fiber_1gb'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '80.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_1gb'}),
+            Action(name='add_device', kwargs={'customer_id': 'harper_lewis_1417', 'device_name': 'iPhone SE (3rd gen)'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone SE (3rd gen)', 'issue': 'battery_drain'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone SE (3rd gen)'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'harper_lewis_1417', 'category': 'device'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sam.king7459@email.com',
+        instruction='You are sam_king_1289, a senior customer on the Senior Mobile Plan. You want to remove the Fiber Internet 1GB service from your account because you no longer need it. You would like to know how the senior discount affects your mobile plan, and you prefer the discounted rate of $40.00 per month for the Senior Mobile Plan for better value. You also want details about the Fiber Internet 1GB service, which costs $80.00 per month, to understand what you are canceling. Later, you would like to add a new Samsung Galaxy S23 to your account because you recently purchased it, and you prefer Samsung devices for their reliability and features. You are experiencing battery drain on your iPhone 15 Pro and want troubleshooting guidance because the device dies too quickly during the day, affecting usability. You also want the specifications of the Samsung Galaxy S23 to confirm its compatibility and performance. After that, you would like a support ticket created for the ongoing battery issue with the iPhone 15 Pro so it can be formally tracked and resolved, and you prefer medium priority since it impacts daily use but is not urgent.\n\nUse sam.king7459@email.com for authentication.',
+        actions=[
+            Action(name='manage_service', kwargs={'customer_id': 'sam_king_1289', 'action': 'remove', 'service_id': 'internet_fiber_1gb'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_1gb'}),
+            Action(name='add_device', kwargs={'customer_id': 'sam_king_1289', 'device_name': 'Samsung Galaxy S23'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'battery_drain'}),
+            Action(name='get_device_details', kwargs={'device_name': 'Samsung Galaxy S23'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'sam_king_1289', 'category': 'device', 'priority': 'medium'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='quinn.wilson5782@email.com',
+        instruction="You are Quinn Wilson (quinn.wilson5782@email.com), a business customer with mobile and internet services. You want to add the Premium TV Package to your account because you're looking to expand your entertainment offerings for your team, and this package includes the channels and streaming integration you need. You also want to add a new Samsung Galaxy S23 to your account for an employee who prefers Samsung devices, specifically the Galaxy S23 model, for its enterprise security features and compatibility with your business apps. After that, you want to create a support ticket for a billing inquiry since your last payment was marked as late despite being submitted on time, and you need clarification on the process. Later, you would like to check the status of your existing support ticket TICKET00076, which is still open with low priority, because you haven't received an update and the issue remains unresolved. You also want to review your current billing details to verify charges, as you noticed a late fee that may have been applied in error. After reviewing, you prefer to make a one-time payment of $152.22 using your credit card today to bring your account current and avoid further fees, as you are transitioning from invoice billing to more reliable payment methods.\n\nUse quinn.wilson5782@email.com for authentication.",
+        actions=[
+            Action(name='get_services', kwargs={}),
+            Action(name='manage_service', kwargs={'customer_id': 'quinn_wilson_5555', 'action': 'add', 'service_id': 'tv_premium'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'quinn_wilson_5555', 'category': 'billing'}),
+            Action(name='add_device', kwargs={'customer_id': 'quinn_wilson_5555', 'device_name': 'Samsung Galaxy S23'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00076'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'quinn_wilson_5555'}),
+            Action(name='record_payment', kwargs={'customer_id': 'quinn_wilson_5555', 'amount': 152.22, 'method': 'credit_card', 'date': '2025-10-05'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='skyler.wright3739@email.com',
+        instruction="You are skyler_wright_6539. You want to remove the Cable Internet 500MB plan because you are downsizing your home internet service to reduce costs. You would like to add a new mobile phone to your account, preferring Apple devices, and specifically the iPhone 14 model, to support a family member's device needs. After that, you want to create a support ticket for these account changes with medium priority to document the updates. Later, you would like to review your billing details to verify your current balance and charges. Subsequently, you prefer to make a payment of $80.07 using a credit card on 2025-10-05 to clear your outstanding balance and avoid late fees.\n\nUse skyler.wright3739@email.com for authentication.",
+        actions=[
+            Action(name='get_services', kwargs={}),
+            Action(name='manage_service', kwargs={'customer_id': 'skyler_wright_6539', 'action': 'remove', 'service_id': 'internet_cable_500mb'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'skyler_wright_6539', 'category': 'account', 'priority': 'medium'}),
+            Action(name='add_device', kwargs={'customer_id': 'skyler_wright_6539', 'device_name': 'iPhone 14'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00079'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'skyler_wright_6539'}),
+            Action(name='record_payment', kwargs={'customer_id': 'skyler_wright_6539', 'amount': 80.07, 'method': 'credit_card', 'date': '2025-10-05'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='avery.jackson1136@email.com',
+        instruction='You are avery_jackson_3269. You want to review your current billing details because you have a concern about your charges or payment history, and you prefer transparency in your account activity. You would like a high-priority support ticket opened for your billing issue because it requires urgent attention, and you have already experienced uncertainty about your account status. The ticket has been created as TICKET241.\n\nUse avery.jackson1136@email.com for authentication.',
+        actions=[
+            Action(name='create_support_ticket', kwargs={'customer_id': 'avery_jackson_3269', 'category': 'billing', 'priority': 'high'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'avery_jackson_3269'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='skyler.martinez8026@email.com',
+        instruction='You are skyler_martinez_2372, with email skyler.martinez8026@email.com. You want to open a support ticket for a billing issue because you have a concern about your current billing setup despite having a zero balance and active auto-pay. The ticket should be created with medium priority to ensure timely review. You prefer paperless billing to be considered as part of the resolution since you are currently receiving paper bills, but your main goal is to clarify or resolve the underlying billing concern.\n\nUse skyler.martinez8026@email.com for authentication.',
+        actions=[
+            Action(name='create_support_ticket', kwargs={'customer_id': 'skyler_martinez_2372', 'category': 'billing', 'priority': 'medium'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'skyler_martinez_2372'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='taylor.hall3847@email.com',
+        instruction='You are Taylor Hall (taylor.hall3847@email.com). You want to add your iPhone 15 Pro to your account because it is not currently listed among your devices. You prefer Apple devices, and specifically the iPhone 15 Pro model, for its performance and integration with your existing services. After adding it, you would like troubleshooting guidance for battery drain issues because the device loses charge quickly during daily use. You want to follow basic steps like restarting the device, reducing brightness, and closing background apps. Later, you would like to create a support ticket for the ongoing battery issue so it can be formally tracked. After the ticket is created, you would like it escalated to urgent priority because the phone is essential for both personal and work communication. Finally, you want confirmation that the ticket status is open and the priority is now urgent to ensure timely resolution.\n\nUse taylor.hall3847@email.com for authentication.',
+        actions=[
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='add_device', kwargs={'customer_id': 'taylor_hall_9696', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'battery_drain'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'taylor_hall_9696', 'category': 'device', 'priority': 'high'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00125', 'status': 'in_progress', 'priority': 'urgent'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00125'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='drew.garcia9352@email.com',
+        instruction="You are Drew Garcia (drew.garcia9352@email.com). You want to review your billing details because you're verifying recent payments and account activity. You would like information about your Unlimited Mobile Plan to confirm your service features and charges. You own a Google Pixel 8 and are experiencing battery drain issues, so you want troubleshooting guidance to improve device performance. You prefer Google devices, specifically the Pixel 8, as your primary mobile phone. You would like a support ticket created for the device issue with medium priority since the problem affects daily usability. Later, you want to confirm your Google Pixel 8 is properly added to your account, which it already is. You would like to review your current services, which include the Unlimited Mobile Plan and 500 Mbps Cable Internet. You prefer to keep paperless billing and auto-pay enabled with a monthly billing cycle for convenience and environmental reasons. You would like to record a recent payment of $157.12 made on 2025-09-14 using credit card, which has already been processed via auto-pay. After that, you want to check the status of your existing support ticket TICKET00139 and update it to resolved status with high priority because the issue was urgent and has now been addressed.\n\nUse drew.garcia9352@email.com for authentication.",
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'drew_garcia_4446'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_device_details', kwargs={'device_name': 'Google Pixel 8'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Google Pixel 8', 'issue': 'battery_drain'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'drew_garcia_4446', 'category': 'device'}),
+            Action(name='add_device', kwargs={'customer_id': 'drew_garcia_4446', 'device_name': 'Google Pixel 8'}),
+            Action(name='manage_service', kwargs={'customer_id': 'drew_garcia_4446', 'action': 'list'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'drew_garcia_4446', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'monthly'}),
+            Action(name='record_payment', kwargs={'customer_id': 'drew_garcia_4446', 'amount': 157.12, 'method': 'credit_card', 'date': '2025-09-14'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00139'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00139', 'status': 'resolved', 'priority': 'high'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='emerson.young9760@email.com',
+        instruction='You are emerson_young_9438. You want to review your current billing status because your last payment was marked as late and you have an outstanding balance of $166.26, so you need clarity on your financial obligations. You would like to know your next bill date, which is October 22, 2025, to plan your upcoming payment. Additionally, you are interested in understanding the details of the Fiber Internet 1GB service, which costs $80.00 per month, to evaluate whether it continues to meet your home internet needs in terms of speed and value.\n\nUse emerson.young9760@email.com for authentication.',
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'emerson_young_9438'}),
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_1gb'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sam.wilson3204@email.com',
+        instruction='You are sam_wilson_9743. You want to review your current billing details because you are evaluating your monthly expenses, which currently include the Unlimited Mobile Plan and Cable Internet 500MB, with a total monthly charge of $150.56. You also want information about the Fiber Internet 1GB service because you are considering upgrading from your current Cable Internet 500MB plan for faster and more reliable speeds, and you would like to understand how the $80 monthly cost compares with your current $55 charge.\n\nUse sam.wilson3204@email.com for authentication.',
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'sam_wilson_9743'}),
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_1gb'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='quinn.harris2015@email.com',
+        instruction='You are quinn_harris_9291. You want to learn about the Unlimited Mobile Plan because you are considering upgrading your current mobile service. You would like to add an iPhone 15 to your account, preferring Apple devices for their ecosystem compatibility, and this model specifically for its updated features. After that, you want to review your current billing details and manage your services to ensure everything aligns with your usage. You also need to troubleshoot battery drain issues on your iPhone 15 because the device is losing charge too quickly during normal use. Later, you would like to pay your outstanding balance of $39.57 using a credit card on 2025-09-18 for convenience and record-keeping. You prefer credit card payments for their reliability and tracking. You would like to create a new support ticket for billing inquiries to get clarification on recent charges, including a late fee. After that, you want to update your existing support ticket TICKET00217 to status in_progress and priority high because the issue requires immediate attention and has been delayed.\n\nUse quinn.harris2015@email.com for authentication.',
+        actions=[
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15'}),
+            Action(name='add_device', kwargs={'customer_id': 'quinn_harris_9291', 'device_name': 'iPhone 15'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'quinn_harris_9291'}),
+            Action(name='manage_service', kwargs={'customer_id': 'quinn_harris_9291', 'action': 'list'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15', 'issue': 'battery_drain'}),
+            Action(name='record_payment', kwargs={'customer_id': 'quinn_harris_9291', 'amount': 39.57, 'method': 'credit_card', 'date': '2025-09-18'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'quinn_harris_9291', 'category': 'billing', 'priority': 'medium'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00217', 'status': 'in_progress', 'priority': 'high'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='harper.wilson5381@email.com',
+        instruction='You are Harper Wilson (harper.wilson5381@email.com), a residential customer in Austin, TX. You want to learn about the Unlimited Mobile Plan because you are considering upgrading from your current Basic Mobile Plan. You also want details about your iPhone 13, which you are currently using and experiencing battery drain issues with, so you can troubleshoot the problem. You prefer Apple devices, and you would like to add an iPhone 14 to your account for a family member, which has been successfully added. You want to review your current services—Basic Mobile Plan, Cable Internet 100MB, and Basic TV Package—to understand your usage and costs. You are experiencing battery drain on your iPhone 13, so you need troubleshooting guidance to extend battery life. You have an outstanding balance of $89.84, which you would like to pay today using your credit card to avoid further late fees. You also need to create a support ticket for a mobile issue and then update it to status in_progress with high priority so the issue receives immediate attention.\n\nUse harper.wilson5381@email.com for authentication.',
+        actions=[
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 13'}),
+            Action(name='add_device', kwargs={'customer_id': 'harper_wilson_5062', 'device_name': 'iPhone 14'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'harper_wilson_5062'}),
+            Action(name='manage_service', kwargs={'customer_id': 'harper_wilson_5062', 'action': 'list'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 13', 'issue': 'battery_drain'}),
+            Action(name='record_payment', kwargs={'customer_id': 'harper_wilson_5062', 'amount': 89.84, 'method': 'credit_card', 'date': '2025-10-26'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'harper_wilson_5062', 'category': 'mobile', 'priority': 'medium'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00015', 'status': 'in_progress', 'priority': 'high'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='rowan.wilson5045@email.com',
+        instruction='You are Rowan Wilson (rowan.wilson5045@email.com). You want to understand the details of the Fiber Internet 1GB service because you are reviewing your current telecom offerings. After learning it is a high-speed internet plan priced at $80.00 per month, you proceed to pay your outstanding balance of $106.77 using your credit card on September 18, 2025, to clear your account and avoid late fees. Later, you would like a support ticket created in the billing category to verify that the payment was correctly applied and reflected in your account, ensuring accurate billing records.\n\nUse rowan.wilson5045@email.com for authentication.',
+        actions=[
+            Action(name='get_services', kwargs={}),
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_1gb'}),
+            Action(name='record_payment', kwargs={'customer_id': 'rowan_wilson_1058', 'amount': 106.77, 'method': 'credit_card', 'date': '2025-09-18'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'rowan_wilson_1058', 'category': 'billing'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='rowan.hall2797@email.com',
+        instruction='You are Rowan Hall (rowan_hall_8198), a residential customer in Mountain View, CA, experiencing slow internet speeds on your iPhone 15 Pro, which affects your daily connectivity, so you want to open a support ticket for this device issue. You also want your current services and billing details reviewed to ensure everything is accurate. Later, you would like to know about the Unlimited Mobile Plan because you are considering upgrading from your current Family Plan - 4 Lines, and you are interested in the discounted price of $80.00 with the senior discount applied, even though you may not qualify, to understand potential savings. After that, you would like to add a new Samsung Galaxy S23 to your account because you prefer Samsung devices for their features, and you want to check its specifications to confirm it meets your needs.\n\nUse rowan.hall2797@email.com for authentication.',
+        actions=[
+            Action(name='create_support_ticket', kwargs={'customer_id': 'rowan_hall_8198', 'category': 'device', 'priority': 'medium'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'slow_speeds'}),
+            Action(name='manage_service', kwargs={'customer_id': 'rowan_hall_8198', 'action': 'list'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'rowan_hall_8198'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '85.00'}),
+            Action(name='add_device', kwargs={'customer_id': 'rowan_hall_8198', 'device_name': 'Samsung Galaxy S23'}),
+            Action(name='get_device_details', kwargs={'device_name': 'Samsung Galaxy S23'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='quinn.garcia0789@email.com',
+        instruction='You are Quinn Garcia (quinn_garcia_3466), and you are experiencing battery drain on your iPhone 14, so you want to open a support ticket for this device issue to get it resolved. Later, you would like to know the cost of the Unlimited Mobile Plan with the senior discount applied, which is $80.00 per month, because you are exploring a potential plan change that better fits your usage. After that, you would like to formally add your iPhone 14 to your account and confirm its details, as it is already in use but needs proper registration for service and support continuity. You prefer Apple devices, specifically the iPhone 14, for compatibility with your current setup. You prefer to pay by bank transfer, as it is your current payment method.\n\nUse quinn.garcia0789@email.com for authentication.',
+        actions=[
+            Action(name='create_support_ticket', kwargs={'customer_id': 'quinn_garcia_3466', 'category': 'device', 'priority': 'medium'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 14', 'issue': 'battery_drain'}),
+            Action(name='manage_service', kwargs={'customer_id': 'quinn_garcia_3466', 'action': 'list'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'quinn_garcia_3466'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '85.00'}),
+            Action(name='add_device', kwargs={'customer_id': 'quinn_garcia_3466', 'device_name': 'iPhone 14'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 14'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sam.garcia2823@email.com',
+        instruction='You are sam_garcia_2071. You want to pay off your current outstanding balance of $132.21 using your credit card because you prefer to clear dues promptly and maintain a zero balance. After that, you would like to disable paperless billing and auto-pay, and switch your billing cycle to quarterly because you prefer receiving physical bills and managing payments manually every three months for better control over household expenses. Since these changes may lead to processing discrepancies, you want a high-priority billing support ticket created to ensure all updates are correctly applied and any issues are resolved proactively.\n\nUse sam.garcia2823@email.com for authentication.',
+        actions=[
+            Action(name='record_payment', kwargs={'customer_id': 'sam_garcia_2071', 'amount': 132.21, 'method': 'credit_card', 'date': '2025-09-18'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'sam_garcia_2071'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'sam_garcia_2071', 'paperless': False, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'sam_garcia_2071', 'category': 'billing', 'priority': 'high'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jamie.young6478@email.com',
+        instruction='You are Jamie Young (jamie_young_6769). You want to review your current services, which include the Unlimited Mobile Plan and Cable Internet 100MB, because you are checking for any discrepancies or changes. You are experiencing no service on your Samsung Galaxy A54, so you would like troubleshooting assistance because the device is essential for daily communication. Since the issue persists, you want a support ticket created for the device issue to ensure technical escalation. You prefer Samsung devices, specifically the Galaxy A54, as it is currently on your account and fits your usage needs. Later, you would like to check your billing details to verify charges, as you noticed a late fee and want to understand your current balance of $48.11. After that, you prefer to pay off the outstanding balance of $48.11 using your credit card on September 18, 2025, to avoid further late fees and restore timely payment status. You prefer paperless billing and would like to keep that setting, but you are not currently enrolled in auto-pay and may consider it for future convenience.\n\nUse jamie.young6478@email.com for authentication.',
+        actions=[
+            Action(name='manage_service', kwargs={'customer_id': 'jamie_young_6769', 'action': 'list'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Samsung Galaxy A54', 'issue': 'no_service'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'jamie_young_6769', 'category': 'device', 'priority': 'medium'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'jamie_young_6769'}),
+            Action(name='record_payment', kwargs={'customer_id': 'jamie_young_6769', 'amount': 48.11, 'method': 'credit_card', 'date': '2025-09-18'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='elliot.jackson3938@email.com',
+        instruction='You are Elliot Jackson (elliot.jackson3938@email.com). You want to remove the Cable Internet 100MB internet plan from your account because you are switching to a faster fiber provider and no longer need this service. You are experiencing battery drain issues with your Apple iPhone SE (3rd gen), which you rely on daily, so you would like troubleshooting assistance. If the issue cannot be resolved remotely, you would like a support ticket created for device issues with medium priority to ensure follow-up. Later, you plan to pay off your $55.0 outstanding balance using your credit card on 2025-10-15, as you prefer to settle balances manually even though auto-pay is currently enabled.\n\nUse elliot.jackson3938@email.com for authentication.',
+        actions=[
+            Action(name='manage_service', kwargs={'customer_id': 'elliot_jackson_9264', 'action': 'remove', 'service_id': 'internet_cable_100mb'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone SE (3rd gen)', 'issue': 'battery_drain'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'elliot_jackson_9264', 'category': 'device', 'priority': 'medium'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'elliot_jackson_9264'}),
+            Action(name='record_payment', kwargs={'customer_id': 'elliot_jackson_9264', 'amount': 55.0, 'method': 'credit_card', 'date': '2025-10-15'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='kendall.lee5449@email.com',
+        instruction='You are kendall.lee5449@email.com. You are on the Senior Mobile Plan, which costs $45.00 per month with the senior discount already applied, and you would like to confirm your current service details and pricing because you want to understand your monthly charges. You prefer to keep your current mobile plan as it fits your usage and budget. You would like to review your billing information, which shows a current balance of $119.45 due to a late payment and lack of auto-pay, and you prefer to continue paying by credit card but are not currently enrolled in auto-pay. You mentioned experiencing battery drain on an iPhone 15 Pro, so you would like troubleshooting guidance because you may be considering switching to an Apple device or using it personally, even though your current device on the account is a Samsung Galaxy A54. You prefer Apple devices for their ecosystem, but your current phone is a Samsung. You would like to understand the steps to resolve battery issues on the iPhone 15 Pro, such as restarting the device, reducing brightness, and closing background apps, in case you decide to adopt it in the future.\n\nUse kendall.lee5449@email.com for authentication.',
+        actions=[
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'kendall_lee_0640'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'kendall_lee_0640', 'category': 'mobile'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'battery_drain'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='harper.allen0430@email.com',
+        instruction='You are Harper Allen (harper.allen0430@email.com). You want to understand the details of your Cable Internet 500MB plan because you are experiencing slow speeds on your Standard WiFi Router, which is provided by TechCorp and is essential for your home internet connectivity. You would like a support ticket created for this internet issue to get troubleshooting assistance. You also want to review your current billing information to confirm your payment history and preferences, especially since you value financial clarity. Later, you would like to know the final price of your Senior Mobile Plan after the senior discount is applied, as you are a senior customer seeking affordable service—your plan is priced at $45.00, and with the $5.00 senior discount, your final monthly cost is $40.00. You prefer to keep auto-pay enabled with bank transfer as your payment method for convenience and reliability.\n\nUse harper.allen0430@email.com for authentication.',
+        actions=[
+            Action(name='get_service_details', kwargs={'service_id': 'internet_cable_500mb'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'harper_allen_8052'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'harper_allen_8052', 'category': 'internet'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Standard WiFi Router', 'issue': 'slow_speeds'}),
+            Action(name='get_device_details', kwargs={'device_name': 'Standard WiFi Router'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='rowan.brown1634@email.com',
+        instruction="You are rowan_brown_4908 (email: rowan.brown1634@email.com). You want to update your billing preferences to paperless and disable auto-pay because you prefer managing payments manually and reducing paper mail, even though these settings are already active. You also want to switch to a quarterly billing cycle for better alignment with your personal budgeting schedule. Later, you would like a support ticket created in the 'account' category with medium priority because you are experiencing difficulty accessing your account. After that, you would like to add your new iPhone 15 to your account because you recently acquired the device and need it activated on your plan, and you prefer Apple devices for their ecosystem integration. Finally, you would like a list of all active services on your account to review your current subscriptions and ensure accuracy.\n\nUse rowan.brown1634@email.com for authentication.",
+        actions=[
+            Action(name='manage_billing', kwargs={'customer_id': 'rowan_brown_4908', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'rowan_brown_4908', 'category': 'account'}),
+            Action(name='add_device', kwargs={'customer_id': 'rowan_brown_4908', 'device_name': 'iPhone 15'}),
+            Action(name='manage_service', kwargs={'customer_id': 'rowan_brown_4908', 'action': 'list'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='kendall.lewis6582@email.com',
+        instruction="You are kendall_lewis_7707, authenticated with email kendall.lewis6582@email.com. You want to update your billing preferences to paperless billing with auto-pay disabled and switch to a quarterly billing cycle for better payment control and manual review of charges. After that, you would like a support ticket created under the 'device' category to report an issue with your mobile phone, as you're experiencing unexpected behavior and need technical assistance. You prefer Apple devices and specifically want to add the iPhone 15 Pro to your account because it's your newly acquired primary phone. Finally, you would like a full list of your current services, including the Unlimited Mobile Plan and Fiber Internet 1GB, to review your plan and ensure everything is correctly configured.\n\nUse kendall.lewis6582@email.com for authentication.",
+        actions=[
+            Action(name='manage_billing', kwargs={'customer_id': 'kendall_lewis_7707', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'kendall_lewis_7707', 'category': 'device'}),
+            Action(name='add_device', kwargs={'customer_id': 'kendall_lewis_7707', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='manage_service', kwargs={'customer_id': 'kendall_lewis_7707', 'action': 'list'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='emerson.allen8122@email.com',
+        instruction='You are emerson_allen_8604. You want to update your billing preferences to paperless billing with auto-pay disabled and a monthly billing cycle because you prefer to review your bill manually each month. You would like to list your current services to verify your account setup. Your iPhone 15 Pro is experiencing battery drain issues, so you want to create a support ticket for the device problem to get it resolved promptly. You prefer Apple devices and specifically the iPhone 15 Pro model, so you would like to add it to your account for service coverage. Later, you want to check the status of your existing support ticket TICKET00014, which is currently open, and then update it to resolved status with high priority because the issue has been addressed and you want the record updated accurately.\n\nUse emerson.allen8122@email.com for authentication.',
+        actions=[
+            Action(name='manage_billing', kwargs={'customer_id': 'emerson_allen_8604', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'monthly'}),
+            Action(name='manage_service', kwargs={'customer_id': 'emerson_allen_8604', 'action': 'list'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'battery_drain'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'emerson_allen_8604', 'category': 'device'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='add_device', kwargs={'customer_id': 'emerson_allen_8604', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00014'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00014', 'status': 'resolved', 'priority': 'high'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='morgan.garcia0122@email.com',
+        instruction='You are Morgan Garcia (morgan.garcia0122@email.com). You want to create a support ticket for a device issue with high priority because the problem is impacting daily usage. Later, you would like the ticket to be escalated to urgent priority and in-progress status to ensure immediate attention and resolution. You would like confirmation of the updated ticket details to verify the changes were applied. After that, you would like a review of your current billing statement to ensure accuracy and confirm no unexpected charges are present. Finally, you would like a complete list of active services on your account—including Unlimited Mobile Plan, Cable Internet 500MB, Basic TV Package, and Home Security System—for verification purposes to ensure all services are correct and up to date.\n\nUse morgan.garcia0122@email.com for authentication.',
+        actions=[
+            Action(name='create_support_ticket', kwargs={'customer_id': 'morgan_garcia_0692', 'category': 'device', 'priority': 'high'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET241', 'status': 'in_progress', 'priority': 'urgent'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET241'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'morgan_garcia_0692'}),
+            Action(name='manage_service', kwargs={'customer_id': 'morgan_garcia_0692', 'action': 'list'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='elliot.king9384@email.com',
+        instruction='You are elliot_king_4685 (elliot.king9384@email.com). You want to create a high-priority support ticket for mobile service issues because the problem is time-sensitive. Later, you would like the ticket (TICKET241) to be escalated to urgent priority and marked as in_progress since the issue requires immediate resolution. After that, you would like to verify the updated details of ticket TICKET241 to confirm the changes were applied. You also want to review your current billing information to ensure accuracy and transparency, especially since you pay by invoice and prefer to monitor large business charges. Finally, you would like a complete list of services on your business account—including Business Mobile - 10 Lines, Fiber Internet 2GB, and Business Phone System—to maintain oversight of your business telecom services.\n\nUse elliot.king9384@email.com for authentication.',
+        actions=[
+            Action(name='create_support_ticket', kwargs={'customer_id': 'elliot_king_4685', 'category': 'mobile', 'priority': 'high'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET241', 'status': 'in_progress', 'priority': 'urgent'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET241'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'elliot_king_4685'}),
+            Action(name='manage_service', kwargs={'customer_id': 'elliot_king_4685', 'action': 'list'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='riley.patel5861@email.com',
+        instruction="You are riley.patel5861@email.com. You want to learn about the Fiber Internet 1GB plan because you are considering upgrading from your current Cable Internet 100MB service for faster and more reliable speeds. You would like to add your Google Pixel 8 to your account because it is your preferred device, and you prefer Google devices for their software experience. You also want to create a support ticket for an internet issue since you've been experiencing connectivity problems. Later, you would like to review your current billing details because your last payment was marked as late and you want to avoid future fees. You prefer to keep paperless billing but are open to enabling auto-pay for better payment management. You want to manage your existing services to evaluate potential changes, and you would like to see the full list of available services to explore better options across mobile, internet, and TV. After that, you would like detailed information about your Google Pixel 8 because you rely on it daily and are experiencing slow speeds, which affects your ability to stream and browse efficiently, so you would like troubleshooting guidance to resolve the performance issue.\n\nUse riley.patel5861@email.com for authentication.",
+        actions=[
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_1gb'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'riley_patel_6045', 'category': 'internet'}),
+            Action(name='add_device', kwargs={'customer_id': 'riley_patel_6045', 'device_name': 'Google Pixel 8'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'riley_patel_6045'}),
+            Action(name='manage_service', kwargs={'customer_id': 'riley_patel_6045', 'action': 'list'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_device_details', kwargs={'device_name': 'Google Pixel 8'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Google Pixel 8', 'issue': 'slow_speeds'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='elliot.anderson8524@email.com',
+        instruction='You are elliot_anderson_3546, with email elliot.anderson8524@email.com. You want to learn about the Unlimited Mobile Plan because you are considering its fit with your current services and usage needs. You would like to add your iPhone 15 Pro to your account because it is your preferred device for mobile connectivity. Since the iPhone 15 Pro is experiencing no service, you want to create a support ticket for the mobile issue to resolve the connectivity problem quickly. You prefer Apple devices and specifically the iPhone 15 Pro model for its performance and integration with your existing setup. Later, you would like to review your current services and billing details to ensure accuracy and understand your monthly charges. You also want to see all available services to explore potential upgrades or additions. After that, you would like to confirm the specifications of the iPhone 15 Pro to verify its compatibility with your plan. Finally, you would like troubleshooting steps for the no_service issue on your iPhone 15 Pro because you need reliable mobile connectivity. You prefer to pay by credit card and currently have auto-pay enabled with monthly billing, though you are not enrolled in paperless billing.\n\nUse elliot.anderson8524@email.com for authentication.',
+        actions=[
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'elliot_anderson_3546', 'category': 'mobile'}),
+            Action(name='add_device', kwargs={'customer_id': 'elliot_anderson_3546', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'elliot_anderson_3546'}),
+            Action(name='manage_service', kwargs={'customer_id': 'elliot_anderson_3546', 'action': 'list'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'no_service'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='avery.nguyen4904@email.com',
+        instruction="You are Avery Nguyen (avery_nguyen_2566) with email avery.nguyen4904@email.com. You want to check the status of your high-priority support ticket TICKET00229 because you are experiencing mobile service issues and need urgent resolution; the ticket is currently open with high priority. You would like to review your billing details to understand your current charges and payment setup, noting your last payment of $167.71 was completed on 2025-09-24 via bank transfer and your current balance is $0.00. You are experiencing 'no service' issues with your Apple iPhone 15, so you need troubleshooting guidance to restore connectivity for daily use. You would like a list of your current services to confirm what you're subscribed to, which includes the Unlimited Mobile Plan and Internet Cable 500 Mbps. You want to know the price of a $45.00 plan with the senior discount applied, which would be $40.00, to evaluate cost savings. You are interested in details about the Unlimited Mobile Plan, priced at $85.00 per month, to confirm its features and value. Later, you would like to update your billing preferences by disabling paperless billing and auto-pay and switching to a quarterly billing cycle because you prefer manual control over payments and reviewing bills in print format.\n\nUse avery.nguyen4904@email.com for authentication.",
+        actions=[
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00229'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'avery_nguyen_2566'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'avery_nguyen_2566', 'category': 'billing', 'priority': 'medium'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15', 'issue': 'no_service'}),
+            Action(name='manage_service', kwargs={'customer_id': 'avery_nguyen_2566', 'action': 'list'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'avery_nguyen_2566', 'paperless': False, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='morgan.thomas6764@email.com',
+        instruction='You are Morgan Thomas (morgan.thomas6764@email.com), a residential customer in Seattle. You want to check the status of your open support ticket TICKET00009, which is currently at medium priority, because you need confirmation that your issue is being handled. You would like troubleshooting assistance for your Google Pixel 8, a mobile phone made by Google, because it is experiencing no service and is your primary device. You prefer Google devices and specifically the Pixel 8 model for their software experience. You want to know that a $45.00 plan would cost $40.00 with the senior discount, as you are eligible due to your age, and you would like details about your Unlimited Mobile Plan to understand your current service. Later, you would like to update your billing preferences to disable paperless billing and auto-pay and switch to an annual billing cycle because you prefer to manually review and pay your bill once per year by bank transfer.\n\nUse morgan.thomas6764@email.com for authentication.',
+        actions=[
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00009'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'morgan_thomas_9302'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'morgan_thomas_9302', 'category': 'device', 'priority': 'medium'}),
+            Action(name='get_device_details', kwargs={'device_name': 'Google Pixel 8'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Google Pixel 8', 'issue': 'no_service'}),
+            Action(name='manage_service', kwargs={'customer_id': 'morgan_thomas_9302', 'action': 'list'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'morgan_thomas_9302', 'paperless': False, 'auto_pay': False, 'billing_cycle': 'annual'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='emerson.lee7613@email.com',
+        instruction='You are emerson.lee7613@email.com. You want to check and update your open support ticket TICKET00049 by escalating its priority to urgent and resolving it because the issue requires immediate closure. After that, you would like to confirm your billing preferences with paperless billing enabled, auto-pay disabled, and a monthly billing cycle to maintain control over payment timing and reduce physical mail. Finally, you prefer to make a $50.00 payment using your credit card on 2025-10-05 to prepay for future services and ensure account credit.\n\nUse emerson.lee7613@email.com for authentication.',
+        actions=[
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00049'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00049', 'status': 'resolved', 'priority': 'urgent'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'emerson_lee_8162', 'category': 'billing', 'priority': 'medium'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'emerson_lee_8162', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'monthly'}),
+            Action(name='record_payment', kwargs={'customer_id': 'emerson_lee_8162', 'amount': 50.0, 'method': 'credit_card', 'date': '2025-10-05'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'emerson_lee_8162'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='parker.lee0757@email.com',
+        instruction='You are Parker Lee (parker.lee0757@email.com), a residential customer in Seattle. You want to verify the details of your Standard WiFi Router, which is already registered on your account, because you are experiencing connectivity issues and need to confirm its specifications for troubleshooting. You would like a support ticket created for the device issue to ensure it is formally tracked. After the ticket was created, you want to check its status and subsequently escalate it to high priority with in_progress status to ensure faster resolution, as the ongoing issue is affecting your home internet service reliability. You prefer to keep auto-pay enabled with bank transfer as your payment method, consistent with your current billing preferences.\n\nUse parker.lee0757@email.com for authentication.',
+        actions=[
+            Action(name='get_device_details', kwargs={'device_name': 'Standard WiFi Router'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'parker_lee_9680', 'category': 'device'}),
+            Action(name='add_device', kwargs={'customer_id': 'parker_lee_9680', 'device_name': 'Standard WiFi Router'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00133'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00133', 'status': 'in_progress', 'priority': 'high'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='riley.patel8159@email.com',
+        instruction='You are Riley Patel (riley.patel8159@email.com). You want to verify the specifications of your new iPhone 15 Pro because you recently acquired it and need to confirm its details before proceeding. Since you are experiencing issues with the device, you would like to create a support ticket for device-related problems with medium priority to get timely assistance. After that, you want the iPhone 15 Pro added to your account as a new device because it is now your primary phone and should be registered under your services. Later, you would like to check the status of your existing support ticket TICKET00149, which was initially created for the issue. After confirming it is open, you want to update the ticket to resolved status and escalate its priority to urgent because the issue has been fixed but requires formal closure and higher visibility for resolution tracking.\n\nUse riley.patel8159@email.com for authentication.',
+        actions=[
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'riley_patel_6640', 'category': 'device', 'priority': 'medium'}),
+            Action(name='add_device', kwargs={'customer_id': 'riley_patel_6640', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00149'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00149', 'status': 'resolved', 'priority': 'urgent'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='reese.harris2506@email.com',
+        instruction='You are Reese Harris (reese.harris2506@email.com). You want to review your billing details and see a list of your current services, which include the Unlimited Mobile Plan and Cable Internet 500MB, because you are verifying account activity. You would like to add a new iPhone 15 Pro to your account because you prefer Apple devices and need an upgraded phone for better performance and camera quality. After that, you want to create a support ticket for a billing dispute to address recent charges, including a late fee you believe was incorrectly applied. Later, you would like to pay off your outstanding balance of $122.11 using your credit card today to bring your account current and avoid further fees, preferring credit card payment for faster processing and record-keeping.\n\nUse reese.harris2506@email.com for authentication.',
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'reese_harris_9472'}),
+            Action(name='manage_service', kwargs={'customer_id': 'reese_harris_9472', 'action': 'list'}),
+            Action(name='add_device', kwargs={'customer_id': 'reese_harris_9472', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'reese_harris_9472', 'category': 'billing'}),
+            Action(name='record_payment', kwargs={'customer_id': 'reese_harris_9472', 'amount': 122.11, 'method': 'credit_card', 'date': '2025-09-18'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='kendall.lee2343@email.com',
+        instruction='You are kendall_lee_9814. You want to review your current billing details and a full list of your services, which include the Basic Mobile Plan, Fiber Internet 1GB, and Basic TV Package, because you are verifying your account activity. You would like to add a new iPhone 14 to your account, preferring Apple devices for their ecosystem compatibility, and plan to use it as your primary mobile device. You also want to create a support ticket about your recent charges, including a late fee, to understand the billing discrepancy. Later, you intend to pay off your outstanding balance of $72.36 using your credit card on September 18, 2025, to bring your account current and avoid further fees.\n\nUse kendall.lee2343@email.com for authentication.',
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'kendall_lee_9814'}),
+            Action(name='manage_service', kwargs={'customer_id': 'kendall_lee_9814', 'action': 'list'}),
+            Action(name='add_device', kwargs={'customer_id': 'kendall_lee_9814', 'device_name': 'iPhone 14'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'kendall_lee_9814', 'category': 'billing'}),
+            Action(name='record_payment', kwargs={'customer_id': 'kendall_lee_9814', 'amount': 72.36, 'method': 'credit_card', 'date': '2025-09-18'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='rowan.garcia2286@email.com',
+        instruction='You are rowan_garcia_8718, customer rowan.garcia2286@email.com. You want to remove the Basic TV Package from your account because you are simplifying your services. You are interested in the senior discount, which would reduce a $45.00 service to $40.00, and you would like confirmation of the plan details for the Basic TV Package. Your Samsung Galaxy A54, a Samsung mobile phone, is experiencing battery drain, so you need troubleshooting support for that device. Later, you want to pay your $56.19 balance using your credit card on October 25, 2025, to clear your account and avoid late fees. You would like to create a high-priority support ticket for the Samsung Galaxy A54 device issue since it affects daily use. You have purchased a new iPhone 15 and want to add it to your account, preferring Apple devices, with the iPhone 15 as your chosen model. You also want the device details for the iPhone 15 to confirm its specifications. After that, you would like to check the status of your existing support ticket TICKET00183, which is currently open with low priority, and you want it updated to resolved status with high priority to ensure the issue is properly addressed.\n\nUse rowan.garcia2286@email.com for authentication.',
+        actions=[
+            Action(name='manage_service', kwargs={'customer_id': 'rowan_garcia_8718', 'action': 'remove', 'service_id': 'tv_basic'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'tv_basic'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Samsung Galaxy A54', 'issue': 'battery_drain'}),
+            Action(name='record_payment', kwargs={'customer_id': 'rowan_garcia_8718', 'amount': 56.19, 'method': 'credit_card', 'date': '2025-10-25'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'rowan_garcia_8718', 'category': 'device', 'priority': 'high'}),
+            Action(name='add_device', kwargs={'customer_id': 'rowan_garcia_8718', 'device_name': 'iPhone 15'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00183'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00183', 'status': 'resolved', 'priority': 'high'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sam.jackson9868@email.com',
+        instruction='You are sam.jackson9868@email.com. You want to remove the Cable Internet 500MB plan because you are simplifying your services, and you would like to update your billing preferences to disable auto-pay and paperless billing while switching to a quarterly billing cycle for better payment control. You also want confirmation that your mobile plan, currently priced at $45.00, receives the senior discount, which reduces it to $40.00. Later, you would like assistance with battery drain issues on your Apple iPhone 13, as the device dies too quickly during the day, so you need troubleshooting guidance and a support ticket (TICKET241) has been created for this issue. After that, you would like to add a new mobile device to your account, preferring Samsung as the manufacturer, specifically the Samsung Galaxy S23, to provide service for a family member.\n\nUse sam.jackson9868@email.com for authentication.',
+        actions=[
+            Action(name='manage_billing', kwargs={'customer_id': 'sam_jackson_0641', 'paperless': False, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='manage_service', kwargs={'customer_id': 'sam_jackson_0641', 'action': 'remove', 'service_id': 'internet_cable_500mb'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'internet_cable_500mb'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 13'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'sam_jackson_0641', 'category': 'device', 'priority': 'medium'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 13', 'issue': 'battery_drain'}),
+            Action(name='add_device', kwargs={'customer_id': 'sam_jackson_0641', 'device_name': 'Samsung Galaxy S23'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='riley.martinez9267@email.com',
+        instruction='You are Riley Martinez (riley_martinez_5241). You want to remove the Premium TV Package from your services because you are looking to simplify your account and reduce costs. You would like to update your billing preferences to disable paperless billing and auto-pay, and switch to a quarterly billing cycle, because you prefer manual control over payments and receive statements by mail. You are interested in the Senior Mobile Plan at $45.00 for potential future eligibility, though you are not currently on that plan. You also have an Apple iPhone 15 Pro that is experiencing battery drain issues, so you want troubleshooting guidance and a high-priority support ticket created to address the reliability of your primary device. Later, you would like to add a Google Pixel 8 to your account as a backup mobile device, preferring Google devices for their integration and software experience, with the Pixel 8 as your preferred model.\n\nUse riley.martinez9267@email.com for authentication.',
+        actions=[
+            Action(name='manage_billing', kwargs={'customer_id': 'riley_martinez_5241', 'paperless': False, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='manage_service', kwargs={'customer_id': 'riley_martinez_5241', 'action': 'remove', 'service_id': 'tv_premium'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'riley_martinez_5241', 'category': 'device', 'priority': 'high'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'battery_drain'}),
+            Action(name='add_device', kwargs={'customer_id': 'riley_martinez_5241', 'device_name': 'Google Pixel 8'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='rowan.lee9322@email.com',
+        instruction='You are rowan.lee9322@email.com (customer_id: rowan_lee_8557). You want to review your current billing details because you aim to streamline account management and reduce paper usage. You prefer to update your billing settings to paperless and auto-pay with monthly billing cycle for convenience and reliability. You intend to pay your outstanding balance of $52.44 using a credit card on 2025-09-18 to clear dues promptly and avoid late fees. After that, you would like a support ticket created for this billing update to maintain a formal record. You also want to add a new WiFi 6 Router to improve home network performance, as your current Basic WiFi Router is insufficient for your usage. Later, you need assistance with your iPhone SE (3rd gen), which is experiencing battery drain issues, so you would like troubleshooting steps because the device is essential for daily communication. You prefer Apple devices for their ecosystem integration. You also want to review your current services, including the Senior Mobile Plan priced at $45.00, to confirm your subscription details. You would like the senior discount applied, resulting in a $5.00 reduction, because you are eligible and it lowers your monthly cost. Finally, you would like a full list of available services to explore potential upgrades or changes in the future, particularly in mobile, internet, and TV categories.\n\nUse rowan.lee9322@email.com for authentication.',
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'rowan_lee_8557'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'rowan_lee_8557', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'monthly'}),
+            Action(name='record_payment', kwargs={'customer_id': 'rowan_lee_8557', 'amount': 52.44, 'method': 'credit_card', 'date': '2025-09-18'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'rowan_lee_8557', 'category': 'billing'}),
+            Action(name='add_device', kwargs={'customer_id': 'rowan_lee_8557', 'device_name': 'WiFi 6 Router'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone SE (3rd gen)'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone SE (3rd gen)', 'issue': 'battery_drain'}),
+            Action(name='manage_service', kwargs={'customer_id': 'rowan_lee_8557', 'action': 'list'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+            Action(name='get_services', kwargs={}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='morgan.garcia6112@email.com',
+        instruction='You are morgan_garcia_8324 (morgan.garcia6112@email.com), a senior customer. You want to review your billing details because you have an outstanding balance of $188.40. You would like to update your billing preferences to receive paper bills and disable auto-pay, while keeping your billing cycle monthly, so you can manually manage payments. After that, you want to pay your $188.40 balance using your credit card on 2025-09-18 to clear the overdue amount. You prefer to add a new mobile device made by Apple, specifically the iPhone 14, because you are switching from your current Samsung Galaxy A54. Since you are experiencing battery drain on the iPhone 14, you need troubleshooting support to extend usage between charges. You also want to list your current services—Senior Mobile Plan, Cable Internet 100MB, and Premium TV Package—to verify your account setup. You are interested in the $5 senior discount, which reduces the $45.00 Senior Mobile Plan to $40.00, to ensure you are receiving all eligible savings. You would like to know about the Unlimited Mobile Plan at $85.00 as a potential future option. Finally, you want to see all available services in the catalog to explore upgrades or changes, particularly in mobile, internet, and TV offerings.\n\nUse morgan.garcia6112@email.com for authentication.',
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'morgan_garcia_8324'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'morgan_garcia_8324', 'paperless': False, 'auto_pay': False, 'billing_cycle': 'monthly'}),
+            Action(name='record_payment', kwargs={'customer_id': 'morgan_garcia_8324', 'amount': 188.4, 'method': 'credit_card', 'date': '2025-09-18'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'morgan_garcia_8324', 'category': 'billing'}),
+            Action(name='add_device', kwargs={'customer_id': 'morgan_garcia_8324', 'device_name': 'iPhone 14'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 14'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 14', 'issue': 'battery_drain'}),
+            Action(name='manage_service', kwargs={'customer_id': 'morgan_garcia_8324', 'action': 'list'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_services', kwargs={}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='kendall.lee5449@email.com',
+        instruction='You are jordan.lee6822@email.com. You want to create a support ticket for internet issues because you are experiencing connectivity problems, and the ticket should be categorized under internet with medium priority. You would like to review your billing details to confirm your current charges and payment history. You want to verify the Senior Mobile Plan pricing and apply the senior discount, which reduces the $45.00 monthly cost to $40.00, because you are eligible for senior benefits. You prefer to add a new iPhone 15 Pro to your account because you need an upgraded device, and you want to confirm its details as an Apple smartphone. You would like troubleshooting guidance for slow speeds on the iPhone 15 Pro because the device is not performing optimally. After that, you want to list your current services to review your active subscriptions. Finally, you prefer to pay off an outstanding balance of $119.45 using a credit card on September 18, 2025, to ensure your account remains in good standing, even though your current balance is $0.00.\n\nUse kendall.lee5449@email.com for authentication.',
+        actions=[
+            Action(name='create_support_ticket', kwargs={'customer_id': 'kendall_lee_0640', 'category': 'internet'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'kendall_lee_0640'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='add_device', kwargs={'customer_id': 'kendall_lee_0640', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'slow_speeds'}),
+            Action(name='manage_service', kwargs={'customer_id': 'kendall_lee_0640', 'action': 'list'}),
+            Action(name='record_payment', kwargs={'customer_id': 'kendall_lee_0640', 'amount': 119.45, 'method': 'credit_card', 'date': '2025-09-18'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='alex.king0580@email.com',
+        instruction='You are alex_king_8257, a residential customer in Seattle. You want to create a high-priority billing support ticket because you have concerns about your current charges and late fee. You would like to review your billing details and verify your services, including the Basic Mobile Plan. You prefer the Basic Mobile Plan with a senior discount applied, reducing the price from $35.00 to $30.00, to lower your monthly costs. You want to add a new mobile device to your account, preferring Apple devices, and specifically the iPhone 15 Pro model, for its features and compatibility. You would like troubleshooting guidance for your Samsung Galaxy S23 due to no service connectivity issues, as it is currently your primary mobile device. Later, you will settle your outstanding balance of $92.56 by making a payment with your credit card on 2025-10-18 to bring your account current.\n\nUse alex.king0580@email.com for authentication.',
+        actions=[
+            Action(name='create_support_ticket', kwargs={'customer_id': 'alex_king_8257', 'category': 'billing', 'priority': 'high'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'alex_king_8257'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_basic'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='add_device', kwargs={'customer_id': 'alex_king_8257', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Samsung Galaxy S23', 'issue': 'no_service'}),
+            Action(name='manage_service', kwargs={'customer_id': 'alex_king_8257', 'action': 'list'}),
+            Action(name='record_payment', kwargs={'customer_id': 'alex_king_8257', 'amount': 92.56, 'method': 'credit_card', 'date': '2025-10-18'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='quinn.young8496@email.com',
+        instruction="You are Quinn Young (quinn.young8496@email.com), a senior customer on the Senior Mobile Plan. You want to review your current billing details because you're ensuring your account is up to date. After that, you would like to update your billing preferences to enable paperless billing and auto-pay for convenience and better account management, and switch your billing cycle to quarterly to reduce the frequency of payments. You also want to create a support ticket for billing with medium priority to document your recent changes. Additionally, you would like to confirm the details of your Senior Mobile Plan, and you expect the price to reflect the senior discount, which is already applied as the plan is priced at $45.00 per month.\n\nUse quinn.young8496@email.com for authentication.",
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'quinn_young_6391'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'quinn_young_6391', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'quarterly'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'quinn_young_6391', 'category': 'billing', 'priority': 'medium'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='rowan.martinez0092@email.com',
+        instruction='You are Rowan Martinez (rowan_martinez_9196), a senior customer who wants to review your current billing details for clarity and control. You would like to update your billing preferences to enable paperless billing and auto-pay with a quarterly billing cycle because you prefer convenient, automated, and environmentally friendly billing. After that, you want to create a high-priority support ticket for billing to ensure your account settings are correctly updated and any issues are resolved promptly. You also want to confirm the details of your Senior Mobile Plan and understand how the senior discount is applied, as you are entitled to a $5 discount that reduces your monthly rate from $45.00 to $40.00, which you want verified for accuracy.\n\nUse rowan.martinez0092@email.com for authentication.',
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'rowan_martinez_9196'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'rowan_martinez_9196', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'quarterly'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'rowan_martinez_9196', 'category': 'billing', 'priority': 'high'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='alex.wilson7552@email.com',
+        instruction='You are alex_wilson_3158, authenticated via email alex.wilson7552@email.com. You are experiencing slow internet speeds on your Basic WiFi Router, a networking device made by TechCorp, so you would like troubleshooting guidance because reliable connectivity is needed for daily use. You prefer step-by-step help to resolve the issue, starting with restarting the router, checking cable connections, and running a speed test, with the option to escalate to support if the problem persists.\n\nUse alex.wilson7552@email.com for authentication.',
+        actions=[
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Basic WiFi Router', 'issue': 'slow_speeds'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jordan.clark9534@email.com',
+        instruction="You are jordan.clark9534@email.com. You would like to add a Samsung Galaxy S23 to your account because you recently acquired the device and want it on your plan. You prefer Samsung devices, specifically the Galaxy S23 model, for its performance and features. Since you are experiencing battery drain on the device, you want troubleshooting guidance to improve daily usability. You would like a support ticket created for this device issue to ensure it is tracked and resolved, especially since the phone is important for staying connected. You also want to review your current services to confirm what you're paying for and ensure everything is accurate. Finally, you would like to know the price of your Senior Mobile Plan with the senior discount applied, which is $40.00 per month, to verify billing accuracy and maintain budget control.\n\nUse jordan.clark9534@email.com for authentication.",
+        actions=[
+            Action(name='add_device', kwargs={'customer_id': 'jordan_clark_8157', 'device_name': 'Samsung Galaxy S23'}),
+            Action(name='get_device_details', kwargs={'device_name': 'Samsung Galaxy S23'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'jordan_clark_8157', 'category': 'device', 'priority': 'medium'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Samsung Galaxy S23', 'issue': 'battery_drain'}),
+            Action(name='manage_service', kwargs={'customer_id': 'jordan_clark_8157', 'action': 'list'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='taylor.hall1782@email.com',
+        instruction='You are Taylor Hall (taylor.hall1782@email.com). Your iPhone 15 Pro is experiencing battery drain issues, so you want troubleshooting guidance because the device is losing charge too quickly during normal use. You would like to review your current services, including the Unlimited Mobile Plan and Cable Internet 500MB, to ensure they meet your needs. You prefer to keep paperless billing enabled for convenience, but you are not currently using auto-pay and would like to maintain manual control over payments. After reviewing your billing details and available services, you would like to get information about the Samsung Galaxy S23 because you are considering adding a secondary mobile device. You prefer Samsung devices for their features and ecosystem compatibility, and specifically want the Galaxy S23 model. You would like to add the Samsung Galaxy S23 to your account as a new line on the Unlimited Mobile Plan.\n\nUse taylor.hall1782@email.com for authentication.',
+        actions=[
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'battery_drain'}),
+            Action(name='manage_service', kwargs={'customer_id': 'taylor_hall_4351', 'action': 'list'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'taylor_hall_4351'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'taylor_hall_4351', 'category': 'device', 'priority': 'medium'}),
+            Action(name='get_device_details', kwargs={'device_name': 'Samsung Galaxy S23'}),
+            Action(name='add_device', kwargs={'customer_id': 'taylor_hall_4351', 'device_name': 'Samsung Galaxy S23'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jamie.martinez8921@email.com',
+        instruction='You are jamie_martinez_9584, a residential customer in Seattle. You are experiencing battery drain on your iPhone 15, so you want troubleshooting guidance because the device is losing charge too quickly during the day. You would like a support ticket opened for this device issue to ensure it is tracked and resolved, as the phone is essential for daily communication. You prefer Apple devices, specifically the iPhone 15, which is already on your account. Later, you would like to add a Google Pixel 8 to your account, as you are interested in expanding your device options with a trusted Android brand. You want to review your current services, including the Unlimited Mobile Plan, Fiber Internet 500MB, and Basic TV Package, to ensure they still meet your needs. You would also like to see all available services to explore potential upgrades or changes. You prefer to keep your current billing setup with credit card payments, but you are not enrolled in auto-pay or paperless billing at this time.\n\nUse jamie.martinez8921@email.com for authentication.',
+        actions=[
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15', 'issue': 'battery_drain'}),
+            Action(name='manage_service', kwargs={'customer_id': 'jamie_martinez_9584', 'action': 'list'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'jamie_martinez_9584'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'jamie_martinez_9584', 'category': 'device'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15'}),
+            Action(name='add_device', kwargs={'customer_id': 'jamie_martinez_9584', 'device_name': 'Google Pixel 8'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='reese.lewis7779@email.com',
+        instruction='You are Reese Lewis (reese_lewis_4991) with email reese.lewis7779@email.com. You want to remove the Cable Internet 500MB plan from your account because you are switching to a new internet provider, and you no longer need this service. You would like to create a high-priority support ticket to investigate a billing discrepancy you noticed, as you want to ensure your account reflects accurate charges. You also prefer to review your full billing details, including current monthly charges and payment history, to verify all transactions and confirm the absence of unexpected fees. You prefer autopay with credit card, which is already set up, and you are enrolled in paperless billing.\n\nUse reese.lewis7779@email.com for authentication.',
+        actions=[
+            Action(name='manage_service', kwargs={'customer_id': 'reese_lewis_4991', 'action': 'remove', 'service_id': 'internet_cable_500mb'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'reese_lewis_4991', 'category': 'billing', 'priority': 'high'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'reese_lewis_4991'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='cameron.wilson4155@email.com',
+        instruction='You are cameron_wilson_2504 (email: cameron.wilson4155@email.com). You want to remove your Fiber Internet 1GB service because you are simplifying your telecom package and no longer need high-speed fiber. After that, you would like to review your updated billing details to confirm the change has taken effect and ensure financial accuracy. Later, you would like a support ticket created in the internet category to formally document this service change for your records, as you value proactive account management and service tracking.\n\nUse cameron.wilson4155@email.com for authentication.',
+        actions=[
+            Action(name='manage_service', kwargs={'customer_id': 'cameron_wilson_2504', 'action': 'remove', 'service_id': 'internet_fiber_1gb'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'cameron_wilson_2504', 'category': 'internet'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'cameron_wilson_2504'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='kendall.lee2343@email.com',
+        instruction='You are kendall.lee2343@email.com. You want to review the details of your Fiber Internet 1GB service because you are verifying your current plan. You would like to check the status of support ticket TICKET00029, but it is not associated with your account, so no action is needed. You want to retrieve your current billing details to confirm your outstanding balance. You prefer to update your billing preferences to enable auto-pay with a quarterly billing cycle while keeping paperless billing for better financial planning and reduced manual effort. You would like to make a payment of $72.36 using credit card today to clear your current balance and avoid late fees.\n\nUse kendall.lee2343@email.com for authentication.',
+        actions=[
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_1gb'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00029'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'kendall_lee_9814'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'kendall_lee_9814', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'quarterly'}),
+            Action(name='manage_service', kwargs={'customer_id': 'kendall_lee_9814', 'action': 'list'}),
+            Action(name='record_payment', kwargs={'customer_id': 'kendall_lee_9814', 'amount': 72.36, 'method': 'credit_card', 'date': '2025-10-05'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='quinn.wilson5782@email.com',
+        instruction='You are quinn_wilson_5555, a business customer with the Business Mobile - 10 Lines plan and Fiber Internet 2 Gbps. You want to review the details of your Business Mobile - 10 Lines plan because you manage multiple employee devices on this account. You also want to check the status of your open support ticket TICKET00076, which is currently low priority, because you need timely resolution for ongoing service concerns. You would like to review your current billing details, which show an outstanding balance of $152.22 including a late fee, because you aim to resolve past-due amounts and improve payment reliability. You prefer to update your billing preferences to enable paperless billing and auto-pay with a monthly billing cycle because you want to reduce administrative overhead and avoid future late fees. After that, you would like to add the Premium TV Package to your account to expand service offerings at your business location. Finally, you intend to pay the full outstanding balance of $152.22 using your credit card today to bring the account current and restore full service standing.\n\nUse quinn.wilson5782@email.com for authentication.',
+        actions=[
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_business_10lines'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00076'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'quinn_wilson_5555'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'quinn_wilson_5555', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'monthly'}),
+            Action(name='manage_service', kwargs={'customer_id': 'quinn_wilson_5555', 'action': 'add', 'service_id': 'tv_premium'}),
+            Action(name='record_payment', kwargs={'customer_id': 'quinn_wilson_5555', 'amount': 152.22, 'method': 'credit_card', 'date': '2025-10-05'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='rowan.walker8488@email.com',
+        instruction='You are rowan_walker_5808, and your email is rowan.walker8488@email.com. You want to create a new support ticket for a billing issue because you have noticed an unexpected charge on your account. Later, you would like to update the status of your existing support ticket TICKET00081 to resolved and set its priority to high because the issue has been addressed and you want it properly closed with appropriate urgency for record-keeping.\n\nUse rowan.walker8488@email.com for authentication.',
+        actions=[
+            Action(name='create_support_ticket', kwargs={'customer_id': 'rowan_walker_5808', 'category': 'billing'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00081'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00081', 'status': 'resolved', 'priority': 'high'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='sam.wilson3204@email.com',
+        instruction='You are sam_wilson_9743, with email sam.wilson3204@email.com. You want to open a high-priority support ticket for your Google Pixel 8 because it is experiencing severe battery drain, which disrupts daily use. You prefer Google devices, specifically the Pixel 8, for their software experience. At the same time, you would like to review your current services and check the details of your Unlimited Mobile Plan to ensure it still meets your needs. Later, you want to check the status of support ticket TICKET241 and then update it to in_progress status with urgent priority so the technical team addresses the battery issue immediately.\n\nUse sam.wilson3204@email.com for authentication.',
+        actions=[
+            Action(name='create_support_ticket', kwargs={'customer_id': 'sam_wilson_9743', 'category': 'mobile', 'priority': 'high'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Google Pixel 8', 'issue': 'battery_drain'}),
+            Action(name='manage_service', kwargs={'customer_id': 'sam_wilson_9743', 'action': 'list'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET241'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET241', 'status': 'in_progress', 'priority': 'urgent'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='rowan.hall5256@email.com',
+        instruction='You are rowan_hall_8774. You want to add your new iPhone 15 Pro to your account because you recently acquired the device and need it activated for service. Since you are experiencing battery drain issues with the iPhone 15 Pro, you would like troubleshooting guidance to improve battery life and daily usability. After resolving the device concern, you would like a complete list of all active services on your account to better understand and manage your current subscriptions.\n\nUse rowan.hall5256@email.com for authentication.',
+        actions=[
+            Action(name='add_device', kwargs={'customer_id': 'rowan_hall_8774', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'battery_drain'}),
+            Action(name='manage_service', kwargs={'customer_id': 'rowan_hall_8774', 'action': 'list'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='cameron.wilson4155@email.com',
+        instruction='You are Cameron Wilson (cameron.wilson4155@email.com). You want to add an iPhone 14 to your account because you recently acquired the device for business use. The device is already successfully added and associated with your mobile service. Later, you would like troubleshooting for battery drain issues because the iPhone 14 is losing charge quickly during work hours, which affects productivity. You prefer Apple devices for their integration with your existing tools. The recommended steps are to restart the device, reduce screen brightness, and close background apps. After that, you would like a full list of services on your account to verify current subscriptions, as you manage a business plan and need to ensure accurate service allocation. Your current services include the Business Mobile - 10 Lines plan and Fiber Internet 1 Gbps.\n\nUse cameron.wilson4155@email.com for authentication.',
+        actions=[
+            Action(name='add_device', kwargs={'customer_id': 'cameron_wilson_2504', 'device_name': 'iPhone 14'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 14', 'issue': 'battery_drain'}),
+            Action(name='manage_service', kwargs={'customer_id': 'cameron_wilson_2504', 'action': 'list'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='kendall.garcia9053@email.com',
+        instruction='You are kendall_garcia_2616 (email: kendall.garcia9053@email.com). You are on the Senior Mobile Plan and want to confirm your discounted price, which is $40.00 after applying the $5 senior discount, because you want to understand your current billing. You would like information about the Unlimited Mobile Plan as a potential option because you are evaluating higher-tier mobile services. You want a list of all available services to explore potential upgrades or additions. You want to create a support ticket for a mobile issue because you are experiencing connectivity or performance concerns, and a ticket was created as TICKET241. Later, you want to view your billing details because you are reviewing your account activity and noticed a $33.09 balance. You prefer to update your billing preferences to disable paperless billing and auto-pay and switch to a quarterly billing cycle because you want more control over payment timing and prefer physical statements. You want to make a payment of $33.09 using a credit card on 2025-10-19 to clear your outstanding balance. After that, you want to add a Samsung Galaxy A54 to your account because you need a second mobile device, and you prefer Samsung devices for their features and ecosystem. You would like the details of your iPhone 12, which is an Apple iPhone 12, because it is your primary device and you are troubleshooting performance issues. You are experiencing battery drain on your iPhone 12 and want troubleshooting guidance because the device does not last through the day, affecting your usage. Finally, you want a list of all your current services to verify what is active on your account and ensure accuracy.\n\nUse kendall.garcia9053@email.com for authentication.',
+        actions=[
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'kendall_garcia_2616', 'category': 'mobile'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'kendall_garcia_2616'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'kendall_garcia_2616', 'paperless': False, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='record_payment', kwargs={'customer_id': 'kendall_garcia_2616', 'amount': 33.09, 'method': 'credit_card', 'date': '2025-10-19'}),
+            Action(name='add_device', kwargs={'customer_id': 'kendall_garcia_2616', 'device_name': 'Samsung Galaxy A54'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 12'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 12', 'issue': 'battery_drain'}),
+            Action(name='manage_service', kwargs={'customer_id': 'kendall_garcia_2616', 'action': 'list'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='avery.martinez0944@email.com',
+        instruction='You are Avery Martinez (avery.martinez0944@email.com). You want to understand the details and discounted price of your Senior Mobile Plan because you are a senior customer seeking cost clarity, and the plan is priced at $45.00 monthly with a $5.00 senior discount bringing it to $40.00. You would like to see all available services to evaluate other options. You want to create a support ticket for account-related inquiries and expect it to be handled with standard priority. Later, you would like to review your billing details to confirm your current balance and payment history. You prefer to disable paperless billing and turn off auto-pay to regain manual control over your account communications and payments, while keeping your billing cycle monthly for consistency. You would like to make a nominal $0.00 payment using your credit card on 2025-09-20 to test the payment method update. After that, you want to add a new mobile device to your account and prefer Samsung devices for their reliability and value, specifically the Samsung Galaxy A54. You would like to know the specifications of this device to confirm it meets your needs. You are experiencing battery drain on your iPhone 14, which affects daily usability, so you need troubleshooting guidance. Finally, you would like a current list of all services on your account to verify your active subscriptions and ensure accuracy.\n\nUse avery.martinez0944@email.com for authentication.',
+        actions=[
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'avery_martinez_8709', 'category': 'account'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'avery_martinez_8709'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'avery_martinez_8709', 'paperless': False, 'auto_pay': False, 'billing_cycle': 'monthly'}),
+            Action(name='record_payment', kwargs={'customer_id': 'avery_martinez_8709', 'amount': 0.0, 'method': 'credit_card', 'date': '2025-09-20'}),
+            Action(name='add_device', kwargs={'customer_id': 'avery_martinez_8709', 'device_name': 'Samsung Galaxy A54'}),
+            Action(name='get_device_details', kwargs={'device_name': 'Samsung Galaxy A54'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 14', 'issue': 'battery_drain'}),
+            Action(name='manage_service', kwargs={'customer_id': 'avery_martinez_8709', 'action': 'list'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='rowan.lee9322@email.com',
+        instruction='You are rowan_lee_8557, a senior customer with the mobile_senior plan and internet_fiber_500mb service. You want to make a payment of $52.44 using your credit card today because your current balance is $52.44 and you prefer to clear it promptly. You would like to add a Samsung Galaxy A54 to your account because you need a new mobile device, and you prefer Samsung phones for their reliability and user experience. You are experiencing slow speeds on your Enterprise Router and need troubleshooting assistance because it affects your internet performance. You want to create a high-priority support ticket for billing concerns regarding recent charges because you noticed unexpected fees. You would like to check your billing details to verify your account status. You prefer to update your billing preferences to enable paperless billing and auto-pay with a credit card on a monthly cycle for better convenience and control. You want to add the Basic TV Package to your services because you are interested in expanding your entertainment options, and as a senior, you qualify for a discounted rate of $40.00 instead of $45.00.\n\nUse rowan.lee9322@email.com for authentication.',
+        actions=[
+            Action(name='record_payment', kwargs={'customer_id': 'rowan_lee_8557', 'amount': 52.44, 'method': 'credit_card', 'date': '2025-09-18'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'rowan_lee_8557', 'category': 'billing'}),
+            Action(name='add_device', kwargs={'customer_id': 'rowan_lee_8557', 'device_name': 'Samsung Galaxy A54'}),
+            Action(name='get_device_details', kwargs={'device_name': 'Samsung Galaxy A54'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Enterprise Router', 'issue': 'slow_speeds'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'rowan_lee_8557'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'rowan_lee_8557', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'monthly'}),
+            Action(name='manage_service', kwargs={'customer_id': 'rowan_lee_8557', 'action': 'add', 'service_id': 'tv_basic'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'tv_basic'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='reese.clark7888@email.com',
+        instruction='You are Reese Clark (reese.clark7888@email.com), a residential customer since 2016. You want to pay off your outstanding balance of $31.62 using your credit card because you prefer to keep your account in good standing. You are experiencing battery drain on your Samsung Galaxy A54 and would like troubleshooting assistance because the device does not last through the day, which affects your daily usage. You also want to create a billing support ticket to address concerns about a recent late fee. Later, you would like to review your current billing details, confirming your preference for paperless billing and a monthly billing cycle, while opting out of auto-pay for greater payment control. You want a list of all services on your account to verify what you are currently paying for. You are interested in the details of your Basic Mobile Plan and would like to know that with your eligible senior discount, the price is reduced from $35.00 to $30.00 per month, which supports your goal of managing monthly expenses.\n\nUse reese.clark7888@email.com for authentication.',
+        actions=[
+            Action(name='record_payment', kwargs={'customer_id': 'reese_clark_1767', 'amount': 31.62, 'method': 'credit_card', 'date': '2025-10-15'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'reese_clark_1767', 'category': 'billing', 'priority': 'medium'}),
+            Action(name='add_device', kwargs={'customer_id': 'reese_clark_1767', 'device_name': 'Samsung Galaxy A54'}),
+            Action(name='get_device_details', kwargs={'device_name': 'Samsung Galaxy A54'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Samsung Galaxy A54', 'issue': 'battery_drain'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'reese_clark_1767'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'reese_clark_1767', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'monthly'}),
+            Action(name='manage_service', kwargs={'customer_id': 'reese_clark_1767', 'action': 'list'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '35.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_basic'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='rowan.lee9322@email.com',
+        instruction='You are Rowan Lee (rowan.lee9322@email.com), a senior customer on the mobile_senior plan. You want to remove the Fiber Internet 500MB service because it is no longer needed and to simplify your account. You would like to switch to paperless billing to reduce physical mail and environmental impact. You prefer to disable auto-pay for greater control over payment timing, and you want to change your billing cycle to quarterly to better align with your budgeting schedule. You also want confirmation that the senior discount reduces a $45.00 plan to $40.00, which reflects the $5 monthly benefit you receive. After these changes, you would like to review your updated billing details to ensure accuracy and understand your new charges.\n\nUse rowan.lee9322@email.com for authentication.',
+        actions=[
+            Action(name='manage_billing', kwargs={'customer_id': 'rowan_lee_8557', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='manage_service', kwargs={'customer_id': 'rowan_lee_8557', 'action': 'remove', 'service_id': 'internet_fiber_500mb'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'rowan_lee_8557'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jamie.white8613@email.com',
+        instruction='You are jamie.white8613@email.com. You want to remove the Cable Internet 500MB service from your account because you are simplifying your services. You would like to update your billing preferences to quarterly billing with paperless billing and auto-pay disabled for greater control over payments. You also want to confirm the discounted price of your Senior Mobile Plan, which is $40.00 after applying the senior discount to the original $45.00 price, as this helps you manage your budget as a senior customer.\n\nUse jamie.white8613@email.com for authentication.',
+        actions=[
+            Action(name='manage_billing', kwargs={'customer_id': 'jamie_white_8766', 'paperless': False, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='manage_service', kwargs={'customer_id': 'jamie_white_8766', 'action': 'remove', 'service_id': 'internet_cable_500mb'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'jamie_white_8766'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='parker.young1167@email.com',
+        instruction="You are Parker Young (parker.young1167@email.com). You want to see all available services because you are evaluating potential upgrades. You would like to create a new support ticket for your internet service with high priority due to ongoing connectivity issues affecting your household. You also want to update your existing ticket (TICKET00152) to urgent priority because the issue remains unresolved and is impacting your daily use. You are interested in the Fiber Internet 1GB service as a potential upgrade from your current 500 Mbps plan to support higher bandwidth needs, and you would like pricing and availability details. Your iPhone 15 Pro, which you prefer as your primary device, is experiencing battery drain issues, so you need troubleshooting guidance to extend usage time. You prefer Apple devices and would like to keep using iPhone models for consistency with your ecosystem. You want to review all services currently on your account to ensure accuracy and understand what you're paying for. Finally, you would like to check your current billing details, including charges and payment method, to assess the financial impact of any service changes. You prefer to pay by credit card and currently have auto-pay disabled but paperless billing enabled.\n\nUse parker.young1167@email.com for authentication.",
+        actions=[
+            Action(name='get_services', kwargs={}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'parker_young_5701', 'category': 'internet', 'priority': 'high'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00152', 'status': 'open', 'priority': 'urgent'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00152'}),
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_1gb'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'battery_drain'}),
+            Action(name='manage_service', kwargs={'customer_id': 'parker_young_5701', 'action': 'list'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'parker_young_5701'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jamie.harris4268@email.com',
+        instruction='You are jamie.harris4268@email.com. You want to review all available services because you are considering upgrading your current plan. You would like to create a new mobile support ticket to report an ongoing service issue, and you also want to update your existing high-priority ticket TICKET00167 to in_progress status for better tracking. After that, you would like to verify the updated details of ticket TICKET00167 to ensure the changes were applied correctly. You need information about your Basic Mobile Plan because you want to understand its features and pricing. You are experiencing no_service on your Samsung Galaxy A54, so you would like troubleshooting guidance since the device is essential for daily communication. You want to confirm your current services to ensure everything is active and accurate. Finally, you would like a full billing summary because you prefer to keep track of your monthly charges and payment history, and you prefer to pay by bank transfer.\n\nUse jamie.harris4268@email.com for authentication.',
+        actions=[
+            Action(name='get_services', kwargs={}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'jamie_harris_3456', 'category': 'mobile'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00167', 'status': 'in_progress', 'priority': 'high'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00167'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_basic'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Samsung Galaxy A54', 'issue': 'no_service'}),
+            Action(name='manage_service', kwargs={'customer_id': 'jamie_harris_3456', 'action': 'list'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'jamie_harris_3456'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='alex.thomas0057@email.com',
+        instruction='You are alex.thomas0057@email.com (customer_id: alex_thomas_4139). You want to review your current billing details because you suspect an issue with your charges. After that, you would like to create a new support ticket for a billing issue with high priority since the matter is time-sensitive. Later, you want to escalate your existing ticket TICKET00058 to urgent priority because it has not been resolved promptly. Subsequently, you would like to review your current services, which include the Unlimited Mobile Plan, Cable Internet 100MB, and Basic TV Package, to confirm your account setup. After reviewing, you intend to make a payment of $89.19 using your credit card today to settle an outstanding balance that appeared despite recent payments. Finally, you prefer to update your billing settings to paperless billing for convenience, disable auto-pay to regain control over payment timing, and switch to an annual billing cycle to reduce the frequency of bills and better align with your budgeting schedule.\n\nUse alex.thomas0057@email.com for authentication.',
+        actions=[
+            Action(name='get_billing_details', kwargs={'customer_id': 'alex_thomas_4139'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'alex_thomas_4139', 'category': 'billing', 'priority': 'high'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00058', 'status': 'open', 'priority': 'urgent'}),
+            Action(name='manage_service', kwargs={'customer_id': 'alex_thomas_4139', 'action': 'list'}),
+            Action(name='record_payment', kwargs={'customer_id': 'alex_thomas_4139', 'amount': 89.19, 'method': 'credit_card', 'date': '2025-09-18'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'alex_thomas_4139', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'annual'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='parker.martinez7432@email.com',
+        instruction='You are Parker Martinez (parker.martinez7432@email.com). You are experiencing no service on your Samsung Galaxy S23, so you want to open a mobile support ticket for troubleshooting because reliable connectivity is important for staying in touch with family. You prefer Samsung devices for their familiarity and ease of use, and the Galaxy S23 is your current phone. Later, you would like to review your current services, which include the Senior Mobile Plan, Internet Cable 500 Mbps, and Premium TV Package, to ensure everything is accurate. You also want to check your billing details to understand your current charges and payment setup. Additionally, you are interested in the senior discount applied to your $45.00 Senior Mobile Plan, which reduces the price to $40.00, because you want to confirm you are receiving all eligible savings as a senior customer.\n\nUse parker.martinez7432@email.com for authentication.',
+        actions=[
+            Action(name='create_support_ticket', kwargs={'customer_id': 'parker_martinez_9318', 'category': 'mobile'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Samsung Galaxy S23', 'issue': 'no_service'}),
+            Action(name='manage_service', kwargs={'customer_id': 'parker_martinez_9318', 'action': 'list'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'parker_martinez_9318'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jordan.wilson4822@email.com',
+        instruction='You are jordan_wilson_9049, a senior customer with the Senior Mobile Plan and an iPhone 14. You want to create a medium-priority support ticket for a mobile no-service issue because your phone is currently unable to connect, which is disrupting communication. You would like troubleshooting steps provided because restarting the device and resetting network settings may resolve the connectivity problem. You want to review your current services, including the Senior Mobile Plan, 100 Mbps Cable Internet, and Basic TV, to confirm what you are paying for. You would like to understand your senior discount benefit, which reduces your mobile plan from $45.00 to $40.00 monthly, because you want to verify accurate billing. You prefer to see your full billing details, including a current balance of $0.00, auto-pay enabled with bank transfer, and no paperless billing, because you want to ensure your payment method and preferences are correctly set.\n\nUse jordan.wilson4822@email.com for authentication.',
+        actions=[
+            Action(name='create_support_ticket', kwargs={'customer_id': 'jordan_wilson_9049', 'category': 'mobile', 'priority': 'medium'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 14', 'issue': 'no_service'}),
+            Action(name='manage_service', kwargs={'customer_id': 'jordan_wilson_9049', 'action': 'list'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'jordan_wilson_9049'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='parker.lee0757@email.com',
+        instruction='You are parker.lee0757@email.com. You want to add your iPhone 15 Pro to your account because you recently acquired this device and need it activated for service. Since the device is made by Apple, you prefer Apple devices for their ecosystem integration. You are experiencing slow speeds with the iPhone 15 Pro, so you would like troubleshooting guidance to resolve performance issues quickly. You want a support ticket created for this device issue with medium priority because the problem affects daily usability but is not critical. You would like to review all services currently on your account to ensure they meet your needs and identify any discrepancies. Finally, you want to check your billing details to verify charges and confirm that auto-pay with bank transfer is active, as you prefer automated payments for convenience and on-time processing.\n\nUse parker.lee0757@email.com for authentication.',
+        actions=[
+            Action(name='add_device', kwargs={'customer_id': 'parker_lee_9680', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'parker_lee_9680', 'category': 'device', 'priority': 'medium'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'slow_speeds'}),
+            Action(name='manage_service', kwargs={'customer_id': 'parker_lee_9680', 'action': 'list'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'parker_lee_9680'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='elliot.anderson8510@email.com',
+        instruction='You are elliot_anderson_6407. You want to add your new iPhone 14 to your account because you recently acquired it and need it activated for service. The device is an Apple mobile phone, specifically the iPhone 14 model, and you would like it properly registered under your name. You are experiencing battery drain issues with the device, so you would like troubleshooting guidance to improve daily usability. You also want a list of your current services—Senior Mobile Plan, Fiber Internet 1GB, and Premium TV Package—for review to ensure everything is accurate. You would like to check your billing details, including your current balance of $0.00 and monthly charges, to confirm payment history and upcoming costs. After that, you would like a support ticket created under the device category to formally track the battery issue, which has been logged as ticket TICKET241 with medium priority.\n\nUse elliot.anderson8510@email.com for authentication.',
+        actions=[
+            Action(name='add_device', kwargs={'customer_id': 'elliot_anderson_6407', 'device_name': 'iPhone 14'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 14'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'elliot_anderson_6407', 'category': 'device'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 14', 'issue': 'battery_drain'}),
+            Action(name='manage_service', kwargs={'customer_id': 'elliot_anderson_6407', 'action': 'list'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'elliot_anderson_6407'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='quinn.wilson5782@email.com',
+        instruction='You are Quinn Wilson (quinn.wilson5782@email.com), a business customer with account number ACC001000154. You want to understand the details of your Business Mobile - 10 Lines plan because you are reviewing your business telecom expenses. You would like to check the status of your open support ticket TICKET00076, which is currently low priority, because you want to ensure timely resolution of any ongoing issues. You prefer to review your current billing details, including a current balance of $152.22 and a history of late payments, because you are assessing payment patterns and potential improvements to avoid late fees. You would like to manage your services to evaluate coverage and cost efficiency for your business needs. You want to add a new device to your account because your team requires additional equipment. You prefer Apple devices for consistency with your existing iPhone fleet, and specifically the iPhone 15 Pro model for its performance and integration. You also want detailed information about your existing iPhone 15 Pro devices because multiple units are in use and you need to confirm their specifications for support and management purposes.\n\nUse quinn.wilson5782@email.com for authentication.',
+        actions=[
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_business_10lines'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00076'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'quinn_wilson_5555'}),
+            Action(name='manage_service', kwargs={'customer_id': 'quinn_wilson_5555', 'action': 'list'}),
+            Action(name='add_device', kwargs={'customer_id': 'quinn_wilson_5555', 'device_name': 'WiFi 6 Router'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='reese.hall6379@email.com',
+        instruction='You are Reese Hall (reese.hall6379@email.com), a business customer. You want to review the details of your Business Mobile - 10 Lines plan because you are evaluating your current service fit. You also want to check the status of your open support ticket TICKET00093, which is currently at medium priority, to ensure it is progressing. You would like to review your current billing details, including your $0.00 balance and monthly charges, because you are preparing for a service transition. You want to remove your Business Mobile - 10 Lines service as part of an account cleanup to streamline operations. You would like to add a new Enterprise Router to your account because your business requires high-performance networking, and you prefer TechCorp devices for reliability. After that, you want technical details about the Enterprise Router (model: Enterprise-Pro) to confirm its compatibility with your infrastructure. You prefer to keep paperless billing and continue paying by bank transfer, as this aligns with your current billing preferences.\n\nUse reese.hall6379@email.com for authentication.',
+        actions=[
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_business_10lines'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00093'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'reese_hall_9712'}),
+            Action(name='manage_service', kwargs={'customer_id': 'reese_hall_9712', 'action': 'remove', 'service_id': 'mobile_business_10lines'}),
+            Action(name='add_device', kwargs={'customer_id': 'reese_hall_9712', 'device_name': 'Enterprise Router'}),
+            Action(name='get_device_details', kwargs={'device_name': 'Enterprise Router'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='avery.patel6952@email.com',
+        instruction='You are Avery Patel (avery.patel6952@email.com). You want to update your billing preferences to enable paperless billing because you prefer digital statements for convenience, keep auto-pay enabled for payment reliability, and switch to a quarterly billing cycle to better align with your financial planning. You also want to remove your Basic TV Package because you no longer use it and are looking to reduce monthly expenses. You are experiencing battery drain on your iPhone 14, an Apple device you rely on daily, so you would like troubleshooting guidance to improve its performance. You want to review all available services to explore potential upgrades or changes. You would like a support ticket created for billing concerns and then updated to high priority with in_progress status so the issue receives immediate attention. You prefer to settle your outstanding balance of $194.81 using your credit card for prompt resolution, and you want to verify your updated billing details and confirm the features of your Unlimited Mobile Plan to ensure everything is accurate and meets your needs.\n\nUse avery.patel6952@email.com for authentication.',
+        actions=[
+            Action(name='manage_billing', kwargs={'customer_id': 'avery_patel_1556', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'quarterly'}),
+            Action(name='manage_service', kwargs={'customer_id': 'avery_patel_1556', 'action': 'remove', 'service_id': 'tv_basic'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 14', 'issue': 'battery_drain'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'avery_patel_1556', 'category': 'billing', 'priority': 'medium'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET241', 'status': 'in_progress', 'priority': 'high'}),
+            Action(name='record_payment', kwargs={'customer_id': 'avery_patel_1556', 'amount': 194.81, 'method': 'credit_card', 'date': '2025-09-18'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'avery_patel_1556'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='quinn.walker0746@email.com',
+        instruction='You are Quinn Walker (quinn_walker_6773). You want to update your billing preferences by enabling paperless billing because you prefer digital records, disabling auto-pay for greater payment control, and switching to a quarterly billing cycle to better align with your financial planning. You also want to create a support ticket for a billing issue because you noticed unexpected charges, including a late fee, on your account. Later, you would like to pay off your outstanding balance of $191.60 using your credit card to clear the account and avoid further fees, and you would like confirmation of your updated billing details after the payment for your records. After that, you would like to add your new Samsung Galaxy S23 to your account because you recently acquired it and need it activated on your Unlimited Mobile Plan. You prefer Samsung devices for their features and reliability, and you would like the device specifications verified to ensure compatibility and correct setup.\n\nUse quinn.walker0746@email.com for authentication.',
+        actions=[
+            Action(name='manage_billing', kwargs={'customer_id': 'quinn_walker_6773', 'paperless': True, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'quinn_walker_6773', 'category': 'billing'}),
+            Action(name='record_payment', kwargs={'customer_id': 'quinn_walker_6773', 'amount': 191.6, 'method': 'credit_card', 'date': '2025-09-18'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'quinn_walker_6773'}),
+            Action(name='add_device', kwargs={'customer_id': 'quinn_walker_6773', 'device_name': 'Samsung Galaxy S23'}),
+            Action(name='get_device_details', kwargs={'device_name': 'Samsung Galaxy S23'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='casey.clark0465@email.com',
+        instruction='You are casey.clark0465@email.com. You want to update your billing preferences by disabling paperless billing because you prefer to receive physical statements, and disabling auto-pay to regain manual control over payments; you also want to switch to an annual billing cycle to reduce the frequency of billing interactions. You would like to create an account-related support ticket because you are experiencing account access issues. Later, you would like to pay off your outstanding balance of $37.10 using a credit card payment today, and you prefer confirmation of your updated billing details afterward to verify the payment was applied successfully. After that, you would like to add your new iPhone 15 to your account because you recently upgraded your device; you prefer Apple phones for their ecosystem compatibility, and you would like to review the device specifications to confirm it meets your usage needs.\n\nUse casey.clark0465@email.com for authentication.',
+        actions=[
+            Action(name='manage_billing', kwargs={'customer_id': 'casey_clark_6698', 'paperless': False, 'auto_pay': False, 'billing_cycle': 'annual'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'casey_clark_6698', 'category': 'account'}),
+            Action(name='record_payment', kwargs={'customer_id': 'casey_clark_6698', 'amount': 37.1, 'method': 'credit_card', 'date': '2025-09-22'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'casey_clark_6698'}),
+            Action(name='add_device', kwargs={'customer_id': 'casey_clark_6698', 'device_name': 'iPhone 15'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='drew.clark4785@email.com',
+        instruction='You are drew_clark_5897, customer email drew.clark4785@email.com. You want to review all available services because you are considering upgrading your current internet plan. You would like to create a support ticket for a billing concern to get clarification on recent charges, which is why you initiated contact. You want to check your current billing details to verify your account status and outstanding balance. You are interested in the Fiber Internet 1GB plan because it offers faster speeds than your current internet_cable_100mb service. Later, you would like to pay off your outstanding balance of $146.97 using a credit card on October 5, 2025, to clear your account and avoid late fees, which you have now completed.\n\nUse drew.clark4785@email.com for authentication.',
+        actions=[
+            Action(name='get_services', kwargs={}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'drew_clark_5897', 'category': 'billing'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'drew_clark_5897'}),
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_1gb'}),
+            Action(name='record_payment', kwargs={'customer_id': 'drew_clark_5897', 'amount': 146.97, 'method': 'credit_card', 'date': '2025-10-05'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='drew.garcia0654@email.com',
+        instruction='You are drew_garcia_1193, customer email drew.garcia0654@email.com. You want to review all available services and learn more about the Unlimited Mobile Plan because you are considering upgrading from your current mobile_senior plan for more features and data flexibility. You would like a support ticket created for billing concerns because your last payment was marked as late despite being made, which affects your account standing. You prefer to keep auto-pay enabled with credit card as your payment method for consistency and control. Later, you want to pay off your current outstanding balance of $151.53 using your credit card on October 19, 2025, to bring your account current and avoid further fees.\n\nUse drew.garcia0654@email.com for authentication.',
+        actions=[
+            Action(name='get_services', kwargs={}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'drew_garcia_1193', 'category': 'billing'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'drew_garcia_1193'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='record_payment', kwargs={'customer_id': 'drew_garcia_1193', 'amount': 151.53, 'method': 'credit_card', 'date': '2025-10-19'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='skyler.wright3739@email.com',
+        instruction='You are skyler_wright_6539 (email: skyler.wright3739@email.com). You want to verify the details of the iPhone 15 Pro before adding it to your account because you prefer Apple devices and this model fits your usage needs. After adding the device, you are experiencing battery drain issues, so you would like troubleshooting guidance to resolve the problem quickly. You want to review your current services, which include the Basic Mobile Plan and Cable Internet 500MB, to ensure everything is accurate. You would like to create a support ticket for the device issue with medium priority to get ongoing assistance. You request your billing details to verify your account status, noting an outstanding balance. Later, you want to pay off the $80.07 balance using your credit card on 2025-09-18 to clear the debt and avoid late fees, and you prefer this payment method for its flexibility.\n\nUse skyler.wright3739@email.com for authentication.',
+        actions=[
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='add_device', kwargs={'customer_id': 'skyler_wright_6539', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'battery_drain'}),
+            Action(name='manage_service', kwargs={'customer_id': 'skyler_wright_6539', 'action': 'list'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'skyler_wright_6539', 'category': 'device', 'priority': 'medium'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'skyler_wright_6539'}),
+            Action(name='record_payment', kwargs={'customer_id': 'skyler_wright_6539', 'amount': 80.07, 'method': 'credit_card', 'date': '2025-09-18'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jordan.clark2943@email.com',
+        instruction='You are jordan_clark_9766. You want troubleshooting for your iPhone 15 Pro because it is experiencing battery drain, which affects daily usability. You prefer Apple devices, specifically the iPhone 15 Pro, for their performance and ecosystem integration. After troubleshooting, you would like a support ticket created under the billing category to follow up on the unresolved issue, as ongoing device problems may relate to service billing or account coverage. Later, you want to pay off your outstanding balance of $111.03 in full using a credit card because you prefer to maintain a zero balance and avoid late fees, with the payment dated 2025-09-18 for timely processing.\n\nUse jordan.clark2943@email.com for authentication.',
+        actions=[
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'battery_drain'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='add_device', kwargs={'customer_id': 'jordan_clark_9766', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='manage_service', kwargs={'customer_id': 'jordan_clark_9766', 'action': 'list'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'jordan_clark_9766', 'category': 'billing', 'priority': 'medium'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'jordan_clark_9766'}),
+            Action(name='record_payment', kwargs={'customer_id': 'jordan_clark_9766', 'amount': 111.03, 'method': 'credit_card', 'date': '2025-09-18'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='harper.wilson0064@email.com',
+        instruction='You are Harper Wilson (harper.wilson0064@email.com). You want to confirm the details of the iPhone 15 Pro because you are verifying device compatibility and specifications for your current mobile service. Since the device is already on your account, you are proceeding with confidence in its integration. You prefer Apple devices, particularly the iPhone 15 Pro model, for their performance and ecosystem consistency. Later, you would like to review all your current services—Unlimited Mobile Plan, Cable Internet 500MB, Premium TV Package, and Home Security System—to ensure they meet your household needs. After that, you want to check your billing details to verify your monthly charges of $312.10 are accurate and confirm that auto-pay with credit card and paperless billing remain active for convenience and record-keeping.\n\nUse harper.wilson0064@email.com for authentication.',
+        actions=[
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='add_device', kwargs={'customer_id': 'harper_wilson_1300', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='manage_service', kwargs={'customer_id': 'harper_wilson_1300', 'action': 'list'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'harper_wilson_1300'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='skyler.clark2233@email.com',
+        instruction='You are Skyler Clark (skyler_clark_0977). You want to review the details of the iPhone 15 Pro before adding it to your account because you need to confirm its compatibility and features. The device is an Apple smartphone, and you prefer Apple devices, specifically the iPhone 15 Pro model, for its advanced performance and camera capabilities. After confirming the device details, you would like to add the iPhone 15 Pro to your account to upgrade from your current iPhone 15. Later, you want to review your current services—Basic Mobile Plan, Fiber Internet 500MB, and Premium TV Package—because you are considering how the new device might affect your plan needs. You also want to check your billing details, including your current $0.00 balance, monthly charges of $212.99, and auto-pay setup with credit card, so you can understand the financial impact of any changes. You prefer to keep auto-pay enabled for convenience but are not currently enrolled in paperless billing.\n\nUse skyler.clark2233@email.com for authentication.',
+        actions=[
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='add_device', kwargs={'customer_id': 'skyler_clark_0977', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='manage_service', kwargs={'customer_id': 'skyler_clark_0977', 'action': 'list'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'skyler_clark_0977'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='harper.hall8871@email.com',
+        instruction='You are harper_hall_9239. You want to confirm the status of your existing support ticket TICKET00105 and then update it to resolved with urgent priority because the issue has been addressed but requires immediate closure validation. After that, you would like a new support ticket created for a billing concern with high priority since it involves potential inaccuracies needing prompt review. Finally, you want to review your current billing details, including monthly charges and payment settings, to ensure accuracy before concluding the interaction, as you prefer to maintain full visibility and control over your account.\n\nUse harper.hall8871@email.com for authentication.',
+        actions=[
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00105'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00105', 'status': 'resolved', 'priority': 'urgent'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'harper_hall_9239', 'category': 'billing', 'priority': 'high'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'harper_hall_9239'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='jamie.martinez1634@email.com',
+        instruction='You are Jamie Martinez (jamie.martinez1634@email.com). You want to check the status of your existing support ticket TICKET00119, which was open with low priority, and update it to resolved with high priority because the issue requires urgent resolution. After that, you would like to create a new billing-related support ticket with medium priority to address a current inquiry, and you also want a full review of your billing details to ensure accuracy and transparency. Your account has a current balance of $0.00, monthly charges of $606.79 for your business mobile plan, 2 Gbps fiber internet, and fees, with auto-pay enabled via credit card and the next bill due on 2025-10-08.\n\nUse jamie.martinez1634@email.com for authentication.',
+        actions=[
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00119'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00119', 'status': 'resolved', 'priority': 'high'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'jamie_martinez_9693', 'category': 'billing', 'priority': 'medium'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'jamie_martinez_9693'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='elliot.lee3484@email.com',
+        instruction='You are elliot_lee_9954, and your email is elliot.lee3484@email.com. You own an iPhone 15 Pro (Apple) that is experiencing rapid battery drain, so you would like troubleshooting guidance to resolve the issue quickly and avoid disruption to your business communications. You prefer Apple devices for their integration and reliability in your daily workflow. After reviewing the initial troubleshooting steps, you want a support ticket to be created under the device category so the issue can be formally tracked and investigated by the technical team. The ticket has been created as TICKET241 with medium priority to ensure timely follow-up.\n\nUse elliot.lee3484@email.com for authentication.',
+        actions=[
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'battery_drain'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'elliot_lee_9954', 'category': 'device'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='quinn.nguyen1607@email.com',
+        instruction='You are Quinn Nguyen (quinn.nguyen1607@email.com). You want troubleshooting for your iPhone 15 Pro because it is experiencing battery drain issues that disrupt daily use. Since the device is an Apple phone and critical for communication, you prefer manufacturer-specific guidance. Later, if troubleshooting does not resolve the issue, you would like a high-priority support ticket to be created for the device problem to ensure prompt resolution. Additionally, you would like your current billing details reviewed for awareness, as you prefer to monitor your account; your plan includes the Unlimited Mobile Plan and 100 Mbps Cable Internet with a current balance of $0.00, and you prefer autopay with credit card and paperless billing.\n\nUse quinn.nguyen1607@email.com for authentication.',
+        actions=[
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'battery_drain'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'quinn_nguyen_0004', 'category': 'device', 'priority': 'high'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'quinn_nguyen_0004'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='parker.lee0757@email.com',
+        instruction='You are Parker Lee (parker.lee0757@email.com). You want to add your iPhone 14 to your account and understand its specifications because it is your primary mobile device and you are experiencing battery drain issues that affect daily usability. Since the device is already on your account, you would like troubleshooting guidance for the battery drain to improve performance. Later, you would like to check the status of your existing support ticket TICKET00132, which is currently open with medium priority, and update it to resolved with low priority as the issue has been mitigated. You also want to review the details of your Unlimited Mobile Plan to confirm your service benefits and monthly cost. After that, you would like to update your billing preferences: you prefer to disable paperless billing and auto-pay to gain more control over payment timing and documentation, and you prefer switching to a quarterly billing cycle for better alignment with your personal budgeting schedule.\n\nUse parker.lee0757@email.com for authentication.',
+        actions=[
+            Action(name='add_device', kwargs={'customer_id': 'parker_lee_9680', 'device_name': 'iPhone 14'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 14'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 14', 'issue': 'battery_drain'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00132'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00132', 'status': 'resolved', 'priority': 'low'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'parker_lee_9680', 'category': 'device'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'parker_lee_9680'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'parker_lee_9680', 'paperless': False, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='harper.anderson5696@email.com',
+        instruction='You are Harper Anderson (harper.anderson5696@email.com), a business customer. You want to add an iPhone 14 to your account because you recently acquired the device and need it connected to your business mobile plan. Since you prefer Apple devices for consistency with your current iPhone fleet, you specifically want the iPhone 14 model. You also want troubleshooting assistance for your Standard WiFi Router due to slow internet speeds affecting business operations. Later, you would like to check the status of your existing support ticket (TICKET00160), which is currently open with low priority, and you want it updated to in_progress status and high priority because the internet performance issue is now urgent. If a new ticket is needed, you would like it created with high priority. You also want information about the Fiber Internet 2GB service to confirm its features and pricing for business use. Finally, you would like to update your billing preferences to enable paperless billing and auto-pay with a monthly billing cycle for better account management and to ensure timely payments, as you currently receive invoices but prefer automated and digital billing.\n\nUse harper.anderson5696@email.com for authentication.',
+        actions=[
+            Action(name='add_device', kwargs={'customer_id': 'harper_anderson_9931', 'device_name': 'iPhone 14'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 14'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Standard WiFi Router', 'issue': 'slow_speeds'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00160'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00160', 'status': 'in_progress', 'priority': 'high'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'harper_anderson_9931', 'category': 'internet', 'priority': 'high'}),
+            Action(name='get_service_details', kwargs={'service_id': 'internet_fiber_2gb'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'harper_anderson_9931'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'harper_anderson_9931', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'monthly'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='quinn.harris2015@email.com',
+        instruction='You are Quinn Harris (quinn.harris2015@email.com). You want to pay off your outstanding balance of $39.57 because it includes a late fee and you prefer to keep your account in good standing; you prefer to pay by credit card as it is your registered payment method. After that, you would like to create a new support ticket for an additional device-related issue because you are experiencing ongoing service concerns. Later, you want to escalate the priority of your existing ticket (TICKET00217) to high because the issue is becoming urgent, and you would like to verify the updated ticket details to confirm the change was applied successfully.\n\nUse quinn.harris2015@email.com for authentication.',
+        actions=[
+            Action(name='record_payment', kwargs={'customer_id': 'quinn_harris_9291', 'amount': 39.57, 'method': 'credit_card', 'date': '2025-10-26'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'quinn_harris_9291', 'category': 'billing', 'priority': 'medium'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00217', 'status': 'open', 'priority': 'high'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00217'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'quinn_harris_9291'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='drew.patel5227@email.com',
+        instruction='You are drew_patel_2986 (email: drew.patel5227@email.com). You want to open a high-priority support ticket for a mobile service disruption because reliable connectivity is needed urgently. After the ticket (TICKET241) was created, you escalated it to urgent and in_progress status to ensure immediate resolution. Separately, you acquired a new iPhone 15 Pro and want it added to your account because you prefer Apple devices for their integration and performance. The device has been successfully registered and verified on your account for use with your mobile service.\n\nUse drew.patel5227@email.com for authentication.',
+        actions=[
+            Action(name='create_support_ticket', kwargs={'customer_id': 'drew_patel_2986', 'category': 'mobile', 'priority': 'high'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET241', 'status': 'in_progress', 'priority': 'urgent'}),
+            Action(name='add_device', kwargs={'customer_id': 'drew_patel_2986', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='emerson.jackson1632@email.com',
+        instruction='You are Emerson Jackson (emerson.jackson1632@email.com). You want to create a high-priority support ticket for a device issue because your current phone is experiencing problems and you rely on it daily. After the ticket is created, you would like to escalate it to urgent priority and mark it as in_progress to ensure immediate attention. Later, you would like to add your new iPhone 15 Pro to your account because you recently upgraded and need it registered for service. You prefer Apple devices for their ecosystem integration, and specifically the iPhone 15 Pro model for its performance and camera quality. After adding it, you would like to verify its specifications in the system to confirm it is properly recognized.\n\nUse emerson.jackson1632@email.com for authentication.',
+        actions=[
+            Action(name='create_support_ticket', kwargs={'customer_id': 'emerson_jackson_0280', 'category': 'device', 'priority': 'high'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET241', 'status': 'in_progress', 'priority': 'urgent'}),
+            Action(name='add_device', kwargs={'customer_id': 'emerson_jackson_0280', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='quinn.wilson5782@email.com',
+        instruction='You are Quinn Wilson (quinn.wilson5782@email.com), a business customer. You want to remove the Fiber Internet 2GB service from your account because it is no longer needed. You also want to create a new high-priority support ticket for billing issues due to recent late fees and invoice payment delays. You would like to update your existing ticket TICKET00076 to in_progress status with high priority because the issue requires immediate attention, and you want to review the details of this ticket to confirm the update. You prefer to review your full billing information to understand your current charges, late fees, and payment history, especially since your last payment was marked late. You would like detailed information about your Business Mobile - 10 Lines service to verify its features and cost. You need details about your iPhone 15 Pro device because you own multiple Apple devices and want to confirm the model for troubleshooting. You prefer Apple devices and specifically use the iPhone 15 Pro, so you would like troubleshooting steps for battery drain issues on this device since it impacts your work productivity. Later, you would like to know the price of a $45.00 service with the senior discount applied, as you are exploring cost-saving options for potential service adjustments.\n\nUse quinn.wilson5782@email.com for authentication.',
+        actions=[
+            Action(name='manage_service', kwargs={'customer_id': 'quinn_wilson_5555', 'action': 'remove', 'service_id': 'internet_fiber_2gb'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'quinn_wilson_5555', 'category': 'billing', 'priority': 'high'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00076', 'status': 'in_progress', 'priority': 'high'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00076'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'quinn_wilson_5555'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_business_10lines'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'battery_drain'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='harper.wilson5381@email.com',
+        instruction='You are harper_wilson_5062, and you want to pay off your current outstanding balance of $89.84 using your credit card today because you want to clear your account before making changes. After that, you would like to update your billing preferences to disable paperless billing and auto-pay, and switch to a quarterly billing cycle because you prefer receiving physical bills and want manual control over payment timing. You also want to know the pricing for senior plans and compare services and devices: the Senior Mobile Plan is available at a discounted rate of $40.00 per month with the senior discount, and you are interested in comparing it with the Unlimited Mobile Plan, which costs $85.00 per month. Additionally, you would like information about the iPhone 15 Pro for potential upgrade consideration, which is an Apple device known for high performance and camera quality.\n\nUse harper.wilson5381@email.com for authentication.',
+        actions=[
+            Action(name='record_payment', kwargs={'customer_id': 'harper_wilson_5062', 'amount': 89.84, 'method': 'credit_card', 'date': '2025-09-18'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'harper_wilson_5062'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'harper_wilson_5062', 'category': 'billing'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'harper_wilson_5062', 'paperless': False, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='manage_service', kwargs={'customer_id': 'harper_wilson_5062', 'action': 'list'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_unlimited'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='morgan.lewis2167@email.com',
+        instruction='You are morgan_lewis_4303 (email: morgan.lewis2167@email.com). You want to pay off your outstanding balance of $124.97 using your credit card on September 18, 2025, because you want to clear your balance promptly. You also want to review your billing details and create a support ticket for billing issues to ensure your account is in good standing. Later, you would like to update your billing preferences to enable paperless billing and auto-pay with a monthly billing cycle for better convenience and reliability in payments. You prefer to add the Senior Mobile Plan to your services for cost savings, as it is tailored for eligible customers and offers a lower rate. You would like to see the full list of available services to explore other options that may better fit your needs. You are interested in the senior discount, which reduces the Senior Mobile Plan price from $45.00 to $40.00, making it more affordable. You also want the service details for the Senior Mobile Plan to confirm its features and pricing. Finally, you would like the device specifications for the iPhone 15 Pro because you are considering upgrading to it, and you prefer Apple devices for their ecosystem compatibility and performance.\n\nUse morgan.lewis2167@email.com for authentication.',
+        actions=[
+            Action(name='record_payment', kwargs={'customer_id': 'morgan_lewis_4303', 'amount': 124.97, 'method': 'credit_card', 'date': '2025-09-18'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'morgan_lewis_4303'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'morgan_lewis_4303', 'category': 'billing'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'morgan_lewis_4303', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'monthly'}),
+            Action(name='manage_service', kwargs={'customer_id': 'morgan_lewis_4303', 'action': 'add', 'service_id': 'mobile_senior'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='harper.hall8871@email.com',
+        instruction='You are harper.hall8871@email.com. You want to check the status of your support ticket TICKET00105, which is currently open with medium priority, and you would like to update it to resolved with urgent priority because the issue is time-sensitive. Later, you would like to escalate your other open ticket, TICKET00107, from low to higher priority due to ongoing service concerns. You are experiencing no service on your HD Cable Box and need troubleshooting assistance because it prevents access to TV services. You prefer to keep Samsung devices for consistency with your current setup, and you would like to add another Samsung Galaxy S23 to your account to accommodate a new user on your Family Plan - 4 Lines. You want to review all services on your account to understand your current offerings. You would like to see all available services in the catalog to explore potential upgrades. You are interested in the Senior Mobile Plan priced at $45.00 and would like to apply the senior discount, which reduces the cost to $40.00, to evaluate affordability. You want detailed information about your current Family Plan - 4 Lines mobile service for clarity on coverage. You also need specifications for your HD Cable Box, manufactured by TechCorp, model HD-Box-Pro, to understand its capabilities. Finally, you prefer to update your billing preferences by disabling paperless billing and auto-pay to gain more control over payments, and you would like to switch to a quarterly billing cycle for better budget alignment, using your credit card as the payment method.\n\nUse harper.hall8871@email.com for authentication.',
+        actions=[
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00105'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00105', 'status': 'resolved', 'priority': 'urgent'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'harper_hall_9239', 'category': 'device', 'priority': 'high'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'HD Cable Box', 'issue': 'no_service'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'harper_hall_9239', 'paperless': False, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'harper_hall_9239'}),
+            Action(name='manage_service', kwargs={'customer_id': 'harper_hall_9239', 'action': 'list'}),
+            Action(name='add_device', kwargs={'customer_id': 'harper_hall_9239', 'device_name': 'Samsung Galaxy S23'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_family_4lines'}),
+            Action(name='get_device_details', kwargs={'device_name': 'HD Cable Box'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='elliot.lewis9822@email.com',
+        instruction='You are elliot_lewis_3535. You want to check the status of your support ticket TICKET00109, which is currently open with medium priority, and you would like to update it to resolved status with high priority because the issue has been addressed but requires formal closure at elevated priority. At the same time, you would like a new support ticket created for a billing-related inquiry to ensure proper documentation. You also need help with your iPhone 15 Pro, which is experiencing battery drain issues, because it is your primary mobile device and essential for daily communication. Since the device is an Apple model, you prefer troubleshooting steps tailored to iOS. Later, you want to update your billing preferences from the current monthly auto-pay with paperless billing to quarterly billing without auto-pay or paperless, because you prefer to review your bill manually and pay in larger, less frequent installments. You would like your billing details confirmed to ensure accuracy before making changes. You also want to add the Unlimited Mobile Plan to your services to expand your mobile options beyond the current Senior Mobile Plan, which costs $45.00 monthly and, with the senior discount, is reduced to $40.00. After that, you would like to add a new Samsung Galaxy S23 to your account, as you prefer Samsung devices and this model fits your need for a reliable secondary phone. You also want to see the full list of available services to explore future options and better understand your current offerings, including the details of your Senior Mobile Plan and the specifications of your iPhone 15 Pro for reference.\n\nUse elliot.lewis9822@email.com for authentication.',
+        actions=[
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00109'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00109', 'status': 'resolved', 'priority': 'high'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'elliot_lewis_3535', 'category': 'billing', 'priority': 'medium'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15 Pro', 'issue': 'battery_drain'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'elliot_lewis_3535', 'paperless': False, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'elliot_lewis_3535'}),
+            Action(name='manage_service', kwargs={'customer_id': 'elliot_lewis_3535', 'action': 'add', 'service_id': 'mobile_unlimited'}),
+            Action(name='add_device', kwargs={'customer_id': 'elliot_lewis_3535', 'device_name': 'Samsung Galaxy S23'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='skyler.nguyen2584@email.com',
+        instruction='You are Skyler Nguyen (skyler.nguyen2584@email.com). You want to review the details of your Senior Mobile Plan and apply the $5 senior discount because you are eligible as a senior customer, resulting in a final price of $40.00. You would like to verify your current billing information to ensure accuracy before updating your billing preferences to enable auto-pay with your credit card, while keeping paperless billing and the monthly billing cycle for better control and convenience. You also want to list all services on your account to confirm your current subscriptions. Later, you would like assistance with your iPhone 15, which is experiencing battery drain issues, so you need troubleshooting steps because the device is losing charge too quickly during normal use. After that, you would like a support ticket created for this device issue with medium priority to ensure it is tracked. Subsequently, you want to add a new Samsung Galaxy A54 to your account because you prefer Samsung devices as a secondary phone, and you would like the device specifications confirmed to ensure compatibility and proper setup.\n\nUse skyler.nguyen2584@email.com for authentication.',
+        actions=[
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+            Action(name='get_services', kwargs={}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'skyler_nguyen_9735'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'skyler_nguyen_9735', 'paperless': True, 'auto_pay': True, 'billing_cycle': 'monthly'}),
+            Action(name='manage_service', kwargs={'customer_id': 'skyler_nguyen_9735', 'action': 'list'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'iPhone 15', 'issue': 'battery_drain'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'skyler_nguyen_9735', 'category': 'device'}),
+            Action(name='add_device', kwargs={'customer_id': 'skyler_nguyen_9735', 'device_name': 'Samsung Galaxy A54'}),
+            Action(name='get_device_details', kwargs={'device_name': 'Samsung Galaxy A54'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='taylor.hall3847@email.com',
+        instruction="You are Taylor Hall (taylor.hall3847@email.com). You want to add your new iPhone 15 Pro to your account because it's your primary mobile device and you need it activated for daily use. Since the device is made by Apple, you prefer to keep your ecosystem consistent. Later, you would like the existing support ticket TICKET00125—opened for device activation issues—to be updated to status 'in_progress' and escalated to high priority because the unresolved issue is disrupting your connectivity. After that, you would like your billing details reviewed because you want to confirm your current balance and ensure no additional fees are being incorrectly applied, especially given the ongoing service issue. You prefer to pay by bank transfer with auto-pay enabled, as reflected in your payment method.\n\nUse taylor.hall3847@email.com for authentication.",
+        actions=[
+            Action(name='add_device', kwargs={'customer_id': 'taylor_hall_9696', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'taylor_hall_9696', 'category': 'device'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00125', 'status': 'in_progress', 'priority': 'high'}),
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00125'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'taylor_hall_9696'}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='morgan.garcia6112@email.com',
+        instruction="You are morgan.garcia6112@email.com. You are on the Senior Mobile Plan, which has a standard price of $45.00, and with the senior discount applied, your price is $40.00, so you want confirmation of this discounted rate for accuracy. You have a current balance of $188.40, so you want to review your full billing details for transparency. You want to list all your services—Senior Mobile Plan, Cable Internet 100MB, and Premium TV Package—to understand your current setup. You need to make a full payment of $188.40 today using your credit card to clear your balance, and you prefer to keep records of this transaction. After that, you would like to create a medium-priority billing support ticket for documentation purposes. Separately, you want details about your Standard WiFi Router because it's part of your home network. You prefer TechCorp networking devices, so you would like to add a new WiFi 6 Router to improve your internet performance. Your Standard WiFi Router is experiencing slow speeds, so you need troubleshooting guidance to resolve connectivity issues. Finally, you would like to see all available services in the catalog to evaluate potential upgrades for better value or performance.\n\nUse morgan.garcia6112@email.com for authentication.",
+        actions=[
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'morgan_garcia_8324'}),
+            Action(name='get_service_details', kwargs={'service_id': 'mobile_senior'}),
+            Action(name='manage_service', kwargs={'customer_id': 'morgan_garcia_8324', 'action': 'list'}),
+            Action(name='record_payment', kwargs={'customer_id': 'morgan_garcia_8324', 'amount': 188.4, 'method': 'credit_card', 'date': '2025-10-18'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'morgan_garcia_8324', 'category': 'billing', 'priority': 'medium'}),
+            Action(name='get_device_details', kwargs={'device_name': 'Standard WiFi Router'}),
+            Action(name='add_device', kwargs={'customer_id': 'morgan_garcia_8324', 'device_name': 'WiFi 6 Router'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Standard WiFi Router', 'issue': 'slow_speeds'}),
+            Action(name='get_services', kwargs={}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='kendall.lee5449@email.com',
+        instruction='You are kendall_lee_0640, a senior customer on the Senior Mobile Plan. You want to confirm the price of your mobile plan with the senior discount applied, which reduces the cost from $45.00 to $40.00, to ensure you are receiving the correct benefit. You would like to review your billing details, including your current balance of $119.45 and monthly charges, because you are managing your expenses. You want information about the Cable Internet 500MB service to understand your current internet offering. You prefer to remove the Basic TV Package from your services because you no longer use it. You would like to pay off your outstanding balance of $119.45 using your credit card on 2025-10-05 to avoid late fees. You want a high-priority billing support ticket created because you have concerns about your account status and payment history. You prefer Apple devices and would like to add an iPhone 15 Pro to your account for personal use. You are experiencing battery drain on your Samsung Galaxy A54 and need troubleshooting guidance because it affects daily usability. Finally, you would like a complete list of all available services in the catalog to explore future options for better value or features.\n\nUse kendall.lee5449@email.com for authentication.',
+        actions=[
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+            Action(name='get_billing_details', kwargs={'customer_id': 'kendall_lee_0640'}),
+            Action(name='get_service_details', kwargs={'service_id': 'internet_cable_500mb'}),
+            Action(name='manage_service', kwargs={'customer_id': 'kendall_lee_0640', 'action': 'remove', 'service_id': 'tv_basic'}),
+            Action(name='record_payment', kwargs={'customer_id': 'kendall_lee_0640', 'amount': 119.45, 'method': 'credit_card', 'date': '2025-10-05'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'kendall_lee_0640', 'category': 'billing', 'priority': 'high'}),
+            Action(name='get_device_details', kwargs={'device_name': 'iPhone 15 Pro'}),
+            Action(name='add_device', kwargs={'customer_id': 'kendall_lee_0640', 'device_name': 'iPhone 15 Pro'}),
+            Action(name='troubleshoot_device', kwargs={'device_name': 'Samsung Galaxy A54', 'issue': 'battery_drain'}),
+            Action(name='get_services', kwargs={}),
+        ],
+        outputs=[],
+    ),
+
+    Task(
+        user_id='drew.garcia9352@email.com',
+        instruction='You are drew_garcia_4446 with email drew.garcia9352@email.com. You want to resolve your open support ticket TICKET00139 by setting its status to resolved and priority to low because the issue has been addressed. After that, you would like to update your billing preferences: you prefer to switch from monthly to quarterly billing for better alignment with your budgeting cycle, and you want to disable both paperless billing and auto-pay because you prefer receiving physical bills and making manual payments. Additionally, you are interested in the senior discount, which would reduce a $45.00 plan to $40.00, indicating a possible future plan change to a more cost-effective option.\n\nUse drew.garcia9352@email.com for authentication.',
+        actions=[
+            Action(name='get_support_ticket_details', kwargs={'ticket_id': 'TICKET00139'}),
+            Action(name='modify_support_ticket', kwargs={'ticket_id': 'TICKET00139', 'status': 'resolved', 'priority': 'low'}),
+            Action(name='create_support_ticket', kwargs={'customer_id': 'drew_garcia_4446', 'category': 'account', 'priority': 'medium'}),
+            Action(name='manage_billing', kwargs={'customer_id': 'drew_garcia_4446', 'paperless': False, 'auto_pay': False, 'billing_cycle': 'quarterly'}),
+            Action(name='manage_service', kwargs={'customer_id': 'drew_garcia_4446', 'action': 'list'}),
+            Action(name='get_senior_discount', kwargs={'original_price': '45.00'}),
+        ],
+        outputs=[],
+    ),
 ]
