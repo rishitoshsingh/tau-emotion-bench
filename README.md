@@ -6,7 +6,7 @@ We propose τ-emotion-bench, a benchmark emulating dynamic conversations between
 
 ## Getting Started
 
-**To generate test/train datasets:** See `tracer/README.md`.
+**To generate test/train datasets:** See [tracer documentation](https://anonymous.4open.science/anonymize/tracer-715D).
 **To evaluate agents on the benchmark:** Follow the Setup below.
 
 ## Setup
@@ -206,13 +206,7 @@ few_shot_data/                  # few-shot demonstrations for the few-shot agent
 
 ## Data Generation (Optional)
 
-To generate test/train datasets, first fetch the tracer submodule:
-
-```bash
-git submodule update --init --recursive
-```
-
-Then see `tracer/README.md` for data generation instructions.
+To generate test/train datasets, see [tracer documentation](https://anonymous.4open.science/anonymize/tracer-715D).
 
 ## License
 
