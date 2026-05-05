@@ -6,7 +6,7 @@ We propose τ-emotion-bench, a benchmark emulating dynamic conversations between
 
 ## Getting Started
 
-**To generate test/train datasets:** Use tracer — generates synthetic tasks via tool graphs, traces, LLM-based task generation, and optional emotion enrichment across airline, retail, telecom, and telehealth domains. See [tracer documentation](https://anonymous.4open.science/anonymize/tracer-715D) for setup and pipeline.
+**To generate test/train datasets:** See [tracer documentation](https://anonymous.4open.science/anonymize/tracer-715D) below.
 
 **To evaluate agents on the benchmark:** Follow the Setup below.
 
