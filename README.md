@@ -4,6 +4,11 @@
 
 We propose τ-emotion-bench, a benchmark emulating dynamic conversations between an emotional user (simulated by language models) and a language agent provided with domain-specific API tools and policy guidelines. It extends [τ-bench](https://github.com/sierra-research/tau-bench) with (i) emotion-conditioned user simulators and (ii) two additional domains (telecom, telehealth) on top of the original retail and airline domains.
 
+## Getting Started
+
+**To generate test/train datasets:** See `tracer/README.md`.
+**To evaluate agents on the benchmark:** Follow the Setup below.
+
 ## Setup
 
 1. Clone this repository and `cd` into it.
@@ -56,7 +61,7 @@ Set `--max-concurrency` according to your API rate limits.
 
 ### Task splits
 
-Use `--task-split {train,test,dev}` to select the split. The default is `test`. To run a subset, pass `--task-ids 2 4 6`.
+Use `--task-split {train,test}` to select the split. The default is `test`. To run a subset, pass `--task-ids 2 4 6`.
 
 ### Self-hosted / OpenAI-compatible endpoints
 
@@ -90,7 +95,6 @@ python run.py \
 | `--log-dir` | `results` | Where timestamped result JSONs are written when `--checkpoint` is not set. |
 | `--checkpoint` | unset | Write/read a single fixed results file at this path instead of a timestamped one. |
 | `--resume` | off | Combined with `--checkpoint`, skips `(task_id, trial)` pairs already present in the checkpoint and only runs the missing ones — essential for long sweeps that may be interrupted. |
-| `--few-shot-displays-path` | unset | Required only for `--agent-strategy few-shot`. Points at a `.jsonl` file in `./few_shot_data/`. |
 
 Concrete example for a 4-trial Pass^4 evaluation with checkpointing:
 
@@ -105,19 +109,6 @@ python run.py \
   --checkpoint results/retail_gpt4o.json --resume \
   --emotion-enabled
 ```
-
-### Parallel evaluation across all four domains
-
-`run_parallel.sh` launches one worker per domain, with per-task checkpointing and resume. Set the model + endpoint via env vars before invoking:
-
-```bash
-export API_BASE_URL="https://your-openai-compatible-endpoint/v1"
-export MODEL="qwen3-235b-a22b-instruct-2507"
-export MODEL_PROVIDER="hosted_vllm"   # or openai, anthropic, ...
-bash run_parallel.sh
-```
-
-Override `NUM_TRIALS`, `USER_MODEL`, `USER_MODEL_PROVIDER`, `EMOTION_ENABLED`, `TRAIN_TRAJ_DIR`, or `LOG_DIR` the same way.
 
 ## User simulators
 
@@ -149,22 +140,14 @@ Sure, my name is Yusuf Rossi, and my zip code is 19122.
 
 ## Metrics
 
-After a run completes, results are written to `./results/` (or wherever `--log-dir` / `--checkpoint` points). Two helpers are provided:
+After a run completes, results are written to `./results/` (or wherever `--log-dir` / `--checkpoint` points). Compute metrics with `compute_metrics.py`:
 
-- `print_metrics.py` — print average reward and Pass^k for a single results file. Takes the results path as a **positional** argument:
+```bash
+python compute_metrics.py --file results/<your-run>.json
+python compute_metrics.py            # batch over historical_trajectories/
+```
 
-  ```bash
-  python print_metrics.py results/<your-run>.json
-  # optionally pin the expected number of trials:
-  python print_metrics.py results/<your-run>.json --num-trials 4
-  ```
-
-- `compute_metrics.py` — compute Pass@k and Pass^k. With no flags it sweeps every paired `with-emotions` / `without-emotions` file under `./historical_trajectories/`; pass `--file` to score a single results file:
-
-  ```bash
-  python compute_metrics.py --file results/<your-run>.json
-  python compute_metrics.py            # batch over historical_trajectories/
-  ```
+With no flags, sweeps every paired `with-emotions` / `without-emotions` file under `./historical_trajectories/`. Pass `--file` to score a single results file.
 
 ## Auto error identification
 
@@ -201,11 +184,9 @@ Pre-computed trajectories for several frontier models are provided under `./hist
 
 ```
 run.py                          # entry point for evaluation
-run_parallel.sh                 # multi-domain parallel runner
 run_error_analysis.sh           # batch error identification across domains
 auto_error_identification.py    # LLM-judge-based error labeling
 compute_metrics.py              # pass^k and related metrics
-print_metrics.py                # pretty-print metrics from a results file
 tau_emotion_bench/
   agents/                       # agent strategies (tool-calling, react, few-shot, ...)
   envs/{retail,airline,telecom,telehealth}/
@@ -219,9 +200,19 @@ few_shot_data/                  # few-shot demonstrations for the few-shot agent
 
 - [x] `pip install -e .` pins all required packages (see `setup.py`).
 - [x] All randomness is seeded via `--seed` (default `10`).
-- [x] Each domain × model × emotion-condition can be run with a single CLI invocation; `run_parallel.sh` covers the full sweep.
+- [x] Each domain × model × emotion-condition can be run with a single CLI invocation.
 - [x] API base URLs are read from env vars / CLI flags so no endpoint is hard-coded.
 - [x] Results are saved as JSON with full per-task trajectories so metrics can be recomputed offline.
+
+## Data Generation (Optional)
+
+To generate test/train datasets, first fetch the tracer submodule:
+
+```bash
+git submodule update --init --recursive
+```
+
+Then see `tracer/README.md` for data generation instructions.
 
 ## License
 
