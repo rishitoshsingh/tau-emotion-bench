@@ -1,91 +1,143 @@
-# τ-emotion-bench: A Benchmark for Tool-Agent-Emotional-User Interaction in Real-World Domains
+# τ-emotion-bench: A Benchmark for Tool-Agent–Emotional-User Interaction in Real-World Domains
 
 ---
 
-We propose $\tau$-emotion-bench, a benchmark emulating dynamic conversations between a emotional user (simulated by language models) and a language agent provided with domain-specific API tools and policy guidelines.
-
-## Leaderboard
-
-### Airline
-
-| Strategy       | Pass^1 | Pass^2 | Pass^3 | Pass^4 |
-| -------------- | ------ | ------ | ------ | ------ |
-
-### Retail
-
-| Strategy       | Pass^1 | Pass^2 | Pass^3 | Pass^4 |
-| -------------- | ------ | ------ | ------ | ------ |
-
-### Telecom
-
-| Strategy       | Pass^1 | Pass^2 | Pass^3 | Pass^4 |
-| -------------- | ------ | ------ | ------ | ------ |
-
-### Telehealth
-
-| Strategy       | Pass^1 | Pass^2 | Pass^3 | Pass^4 |
-| -------------- | ------ | ------ | ------ | ------ |
-
-*TC = `tool-calling` strategy (the function-calling strategy reported in the paper)
+We propose τ-emotion-bench, a benchmark emulating dynamic conversations between an emotional user (simulated by language models) and a language agent provided with domain-specific API tools and policy guidelines. It extends [τ-bench](https://github.com/sierra-research/tau-bench) with (i) emotion-conditioned user simulators and (ii) two additional domains (telecom, telehealth) on top of the original retail and airline domains.
 
 ## Setup
 
-1. Clone this repository:
+1. Clone this repository and `cd` into it.
 
-```bash
-git clone https://github.com/rishitoshsingh/tau-emotion-bench && cd ./tau-emotion-bench
-```
+2. Install from source (this also installs the required Python packages):
 
-2. Install from source (which also installs required packages):
+   ```bash
+   pip install -e .
+   ```
 
-```bash
-pip install -e .
-```
+   Tested with Python 3.11.
 
-3. Set up your OpenAI / Anthropic / Google / Mistral / AnyScale API keys as environment variables.
+3. Configure API credentials. Copy or create a `.env` file in the repo root with the keys you need:
 
-```bash
-OPENAI_API_KEY=...
-ANTHROPIC_API_KEY=...
-GOOGLE_API_KEY=...
-MISTRAL_API_KEY=...
-```
+   ```bash
+   # Closed-source providers (only those you actually use)
+   OPENAI_API_KEY=...
+   ANTHROPIC_API_KEY=...
+   GOOGLE_API_KEY=...
+   MISTRAL_API_KEY=...
+
+   # If you serve open-weight models behind any OpenAI-compatible endpoint
+   # (vLLM OpenAI server, litellm proxy, TGI, etc.)
+   HOSTED_VLLM_API_KEY=...
+   VLLM_API_KEY=...
+   ```
+
+   `.env` is loaded automatically by `run.py` via `python-dotenv`. It is `.gitignore`d and must never be committed.
 
 ## Run
 
 Run a tool-calling agent on the τ-emotion-retail environment with emotions enabled:
 
 ```bash
-python run.py --agent-strategy tool-calling --env retail --model gpt-4o --model-provider openai --user-model gpt-4o --user-model-provider openai --user-strategy llm --max-concurrency 10 --enabled_emotions
+python run.py \
+  --agent-strategy tool-calling \
+  --env retail \
+  --model gpt-4o --model-provider openai \
+  --user-model gpt-4o --user-model-provider openai \
+  --user-strategy llm \
+  --max-concurrency 10 \
+  --emotion-enabled
 ```
 
-Set max concurrency according to your API limit(s).
+Set `--max-concurrency` according to your API rate limits.
 
-To run specific tasks, use the `--task-ids` flag. For example:
+### Supported environments
+
+`--env` accepts: `retail`, `airline`, `telecom`, `telehealth`.
+
+### Task splits
+
+Use `--task-split {train,test,dev}` to select the split. The default is `test`. To run a subset, pass `--task-ids 2 4 6`.
+
+### Self-hosted / OpenAI-compatible endpoints
+
+Any OpenAI-compatible endpoint can be used by passing its base URL via `--api-base` (agent) and `--user-api-base` (user simulator). This includes vLLM's OpenAI server, [litellm](https://github.com/BerriAI/litellm) proxies, TGI, OpenRouter, Together, etc. — anything that speaks the OpenAI Chat Completions API:
 
 ```bash
-python run.py --agent-strategy tool-calling --env retail --model gpt-4o --model-provider openai --user-model gpt-4o --user-model-provider openai --user-strategy llm --max-concurrency 10 --task-ids 2 4 6 --enabled_emotions
+python run.py \
+  --agent-strategy tool-calling \
+  --env retail \
+  --model qwen3-235b-a22b-instruct-2507 --model-provider hosted_vllm \
+  --user-model qwen3-235b-a22b-instruct-2507 --user-model-provider hosted_vllm \
+  --api-base "$API_BASE_URL" \
+  --user-api-base "$API_BASE_URL" \
+  --user-strategy llm \
+  --max-concurrency 10 \
+  --emotion-enabled
 ```
 
-This command will run only the tasks with IDs 2, 4, and 6.
+`--api-base` should be the full base URL (typically ending in `/v1`), e.g. `https://my-proxy.example.com/v1` or `http://localhost:8000/v1`.
+
+### Other important arguments
+
+| Flag | Default | Notes |
+| ---- | ------- | ----- |
+| `--num-trials` | `1` | Number of independent trials per task. Pass^k metrics require `--num-trials k`, e.g. `--num-trials 4` for Pass^4. |
+| `--temperature` | `0.0` | Sampling temperature for the **agent** model. The user simulator temperature is set internally. |
+| `--seed` | `10` | Seed for task ordering and any stochastic strategies. |
+| `--shuffle` | `0` | If non-zero, shuffle tasks before slicing with `--start-index` / `--end-index`. |
+| `--start-index` / `--end-index` | `0` / `-1` | Slice the task list (`-1` = run to the end). Useful for sharding across machines. |
+| `--task-ids` | unset | Run only the given task IDs (space-separated). Overrides start/end indexing. |
+| `--log-dir` | `results` | Where timestamped result JSONs are written when `--checkpoint` is not set. |
+| `--checkpoint` | unset | Write/read a single fixed results file at this path instead of a timestamped one. |
+| `--resume` | off | Combined with `--checkpoint`, skips `(task_id, trial)` pairs already present in the checkpoint and only runs the missing ones — essential for long sweeps that may be interrupted. |
+| `--few-shot-displays-path` | unset | Required only for `--agent-strategy few-shot`. Points at a `.jsonl` file in `./few_shot_data/`. |
+
+Concrete example for a 4-trial Pass^4 evaluation with checkpointing:
+
+```bash
+python run.py \
+  --agent-strategy tool-calling --env retail \
+  --model gpt-4o --model-provider openai \
+  --user-model gpt-4o --user-model-provider openai \
+  --user-strategy llm \
+  --num-trials 4 \
+  --max-concurrency 10 \
+  --checkpoint results/retail_gpt4o.json --resume \
+  --emotion-enabled
+```
+
+### Parallel evaluation across all four domains
+
+`run_parallel.sh` launches one worker per domain, with per-task checkpointing and resume. Set the model + endpoint via env vars before invoking:
+
+```bash
+export API_BASE_URL="https://your-openai-compatible-endpoint/v1"
+export MODEL="qwen3-235b-a22b-instruct-2507"
+export MODEL_PROVIDER="hosted_vllm"   # or openai, anthropic, ...
+bash run_parallel.sh
+```
+
+Override `NUM_TRIALS`, `USER_MODEL`, `USER_MODEL_PROVIDER`, `EMOTION_ENABLED`, `TRAIN_TRAJ_DIR`, or `LOG_DIR` the same way.
 
 ## User simulators
 
-By default, we use `gpt-4o` as the user simulator with strategy `llm`. You can use other models by setting the `--user-model` flag, or other strategies by setting the `--user-strategy` flag. For example, run a tool-calling agent with a claude user simulator:
+By default the user simulator uses `gpt-4o` with strategy `llm`. Override with `--user-model` / `--user-model-provider` / `--user-strategy`. Available strategies:
+
+- `llm` (default) — single-pass LLM response.
+- `react` — chain-of-thought-style user that emits a `Thought:` then `User Response:`.
+- `verify` — adds a verification step; the user simulator is re-prompted if its response is judged unsatisfactory.
+- `reflection` — adds a self-reflection step; on a failed verification the simulator reflects then regenerates.
+
+Example with a Claude user simulator:
 
 ```bash
-python run.py --agent-strategy tool-calling --env retail --model gpt-4o --model-provider openai --max-concurrency 10 --user-model claude-3-5-sonnet-20240620 --user-model-provider anthropic --user-strategy llm --enabled_emotions
+python run.py --agent-strategy tool-calling --env retail \
+  --model gpt-4o --model-provider openai \
+  --user-model claude-3-5-sonnet-20240620 --user-model-provider anthropic \
+  --user-strategy llm --max-concurrency 10 --emotion-enabled
 ```
 
-Other strategies:
-
-To run `react` user simulator:
-
-```bash
-python run.py --agent-strategy tool-calling --env retail --model gpt-4o --model-provider openai --max-concurrency 10 --user-model gpt-4o --user-model-provider openai --user-strategy react --enabled_emotions
-```
-
-Example of a `react` user response:
+Example `react` user response:
 
 ```md
 Thought:
@@ -95,53 +147,86 @@ User Response:
 Sure, my name is Yusuf Rossi, and my zip code is 19122.
 ```
 
-To run `verify` user simulator:
+## Metrics
 
-```bash
-python run.py --agent-strategy tool-calling --env retail --model gpt-4o --model-provider openai --max-concurrency 10 --user-model gpt-4o --user-model-provider openai --user-strategy verify --enabled_emotions
-```
+After a run completes, results are written to `./results/` (or wherever `--log-dir` / `--checkpoint` points). Two helpers are provided:
 
-This strategy uses a subsequent LLM verification step to check if the user simulator's response is satisfactory. If not, the user simulator will be prompted to generate a new response.
+- `print_metrics.py` — print average reward and Pass^k for a single results file. Takes the results path as a **positional** argument:
 
-To run `reflection` user simulator:
+  ```bash
+  python print_metrics.py results/<your-run>.json
+  # optionally pin the expected number of trials:
+  python print_metrics.py results/<your-run>.json --num-trials 4
+  ```
 
-```bash
-python run.py --agent-strategy tool-calling --env retail --model gpt-4o --model-provider openai --max-concurrency 10 --user-model gpt-4o --user-model-provider openai --user-strategy reflection --enabled_emotions
-```
+- `compute_metrics.py` — compute Pass@k and Pass^k. With no flags it sweeps every paired `with-emotions` / `without-emotions` file under `./historical_trajectories/`; pass `--file` to score a single results file:
 
-This strategy uses a subsequent LLM verification step to check if the user simulator's response is satisfactory. If not, the user simulator will be prompted to reflect on its response and generate a new response.
+  ```bash
+  python compute_metrics.py --file results/<your-run>.json
+  python compute_metrics.py            # batch over historical_trajectories/
+  ```
 
 ## Auto error identification
 
-Often times, it is difficult and time consuming to manually identify specific error locations in trajectories as they can be long and the constraints can be complex. We have provided an auto error identification tool that can do the following:
+Trajectories can be long and constraints complex, so manual error labeling is expensive. `auto_error_identification.py` uses an LLM judge to:
 
-1. Fault assignment: determine the entity that is responsible for the fault (user, agent, environment)
-2. Fault type classification: classify the type of fault (goal_partially_completed, used_wrong_tool, used_wrong_tool_argument, took_unintended_action)
+1. **Fault assignment** — attribute responsibility to the user, agent, or environment.
+2. **Fault categorization** — classify the fault into a fixed taxonomy (missing/extra action, wrong tool call, incomplete, integrity, meta) with a free-text rationale.
 
-Both of the labels are accompanied with a description.
-
-To run the auto error identification, run:
+Run on a single results file:
 
 ```bash
-python auto_error_identification.py --env <airline/retail> --platform openai --results-path <the path to your results file here> --max-concurrency 16 --output-path test-auto-error-identification --max-num-failed-results 10
+python auto_error_identification.py \
+  --env <retail|airline|telecom|telehealth> \
+  --platform openai \
+  --results-path <path-to-results.json> \
+  --output-path <path-to-output.json> \
+  --max-concurrency 16 \
+  --max-num-failed-results 10
 ```
 
-Please note that this feature utilizes an LLM, which may lead to inaccurate error identifications.
+Or use the wrapper to run across all four domains (expects results at `./results/<domain>.json`):
 
-*Notice: If an error is raised due to the structure of your results file, you may have to rerun the benchmark to produce a new results file. We have recently [rewritten](https://github.com/sierra-research/tau-bench/commit/043b544371757ebb3762b3d02a6675dfe0c41798) the benchmark to be more type-safe and extensible.
+```bash
+bash run_error_analysis.sh
+```
+
+LLM-based error identification is approximate; treat its labels as a starting point, not ground truth.
 
 ## Historical trajectories
 
-τ-bench might be expensive to run. We have provided a set of historical trajectories for the airline and retail environments in `./historical_trajectories`.
+Pre-computed trajectories for several frontier models are provided under `./historical_trajectories/` so the benchmark can be analyzed without re-running every model. Each file is a JSON array of trajectory records, named `<model>-<domain>-{with,without}-emotions.json`.
 
-If you would like to contribute your historical trajectories to this benchmark, please submit a PR!
+## Repository layout
+
+```
+run.py                          # entry point for evaluation
+run_parallel.sh                 # multi-domain parallel runner
+run_error_analysis.sh           # batch error identification across domains
+auto_error_identification.py    # LLM-judge-based error labeling
+compute_metrics.py              # pass^k and related metrics
+print_metrics.py                # pretty-print metrics from a results file
+tau_emotion_bench/
+  agents/                       # agent strategies (tool-calling, react, few-shot, ...)
+  envs/{retail,airline,telecom,telehealth}/
+                                # per-domain tools, tasks, rules, wiki
+  model_utils/                  # provider abstraction over OpenAI / Anthropic / vLLM / ...
+historical_trajectories/        # cached trajectories for several models
+few_shot_data/                  # few-shot demonstrations for the few-shot agent
+```
+
+## Reproducibility checklist
+
+- [x] `pip install -e .` pins all required packages (see `setup.py`).
+- [x] All randomness is seeded via `--seed` (default `10`).
+- [x] Each domain × model × emotion-condition can be run with a single CLI invocation; `run_parallel.sh` covers the full sweep.
+- [x] API base URLs are read from env vars / CLI flags so no endpoint is hard-coded.
+- [x] Results are saved as JSON with full per-task trajectories so metrics can be recomputed offline.
 
 ## License
 
 See `./LICENSE`.
 
-## Contact
-
-Please submit issues or pull requests if you find problems with the benchmark.
-
 ## Citation
+
+To be added upon publication.

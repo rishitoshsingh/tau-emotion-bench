@@ -406,8 +406,15 @@ def default_api(
     )
 
 def default_api_from_args(args: argparse.Namespace) -> API:
+    import os
     from tau_emotion_bench.model_utils.model.general_model import model_factory
-    model = model_factory(model_id=args.model, platform=args.platform, base_url=args.base_url)
+    api_key = (
+        os.environ.get("OPENAI_API_KEY")
+        or os.environ.get("HOSTED_VLLM_API_KEY")
+        or os.environ.get("VLLM_API_KEY")
+        or os.environ.get("LITELLM_API_KEY")
+    )
+    model = model_factory(model_id=args.model, platform=args.platform, base_url=args.base_url, api_key=api_key)
     return API.from_general_model(model=model)
 
 

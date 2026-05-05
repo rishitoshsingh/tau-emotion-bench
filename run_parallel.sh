@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Activate conda environment
-eval "$(conda shell.bash hook)"
-conda activate applied
-
 DOMAINS=("retail" "airline" "telecom" "telehealth")
 pids=()
 
@@ -33,15 +29,22 @@ trap cleanup SIGINT SIGTERM
 TRAIN_TRAJ_DIR="${TRAIN_TRAJ_DIR:-./train_traj}"
 LOG_DIR="${LOG_DIR:-./logs}"
 
-# Fixed model config
-NUM_TRIALS=1
-EMOTION_ENABLED="--emotion-enabled"
-MODEL="qwen3-235b-a22b-instruct-2507"
-MODEL_PROVIDER="hosted_vllm"
-USER_MODEL="qwen3-235b-a22b-instruct-2507"
-USER_MODEL_PROVIDER="hosted_vllm"
-API_BASE="https://openai.rc.asu.edu/v1"
-USER_API_BASE="https://openai.rc.asu.edu/v1"
+# Model + endpoint config (override via env vars).
+# API_BASE_URL must point at an OpenAI-compatible endpoint serving the chosen model
+# (e.g. a vLLM OpenAI server, a litellm proxy, or any OpenAI-compatible gateway).
+NUM_TRIALS="${NUM_TRIALS:-1}"
+EMOTION_ENABLED="${EMOTION_ENABLED:---emotion-enabled}"
+MODEL="${MODEL:-qwen3-235b-a22b-instruct-2507}"
+MODEL_PROVIDER="${MODEL_PROVIDER:-hosted_vllm}"
+USER_MODEL="${USER_MODEL:-$MODEL}"
+USER_MODEL_PROVIDER="${USER_MODEL_PROVIDER:-$MODEL_PROVIDER}"
+API_BASE="${API_BASE:-${API_BASE_URL:-}}"
+USER_API_BASE="${USER_API_BASE:-${API_BASE_URL:-}}"
+
+if [[ -z "$API_BASE" || -z "$USER_API_BASE" ]]; then
+    echo "ERROR: set API_BASE_URL (or API_BASE / USER_API_BASE) to your OpenAI-compatible endpoint." >&2
+    exit 1
+fi
 
 # Sampling params injected into agent litellm calls during training
 export LITELLM_TOP_P=0.95

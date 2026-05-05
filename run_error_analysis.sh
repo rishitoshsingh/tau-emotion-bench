@@ -3,7 +3,11 @@ set -euo pipefail
 
 # ---- judge model (litellm-compatible OpenAI endpoint) ----
 MODEL="${MODEL:-qwen3-235b-a22b-instruct-2507}"
-API_BASE="${API_BASE:-https://openai.rc.asu.edu/v1}"
+API_BASE="${API_BASE:-${API_BASE_URL:-}}"
+if [[ -z "$API_BASE" ]]; then
+    echo "ERROR: set API_BASE_URL or API_BASE to your OpenAI-compatible endpoint." >&2
+    exit 1
+fi
 PLATFORM="${PLATFORM:-vllm-chat}"
 
 # Load API key from .env (HOSTED_VLLM_API_KEY for the litellm proxy).
